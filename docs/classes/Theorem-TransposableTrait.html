@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Documentation</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/template.css">
+	<link rel="icon" href="../images/favicon.ico"/>
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+	<script src="../js/search.js"></script>
+	<script defer src="../js/searchIndex.js"></script>
+</head>
+<body>
+<header class="phpdocumentor-top-header"></header>
+<header class="phpdocumentor-header">
+	<section class="phpdocumentor-section">
+		<h1 class="phpdocumentor-title">Documentation</h1>
+	</section>
+</header>
+<main class="phpdocumentor">
+	<div class="phpdocumentor-section">
+		<aside class="three phpdocumentor-columns phpdocumentor-sidebar">
+			<section data-search-form class="phpdocumentor-search">
+				<h1 class="phpdocumentor-sidebar__category-header">Search</h1>
+				<label class="phpdocumentor-label">
+					<span class="visually-hidden">Search for</span>
+					<input type="search" class="phpdocumentor-field phpdocumentor-search__field"
+						   placeholder="Loading .." disabled/>
+				</label>
+			</section>
+
+
+			<h1 class="phpdocumentor-sidebar__category-header">Namespaces</h1>
+			<h2 class="phpdocumentor-sidebar__root-namespace"><a href="../namespaces/default.html"><abbr title="\">Global</abbr></a>
+			</h2>
+			<h3 class="phpdocumentor-sidebar__root-namespace"><a href="../namespaces/theorem.html"><abbr
+				title="\Theorem">Theorem</abbr></a></h3>
+			<ul class="phpdocumentor-list">
+				<li><a href="../namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
+				</li>
+				<li><a href="../namespaces/theorem-tuningsystem.html"><abbr
+					title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
+			</ul>
+
+
+			<h1 class="phpdocumentor-sidebar__category-header">Reports</h1>
+			<h2 class="phpdocumentor-sidebar__root-package"><a href="../reports/deprecated.html">Deprecated</a></h2>
+			<h2 class="phpdocumentor-sidebar__root-package"><a href="../reports/errors.html">Errors</a></h2>
+			<h2 class="phpdocumentor-sidebar__root-package"><a href="../reports/markers.html">Markers</a></h2>
+		</aside>
+
+		<div class="nine phpdocumentor-columns phpdocumentor-content">
+			<ul class="phpdocumentor-breadcrumbs">
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../namespaces/theorem.html">Theorem</a></li>
+			</ul>
+
+			<h2 class="phpdocumentor-content__title">
+				TransposableTrait
+			</h2>
+			<aside class="phpdocumentor-element-found-in">
+				<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+					href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+				:
+				<span class="phpdocumentor-element-found-in__line">11</span>
+			</aside>
+
+			<p class="phpdocumentor-trait__summary">Provides functionality for allowing {@see Note} entities to be
+				transposed.</p>
+			<section class="phpdocumentor-trait__description"><p><strong>NOTE:</strong> <code class="prettyprint">TransposableTrait</code>
+				only provides functionality for transposing individual notes. If you need to transpose
+				<em>collections</em> of notes (such as \Theorem\Chord and \Theorem\Sequence), use
+				\Theorem\TransposableColletionTrait.</p></section>
+
+			<h3>Table of Contents</h3>
+			<table class="phpdocumentor-table_of_contents">
+				<tr>
+					<th class="phpdocumentor-heading"><a
+						href="../classes/Theorem-TransposableTrait.html#method_stepDown">stepDown()</a></th>
+					<td class="phpdocumentor-cell">Transposes the note one step down, given {@see Setting::STEP}.</td>
+					<td class="phpdocumentor-cell">$this</td>
+				</tr>
+				<tr>
+					<th class="phpdocumentor-heading"><a href="../classes/Theorem-TransposableTrait.html#method_stepUp">stepUp()</a>
+					</th>
+					<td class="phpdocumentor-cell">Transposes the note one step up, given {@see Setting::STEP}.</td>
+					<td class="phpdocumentor-cell">$this</td>
+				</tr>
+				<tr>
+					<th class="phpdocumentor-heading"><a
+						href="../classes/Theorem-TransposableTrait.html#method_transpose">transpose()</a></th>
+					<td class="phpdocumentor-cell">Transposes the note `$amount` steps in the specified direction, given
+						{@see Setting::STEP}.
+					</td>
+					<td class="phpdocumentor-cell">$this</td>
+				</tr>
+				<tr>
+					<th class="phpdocumentor-heading"><a
+						href="../classes/Theorem-TransposableTrait.html#method_transposeDown">transposeDown()</a></th>
+					<td class="phpdocumentor-cell">Transposes the note `$amount` steps down, given {@see
+						Setting::STEP}.
+					</td>
+					<td class="phpdocumentor-cell">$this</td>
+				</tr>
+				<tr>
+					<th class="phpdocumentor-heading"><a
+						href="../classes/Theorem-TransposableTrait.html#method_transposeUp">transposeUp()</a></th>
+					<td class="phpdocumentor-cell">Transposes the note `$amount` steps up, given {@see Setting::STEP}.
+					</td>
+					<td class="phpdocumentor-cell">$this</td>
+				</tr>
+			</table>
+
+
+			<section>
+				<h3 class="phpdocumentor-methods__header">Methods</h3>
+				<a id="method_stepDown"></a>
+				<article
+					class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+				>
+					<h4 class="phpdocumentor-method__name">stepDown()</h4>
+					<aside class="phpdocumentor-element-found-in">
+						<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+							href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+						:
+						<span class="phpdocumentor-element-found-in__line">18</span>
+					</aside>
+					<p class="phpdocumentor-summary">Transposes the note one step down, given {@see Setting::STEP}.</p>
+					<code class="phpdocumentor-signature phpdocumentor-code ">
+						<span class="phpdocumentor-signature__visibility">public</span>
+						<span class="phpdocumentor-signature__final">final</span> <span
+						class="phpdocumentor-signature__name">stepDown</span>(
+						)
+						: <span class="phpdocumentor-signature__response_type">$this</span>
+					</code>
+
+
+					<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+					<span class="phpdocumentor-signature__response_type">$this</span>
+
+				</article>
+				<a id="method_stepUp"></a>
+				<article
+					class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+				>
+					<h4 class="phpdocumentor-method__name">stepUp()</h4>
+					<aside class="phpdocumentor-element-found-in">
+						<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+							href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+						:
+						<span class="phpdocumentor-element-found-in__line">28</span>
+					</aside>
+					<p class="phpdocumentor-summary">Transposes the note one step up, given {@see Setting::STEP}.</p>
+					<code class="phpdocumentor-signature phpdocumentor-code ">
+						<span class="phpdocumentor-signature__visibility">public</span>
+						<span class="phpdocumentor-signature__final">final</span> <span
+						class="phpdocumentor-signature__name">stepUp</span>(
+						)
+						: <span class="phpdocumentor-signature__response_type">$this</span>
+					</code>
+
+
+					<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+					<span class="phpdocumentor-signature__response_type">$this</span>
+
+				</article>
+				<a id="method_transpose"></a>
+				<article
+					class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+				>
+					<h4 class="phpdocumentor-method__name">transpose()</h4>
+					<aside class="phpdocumentor-element-found-in">
+						<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+							href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+						:
+						<span class="phpdocumentor-element-found-in__line">40</span>
+					</aside>
+					<p class="phpdocumentor-summary">Transposes the note `$amount` steps in the specified direction,
+						given {@see Setting::STEP}.</p>
+					<code class="phpdocumentor-signature phpdocumentor-code ">
+						<span class="phpdocumentor-signature__visibility">public</span>
+						<span class="phpdocumentor-signature__final">final</span> <span
+						class="phpdocumentor-signature__name">transpose</span>(
+						<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$amount</span> :
+                <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </span>
+						<span class="phpdocumentor-signature__argument">
+            ,                 <span class="phpdocumentor-signature__argument__name">$direction</span> :
+                <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </span>
+						)
+						: <span class="phpdocumentor-signature__response_type">$this</span>
+					</code>
+
+
+					<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+					<dl class="phpdocumentor-argument-list">
+						<dt class="phpdocumentor-argument-list__entry">
+							<span class="phpdocumentor-signature__argument__name">$amount</span>
+							: <span class="phpdocumentor-signature__argument__return-type">int</span>
+						</dt>
+						<dd class="phpdocumentor-argument-list__definition">
+							<section class="phpdocumentor-description"><p>The number of steps to transpose the note.</p>
+							</section>
+						</dd>
+						<dt class="phpdocumentor-argument-list__entry">
+							<span class="phpdocumentor-signature__argument__name">$direction</span>
+							: <span class="phpdocumentor-signature__argument__return-type">string</span>
+						</dt>
+						<dd class="phpdocumentor-argument-list__definition">
+							<section class="phpdocumentor-description"><p>The transposition direction. Accepts either
+								<code class="prettyprint">down</code> or <code class="prettyprint">up</code>.</p>
+							</section>
+						</dd>
+					</dl>
+
+
+					<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+					<span class="phpdocumentor-signature__response_type">$this</span>
+
+				</article>
+				<a id="method_transposeDown"></a>
+				<article
+					class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+				>
+					<h4 class="phpdocumentor-method__name">transposeDown()</h4>
+					<aside class="phpdocumentor-element-found-in">
+						<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+							href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+						:
+						<span class="phpdocumentor-element-found-in__line">51</span>
+					</aside>
+					<p class="phpdocumentor-summary">Transposes the note `$amount` steps down, given {@see
+						Setting::STEP}.</p>
+					<code class="phpdocumentor-signature phpdocumentor-code ">
+						<span class="phpdocumentor-signature__visibility">public</span>
+						<span class="phpdocumentor-signature__final">final</span> <span
+						class="phpdocumentor-signature__name">transposeDown</span>(
+						<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$amount</span> :
+                <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </span>
+						)
+						: <span class="phpdocumentor-signature__response_type">$this</span>
+					</code>
+
+
+					<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+					<dl class="phpdocumentor-argument-list">
+						<dt class="phpdocumentor-argument-list__entry">
+							<span class="phpdocumentor-signature__argument__name">$amount</span>
+							: <span class="phpdocumentor-signature__argument__return-type">int</span>
+						</dt>
+						<dd class="phpdocumentor-argument-list__definition">
+							<section class="phpdocumentor-description"><p>The number of steps to transpose the note.</p>
+							</section>
+						</dd>
+					</dl>
+
+
+					<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+					<span class="phpdocumentor-signature__response_type">$this</span>
+
+				</article>
+				<a id="method_transposeUp"></a>
+				<article
+					class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+				>
+					<h4 class="phpdocumentor-method__name">transposeUp()</h4>
+					<aside class="phpdocumentor-element-found-in">
+						<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+							href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+						:
+						<span class="phpdocumentor-element-found-in__line">62</span>
+					</aside>
+					<p class="phpdocumentor-summary">Transposes the note `$amount` steps up, given {@see
+						Setting::STEP}.</p>
+					<code class="phpdocumentor-signature phpdocumentor-code ">
+						<span class="phpdocumentor-signature__visibility">public</span>
+						<span class="phpdocumentor-signature__final">final</span> <span
+						class="phpdocumentor-signature__name">transposeUp</span>(
+						<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$amount</span> :
+                <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </span>
+						)
+						: <span class="phpdocumentor-signature__response_type">$this</span>
+					</code>
+
+
+					<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+					<dl class="phpdocumentor-argument-list">
+						<dt class="phpdocumentor-argument-list__entry">
+							<span class="phpdocumentor-signature__argument__name">$amount</span>
+							: <span class="phpdocumentor-signature__argument__return-type">int</span>
+						</dt>
+						<dd class="phpdocumentor-argument-list__definition">
+							<section class="phpdocumentor-description"><p>The number of steps to transpose the note.</p>
+							</section>
+						</dd>
+					</dl>
+
+
+					<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+					<span class="phpdocumentor-signature__response_type">$this</span>
+
+				</article>
+			</section>
+			<div data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+
+				<h2>Search results</h2>
+				<ul class="phpdocumentor-search-results__entries">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</main>
+
+</body>
+</html>

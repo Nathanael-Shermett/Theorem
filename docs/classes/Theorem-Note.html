@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Documentation</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/template.css">
+	<link rel="icon" href="../images/favicon.ico"/>
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+	<script src="../js/search.js"></script>
+	<script defer src="../js/searchIndex.js"></script>
+</head>
+<body>
+<header class="phpdocumentor-top-header"></header>
+<header class="phpdocumentor-header">
+	<section class="phpdocumentor-section">
+		<h1 class="phpdocumentor-title">Documentation</h1>
+	</section>
+</header>
+<main class="phpdocumentor">
+	<div class="phpdocumentor-section">
+		<aside class="three phpdocumentor-columns phpdocumentor-sidebar">
+			<section data-search-form class="phpdocumentor-search">
+				<h1 class="phpdocumentor-sidebar__category-header">Search</h1>
+				<label class="phpdocumentor-label">
+					<span class="visually-hidden">Search for</span>
+					<input type="search" class="phpdocumentor-field phpdocumentor-search__field"
+						   placeholder="Loading .." disabled/>
+				</label>
+			</section>
+
+
+			<h1 class="phpdocumentor-sidebar__category-header">Namespaces</h1>
+			<h2 class="phpdocumentor-sidebar__root-namespace"><a href="../namespaces/default.html"><abbr title="\">Global</abbr></a>
+			</h2>
+			<h3 class="phpdocumentor-sidebar__root-namespace"><a href="../namespaces/theorem.html"><abbr
+				title="\Theorem">Theorem</abbr></a></h3>
+			<ul class="phpdocumentor-list">
+				<li><a href="../namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
+				</li>
+				<li><a href="../namespaces/theorem-tuningsystem.html"><abbr
+					title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
+			</ul>
+
+
+			<h1 class="phpdocumentor-sidebar__category-header">Reports</h1>
+			<h2 class="phpdocumentor-sidebar__root-package"><a href="../reports/deprecated.html">Deprecated</a></h2>
+			<h2 class="phpdocumentor-sidebar__root-package"><a href="../reports/errors.html">Errors</a></h2>
+			<h2 class="phpdocumentor-sidebar__root-package"><a href="../reports/markers.html">Markers</a></h2>
+		</aside>
+
+		<div class="nine phpdocumentor-columns phpdocumentor-content">
+			<ul class="phpdocumentor-breadcrumbs">
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../namespaces/theorem.html">Theorem</a></li>
+			</ul>
+
+			<article class="phpdocumentor-element phpdocumentor-class">
+				<h2 class="phpdocumentor-content__title">
+					Note
+					<span class="phpdocumentor-class__extends">
+                    Uses
+                                            <a href="../classes/Theorem-RenderableTrait.html"><abbr
+												title="\Theorem\RenderableTrait">RenderableTrait</abbr></a>,                                             <a
+						href="../classes/Theorem-TransposableTrait.html"><abbr title="\Theorem\TransposableTrait">TransposableTrait</abbr></a>                                    </span>
+				</h2>
+				<aside class="phpdocumentor-element-found-in">
+					<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+						href="../files/src-note-class.html"><abbr
+						title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+					:
+					<span class="phpdocumentor-element-found-in__line">10</span>
+				</aside>
+
+				<p class="phpdocumentor-class__summary">Class containing properties and methods pertaining to musical
+					notes.</p>
+				<section class="phpdocumentor-class__description"></section>
+
+				<h3>Table of Contents</h3>
+				<table class="phpdocumentor-table_of_contents">
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#property_accidental">$accidental</a>
+						</th>
+						<td class="phpdocumentor-cell">The note&#039;s accidental.</td>
+						<td class="phpdocumentor-cell"><a href="../classes/Theorem-Accidental.html"><abbr
+							title="\Theorem\Accidental">Accidental</abbr></a></td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-Note.html#property_letter">$letter</a></th>
+						<td class="phpdocumentor-cell">The note&#039;s letter name (A-G).</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-Note.html#property_octave">$octave</a></th>
+						<td class="phpdocumentor-cell">The octave the note belongs to (based on scientific pitch
+							notation).
+						</td>
+						<td class="phpdocumentor-cell">int</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE">$OUTPUT_MODE</a></th>
+						<td class="phpdocumentor-cell">Setting representing the output mode. Can be set on a per-object
+							basis, or globally with
+							`Setting::setOutputMode()`.
+						</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#property_RENDER_MODE">$RENDER_MODE</a></th>
+						<td class="phpdocumentor-cell">Setting representing the rendering mode. Can be set on a
+							per-object basis, or globally with
+							`Setting::setRenderMode()`.
+						</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method___construct">__construct()</a>
+						</th>
+						<td class="phpdocumentor-cell">Creates a new note.</td>
+						<td class="phpdocumentor-cell">mixed</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_distanceTo">distanceTo()</a>
+						</th>
+						<td class="phpdocumentor-cell">Returns the relative distance, in steps ({@see
+							Theorem\Setting::getStep()}), from the current note to the
+							specified note. If the specified note is lower, then the result will be negative.
+						</td>
+						<td class="phpdocumentor-cell">float</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_getAccidental">getAccidental()</a>
+						</th>
+						<td class="phpdocumentor-cell">Gets the {@see Accidental} object corresponding with the note&#039;s
+							accidental.
+						</td>
+						<td class="phpdocumentor-cell"><a href="../classes/Theorem-Accidental.html"><abbr
+							title="\Theorem\Accidental">Accidental</abbr></a></td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_getFrequency">getFrequency()</a>
+						</th>
+						<td class="phpdocumentor-cell">Gets the note&#039;s frequency using the specified tuning system
+							{@see Setting::getTuningSystem()}.
+						</td>
+						<td class="phpdocumentor-cell">float</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-Note.html#method_getSpn">getSpn()</a></th>
+						<td class="phpdocumentor-cell">Returns the note&#039;s value in scientific pitch notation
+							(SPN).
+						</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_setAccidental">setAccidental()</a>
+						</th>
+						<td class="phpdocumentor-cell">Sets the note&#039;s accidental to a different accidental
+							object.
+						</td>
+						<td class="phpdocumentor-cell">void</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_getLetter">getLetter()</a>
+						</th>
+						<td class="phpdocumentor-cell">Gets the note&#039;s letter name (A-G).</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_setLetter">setLetter()</a>
+						</th>
+						<td class="phpdocumentor-cell">Sets the note&#039;s letter name (A-G).</td>
+						<td class="phpdocumentor-cell">void</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_getOctave">getOctave()</a>
+						</th>
+						<td class="phpdocumentor-cell">Gets the octave the note belongs to (based on scientific pitch
+							notation).
+						</td>
+						<td class="phpdocumentor-cell">int</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_setOctave">setOctave()</a>
+						</th>
+						<td class="phpdocumentor-cell">Sets the octave the note belongs to (based on scientific pitch
+							notation).
+						</td>
+						<td class="phpdocumentor-cell">void</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a href="../classes/Theorem-Note.html#method_toString">toString()</a>
+						</th>
+						<td class="phpdocumentor-cell"></td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#method___toString">__toString()</a></th>
+						<td class="phpdocumentor-cell">Calls `toString()` using its default parameters.</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#method_getOutputMode">getOutputMode()</a></th>
+						<td class="phpdocumentor-cell">Gets the output mode. If it has not been set, it defaults to the
+							global output mode setting.
+						</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#method_setOutputMode">setOutputMode()</a></th>
+						<td class="phpdocumentor-cell">Sets the output mode. Can be set on a per-object basis, or
+							globally with `Setting::setOutputMode()` unless
+							overridden.
+						</td>
+						<td class="phpdocumentor-cell">void</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#method_getRenderMode">getRenderMode()</a></th>
+						<td class="phpdocumentor-cell">Gets the rendering mode. If it has not been set, it defaults to
+							the global rendering mode setting.
+						</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#method_setRenderMode">setRenderMode()</a></th>
+						<td class="phpdocumentor-cell">Sets the rendering mode. Can be set on a per-object basis, or
+							globally with`Setting::setRenderMode()` unless
+							overridden.
+						</td>
+						<td class="phpdocumentor-cell">void</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-RenderableTrait.html#method_toString">toString()</a></th>
+						<td class="phpdocumentor-cell">Converts the entity to a string.</td>
+						<td class="phpdocumentor-cell">string</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-TransposableTrait.html#method_stepDown">stepDown()</a></th>
+						<td class="phpdocumentor-cell">Transposes the note one step down, given {@see Setting::STEP}.
+						</td>
+						<td class="phpdocumentor-cell">$this</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-TransposableTrait.html#method_stepUp">stepUp()</a></th>
+						<td class="phpdocumentor-cell">Transposes the note one step up, given {@see Setting::STEP}.</td>
+						<td class="phpdocumentor-cell">$this</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-TransposableTrait.html#method_transpose">transpose()</a></th>
+						<td class="phpdocumentor-cell">Transposes the note `$amount` steps in the specified direction,
+							given {@see Setting::STEP}.
+						</td>
+						<td class="phpdocumentor-cell">$this</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-TransposableTrait.html#method_transposeDown">transposeDown()</a>
+						</th>
+						<td class="phpdocumentor-cell">Transposes the note `$amount` steps down, given {@see
+							Setting::STEP}.
+						</td>
+						<td class="phpdocumentor-cell">$this</td>
+					</tr>
+					<tr>
+						<th class="phpdocumentor-heading"><a
+							href="../classes/Theorem-TransposableTrait.html#method_transposeUp">transposeUp()</a></th>
+						<td class="phpdocumentor-cell">Transposes the note `$amount` steps up, given {@see
+							Setting::STEP}.
+						</td>
+						<td class="phpdocumentor-cell">$this</td>
+					</tr>
+				</table>
+
+
+				<section>
+					<h3 class="phpdocumentor-properties__header">Properties</h3>
+					<a id="property_accidental"></a>
+					<article
+						class="
+            phpdocumentor-property
+            phpdocumentor-property--private
+                                "
+					>
+						<h4 class="phpdocumentor-property__name">$accidental</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">19</span>
+						</aside>
+						<p class="phpdocumentor-summary">The note&#039;s accidental.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__type"><a
+								href="../classes/Theorem-Accidental.html"><abbr
+								title="\Theorem\Accidental">Accidental</abbr></a></span>
+							<span class="phpdocumentor-signature__name">$accidental</span>
+						</code>
+					</article>
+					<a id="property_letter"></a>
+					<article
+						class="
+            phpdocumentor-property
+            phpdocumentor-property--private
+                                "
+					>
+						<h4 class="phpdocumentor-property__name">$letter</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">26</span>
+						</aside>
+						<p class="phpdocumentor-summary">The note&#039;s letter name (A-G).</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$letter</span>
+						</code>
+					</article>
+					<a id="property_octave"></a>
+					<article
+						class="
+            phpdocumentor-property
+            phpdocumentor-property--private
+                                "
+					>
+						<h4 class="phpdocumentor-property__name">$octave</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">33</span>
+						</aside>
+						<p class="phpdocumentor-summary">The octave the note belongs to (based on scientific pitch
+							notation).</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__type">int</span>
+							<span class="phpdocumentor-signature__name">$octave</span>
+						</code>
+					</article>
+					<a id="property_OUTPUT_MODE"></a>
+					<article
+						class="
+            phpdocumentor-property
+            phpdocumentor-property--private
+            phpdocumentor-property--static                    "
+					>
+						<h4 class="phpdocumentor-property__name">$OUTPUT_MODE</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">22</span>
+						</aside>
+						<p class="phpdocumentor-summary">Setting representing the output mode. Can be set on a
+							per-object basis, or globally with
+							`Setting::setOutputMode()`.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__static">static</span> <span
+							class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$OUTPUT_MODE</span>
+						</code>
+					</article>
+					<a id="property_RENDER_MODE"></a>
+					<article
+						class="
+            phpdocumentor-property
+            phpdocumentor-property--private
+            phpdocumentor-property--static                    "
+					>
+						<h4 class="phpdocumentor-property__name">$RENDER_MODE</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">32</span>
+						</aside>
+						<p class="phpdocumentor-summary">Setting representing the rendering mode. Can be set on a
+							per-object basis, or globally with
+							`Setting::setRenderMode()`.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__static">static</span> <span
+							class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$RENDER_MODE</span>
+						</code>
+					</article>
+				</section>
+
+				<section>
+					<h3 class="phpdocumentor-methods__header">Methods</h3>
+					<a id="method___construct"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">__construct()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">42</span>
+						</aside>
+						<p class="phpdocumentor-summary">Creates a new note.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">__construct</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$value</span> :
+                <span class="phpdocumentor-signature__argument__return-type">float|string</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">mixed</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$value</span>
+								: <span class="phpdocumentor-signature__argument__return-type">float|string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>Accepts any of the following:</p>
+									<ul>
+										<li>A note written in scientific pitch notation (SPN). Examples include <code
+											class="prettyprint">A4</code> and <code class="prettyprint">C#4</code>.
+										</li>
+										<li>A frequency. Examples include <code class="prettyprint">440 Hz</code>, <code
+											class="prettyprint">440</code>, and <code class="prettyprint">415.305</code>.
+										</li>
+									</ul>
+								</section>
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">mixed</span>
+
+					</article>
+					<a id="method_distanceTo"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">distanceTo()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">59</span>
+						</aside>
+						<p class="phpdocumentor-summary">Returns the relative distance, in steps ({@see
+							Theorem\Setting::getStep()}), from the current note to the
+							specified note. If the specified note is lower, then the result will be negative.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">distanceTo</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$note</span> :
+                <span class="phpdocumentor-signature__argument__return-type"><a
+					href="../classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a></span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">float</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$note</span>
+								: <span class="phpdocumentor-signature__argument__return-type"><a
+								href="../classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a></span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">float</span>
+
+					</article>
+					<a id="method_getAccidental"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">getAccidental()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">176</span>
+						</aside>
+						<p class="phpdocumentor-summary">Gets the {@see Accidental} object corresponding with the note&#039;s
+							accidental.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">getAccidental</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type"><a
+							href="../classes/Theorem-Accidental.html"><abbr
+							title="\Theorem\Accidental">Accidental</abbr></a></span>
+						</code>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type"><a
+							href="../classes/Theorem-Accidental.html"><abbr
+							title="\Theorem\Accidental">Accidental</abbr></a></span>
+
+					</article>
+					<a id="method_getFrequency"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">getFrequency()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">188</span>
+						</aside>
+						<p class="phpdocumentor-summary">Gets the note&#039;s frequency using the specified tuning
+							system {@see Setting::getTuningSystem()}.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">getFrequency</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">float</span>
+						</code>
+
+						<section class="phpdocumentor-description"><p><strong>NOTE:</strong> This number is rounded
+							based on <a href="../classes/Theorem-Setting.html#method_getFrequencyPrecision">\Theorem\Setting::getFrequencyPrecision()</a>.
+						</p></section>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">float</span>
+
+					</article>
+					<a id="method_getSpn"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">getSpn()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">206</span>
+						</aside>
+						<p class="phpdocumentor-summary">Returns the note&#039;s value in scientific pitch notation
+							(SPN).</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">getSpn</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">string</span>
+						</code>
+
+						<section class="phpdocumentor-description"><p><strong>NOTE #1:</strong> In SPN, octave numbers
+							increment at C, not A.</p>
+							<p><strong>NOTE #2:</strong> In SPN, accidental adjustments apply <em>after</em> determining
+								the note's octave. Therefore, because
+								octave numbers increment at C and accidentals apply afterwards, B4 and Cb5 are exactly
+								one octave apart.</p></section>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">string</span>
+
+					</article>
+					<a id="method_setAccidental"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">setAccidental()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">218</span>
+						</aside>
+						<p class="phpdocumentor-summary">Sets the note&#039;s accidental to a different accidental
+							object.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">setAccidental</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$accidental</span> :
+                <span class="phpdocumentor-signature__argument__return-type"><a
+					href="../classes/Theorem-Accidental.html"><abbr
+					title="\Theorem\Accidental">Accidental</abbr></a></span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">void</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$accidental</span>
+								: <span class="phpdocumentor-signature__argument__return-type"><a
+								href="../classes/Theorem-Accidental.html"><abbr
+								title="\Theorem\Accidental">Accidental</abbr></a></span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+
+					</article>
+					<a id="method_getLetter"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">getLetter()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">228</span>
+						</aside>
+						<p class="phpdocumentor-summary">Gets the note&#039;s letter name (A-G).</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">getLetter</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">string</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">string</span>
+
+					</article>
+					<a id="method_setLetter"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">setLetter()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">238</span>
+						</aside>
+						<p class="phpdocumentor-summary">Sets the note&#039;s letter name (A-G).</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">setLetter</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$letter</span> :
+                <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">void</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$letter</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+
+					</article>
+					<a id="method_getOctave"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">getOctave()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">248</span>
+						</aside>
+						<p class="phpdocumentor-summary">Gets the octave the note belongs to (based on scientific pitch
+							notation).</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">getOctave</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">int</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">int</span>
+
+					</article>
+					<a id="method_setOctave"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">setOctave()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">258</span>
+						</aside>
+						<p class="phpdocumentor-summary">Sets the octave the note belongs to (based on scientific pitch
+							notation).</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">setOctave</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$octave</span> :
+                <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">void</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$octave</span>
+								: <span class="phpdocumentor-signature__argument__return-type">int</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+
+					</article>
+					<a id="method_toString"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                        "
+					>
+						<h4 class="phpdocumentor-method__name">toString()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.class.php"><a
+								href="../files/src-note-class.html"><abbr
+								title="src/Note.class.php">Note.class.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">263</span>
+						</aside>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">toString</span>(
+							<span class="phpdocumentor-signature__argument">
+            [                <span class="phpdocumentor-signature__argument__name">$outputMode</span> :
+                <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">NULL</span> ]            </span>
+							<span class="phpdocumentor-signature__argument">
+            [,                 <span class="phpdocumentor-signature__argument__name">$renderMode</span> :
+                <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">NULL</span> ]            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">string</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
+								: <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
+								: <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">string</span>
+
+					</article>
+					<a id="method___toString"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">__toString()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">40</span>
+						</aside>
+						<p class="phpdocumentor-summary">Calls `toString()` using its default parameters.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">__toString</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">string</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-tag-list__heading">Tags</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">string</span>
+
+					</article>
+					<a id="method_getOutputMode"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">getOutputMode()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">50</span>
+						</aside>
+						<p class="phpdocumentor-summary">Gets the output mode. If it has not been set, it defaults to
+							the global output mode setting.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">getOutputMode</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">string</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">string</span>
+
+					</article>
+					<a id="method_setOutputMode"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">setOutputMode()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">62</span>
+						</aside>
+						<p class="phpdocumentor-summary">Sets the output mode. Can be set on a per-object basis, or
+							globally with `Setting::setOutputMode()` unless
+							overridden.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">setOutputMode</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$outputMode</span> :
+                <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">void</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+
+					</article>
+					<a id="method_getRenderMode"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">getRenderMode()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">72</span>
+						</aside>
+						<p class="phpdocumentor-summary">Gets the rendering mode. If it has not been set, it defaults to
+							the global rendering mode setting.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">getRenderMode</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">string</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">string</span>
+
+					</article>
+					<a id="method_setRenderMode"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">setRenderMode()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">84</span>
+						</aside>
+						<p class="phpdocumentor-summary">Sets the rendering mode. Can be set on a per-object basis, or
+							globally with`Setting::setRenderMode()` unless
+							overridden.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">setRenderMode</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$renderMode</span> :
+                <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">void</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+
+					</article>
+					<a id="method_toString"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                        phpdocumentor-element--abstract                                "
+					>
+						<h4 class="phpdocumentor-method__name">toString()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.trait.php"><a
+								href="../files/src-renderabletrait-trait.html"><abbr
+								title="src/RenderableTrait.trait.php">RenderableTrait.trait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">101</span>
+						</aside>
+						<p class="phpdocumentor-summary">Converts the entity to a string.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__abstract">abstract</span> <span
+							class="phpdocumentor-signature__name">toString</span>(
+							<span class="phpdocumentor-signature__argument">
+            [                <span class="phpdocumentor-signature__argument__name">$outputMode</span> :
+                <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">NULL</span> ]            </span>
+							<span class="phpdocumentor-signature__argument">
+            [,                 <span class="phpdocumentor-signature__argument__name">$renderMode</span> :
+                <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">NULL</span> ]            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">string</span>
+						</code>
+
+						<section class="phpdocumentor-description"><p><strong>NOTE</strong>: <code class="prettyprint">RenderableTrait</code>
+							does not provide a default implementation of this method. Any classes using
+							<code class="prettyprint">RenderableTrait</code> <em>must</em> write their own
+							implementation.</p></section>
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>The output mode used by the implementing
+									entity.</p></section>
+							</dd>
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>The render mode used by the implementing
+									entity.</p></section>
+							</dd>
+						</dl>
+
+						<h5 class="phpdocumentor-tag-list__heading">Tags</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<section class="phpdocumentor-description"></section>
+							</dd>
+						</dl>
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">string</span>
+
+					</article>
+					<a id="method_stepDown"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">stepDown()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+								href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">18</span>
+						</aside>
+						<p class="phpdocumentor-summary">Transposes the note one step down, given {@see
+							Setting::STEP}.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">stepDown</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">$this</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">$this</span>
+
+					</article>
+					<a id="method_stepUp"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">stepUp()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+								href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">28</span>
+						</aside>
+						<p class="phpdocumentor-summary">Transposes the note one step up, given {@see
+							Setting::STEP}.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">stepUp</span>(
+							)
+							: <span class="phpdocumentor-signature__response_type">$this</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">$this</span>
+
+					</article>
+					<a id="method_transpose"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">transpose()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+								href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">40</span>
+						</aside>
+						<p class="phpdocumentor-summary">Transposes the note `$amount` steps in the specified direction,
+							given {@see Setting::STEP}.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">transpose</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$amount</span> :
+                <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </span>
+							<span class="phpdocumentor-signature__argument">
+            ,                 <span class="phpdocumentor-signature__argument__name">$direction</span> :
+                <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">$this</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$amount</span>
+								: <span class="phpdocumentor-signature__argument__return-type">int</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>The number of steps to transpose the
+									note.</p></section>
+							</dd>
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$direction</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>The transposition direction. Accepts
+									either <code class="prettyprint">down</code> or <code class="prettyprint">up</code>.
+								</p></section>
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">$this</span>
+
+					</article>
+					<a id="method_transposeDown"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">transposeDown()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+								href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">51</span>
+						</aside>
+						<p class="phpdocumentor-summary">Transposes the note `$amount` steps down, given {@see
+							Setting::STEP}.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">transposeDown</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$amount</span> :
+                <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">$this</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$amount</span>
+								: <span class="phpdocumentor-signature__argument__return-type">int</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>The number of steps to transpose the
+									note.</p></section>
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">$this</span>
+
+					</article>
+					<a id="method_transposeUp"></a>
+					<article
+						class="
+            phpdocumentor-method
+            phpdocumentor-method--public
+                                                phpdocumentor-element--final        "
+					>
+						<h4 class="phpdocumentor-method__name">transposeUp()</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
+								href="../files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">62</span>
+						</aside>
+						<p class="phpdocumentor-summary">Transposes the note `$amount` steps up, given {@see
+							Setting::STEP}.</p>
+						<code class="phpdocumentor-signature phpdocumentor-code ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__final">final</span> <span
+							class="phpdocumentor-signature__name">transposeUp</span>(
+							<span class="phpdocumentor-signature__argument">
+                            <span class="phpdocumentor-signature__argument__name">$amount</span> :
+                <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </span>
+							)
+							: <span class="phpdocumentor-signature__response_type">$this</span>
+						</code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$amount</span>
+								: <span class="phpdocumentor-signature__argument__return-type">int</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>The number of steps to transpose the
+									note.</p></section>
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">$this</span>
+
+					</article>
+				</section>
+			</article>
+			<div data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+
+				<h2>Search results</h2>
+				<ul class="phpdocumentor-search-results__entries">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</main>
+
+</body>
+</html>
