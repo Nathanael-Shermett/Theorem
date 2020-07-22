@@ -2,13 +2,11 @@
 
 namespace Theorem\Accidental;
 
-use Theorem\Accidental;
-
-class DoubleFlat extends Accidental
+class DoubleFlat extends AbstractAccidental
 {
 	public function __construct()
 	{
-		$this->setOffset(Accidental::DOUBLE_FLAT);
+		$this->setOffset(AbstractAccidental::DOUBLE_FLAT);
 	}
 
 	public function toString($outputMode = NULL, $renderMode = NULL): string
