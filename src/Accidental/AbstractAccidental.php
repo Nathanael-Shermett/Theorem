@@ -1,12 +1,14 @@
 <?php
 
-namespace Theorem;
+namespace Theorem\Accidental;
+
+use Theorem\RenderableTrait;
 
 /**
  * Static class. Serves primarily as an enumerator for accidentals. Contains various public constants with values
  * representing the effect the accidental has on a letter note. Values are signed, relative, and scaled to whole tones.
  */
-abstract class Accidental
+abstract class AbstractAccidental
 {
 	use RenderableTrait;
 
