@@ -1,4 +1,26 @@
 {
+	"name"        : "nathanael-shermett/theorem",
+	"description" : "PHP library for working with musical concepts and music theory.",
+	"type"        : "library",
+	"keywords"    : ["php", "music", "music-theory", "chords", "scales"],
+	"homepage"    : "https://github.com/Nathanael-Shermett/Theorem",
+	"license"     : "MIT",
+	"authors"     : [
+		{
+			"name"     : "Nathanael Shermett",
+			"email"    : "nathanael@shermett.me",
+			"homepage" : "http://nathanael.shermett.me"
+		}
+	],
+	"support"     : {
+		"email"  : "nathanael@shermett.me",
+		"issues" : "https://github.com/Nathanael-Shermett/Theorem/issues"
+	},
+	"autoload"    : {
+		"psr-4" : {
+			"Theorem\\" : "src/"
+		}
+	},
 	"require-dev" : {
 		"phpunit/phpunit" : "9"
 	}
