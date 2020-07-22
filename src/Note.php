@@ -2,7 +2,7 @@
 
 namespace Theorem;
 
-use Theorem;
+use Theorem\Accidental\AbstractAccidental;
 
 /**
  * Class containing properties and methods pertaining to musical notes.
@@ -14,9 +14,9 @@ class Note
 	/**
 	 * The note's accidental.
 	 *
-	 * @var Accidental $accidental
+	 * @var AbstractAccidental $accidental
 	 */
-	private Accidental $accidental;
+	private AbstractAccidental $accidental;
 
 	/**
 	 * The note's letter name (A-G).
@@ -83,13 +83,13 @@ class Note
 		// Therefore, B4 > D4 > C4. This is rather silly, and since Note::getOctave() returns the octave the note
 		// belongs to based on SPN, we must normalize relative letter values based on SPN.
 		$normalizedLetters = [
-			Letter::C => 0,
-			Letter::D => 1,
-			Letter::E => 2,
-			Letter::F => 3,
-			Letter::G => 4,
-			Letter::A => 5,
-			Letter::B => 6,
+			AbstractLetter::C => 0,
+			AbstractLetter::D => 1,
+			AbstractLetter::E => 2,
+			AbstractLetter::F => 3,
+			AbstractLetter::G => 4,
+			AbstractLetter::A => 5,
+			AbstractLetter::B => 6,
 		];
 
 		// First, determine if $thisLetter or $thatLetter is higher (based on normalized SPN letter values). This tells
@@ -98,25 +98,25 @@ class Note
 		{
 			// Each value represents the relative ascending distance from $key[i] to $key[i+1].
 			$letterSteps = [
-				Letter::C => 1,
-				Letter::D => 1,
-				Letter::E => .5,
-				Letter::F => 1,
-				Letter::G => 1,
-				Letter::A => 1,
-				Letter::B => .5,
+				AbstractLetter::C => 1,
+				AbstractLetter::D => 1,
+				AbstractLetter::E => .5,
+				AbstractLetter::F => 1,
+				AbstractLetter::G => 1,
+				AbstractLetter::A => 1,
+				AbstractLetter::B => .5,
 			];
 		}
 		else
 		{    // Each value represents the relative descending distance from $key[i] to $key[i+1]
 			$letterSteps = [
-				Letter::C => -.5,
-				Letter::B => -1,
-				Letter::A => -1,
-				Letter::G => -1,
-				Letter::F => -.5,
-				Letter::E => -1,
-				Letter::D => -1,
+				AbstractLetter::C => -.5,
+				AbstractLetter::B => -1,
+				AbstractLetter::A => -1,
+				AbstractLetter::G => -1,
+				AbstractLetter::F => -.5,
+				AbstractLetter::E => -1,
+				AbstractLetter::D => -1,
 			];
 		}
 
@@ -169,11 +169,11 @@ class Note
 	}
 
 	/**
-	 * Gets the {@see Accidental} object corresponding with the note's accidental.
+	 * Gets the {@see AbstractAccidental} object corresponding with the note's accidental.
 	 *
-	 * @return Accidental
+	 * @return AbstractAccidental
 	 */
-	public function getAccidental(): Accidental
+	public function getAccidental(): AbstractAccidental
 	{
 		return $this->accidental;
 	}
@@ -213,9 +213,9 @@ class Note
 	/**
 	 * Sets the note's accidental to a different accidental object.
 	 *
-	 * @param Accidental $accidental
+	 * @param AbstractAccidental $accidental
 	 */
-	public function setAccidental(Accidental $accidental): void
+	public function setAccidental(AbstractAccidental $accidental): void
 	{
 		$this->accidental = $accidental;
 	}

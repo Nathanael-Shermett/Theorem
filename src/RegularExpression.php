@@ -10,8 +10,8 @@ abstract class RegularExpression
 	 *
 	 * @param string $input A note written in scientific pitch notation (e.g. A4, A#4, etc.)
 	 * @param array  $output
-	 * @return bool|array Returns an associative array containing a letter (string), an accidental ({@see Accidental}
-	 *                      sub-type), and an octave (int).
+	 * @return bool|array Returns an associative array containing a letter (string), an accidental
+	 *                      ({@see AbstractAccidental} sub-type), and an octave (int).
 	 */
 	public static function ParseScientificNoteNotation(string $input, &$output)
 	{

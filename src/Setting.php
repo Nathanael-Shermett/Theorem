@@ -92,7 +92,7 @@ final class Setting
 	 * @see setKey()
 	 * @var string
 	 */
-	private static string $KEY = Letter::C . ' major';
+	private static string $KEY = 'C major';
 
 	/**
 	 * Setting representing the output mode. Can be set on a per-object basis, or globally with
@@ -146,7 +146,7 @@ final class Setting
 	 * @see setTuningReferenceNote()
 	 * @var string
 	 */
-	private static string $TUNING_REFERENCE_NOTE = Letter::A . '4';
+	private static string $TUNING_REFERENCE_NOTE = 'A4';
 
 	/**
 	 * Global setting property representing the tuning system used to calculate notes and their relative frequencies.
@@ -255,7 +255,8 @@ final class Setting
 	/**
 	 * Sets the number of steps in an octave. In most western music (which uses semitones) this will be 12.
 	 *
-	 * @return int
+	 * @param int $step
+	 * @return void
 	 * @see Setting::SEMITONE
 	 * @see Setting::QUARTER_TONE
 	 * @see Setting::WHOLE_TONE
