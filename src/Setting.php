@@ -307,7 +307,7 @@ final class Setting
 	 * @param int $tuningReferenceNote
 	 * @return void
 	 */
-	final public static function setTuningReferenceNote(int $tuningReferenceNote): void
+	final public static function setTuningReferenceNote(string $tuningReferenceNote): void
 	{
 		self::$TUNING_REFERENCE_NOTE = $tuningReferenceNote;
 	}
