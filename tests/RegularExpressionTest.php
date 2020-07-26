@@ -1,8 +1,8 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Theorem\Accidental;
 use Theorem\RegularExpression;
-use PHPUnit\Framework\TestCase;
 
 class RegularExpressionTest extends TestCase
 {
