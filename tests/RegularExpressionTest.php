@@ -52,7 +52,22 @@ class RegularExpressionTest extends TestCase
 
 		$regex = RegularExpression::ParseScientificNoteNotation('A', $output);
 		$this->assertFalse($regex);
-		$this->assertEquals(FALSE, isset($output));
+		$this->assertFalse(isset($output));
+		unset($output);
+
+		$regex = RegularExpression::ParseScientificNoteNotation('4', $output);
+		$this->assertFalse($regex);
+		$this->assertFalse(isset($output));
+		unset($output);
+
+		$regex = RegularExpression::ParseScientificNoteNotation('Abbb4', $output);
+		$this->assertFalse($regex);
+		$this->assertFalse(isset($output));
+		unset($output);
+
+		$regex = RegularExpression::ParseScientificNoteNotation('A##4', $output);
+		$this->assertFalse($regex);
+		$this->assertFalse(isset($output));
 		unset($output);
 	}
 }
