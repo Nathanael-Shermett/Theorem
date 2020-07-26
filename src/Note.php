@@ -83,13 +83,13 @@ class Note
 		// Therefore, B4 > D4 > C4. This is rather silly, and since Note::getOctave() returns the octave the note
 		// belongs to based on SPN, we must normalize relative letter values based on SPN.
 		$normalizedLetters = [
-			AbstractLetter::C => 0,
-			AbstractLetter::D => 1,
-			AbstractLetter::E => 2,
-			AbstractLetter::F => 3,
-			AbstractLetter::G => 4,
-			AbstractLetter::A => 5,
-			AbstractLetter::B => 6,
+			'C' => 0,
+			'D' => 1,
+			'E' => 2,
+			'F' => 3,
+			'G' => 4,
+			'A' => 5,
+			'B' => 6,
 		];
 
 		// First, determine if $thisLetter or $thatLetter is higher (based on normalized SPN letter values). This tells
@@ -98,25 +98,25 @@ class Note
 		{
 			// Each value represents the relative ascending distance from $key[i] to $key[i+1].
 			$letterSteps = [
-				AbstractLetter::C => 1,
-				AbstractLetter::D => 1,
-				AbstractLetter::E => .5,
-				AbstractLetter::F => 1,
-				AbstractLetter::G => 1,
-				AbstractLetter::A => 1,
-				AbstractLetter::B => .5,
+				'C' => 1,
+				'D' => 1,
+				'E' => .5,
+				'F' => 1,
+				'G' => 1,
+				'A' => 1,
+				'B' => .5,
 			];
 		}
 		else
 		{    // Each value represents the relative descending distance from $key[i] to $key[i+1]
 			$letterSteps = [
-				AbstractLetter::C => -.5,
-				AbstractLetter::B => -1,
-				AbstractLetter::A => -1,
-				AbstractLetter::G => -1,
-				AbstractLetter::F => -.5,
-				AbstractLetter::E => -1,
-				AbstractLetter::D => -1,
+				'C' => -.5,
+				'B' => -1,
+				'A' => -1,
+				'G' => -1,
+				'F' => -.5,
+				'E' => -1,
+				'D' => -1,
 			];
 		}
 
