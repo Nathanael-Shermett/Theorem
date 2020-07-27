@@ -41,8 +41,7 @@ class Note
 	 */
 	public function __construct($value)
 	{
-		if (RegularExpression::ParseScientificNoteNotation($value, $output))
-		{
+		if (RegularExpression::ParseScientificNoteNotation($value, $output)) {
 			$this->setLetter($output['letter']);
 			$this->setAccidental($output['accidental']);
 			$this->setOctave($output['octave']);
@@ -94,8 +93,7 @@ class Note
 
 		// First, determine if $thisLetter or $thatLetter is higher (based on normalized SPN letter values). This tells
 		// us which direction we need to walk.
-		if ($normalizedLetters[$thisLetter] < $normalizedLetters[$thatLetter])
-		{
+		if ($normalizedLetters[$thisLetter] < $normalizedLetters[$thatLetter]) {
 			// Each value represents the relative ascending distance from $key[i] to $key[i+1].
 			$letterSteps = [
 				'C' => 1,
@@ -106,9 +104,7 @@ class Note
 				'A' => 1,
 				'B' => .5,
 			];
-		}
-		else
-		{    // Each value represents the relative descending distance from $key[i] to $key[i+1]
+		} else {    // Each value represents the relative descending distance from $key[i] to $key[i+1]
 			$letterSteps = [
 				'C' => -.5,
 				'B' => -1,
@@ -122,17 +118,14 @@ class Note
 
 		// Rotate $letterSteps until the first letter corresponds with $thisLetter. This allows us to avoid walking off
 		// the end of the array while looking for $thatLetter.
-		while (array_keys($letterSteps)[0] != $thisLetter)
-		{
+		while (array_keys($letterSteps)[0] != $thisLetter) {
 			// Shift off the first element of the array, then re-add it (with the same key).
 			$letterSteps[array_key_first($letterSteps)] = array_shift($letterSteps);
 		}
 
 		// Walk over $letterSteps until we reach $thatLetter, increasing the difference sum with every step.
-		foreach ($letterSteps as $letter => $distance)
-		{
-			if ($letter == $thatLetter)
-			{
+		foreach ($letterSteps as $letter => $distance) {
+			if ($letter == $thatLetter) {
 				break;
 			}
 
