@@ -23,9 +23,11 @@ abstract class RegularExpression
 		$/x';
 
 		// If there was a match.
-		if (preg_match($regex, $input, $result) === 1) {
+		if (preg_match($regex, $input, $result) === 1)
+		{
 			// Convert the matched accidental to an accidental object.
-			switch ($result['accidental']) {
+			switch ($result['accidental'])
+			{
 				case 'bb':
 					$result['accidental'] = new Accidental\DoubleFlat();
 					break;
@@ -46,7 +48,9 @@ abstract class RegularExpression
 			$output = $result;
 
 			return TRUE;
-		} else {
+		}
+		else
+		{
 			return FALSE;
 		}
 	}

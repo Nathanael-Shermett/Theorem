@@ -25,7 +25,8 @@ class EqualTemperament implements TuningSystemInterface
 	public static function calcFrequency(Theorem\Note $note): float
 	{
 		// If this note is the reference note, return the reference frequency.
-		if ($note->getSpn() == Setting::getTuningReferenceNote()) {
+		if ($note->getSpn() == Setting::getTuningReferenceNote())
+		{
 			return Theorem\Setting::getTuningReferencePitch();
 		}
 
