@@ -15,25 +15,12 @@ class EqualTemperamentTest extends TestCase
 		Setting::setTuningReferenceNote('A4');
 		Setting::setTuningReferencePitch(440);
 
-		$note = new Note('A-1');
-		$this->assertEquals(13.75, $note->getFrequency());
-
-		$note = new Note('A0');
-		$this->assertEquals(27.5, $note->getFrequency());
-
-		$note = new Note('A4');
-		$this->assertEquals(440, $note->getFrequency());
-
-		$note = new Note('B4');
-		$this->assertEquals(493.88, $note->getFrequency());
-
-		$note = new Note('B#4');
-		$this->assertEquals(523.25, $note->getFrequency());
-
-		$note = new Note('Cb5');
-		$this->assertEquals(493.88, $note->getFrequency());
-
-		$note = new Note('C5');
-		$this->assertEquals(523.25, $note->getFrequency());
+		$this->assertEquals(13.75, (new Note('A-1'))->getFrequency());
+		$this->assertEquals(27.5, (new Note('A0'))->getFrequency());
+		$this->assertEquals(440, (new Note('A4'))->getFrequency());
+		$this->assertEquals(493.88, (new Note('B4'))->getFrequency());
+		$this->assertEquals(523.25, (new Note('B#4'))->getFrequency());
+		$this->assertEquals(493.88, (new Note('Cb5'))->getFrequency());
+		$this->assertEquals(523.25, (new Note('C5'))->getFrequency());
 	}
 }
