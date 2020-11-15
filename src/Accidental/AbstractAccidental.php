@@ -79,4 +79,14 @@ abstract class AbstractAccidental
 	{
 		$this->offset = $offset;
 	}
+
+	/**
+	 * @param null $outputMode
+	 * @param null $renderMode
+	 * @return string
+	 * @TODO
+	 */
+	public function toString($outputMode = NULL, $renderMode = NULL): string
+	{
+	}
 }
