@@ -8,9 +8,4 @@ class DoubleSharp extends AbstractAccidental
 	{
 		$this->setOffset(AbstractAccidental::DOUBLE_SHARP);
 	}
-
-	public function toString($outputMode = NULL, $renderMode = NULL): string
-	{
-		return 'x';
-	}
 }

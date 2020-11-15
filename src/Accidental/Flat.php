@@ -8,9 +8,4 @@ class Flat extends AbstractAccidental
 	{
 		$this->setOffset(AbstractAccidental::FLAT);
 	}
-
-	public function toString($outputMode = NULL, $renderMode = NULL): string
-	{
-		return 'b';
-	}
 }

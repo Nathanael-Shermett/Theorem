@@ -8,9 +8,4 @@ class DoubleFlat extends AbstractAccidental
 	{
 		$this->setOffset(AbstractAccidental::DOUBLE_FLAT);
 	}
-
-	public function toString($outputMode = NULL, $renderMode = NULL): string
-	{
-		return 'bb';
-	}
 }

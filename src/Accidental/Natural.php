@@ -8,9 +8,4 @@ class Natural extends AbstractAccidental
 	{
 		$this->setOffset(AbstractAccidental::NATURAL);
 	}
-
-	public function toString($outputMode = NULL, $renderMode = NULL): string
-	{
-		return '';
-	}
 }
