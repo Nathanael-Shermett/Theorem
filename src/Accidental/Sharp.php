@@ -8,9 +8,4 @@ class Sharp extends AbstractAccidental
 	{
 		$this->setOffset(AbstractAccidental::SHARP);
 	}
-
-	public function toString($outputMode = NULL, $renderMode = NULL): string
-	{
-		return '#';
-	}
 }
