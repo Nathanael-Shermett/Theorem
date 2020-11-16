@@ -5,8 +5,8 @@ namespace Theorem\Accidental;
 use Theorem\RenderableTrait;
 
 /**
- * Static class. Serves primarily as an enumerator for accidentals. Contains various public constants with values
- * representing the effect the accidental has on a letter note. Values are signed, relative, and scaled to whole tones.
+ * Abstract class inherited by all accidentals. Contains constants representing each accidental's relative pitch offset
+ * (minimum unit: quarter tones). Also includes a few universal methods, including {@see toString()}.
  */
 abstract class AbstractAccidental
 {
