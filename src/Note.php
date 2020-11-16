@@ -3,6 +3,7 @@
 namespace Theorem;
 
 use Theorem\Accidental\AbstractAccidental;
+use Theorem\Renderer\RendererInterface;
 
 /**
  * Class containing properties and methods pertaining to musical notes.
@@ -41,7 +42,7 @@ class Note
 	 */
 	public function __construct($value)
 	{
-		if (RegularExpression::ParseScientificNoteNotation($value, $output))
+		if (RegularExpression::parseScientificNoteNotation($value, $output))
 		{
 			$this->setLetter($output['letter']);
 			$this->setAccidental($output['accidental']);
@@ -188,8 +189,8 @@ class Note
 	 */
 	public function getFrequency(): float
 	{
-		// The tuning system class, expressed as a string.
-		$tuningSystem = 'Theorem\TuningSystem\\' . Setting::getTuningSystem();
+		// The tuning system class.
+		$tuningSystem = Setting::getTuningSystem();
 
 		return round($tuningSystem::calcFrequency($this), Setting::getFrequencyPrecision());
 	}
@@ -206,9 +207,11 @@ class Note
 	 */
 	public function getSpn(): string
 	{
-		return $this->getLetter()
-			   . $this->getAccidental()->toString(Setting::OUTPUT_STANDARD, Setting::RENDER_NOSYMBOL)
-			   . $this->getOctave();
+		// The renderer class.
+		$renderer = Setting::getRenderer();
+		$renderer = new $renderer();
+
+		return $renderer->renderSpn($this);
 	}
 
 	/**
@@ -261,8 +264,8 @@ class Note
 		$this->octave = $octave;
 	}
 
-	public function toString($outputMode = NULL, $renderMode = NULL): string
+	public function toString(RendererInterface $renderer = NULL): string
 	{
-		return $this->letter . $this->accidental->toString($outputMode, $renderMode);
+		return $renderer->renderNote($this);
 	}
 }

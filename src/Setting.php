@@ -2,9 +2,12 @@
 
 namespace Theorem;
 
+use Theorem\Renderer\Ascii;
+use Theorem\TuningSystem\EqualTemperament;
+
 /**
  * Static class. Contains various global configuration options (static). Also contains a few inheritable configuration
- * options ({@see setOutputMode()} and {@see setRenderMode()}).
+ * options ({@see setOutputMode()} and {@see setRenderer()}).
  */
 final class Setting
 {
@@ -25,52 +28,6 @@ final class Setting
 	 * given tuning system.
 	 */
 	public const QUARTER_TONE = 24;
-
-	/**
-	 * Constant representing full-text output of a note, chord, interval, et cetera. Output is fully expanded.
-	 *
-	 * **Examples:**
-	 * - A-flat major
-	 * - C half-diminished seventh with an added ninth
-	 * - E-flat diminished fifth
-	 * - G half-sharp minor
-	 */
-	public const OUTPUT_FULLTEXT = 'OUTPUT_FULLTEXT';
-
-	/**
-	 * Constant representing standard output of a note, chord, interval, et cetera. Output is compressed, but varies
-	 * based on the render mode.
-	 *
-	 * **Examples:**
-	 * - Ab
-	 * - Cø7add9
-	 * - Eb d5
-	 * - Gv#m
-	 */
-	public const OUTPUT_STANDARD = 'OUTPUT_STANDARD';
-
-	/** Constant representing the HTML rendering mode. Uses HTML to nicely format output. */
-	public const RENDER_HTML = 'RENDER_HTML';
-
-	/** Constant representing the plaintext rendering mode. Output will consist of only numbers, letters, and spaces. */
-	public const RENDER_NOSYMBOL = 'RENDER_NOSYMBOL';
-
-	/**
-	 * Constant representing the SMuFL (Standard Music Font Layout) rendering mode. Symbols will be encoded according
-	 * to the SMuFL font specification. Uses HTML to nicely format output.
-	 *
-	 * **NOTE #1:** You must use a <a href="https://github.com/steinbergmedia/bravura" target="SMuFL">SMuFL-compliant
-	 * font</a> to render symbols correctly.
-	 *
-	 * **NOTE #2:** For easy CSS styling, output is wrapped in `&lt;span class="SMuFL"&gt;&lt;/span&gt;` tags.
-	 */
-	public const RENDER_SMUFL = 'RENDER_SMUFL';
-
-	/**
-	 * Constant representing the Unicode rendering mode. Output will consist of plaintext characters, but will use
-	 * Unicode symbols wherever possible.
-	 */
-	public const RENDER_UNICODE = 'RENDER_UNICODE';
 
 	/**
 	 * Setting representing the number of decimal places that frequencies should be rounded to.
@@ -95,24 +52,14 @@ final class Setting
 	private static string $KEY = 'C major';
 
 	/**
-	 * Setting representing the output mode. Can be set on a per-object basis, or globally with
-	 * `Setting::setOutputMode()`.
+	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
+	 * `Setting::setRenderer()`.
 	 *
-	 * @see getOutputMode()
-	 * @see setOutputMode()
+	 * @see getRenderer()
+	 * @see setRenderer()
 	 * @var string
 	 */
-	private static string $OUTPUT_MODE = self::OUTPUT_STANDARD;
-
-	/**
-	 * Setting representing the rendering mode. Can be set on a per-object basis, or globally with
-	 * `Setting::setRenderMode()`.
-	 *
-	 * @see getRenderMode()
-	 * @see setRenderMode()
-	 * @var string
-	 */
-	private static string $RENDER_MODE = self::RENDER_UNICODE;
+	private static string $RENDERER = Ascii::class;
 
 	/**
 	 * Global setting property representing the number of steps in an octave. Useful when working in microtonal
@@ -155,7 +102,7 @@ final class Setting
 	 * @see setTuningSystem()
 	 * @var string
 	 */
-	private static string $TUNING_SYSTEM = 'EqualTemperament';
+	private static string $TUNING_SYSTEM = EqualTemperament::class;
 
 	/**
 	 * Gets the number of decimal places frequencies should be rounded to.
@@ -195,47 +142,25 @@ final class Setting
 	}
 
 	/**
-	 * Gets the output mode.
+	 * Gets the renderer.
 	 *
 	 * @return string
 	 */
-	final public static function getOutputMode(): string
+	final public static function getRenderer(): string
 	{
-		return self::$OUTPUT_MODE;
+		return self::$RENDERER;
 	}
 
 	/**
-	 * Sets the output mode. Can be set on a per-object basis, or globally with `Setting::setOutputMode()` unless
-	 * overridden.
+	 * Sets the rendering ssytem. Can be set on a per-object basis, or globally with`Setting::setRenderer()`
+	 * unless overridden.
 	 *
-	 * @param string $outputMode
+	 * @param string $renderer
 	 * @return void
 	 */
-	final public static function setOutputMode(string $outputMode): void
+	final public static function setRenderer(string $renderer): void
 	{
-		self::$OUTPUT_MODE = $outputMode;
-	}
-
-	/**
-	 * Gets the rendering mode.
-	 *
-	 * @return string
-	 */
-	final public static function getRenderMode(): string
-	{
-		return self::$RENDER_MODE;
-	}
-
-	/**
-	 * Sets the rendering mode. Can be set on a per-object basis, or globally with`Setting::setRenderMode()` unless
-	 * overridden.
-	 *
-	 * @param string $renderMode
-	 * @return void
-	 */
-	final public static function setRenderMode(string $renderMode): void
-	{
-		self::$RENDER_MODE = $renderMode;
+		self::$RENDERER = $renderer;
 	}
 
 	/**

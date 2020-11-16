@@ -2,6 +2,8 @@
 
 namespace Theorem;
 
+use Theorem\Renderer\RendererInterface;
+
 /**
  * Provides functionality for allowing entities (such as {@see Note} and {@see Chord}) to be rendered (i.e. printed to
  * a string).
@@ -12,24 +14,14 @@ namespace Theorem;
 trait RenderableTrait
 {
 	/**
-	 * Setting representing the output mode. Can be set on a per-object basis, or globally with
-	 * `Setting::setOutputMode()`.
+	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
+	 * `Setting::setRenderer()`.
 	 *
-	 * @see getOutputMode()
-	 * @see setOutputMode()
+	 * @see getRenderer()
+	 * @see setRenderer()
 	 * @var string
 	 */
-	private static string $OUTPUT_MODE;
-
-	/**
-	 * Setting representing the rendering mode. Can be set on a per-object basis, or globally with
-	 * `Setting::setRenderMode()`.
-	 *
-	 * @see getRenderMode()
-	 * @see setRenderMode()
-	 * @var string
-	 */
-	private static string $RENDER_MODE;
+	private static string $RENDERER;
 
 	/**
 	 * Calls `toString()` using its default parameters.
@@ -39,51 +31,32 @@ trait RenderableTrait
 	 */
 	final public function __toString(): string
 	{
-		return $this->toString($this->getOutputMode(), $this->getRenderMode());
+		return $this->toString($this->getRenderer());
 	}
 
 	/**
-	 * Gets the output mode. If it has not been set, it defaults to the global output mode setting.
+	 * Gets the renderer. If it has not been set, it defaults to the global renderer setting.
 	 *
 	 * @return string
 	 */
-	final public function getOutputMode(): string
+	final public function getRenderer(): RendererInterface
 	{
-		return self::$OUTPUT_MODE ?? Setting::getOutputMode();
+		$renderer = self::$RENDERER ?? Setting::getRenderer();
+		$renderer = new $renderer();
+
+		return $renderer;
 	}
 
 	/**
-	 * Sets the output mode. Can be set on a per-object basis, or globally with `Setting::setOutputMode()` unless
+	 * Sets the renderer. Can be set on a per-object basis, or globally with`Setting::setRenderer()` unless
 	 * overridden.
 	 *
-	 * @param string $outputMode
+	 * @param string $renderer
 	 * @return void
 	 */
-	final public function setOutputMode(string $outputMode): void
+	final public function setRenderer(string $renderer): void
 	{
-		self::$OUTPUT_MODE = $outputMode;
-	}
-
-	/**
-	 * Gets the rendering mode. If it has not been set, it defaults to the global rendering mode setting.
-	 *
-	 * @return string
-	 */
-	final public function getRenderMode(): string
-	{
-		return self::$RENDER_MODE ?? Setting::getRenderMode();
-	}
-
-	/**
-	 * Sets the rendering mode. Can be set on a per-object basis, or globally with`Setting::setRenderMode()` unless
-	 * overridden.
-	 *
-	 * @param string $renderMode
-	 * @return void
-	 */
-	final public function setRenderMode(string $renderMode): void
-	{
-		self::$RENDER_MODE = $renderMode;
+		self::$RENDERER = $renderer;
 	}
 
 	/**
@@ -92,11 +65,10 @@ trait RenderableTrait
 	 * **NOTE**: `RenderableTrait` does not provide a default implementation of this method. Any classes using
 	 * `RenderableTrait` *must* write their own implementation.
 	 *
-	 * @param string|null $outputMode The output mode used by the implementing entity.
-	 * @param string|null $renderMode The render mode used by the implementing entity.
+	 * @param string|null $renderer The render mode used by the implementing entity.
 	 * @return string
-	 * @see getRenderMode()
+	 * @see getRenderer()
 	 * @see getOutputMode()
 	 */
-	abstract public function toString($outputMode = NULL, $renderMode = NULL): string;
+	abstract public function toString($renderer = NULL): string;
 }
