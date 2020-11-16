@@ -3,6 +3,7 @@
 namespace Theorem\Accidental;
 
 use Theorem\RenderableTrait;
+use Theorem\Renderer\RendererInterface;
 
 /**
  * Abstract class inherited by all accidentals. Contains constants representing each accidental's relative pitch offset
@@ -12,9 +13,7 @@ abstract class AbstractAccidental
 {
 	use RenderableTrait;
 
-	/**
-	 * Triple-flat accidental. Lowers a letter note by three semitones.
-	 */
+	/** Triple-flat accidental. Lowers a letter note by three semitones. */
 	public const TRIPLE_FLAT = -1.5;
 
 	/** Five-quarter-tones-flat accidental. Lowers a letter note by five quarter tones. */
@@ -54,11 +53,35 @@ abstract class AbstractAccidental
 	public const TRIPLE_SHARP = 1.5;
 
 	/**
+	 * Constant representing "downward" quarter tone accidentals. Useful for nuanced renderers (e.g. Gould-style).
+	 */
+	public const QUARTER_TONE_DIRECTION_DOWN = -1;
+
+	/**
+	 * Constant representing "neutral" quarter tone accidentals. Accidentals that have not been directionally
+	 * transposed are neutral.
+	 */
+	public const QUARTER_TONE_DIRECTION_NEUTRAL = 0;
+
+	/**
+	 * Constant representing "upward" quarter tone accidentals. Useful for nuanced renderers (e.g. Gould-style).
+	 */
+	public const QUARTER_TONE_DIRECTION_UP = 1;
+
+	/**
 	 * The accidental's offset value. Values are signed, relative, and scaled to whole tones.
 	 *
 	 * @var float $offset
 	 */
 	private float $offset;
+
+	/**
+	 * Indicates whether the accidentals should favor "up" or "down". Mostly useful for rendering Gould quarter tone
+	 * sub-accidentals (e.g. for cases where we should favor vx instead of ^#), though there may be other uses.
+	 *
+	 * @var int $quarterToneDirection
+	 */
+	protected int $quarterToneDirection = self::QUARTER_TONE_DIRECTION_NEUTRAL;
 
 	/**
 	 * Gets the accidental's offset.
@@ -68,6 +91,16 @@ abstract class AbstractAccidental
 	public function getOffset(): float
 	{
 		return $this->offset;
+	}
+
+	/**
+	 * @param RendererInterface $renderer
+	 * @return string
+	 * @TODO
+	 */
+	public function toString(RendererInterface $renderer): string
+	{
+		return $renderer->renderAccidental($this);
 	}
 
 	/**
@@ -81,12 +114,21 @@ abstract class AbstractAccidental
 	}
 
 	/**
-	 * @param null $outputMode
-	 * @param null $renderMode
-	 * @return string
-	 * @TODO
+	 * @return int
 	 */
-	public function toString($outputMode = NULL, $renderMode = NULL): string
+	public function getQuarterToneDirection(): int
 	{
+		return $this->quarterToneDirection;
+	}
+
+	/**
+	 * Sets the accidental's quarter tone direction.
+	 *
+	 * @param int $quarterToneDirection
+	 * @see
+	 */
+	public function setQuarterToneDirection(int $quarterToneDirection): void
+	{
+		$this->quarterToneDirection = $quarterToneDirection;
 	}
 }
