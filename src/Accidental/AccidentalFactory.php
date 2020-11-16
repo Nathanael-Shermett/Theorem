@@ -3,11 +3,17 @@
 namespace Theorem\Accidental;
 
 /**
- * Static class. Creates an accidental based on the offset. Really just used to keep accidental objects tidy after
- * transpositions and to prevent all accidentals from being {@see Special} types.
+ * Static class. Really just used to keep accidental objects tidy after transpositions and to prevent all accidentals
+ * from being {@see Special} types.
  */
 class AccidentalFactory
 {
+	/**
+	 * Creates an accidental based on the specified offset.
+	 *
+	 * @param float $offset
+	 * @return AbstractAccidental
+	 */
 	public static function create(float $offset)
 	{
 		switch ($offset)
