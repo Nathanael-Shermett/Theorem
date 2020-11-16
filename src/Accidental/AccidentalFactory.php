@@ -140,6 +140,9 @@ class AccidentalFactory
 		$characters = str_split($string);
 		$characters = str_replace(array_keys($offsets), array_values($offsets), $characters);
 
+		// Sum the result and set the offset accordingly.
+		$this->setOffset(array_sum($characters));
+
 		return $this;
 	}
 
