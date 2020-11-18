@@ -443,7 +443,7 @@ Search.appendIndex(
 	}, {
 		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait",
 		"name" : "RenderableTrait",
-		"summary" : "Provides\u0020functionality\u0020for\u0020allowing\u0020entities\u0020\u0028such\u0020as\u0020\u007B\u0040see\u0020Note\u007D\u0020and\u0020\u007B\u0040see\u0020Chord\u007D\u0029\u0020to\u0020be\u0020rendered\u0020\u0028i.e.\u0020printed\u0020to\na\u0020string\u0029.",
+		"summary" : "Provides\u0020functionality\u0020for\u0020allowing\u0020entities\u0020to\u0020be\u0020rendered\u0020\u0028i.e.\u0020printed\u0020to\u0020a\u0020string\u0029.",
 		"url" : "classes/Theorem-Renderer-RenderableTrait.html",
 	}, {
 		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait\u003A\u003A__toString\u0028\u0029",
@@ -493,7 +493,7 @@ Search.appendIndex(
 	}, {
 		"fqsen" : "\\Theorem\\Setting",
 		"name" : "Setting",
-		"summary" : "Static\u0020class.\u0020Contains\u0020various\u0020global\u0020configuration\u0020options\u0020\u0028static\u0029.\u0020Also\u0020contains\u0020a\u0020few\u0020inheritable\u0020configuration\noptions\u0020\u0028\u007B\u0040see\u0020setOutputMode\u0028\u0029\u007D\u0020and\u0020\u007B\u0040see\u0020setRenderer\u0028\u0029\u007D\u0029.",
+		"summary" : "Static\u0020class.\u0020Contains\u0020various\u0020global\u0020configuration\u0020options\u0020\u0028static\u0029\u0020and\u0020their\u0020corresponding\u0020getters\u0020and\u0020setters.",
 		"url" : "classes/Theorem-Setting.html",
 	}, {
 		"fqsen" : "\\Theorem\\Setting\u003A\u003AgetFrequencyPrecision\u0028\u0029",
