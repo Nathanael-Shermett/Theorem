@@ -61,6 +61,8 @@
 				<ul class="phpdocumentor-list">
 					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
 					</li>
+					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+					</li>
 					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
 						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
 				</ul>
@@ -83,6 +85,7 @@
 		<div class="phpdocumentor-column -eight phpdocumentor-content">
 			<ul class="phpdocumentor-breadcrumbs">
 				<li class="phpdocumentor-breadcrumb"><a href="namespaces/theorem.html">Theorem</a></li>
+				<li class="phpdocumentor-breadcrumb"><a href="namespaces/theorem-renderer.html">Renderer</a></li>
 			</ul>
 
 			<article class="phpdocumentor-element -trait">
@@ -91,9 +94,8 @@
 				</h2>
 
 				<aside class="phpdocumentor-element-found-in">
-					<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-						href="files/src-renderabletrait.html"><abbr
-						title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+					<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+						href="files/src-renderer-renderabletrait.html"><abbr title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 					:
 					<span class="phpdocumentor-element-found-in__line">12</span>
 				</aside>
@@ -103,8 +105,8 @@
 					a string).</p>
 
 				<section class="phpdocumentor-description"><p><strong>NOTE:</strong> <code class="prettyprint">RenderableTrait</code>
-					does not provide a default implementation of <abbr title="\Theorem\toString()">toString()</abbr>.
-					Any classes using
+					does not provide a default implementation of <abbr
+						title="\Theorem\Renderer\toString()">toString()</abbr>. Any classes using
 					<code class="prettyprint">RenderableTrait</code> <em>must</em> write their own implementation.</p>
 				</section>
 
@@ -116,69 +118,42 @@
 
 				<dl class="phpdocumentor-table-of-contents">
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE">$OUTPUT_MODE</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#property_RENDERER">$RENDERER</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
-					<dd>Setting representing the output mode. Can be set on a per-object basis, or globally with
-						`Setting::setOutputMode()`.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-RenderableTrait.html#property_RENDER_MODE">$RENDER_MODE</a>
-						<span>
-							&nbsp;: string </span>
-					</dt>
-					<dd>Setting representing the rendering mode. Can be set on a per-object basis, or globally with
-						`Setting::setRenderMode()`.
+					<dd>Setting representing the renderer. Can be set on a per-object basis, or globally with
+						`Setting::setRenderer()`.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method___toString">__toString()</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#method___toString">__toString()</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
 					<dd>Calls `toString()` using its default parameters.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_getOutputMode">getOutputMode()</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#method_getRenderer">getRenderer()</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;: <a href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+							title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a> </span>
 					</dt>
-					<dd>Gets the output mode. If it has not been set, it defaults to the global output mode setting.
-					</dd>
+					<dd>Gets the renderer. If it has not been set, it defaults to the global renderer setting.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_getRenderMode">getRenderMode()</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#method_setRenderer">setRenderer()</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;: <a href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+							title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a> </span>
 					</dt>
-					<dd>Gets the rendering mode. If it has not been set, it defaults to the global rendering mode
-						setting.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_setOutputMode">setOutputMode()</a>
-						<span>
-							&nbsp;: void </span>
-					</dt>
-					<dd>Sets the output mode. Can be set on a per-object basis, or globally with
-						`Setting::setOutputMode()` unless
+					<dd>Sets the renderer. Can be set on a per-object basis, or globally with`Setting::setRenderer()`
+						unless
 						overridden.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_setRenderMode">setRenderMode()</a>
-						<span>
-							&nbsp;: void </span>
-					</dt>
-					<dd>Sets the rendering mode. Can be set on a per-object basis, or globally
-						with`Setting::setRenderMode()` unless
-						overridden.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_toString">toString()</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#method_toString">toString()</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
@@ -190,7 +165,7 @@
 				<section class="phpdocumentor-properties">
 					<h3 class="phpdocumentor-elements__header" id="properties">
 						Properties
-						<a href="classes/Theorem-RenderableTrait.html#properties" class="headerlink"><i
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#properties" class="headerlink"><i
 							class="fas fa-link"></i></a>
 					</h3>
 					<article
@@ -200,29 +175,30 @@
             -private
             -static                                            "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_OUTPUT_MODE">
-							$OUTPUT_MODE
-							<a href="classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_RENDERER">
+							$RENDERER
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#property_RENDERER"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
 							<span class="phpdocumentor-element-found-in__line">22</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Setting representing the output mode. Can be set on a
-							per-object basis, or globally with
-							`Setting::setOutputMode()`.</p>
+						<p class="phpdocumentor-summary">Setting representing the renderer. Can be set on a per-object
+							basis, or globally with
+							`Setting::setRenderer()`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
 							<span class="phpdocumentor-signature__static">static</span> <span
 							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$OUTPUT_MODE</span>
+							<span class="phpdocumentor-signature__name">$RENDERER</span>
 						</code>
 
 						<section class="phpdocumentor-description"></section>
@@ -237,7 +213,7 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getOutputMode()">getOutputMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\getRenderer()">getRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -246,68 +222,7 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setOutputMode()">setOutputMode()</abbr></span>
-
-								<section class="phpdocumentor-description"></section>
-
-							</dd>
-						</dl>
-
-					</article>
-					<article
-						class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
-					>
-						<h4 class="phpdocumentor-element__name" id="property_RENDER_MODE">
-							$RENDER_MODE
-							<a href="classes/Theorem-RenderableTrait.html#property_RENDER_MODE" class="headerlink"><i
-								class="fas fa-link"></i></a>
-							<span class="phpdocumentor-element__modifiers">
-							</span>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">32</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Setting representing the rendering mode. Can be set on a
-							per-object basis, or globally with
-							`Setting::setRenderMode()`.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$RENDER_MODE</span>
-						</code>
-
-						<section class="phpdocumentor-description"></section>
-
-
-						<h5 class="phpdocumentor-tag-list__heading" id="tags">
-							Tags
-							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-						</h5>
-						<dl class="phpdocumentor-tag-list">
-							<dt class="phpdocumentor-tag-list__entry">
-								<span class="phpdocumentor-tag__name">see</span>
-							</dt>
-							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getRenderMode()">getRenderMode()</abbr></span>
-
-								<section class="phpdocumentor-description"></section>
-
-							</dd>
-							<dt class="phpdocumentor-tag-list__entry">
-								<span class="phpdocumentor-tag__name">see</span>
-							</dt>
-							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setRenderMode()">setRenderMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\setRenderer()">setRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -320,7 +235,7 @@
 				<section class="phpdocumentor-methods">
 					<h3 class="phpdocumentor-elements__header" id="methods">
 						Methods
-						<a href="classes/Theorem-RenderableTrait.html#methods" class="headerlink"><i
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#methods" class="headerlink"><i
 							class="fas fa-link"></i></a>
 					</h3>
 					<article
@@ -331,14 +246,15 @@
 					>
 						<h4 class="phpdocumentor-element__name" id="method___toString">
 							__toString()
-							<a href="classes/Theorem-RenderableTrait.html#method___toString" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#method___toString"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">40</span>
+							<span class="phpdocumentor-element-found-in__line">30</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Calls `toString()` using its default parameters.</p>
@@ -361,7 +277,7 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\toString()">toString()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\toString()">toString()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -381,32 +297,73 @@
             -public
                                                 -final        "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_getOutputMode">
-							getOutputMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_getOutputMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="method_getRenderer">
+							getRenderer()
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#method_getRenderer"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">50</span>
+							<span class="phpdocumentor-element-found-in__line">43</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Gets the output mode. If it has not been set, it defaults to
-							the global output mode setting.</p>
+						<p class="phpdocumentor-summary">Gets the renderer. If it has not been set, it defaults to the
+							global renderer setting.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">getOutputMode</span><span>(</span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
+							class="phpdocumentor-signature__name">getRenderer</span><span>(</span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+							title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span></code>
 
 						<section class="phpdocumentor-description"></section>
 
 
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\setRenderer()">setRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::getRenderer()">Setting::getRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::setRenderer()">Setting::setRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
+
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
+						<span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+							title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
 						&mdash;
 						<section class="phpdocumentor-description"></section>
 
@@ -418,74 +375,40 @@
             -public
                                                 -final        "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_getRenderMode">
-							getRenderMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_getRenderMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="method_setRenderer">
+							setRenderer()
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#method_setRenderer"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">72</span>
+							<span class="phpdocumentor-element-found-in__line">61</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Gets the rendering mode. If it has not been set, it defaults to
-							the global rendering mode setting.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">getRenderMode</span><span>(</span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-						<section class="phpdocumentor-description"></section>
-
-
-						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
-						&mdash;
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article
-						class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
-					>
-						<h4 class="phpdocumentor-element__name" id="method_setOutputMode">
-							setOutputMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_setOutputMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">62</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Sets the output mode. Can be set on a per-object basis, or
-							globally with `Setting::setOutputMode()` unless
+						<p class="phpdocumentor-summary">Sets the renderer. Can be set on a per-object basis, or
+							globally with`Setting::setRenderer()` unless
 							overridden.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">setOutputMode</span><span>(</span><span
+							class="phpdocumentor-signature__name">setRenderer</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$outputMode</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
+							class="phpdocumentor-signature__argument__name">$renderer</span></span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+							title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></span></code>
 
 						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
+								<span class="phpdocumentor-signature__argument__name">$renderer</span>
 								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
@@ -495,61 +418,46 @@
 						</dl>
 
 
-						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
-						&mdash;
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article
-						class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
-					>
-						<h4 class="phpdocumentor-element__name" id="method_setRenderMode">
-							setRenderMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_setRenderMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">84</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Sets the rendering mode. Can be set on a per-object basis, or
-							globally with`Setting::setRenderMode()` unless
-							overridden.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">setRenderMode</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$renderMode</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-						<section class="phpdocumentor-description"></section>
-
-						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-						<dl class="phpdocumentor-argument-list">
-							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
-								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
-							<dd class="phpdocumentor-argument-list__definition">
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\getRenderer()">getRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::getRenderer()">Setting::getRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::setRenderer()">Setting::setRenderer()</abbr></span>
+
 								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
 
-
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
+						<span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+							title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></span>
 						&mdash;
 						<section class="phpdocumentor-description"></section>
 
@@ -563,14 +471,15 @@
 					>
 						<h4 class="phpdocumentor-element__name" id="method_toString">
 							toString()
-							<a href="classes/Theorem-RenderableTrait.html#method_toString" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#method_toString"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">101</span>
+							<span class="phpdocumentor-element-found-in__line">81</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Converts the entity to a string.</p>
@@ -581,11 +490,7 @@
 							class="phpdocumentor-signature__name">toString</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span>[</span><span
 							class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$outputMode</span><span> = </span><span
-							class="phpdocumentor-signature__argument__default-value">NULL</span><span>
-							]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span
-							class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$renderMode</span><span> = </span><span
+							class="phpdocumentor-signature__argument__name">$renderer</span><span> = </span><span
 							class="phpdocumentor-signature__argument__default-value">NULL</span><span>
 							]</span></span><span>)</span><span> : </span><span
 							class="phpdocumentor-signature__response_type">string</span></code>
@@ -599,17 +504,7 @@
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
-								: <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
-							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"><p>The output mode used by the implementing
-									entity.</p>
-								</section>
-
-							</dd>
-							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
+								<span class="phpdocumentor-signature__argument__name">$renderer</span>
 								: <span class="phpdocumentor-signature__argument__return-type">string|null</span>
 								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
 							<dd class="phpdocumentor-argument-list__definition">
@@ -630,7 +525,7 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getRenderMode()">getRenderMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\getRenderer()">getRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -639,7 +534,27 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getOutputMode()">getOutputMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\setRenderer()">setRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::getRenderer()">Setting::getRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::setRenderer()">Setting::setRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -669,7 +584,7 @@
 			</section>
 		</div>
 	</div>
-	<a href="classes/Theorem-RenderableTrait.html#top" class="phpdocumentor-back-to-top"><i
+	<a href="classes/Theorem-Renderer-RenderableTrait.html#top" class="phpdocumentor-back-to-top"><i
 		class="fas fa-chevron-circle-up"></i></a>
 
 </main>

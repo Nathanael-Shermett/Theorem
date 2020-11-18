@@ -61,6 +61,8 @@
 				<ul class="phpdocumentor-list">
 					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
 					</li>
+					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+					</li>
 					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
 						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
 				</ul>
@@ -94,18 +96,30 @@
 					<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 						href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 					:
-					<span class="phpdocumentor-element-found-in__line">11</span>
+					<span class="phpdocumentor-element-found-in__line">10</span>
 				</aside>
 
-				<p class="phpdocumentor-summary">Provides functionality for allowing {@see Note} entities to be
-					transposed.</p>
+				<p class="phpdocumentor-summary">Provides functionality for allowing entities to be transposed.</p>
 
-				<section class="phpdocumentor-description"><p><strong>NOTE:</strong> <code class="prettyprint">TransposableTrait</code>
-					only provides functionality for transposing individual notes. If you need to transpose
-					<em>collections</em> of notes (such as <abbr title="\Theorem\Chord">Chord</abbr> and <abbr
-						title="\Theorem\Sequence">Sequence</abbr>), use <abbr
-						title="\Theorem\TransposableColletionTrait">TransposableColletionTrait</abbr>.</p>
-				</section>
+				<section class="phpdocumentor-description"></section>
+
+
+				<h5 class="phpdocumentor-tag-list__heading" id="tags">
+					Tags
+					<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+				</h5>
+				<dl class="phpdocumentor-tag-list">
+					<dt class="phpdocumentor-tag-list__entry">
+						<span class="phpdocumentor-tag__name">see</span>
+					</dt>
+					<dd class="phpdocumentor-tag-list__definition">
+						<span class="phpdocumentor-tag-link"><a href="classes/Theorem-Note.html"><abbr
+							title="\Theorem\Note">Note</abbr></a></span>
+
+						<section class="phpdocumentor-description"></section>
+
+					</dd>
+				</dl>
 
 
 				<h3 id="toc">
@@ -119,35 +133,35 @@
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note one step down, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note one step down, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-TransposableTrait.html#method_stepUp">stepUp()</a>
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note one step up, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note one step up, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-TransposableTrait.html#method_transpose">transpose()</a>
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note `$amount` steps in the specified direction, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note `$amount` steps in the specified direction, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-TransposableTrait.html#method_transposeDown">transposeDown()</a>
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note `$amount` steps down, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note `$amount` steps down, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-TransposableTrait.html#method_transposeUp">transposeUp()</a>
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note `$amount` steps up, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note `$amount` steps up, given `Setting::$STEP`.</dd>
 
 				</dl>
 
@@ -173,11 +187,10 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">18</span>
+							<span class="phpdocumentor-element-found-in__line">19</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note one step down, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note one step down, given `Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -187,6 +200,35 @@
 
 						<section class="phpdocumentor-description"></section>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
@@ -210,11 +252,10 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">28</span>
+							<span class="phpdocumentor-element-found-in__line">31</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note one step up, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note one step up, given `Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -224,6 +265,35 @@
 
 						<section class="phpdocumentor-description"></section>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
@@ -236,7 +306,7 @@
 						class="phpdocumentor-element
             -method
             -public
-                                                -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_transpose">
 							transpose()
@@ -247,16 +317,15 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">40</span>
+							<span class="phpdocumentor-element-found-in__line">45</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Transposes the note `$amount` steps in the specified direction,
-							given {@see Setting::STEP}.</p>
+							given `Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">transpose</span><span>(</span><span
+							<span class="phpdocumentor-signature__name">transpose</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
 							class="phpdocumentor-signature__argument__name">$amount</span></span><span
@@ -293,6 +362,35 @@
 						</dl>
 
 
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
+
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
 						&mdash;
@@ -315,11 +413,11 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">51</span>
+							<span class="phpdocumentor-element-found-in__line">58</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note `$amount` steps down, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note `$amount` steps down, given
+							`Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -347,6 +445,35 @@
 						</dl>
 
 
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
+
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
 						&mdash;
@@ -369,11 +496,11 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">62</span>
+							<span class="phpdocumentor-element-found-in__line">71</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note `$amount` steps up, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note `$amount` steps up, given
+							`Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -400,6 +527,35 @@
 							</dd>
 						</dl>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>

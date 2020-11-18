@@ -61,6 +61,8 @@
 				<ul class="phpdocumentor-list">
 					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
 					</li>
+					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+					</li>
 					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
 						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
 				</ul>
@@ -98,10 +100,10 @@
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
 						title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
 					</dd>
 
 				</dl>

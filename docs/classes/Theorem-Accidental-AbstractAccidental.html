@@ -61,6 +61,8 @@
                 <ul class="phpdocumentor-list">
                     <li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
                     </li>
+                    <li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+                    </li>
                     <li><a href="namespaces/theorem-tuningsystem.html"><abbr
                         title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
                 </ul>
@@ -93,8 +95,8 @@
 
                     <span class="phpdocumentor-element__extends">
                         Uses
-                        <a href="classes/Theorem-RenderableTrait.html"><abbr title="\Theorem\RenderableTrait">RenderableTrait</abbr></a>
-                    </span>
+                        <a href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+                            title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a> </span>
                 </h2>
 
                 <aside class="phpdocumentor-element-found-in">
@@ -102,13 +104,13 @@
                         href="files/src-accidental-abstractaccidental.html"><abbr
                         title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                     :
-                    <span class="phpdocumentor-element-found-in__line">11</span>
+                    <span class="phpdocumentor-element-found-in__line">12</span>
                 </aside>
 
-                <p class="phpdocumentor-summary">Static class. Serves primarily as an enumerator for accidentals.
-                    Contains various public constants with values
-                    representing the effect the accidental has on a letter note. Values are signed, relative, and scaled
-                    to whole tones.</p>
+                <p class="phpdocumentor-summary">Abstract class inherited by all accidentals. Contains constants
+                    representing each accidental&#039;s relative pitch offset
+                    (minimum unit: quarter tones). Also includes a few universal methods, including {@see
+                    toString()}.</p>
 
                 <section class="phpdocumentor-description"></section>
 
@@ -176,6 +178,34 @@
                     <dd>Natural accidental.</dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+                        <a href="classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_DOWN">QUARTER_TONE_DIRECTION_DOWN</a>
+                        <span>
+                            &nbsp;= -1 </span>
+                    </dt>
+                    <dd>Constant representing &quot;downward&quot; quarter tone accidentals. Useful for nuanced
+                        renderers (e.g. Gould-style).
+                    </dd>
+
+                    <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+                        <a href="classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_NEUTRAL">QUARTER_TONE_DIRECTION_NEUTRAL</a>
+                        <span>
+                            &nbsp;= 0 </span>
+                    </dt>
+                    <dd>Constant representing &quot;neutral&quot; quarter tone accidentals. Accidentals that have not
+                        been directionally
+                        transposed are neutral.
+                    </dd>
+
+                    <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+                        <a href="classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_UP">QUARTER_TONE_DIRECTION_UP</a>
+                        <span>
+                            &nbsp;= 1 </span>
+                    </dt>
+                    <dd>Constant representing &quot;upward&quot; quarter tone accidentals. Useful for nuanced renderers
+                        (e.g. Gould-style).
+                    </dd>
+
+                    <dt class="phpdocumentor-table-of-contents__entry -constant -public">
                         <a href="classes/Theorem-Accidental-AbstractAccidental.html#constant_SHARP">SHARP</a>
                         <span>
                             &nbsp;= 0.5 </span>
@@ -210,6 +240,17 @@
                     </dt>
                     <dd>Triple-sharp accidental. Raises a letter note by three semitones.</dd>
 
+                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+                        <a href="classes/Theorem-Accidental-AbstractAccidental.html#property_quarterToneDirection">$quarterToneDirection</a>
+                        <span>
+                            &nbsp;: int </span>
+                    </dt>
+                    <dd>Indicates whether the accidentals should favor &quot;up&quot; or &quot;down&quot;. Mostly useful
+                        for rendering Gould quarter tone
+                        sub-accidentals (e.g. for cases where we should favor vx instead of ^#), though there may be
+                        other uses.
+                    </dd>
+
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
                         <a href="classes/Theorem-Accidental-AbstractAccidental.html#property_offset">$offset</a>
                         <span>
@@ -218,25 +259,16 @@
                     <dd>The accidental&#039;s offset value. Values are signed, relative, and scaled to whole tones.</dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
-                        <a href="classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE">$OUTPUT_MODE</a>
+                        <a href="classes/Theorem-Renderer-RenderableTrait.html#property_RENDERER">$RENDERER</a>
                         <span>
                             &nbsp;: string </span>
                     </dt>
-                    <dd>Setting representing the output mode. Can be set on a per-object basis, or globally with
-                        `Setting::setOutputMode()`.
-                    </dd>
-
-                    <dt class="phpdocumentor-table-of-contents__entry -property -private">
-                        <a href="classes/Theorem-RenderableTrait.html#property_RENDER_MODE">$RENDER_MODE</a>
-                        <span>
-                            &nbsp;: string </span>
-                    </dt>
-                    <dd>Setting representing the rendering mode. Can be set on a per-object basis, or globally with
-                        `Setting::setRenderMode()`.
+                    <dd>Setting representing the renderer. Can be set on a per-object basis, or globally with
+                        `Setting::setRenderer()`.
                     </dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
-                        <a href="classes/Theorem-RenderableTrait.html#method___toString">__toString()</a>
+                        <a href="classes/Theorem-Renderer-RenderableTrait.html#method___toString">__toString()</a>
                         <span>
                             &nbsp;: string </span>
                     </dt>
@@ -250,39 +282,36 @@
                     <dd>Gets the accidental&#039;s offset.</dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
-                        <a href="classes/Theorem-RenderableTrait.html#method_getOutputMode">getOutputMode()</a>
+                        <a href="classes/Theorem-Accidental-AbstractAccidental.html#method_getQuarterToneDirection">getQuarterToneDirection()</a>
                         <span>
-                            &nbsp;: string </span>
+                            &nbsp;: int </span>
                     </dt>
-                    <dd>Gets the output mode. If it has not been set, it defaults to the global output mode setting.
-                    </dd>
+                    <dd></dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
-                        <a href="classes/Theorem-RenderableTrait.html#method_getRenderMode">getRenderMode()</a>
+                        <a href="classes/Theorem-Renderer-RenderableTrait.html#method_getRenderer">getRenderer()</a>
                         <span>
-                            &nbsp;: string </span>
+                            &nbsp;: <a href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+                            title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a> </span>
                     </dt>
-                    <dd>Gets the rendering mode. If it has not been set, it defaults to the global rendering mode
-                        setting.
-                    </dd>
+                    <dd>Gets the renderer. If it has not been set, it defaults to the global renderer setting.</dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
-                        <a href="classes/Theorem-RenderableTrait.html#method_setOutputMode">setOutputMode()</a>
+                        <a href="classes/Theorem-Accidental-AbstractAccidental.html#method_setQuarterToneDirection">setQuarterToneDirection()</a>
                         <span>
-                            &nbsp;: void </span>
+                            &nbsp;: <a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+                            title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a> </span>
                     </dt>
-                    <dd>Sets the output mode. Can be set on a per-object basis, or globally with
-                        `Setting::setOutputMode()` unless
-                        overridden.
-                    </dd>
+                    <dd>Sets the accidental&#039;s quarter tone direction.</dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
-                        <a href="classes/Theorem-RenderableTrait.html#method_setRenderMode">setRenderMode()</a>
+                        <a href="classes/Theorem-Renderer-RenderableTrait.html#method_setRenderer">setRenderer()</a>
                         <span>
-                            &nbsp;: void </span>
+                            &nbsp;: <a href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+                            title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a> </span>
                     </dt>
-                    <dd>Sets the rendering mode. Can be set on a per-object basis, or globally
-                        with`Setting::setRenderMode()` unless
+                    <dd>Sets the renderer. Can be set on a per-object basis, or globally with`Setting::setRenderer()`
+                        unless
                         overridden.
                     </dd>
 
@@ -296,7 +325,8 @@
                     <dt class="phpdocumentor-table-of-contents__entry -method -protected">
                         <a href="classes/Theorem-Accidental-AbstractAccidental.html#method_setOffset">setOffset()</a>
                         <span>
-                            &nbsp;: void </span>
+                            &nbsp;: <a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+                            title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a> </span>
                     </dt>
                     <dd>Sets the accidental&#039;s offset.</dd>
 
@@ -322,7 +352,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">24</span>
+                            <span class="phpdocumentor-element-found-in__line">23</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Double-flat accidental. Lowers a letter note by two semitones
@@ -353,7 +383,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">48</span>
+                            <span class="phpdocumentor-element-found-in__line">47</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Double-sharp accidental. Raises a letter note by two semitones
@@ -384,7 +414,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">21</span>
+                            <span class="phpdocumentor-element-found-in__line">20</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Five-quarter-tones-flat accidental. Lowers a letter note by
@@ -415,7 +445,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">51</span>
+                            <span class="phpdocumentor-element-found-in__line">50</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Five-quarter-tones-sharp accidental. Raises a letter note by
@@ -446,7 +476,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">30</span>
+                            <span class="phpdocumentor-element-found-in__line">29</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Flat accidental. Lowers a letter note by a single semitone.</p>
@@ -476,7 +506,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">33</span>
+                            <span class="phpdocumentor-element-found-in__line">32</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Half-flat accidental. Lowers a letter note by a single quarter
@@ -507,7 +537,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">39</span>
+                            <span class="phpdocumentor-element-found-in__line">38</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Half-sharp accidental. Raises a letter note by a single quarter
@@ -538,7 +568,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">36</span>
+                            <span class="phpdocumentor-element-found-in__line">35</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Natural accidental.</p>
@@ -548,6 +578,100 @@
                             <span class="phpdocumentor-signature__type">mixed</span>
                             <span class="phpdocumentor-signature__name">NATURAL</span>
                             = <span class="phpdocumentor-signature__default-value">""</span>
+                        </code>
+
+
+                        <section class="phpdocumentor-description"></section>
+
+
+                    </article>
+                    <article class="phpdocumentor-element -constant -public ">
+                        <h4 class="phpdocumentor-element__name" id="constant_QUARTER_TONE_DIRECTION_DOWN">
+                            QUARTER_TONE_DIRECTION_DOWN
+                            <a href="classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_DOWN"
+                               class="headerlink"><i class="fas fa-link"></i></a>
+                        </h4>
+
+                        <aside class="phpdocumentor-element-found-in">
+                            <abbr class="phpdocumentor-element-found-in__file"
+                                  title="src/Accidental/AbstractAccidental.php"><a
+                                href="files/src-accidental-abstractaccidental.html"><abbr
+                                title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
+                            :
+                            <span class="phpdocumentor-element-found-in__line">58</span>
+                        </aside>
+
+                        <p class="phpdocumentor-summary">Constant representing &quot;downward&quot; quarter tone
+                            accidentals. Useful for nuanced renderers (e.g. Gould-style).</p>
+
+                        <code class="phpdocumentor-signature phpdocumentor-code ">
+                            <span class="phpdocumentor-signature__visibility">public</span>
+                            <span class="phpdocumentor-signature__type">mixed</span>
+                            <span class="phpdocumentor-signature__name">QUARTER_TONE_DIRECTION_DOWN</span>
+                            = <span class="phpdocumentor-signature__default-value">-1</span>
+                        </code>
+
+
+                        <section class="phpdocumentor-description"></section>
+
+
+                    </article>
+                    <article class="phpdocumentor-element -constant -public ">
+                        <h4 class="phpdocumentor-element__name" id="constant_QUARTER_TONE_DIRECTION_NEUTRAL">
+                            QUARTER_TONE_DIRECTION_NEUTRAL
+                            <a href="classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_NEUTRAL"
+                               class="headerlink"><i class="fas fa-link"></i></a>
+                        </h4>
+
+                        <aside class="phpdocumentor-element-found-in">
+                            <abbr class="phpdocumentor-element-found-in__file"
+                                  title="src/Accidental/AbstractAccidental.php"><a
+                                href="files/src-accidental-abstractaccidental.html"><abbr
+                                title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
+                            :
+                            <span class="phpdocumentor-element-found-in__line">64</span>
+                        </aside>
+
+                        <p class="phpdocumentor-summary">Constant representing &quot;neutral&quot; quarter tone
+                            accidentals. Accidentals that have not been directionally
+                            transposed are neutral.</p>
+
+                        <code class="phpdocumentor-signature phpdocumentor-code ">
+                            <span class="phpdocumentor-signature__visibility">public</span>
+                            <span class="phpdocumentor-signature__type">mixed</span>
+                            <span class="phpdocumentor-signature__name">QUARTER_TONE_DIRECTION_NEUTRAL</span>
+                            = <span class="phpdocumentor-signature__default-value">""</span>
+                        </code>
+
+
+                        <section class="phpdocumentor-description"></section>
+
+
+                    </article>
+                    <article class="phpdocumentor-element -constant -public ">
+                        <h4 class="phpdocumentor-element__name" id="constant_QUARTER_TONE_DIRECTION_UP">
+                            QUARTER_TONE_DIRECTION_UP
+                            <a href="classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_UP"
+                               class="headerlink"><i class="fas fa-link"></i></a>
+                        </h4>
+
+                        <aside class="phpdocumentor-element-found-in">
+                            <abbr class="phpdocumentor-element-found-in__file"
+                                  title="src/Accidental/AbstractAccidental.php"><a
+                                href="files/src-accidental-abstractaccidental.html"><abbr
+                                title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
+                            :
+                            <span class="phpdocumentor-element-found-in__line">69</span>
+                        </aside>
+
+                        <p class="phpdocumentor-summary">Constant representing &quot;upward&quot; quarter tone
+                            accidentals. Useful for nuanced renderers (e.g. Gould-style).</p>
+
+                        <code class="phpdocumentor-signature phpdocumentor-code ">
+                            <span class="phpdocumentor-signature__visibility">public</span>
+                            <span class="phpdocumentor-signature__type">mixed</span>
+                            <span class="phpdocumentor-signature__name">QUARTER_TONE_DIRECTION_UP</span>
+                            = <span class="phpdocumentor-signature__default-value">1</span>
                         </code>
 
 
@@ -568,7 +692,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">42</span>
+                            <span class="phpdocumentor-element-found-in__line">41</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Sharp accidental. Raises a letter note by a single
@@ -599,7 +723,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">27</span>
+                            <span class="phpdocumentor-element-found-in__line">26</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Three-quarter-tones-flat accidental. Lowers a letter note by
@@ -630,7 +754,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">45</span>
+                            <span class="phpdocumentor-element-found-in__line">44</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Three-quarter-tones-sharp accidental. Raises a letter note by
@@ -661,7 +785,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">18</span>
+                            <span class="phpdocumentor-element-found-in__line">17</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Triple-flat accidental. Lowers a letter note by three
@@ -692,7 +816,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">54</span>
+                            <span class="phpdocumentor-element-found-in__line">53</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Triple-sharp accidental. Raises a letter note by three
@@ -723,6 +847,45 @@
                         class="
             phpdocumentor-element
             -property
+            -protected
+                                                        "
+                    >
+                        <h4 class="phpdocumentor-element__name" id="property_quarterToneDirection">
+                            $quarterToneDirection
+                            <a href="classes/Theorem-Accidental-AbstractAccidental.html#property_quarterToneDirection"
+                               class="headerlink"><i class="fas fa-link"></i></a>
+                            <span class="phpdocumentor-element__modifiers">
+                            </span>
+                        </h4>
+                        <aside class="phpdocumentor-element-found-in">
+                            <abbr class="phpdocumentor-element-found-in__file"
+                                  title="src/Accidental/AbstractAccidental.php"><a
+                                href="files/src-accidental-abstractaccidental.html"><abbr
+                                title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
+                            :
+                            <span class="phpdocumentor-element-found-in__line">84</span>
+                        </aside>
+
+                        <p class="phpdocumentor-summary">Indicates whether the accidentals should favor &quot;up&quot;
+                            or &quot;down&quot;. Mostly useful for rendering Gould quarter tone
+                            sub-accidentals (e.g. for cases where we should favor vx instead of ^#), though there may be
+                            other uses.</p>
+
+                        <code class="phpdocumentor-code phpdocumentor-signature ">
+                            <span class="phpdocumentor-signature__visibility">protected</span>
+                            <span class="phpdocumentor-signature__type">int</span>
+                            <span class="phpdocumentor-signature__name">$quarterToneDirection</span>
+                            = <span
+                            class="phpdocumentor-signature__default-value">self::QUARTER_TONE_DIRECTION_NEUTRAL</span></code>
+
+                        <section class="phpdocumentor-description"></section>
+
+
+                    </article>
+                    <article
+                        class="
+            phpdocumentor-element
+            -property
             -private
                                                         "
                     >
@@ -739,7 +902,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">61</span>
+                            <span class="phpdocumentor-element-found-in__line">76</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">The accidental&#039;s offset value. Values are signed,
@@ -762,29 +925,30 @@
             -private
             -static                                            "
                     >
-                        <h4 class="phpdocumentor-element__name" id="property_OUTPUT_MODE">
-                            $OUTPUT_MODE
-                            <a href="classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE" class="headerlink"><i
-                                class="fas fa-link"></i></a>
+                        <h4 class="phpdocumentor-element__name" id="property_RENDERER">
+                            $RENDERER
+                            <a href="classes/Theorem-Renderer-RenderableTrait.html#property_RENDERER"
+                               class="headerlink"><i class="fas fa-link"></i></a>
                             <span class="phpdocumentor-element__modifiers">
                             </span>
                         </h4>
                         <aside class="phpdocumentor-element-found-in">
-                            <abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-                                href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+                            <abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+                                href="files/src-renderer-renderabletrait.html"><abbr
+                                title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
                             :
                             <span class="phpdocumentor-element-found-in__line">22</span>
                         </aside>
 
-                        <p class="phpdocumentor-summary">Setting representing the output mode. Can be set on a
-                            per-object basis, or globally with
-                            `Setting::setOutputMode()`.</p>
+                        <p class="phpdocumentor-summary">Setting representing the renderer. Can be set on a per-object
+                            basis, or globally with
+                            `Setting::setRenderer()`.</p>
 
                         <code class="phpdocumentor-code phpdocumentor-signature ">
                             <span class="phpdocumentor-signature__visibility">private</span>
                             <span class="phpdocumentor-signature__static">static</span> <span
                             class="phpdocumentor-signature__type">string</span>
-                            <span class="phpdocumentor-signature__name">$OUTPUT_MODE</span>
+                            <span class="phpdocumentor-signature__name">$RENDERER</span>
                         </code>
 
                         <section class="phpdocumentor-description"></section>
@@ -799,7 +963,7 @@
                                 <span class="phpdocumentor-tag__name">see</span>
                             </dt>
                             <dd class="phpdocumentor-tag-list__definition">
-                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\getOutputMode()">getOutputMode()</abbr></span>
+                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\getRenderer()">getRenderer()</abbr></span>
 
                                 <section class="phpdocumentor-description"></section>
 
@@ -808,68 +972,7 @@
                                 <span class="phpdocumentor-tag__name">see</span>
                             </dt>
                             <dd class="phpdocumentor-tag-list__definition">
-                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\setOutputMode()">setOutputMode()</abbr></span>
-
-                                <section class="phpdocumentor-description"></section>
-
-                            </dd>
-                        </dl>
-
-                    </article>
-                    <article
-                        class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
-                    >
-                        <h4 class="phpdocumentor-element__name" id="property_RENDER_MODE">
-                            $RENDER_MODE
-                            <a href="classes/Theorem-RenderableTrait.html#property_RENDER_MODE" class="headerlink"><i
-                                class="fas fa-link"></i></a>
-                            <span class="phpdocumentor-element__modifiers">
-                            </span>
-                        </h4>
-                        <aside class="phpdocumentor-element-found-in">
-                            <abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-                                href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-                            :
-                            <span class="phpdocumentor-element-found-in__line">32</span>
-                        </aside>
-
-                        <p class="phpdocumentor-summary">Setting representing the rendering mode. Can be set on a
-                            per-object basis, or globally with
-                            `Setting::setRenderMode()`.</p>
-
-                        <code class="phpdocumentor-code phpdocumentor-signature ">
-                            <span class="phpdocumentor-signature__visibility">private</span>
-                            <span class="phpdocumentor-signature__static">static</span> <span
-                            class="phpdocumentor-signature__type">string</span>
-                            <span class="phpdocumentor-signature__name">$RENDER_MODE</span>
-                        </code>
-
-                        <section class="phpdocumentor-description"></section>
-
-
-                        <h5 class="phpdocumentor-tag-list__heading" id="tags">
-                            Tags
-                            <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-                        </h5>
-                        <dl class="phpdocumentor-tag-list">
-                            <dt class="phpdocumentor-tag-list__entry">
-                                <span class="phpdocumentor-tag__name">see</span>
-                            </dt>
-                            <dd class="phpdocumentor-tag-list__definition">
-                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\getRenderMode()">getRenderMode()</abbr></span>
-
-                                <section class="phpdocumentor-description"></section>
-
-                            </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                                <span class="phpdocumentor-tag__name">see</span>
-                            </dt>
-                            <dd class="phpdocumentor-tag-list__definition">
-                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\setRenderMode()">setRenderMode()</abbr></span>
+                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\setRenderer()">setRenderer()</abbr></span>
 
                                 <section class="phpdocumentor-description"></section>
 
@@ -893,14 +996,15 @@
                     >
                         <h4 class="phpdocumentor-element__name" id="method___toString">
                             __toString()
-                            <a href="classes/Theorem-RenderableTrait.html#method___toString" class="headerlink"><i
-                                class="fas fa-link"></i></a>
+                            <a href="classes/Theorem-Renderer-RenderableTrait.html#method___toString"
+                               class="headerlink"><i class="fas fa-link"></i></a>
                         </h4>
                         <aside class="phpdocumentor-element-found-in">
-                            <abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-                                href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+                            <abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+                                href="files/src-renderer-renderabletrait.html"><abbr
+                                title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">40</span>
+                            <span class="phpdocumentor-element-found-in__line">30</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Calls `toString()` using its default parameters.</p>
@@ -923,7 +1027,7 @@
                                 <span class="phpdocumentor-tag__name">see</span>
                             </dt>
                             <dd class="phpdocumentor-tag-list__definition">
-                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\toString()">toString()</abbr></span>
+                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\toString()">toString()</abbr></span>
 
                                 <section class="phpdocumentor-description"></section>
 
@@ -954,7 +1058,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">68</span>
+                            <span class="phpdocumentor-element-found-in__line">91</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Gets the accidental&#039;s offset.</p>
@@ -979,34 +1083,52 @@
                         class="phpdocumentor-element
             -method
             -public
-                                                -final        "
+                                                        "
                     >
-                        <h4 class="phpdocumentor-element__name" id="method_getOutputMode">
-                            getOutputMode()
-                            <a href="classes/Theorem-RenderableTrait.html#method_getOutputMode" class="headerlink"><i
-                                class="fas fa-link"></i></a>
+                        <h4 class="phpdocumentor-element__name" id="method_getQuarterToneDirection">
+                            getQuarterToneDirection()
+                            <a href="classes/Theorem-Accidental-AbstractAccidental.html#method_getQuarterToneDirection"
+                               class="headerlink"><i class="fas fa-link"></i></a>
                         </h4>
                         <aside class="phpdocumentor-element-found-in">
-                            <abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-                                href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+                            <abbr class="phpdocumentor-element-found-in__file"
+                                  title="src/Accidental/AbstractAccidental.php"><a
+                                href="files/src-accidental-abstractaccidental.html"><abbr
+                                title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">50</span>
+                            <span class="phpdocumentor-element-found-in__line">113</span>
                         </aside>
 
-                        <p class="phpdocumentor-summary">Gets the output mode. If it has not been set, it defaults to
-                            the global output mode setting.</p>
 
                         <code class="phpdocumentor-code phpdocumentor-signature ">
                             <span class="phpdocumentor-signature__visibility">public</span>
-                            <span class="phpdocumentor-signature__final">final</span> <span
-                            class="phpdocumentor-signature__name">getOutputMode</span><span>(</span><span>)</span><span>
-                            : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                            <span
+                                class="phpdocumentor-signature__name">getQuarterToneDirection</span><span>(</span><span>)</span><span>
+                            : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
                         <section class="phpdocumentor-description"></section>
 
 
+                        <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                            Tags
+                            <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+                        </h5>
+                        <dl class="phpdocumentor-tag-list">
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
+                            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><a
+                                    href="classes/Theorem-Accidental-AbstractAccidental.html#method_setQuarterToneDirection"><abbr
+                                    title="\Theorem\Accidental\AbstractAccidental::setQuarterToneDirection()">AbstractAccidental::setQuarterToneDirection()</abbr></a></span>
+
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                        </dl>
+
                         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-                        <span class="phpdocumentor-signature__response_type">string</span>
+                        <span class="phpdocumentor-signature__response_type">int</span>
                         &mdash;
                         <section class="phpdocumentor-description"></section>
 
@@ -1018,32 +1140,73 @@
             -public
                                                 -final        "
                     >
-                        <h4 class="phpdocumentor-element__name" id="method_getRenderMode">
-                            getRenderMode()
-                            <a href="classes/Theorem-RenderableTrait.html#method_getRenderMode" class="headerlink"><i
-                                class="fas fa-link"></i></a>
+                        <h4 class="phpdocumentor-element__name" id="method_getRenderer">
+                            getRenderer()
+                            <a href="classes/Theorem-Renderer-RenderableTrait.html#method_getRenderer"
+                               class="headerlink"><i class="fas fa-link"></i></a>
                         </h4>
                         <aside class="phpdocumentor-element-found-in">
-                            <abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-                                href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+                            <abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+                                href="files/src-renderer-renderabletrait.html"><abbr
+                                title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">72</span>
+                            <span class="phpdocumentor-element-found-in__line">43</span>
                         </aside>
 
-                        <p class="phpdocumentor-summary">Gets the rendering mode. If it has not been set, it defaults to
-                            the global rendering mode setting.</p>
+                        <p class="phpdocumentor-summary">Gets the renderer. If it has not been set, it defaults to the
+                            global renderer setting.</p>
 
                         <code class="phpdocumentor-code phpdocumentor-signature ">
                             <span class="phpdocumentor-signature__visibility">public</span>
                             <span class="phpdocumentor-signature__final">final</span> <span
-                            class="phpdocumentor-signature__name">getRenderMode</span><span>(</span><span>)</span><span>
-                            : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                            class="phpdocumentor-signature__name">getRenderer</span><span>(</span><span>)</span><span>
+                            : </span><span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+                            title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span></code>
 
                         <section class="phpdocumentor-description"></section>
 
 
+                        <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                            Tags
+                            <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+                        </h5>
+                        <dl class="phpdocumentor-tag-list">
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
+                            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\setRenderer()">setRenderer()</abbr></span>
+
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
+                            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><abbr
+                                    title="\Theorem\Renderer\Setting::getRenderer()">Setting::getRenderer()</abbr></span>
+
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
+                            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><abbr
+                                    title="\Theorem\Renderer\Setting::setRenderer()">Setting::setRenderer()</abbr></span>
+
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                        </dl>
+
                         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-                        <span class="phpdocumentor-signature__response_type">string</span>
+                        <span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+                            title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
                         &mdash;
                         <section class="phpdocumentor-description"></section>
 
@@ -1053,39 +1216,117 @@
                         class="phpdocumentor-element
             -method
             -public
-                                                -final        "
+                                                        "
                     >
-                        <h4 class="phpdocumentor-element__name" id="method_setOutputMode">
-                            setOutputMode()
-                            <a href="classes/Theorem-RenderableTrait.html#method_setOutputMode" class="headerlink"><i
-                                class="fas fa-link"></i></a>
+                        <h4 class="phpdocumentor-element__name" id="method_setQuarterToneDirection">
+                            setQuarterToneDirection()
+                            <a href="classes/Theorem-Accidental-AbstractAccidental.html#method_setQuarterToneDirection"
+                               class="headerlink"><i class="fas fa-link"></i></a>
                         </h4>
                         <aside class="phpdocumentor-element-found-in">
-                            <abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-                                href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+                            <abbr class="phpdocumentor-element-found-in__file"
+                                  title="src/Accidental/AbstractAccidental.php"><a
+                                href="files/src-accidental-abstractaccidental.html"><abbr
+                                title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">62</span>
+                            <span class="phpdocumentor-element-found-in__line">125</span>
                         </aside>
 
-                        <p class="phpdocumentor-summary">Sets the output mode. Can be set on a per-object basis, or
-                            globally with `Setting::setOutputMode()` unless
-                            overridden.</p>
+                        <p class="phpdocumentor-summary">Sets the accidental&#039;s quarter tone direction.</p>
 
                         <code class="phpdocumentor-code phpdocumentor-signature ">
                             <span class="phpdocumentor-signature__visibility">public</span>
-                            <span class="phpdocumentor-signature__final">final</span> <span
-                            class="phpdocumentor-signature__name">setOutputMode</span><span>(</span><span
+                            <span
+                                class="phpdocumentor-signature__name">setQuarterToneDirection</span><span>(</span><span
                             class="phpdocumentor-signature__argument"><span
-                            class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-                            class="phpdocumentor-signature__argument__name">$outputMode</span></span><span>)</span><span>
-                            : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                            class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
+                            class="phpdocumentor-signature__argument__name">$quarterToneDirection</span></span><span>)</span><span>
+                            : </span><span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+                            title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span></code>
 
                         <section class="phpdocumentor-description"></section>
 
                         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
                         <dl class="phpdocumentor-argument-list">
                             <dt class="phpdocumentor-argument-list__entry">
-                                <span class="phpdocumentor-signature__argument__name">$outputMode</span>
+                                <span class="phpdocumentor-signature__argument__name">$quarterToneDirection</span>
+                                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+                            <dd class="phpdocumentor-argument-list__definition">
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                        </dl>
+
+
+                        <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                            Tags
+                            <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+                        </h5>
+                        <dl class="phpdocumentor-tag-list">
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
+                            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><a
+                                    href="classes/Theorem-Accidental-AbstractAccidental.html#method_getQuarterToneDirection"><abbr
+                                    title="\Theorem\Accidental\AbstractAccidental::getQuarterToneDirection()">AbstractAccidental::getQuarterToneDirection()</abbr></a></span>
+
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                        </dl>
+
+                        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+                        <span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+                            title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span>
+                        &mdash;
+                        <section class="phpdocumentor-description"></section>
+
+
+                    </article>
+                    <article
+                        class="phpdocumentor-element
+            -method
+            -public
+                                                -final        "
+                    >
+                        <h4 class="phpdocumentor-element__name" id="method_setRenderer">
+                            setRenderer()
+                            <a href="classes/Theorem-Renderer-RenderableTrait.html#method_setRenderer"
+                               class="headerlink"><i class="fas fa-link"></i></a>
+                        </h4>
+                        <aside class="phpdocumentor-element-found-in">
+                            <abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+                                href="files/src-renderer-renderabletrait.html"><abbr
+                                title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+                            :
+                            <span class="phpdocumentor-element-found-in__line">61</span>
+                        </aside>
+
+                        <p class="phpdocumentor-summary">Sets the renderer. Can be set on a per-object basis, or
+                            globally with`Setting::setRenderer()` unless
+                            overridden.</p>
+
+                        <code class="phpdocumentor-code phpdocumentor-signature ">
+                            <span class="phpdocumentor-signature__visibility">public</span>
+                            <span class="phpdocumentor-signature__final">final</span> <span
+                            class="phpdocumentor-signature__name">setRenderer</span><span>(</span><span
+                            class="phpdocumentor-signature__argument"><span
+                            class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
+                            class="phpdocumentor-signature__argument__name">$renderer</span></span><span>)</span><span>
+                            : </span><span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+                            title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></span></code>
+
+                        <section class="phpdocumentor-description"></section>
+
+                        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+                        <dl class="phpdocumentor-argument-list">
+                            <dt class="phpdocumentor-argument-list__entry">
+                                <span class="phpdocumentor-signature__argument__name">$renderer</span>
                                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
                             <dd class="phpdocumentor-argument-list__definition">
@@ -1095,61 +1336,46 @@
                         </dl>
 
 
-                        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-                        <span class="phpdocumentor-signature__response_type">void</span>
-                        &mdash;
-                        <section class="phpdocumentor-description"></section>
-
-
-                    </article>
-                    <article
-                        class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
-                    >
-                        <h4 class="phpdocumentor-element__name" id="method_setRenderMode">
-                            setRenderMode()
-                            <a href="classes/Theorem-RenderableTrait.html#method_setRenderMode" class="headerlink"><i
-                                class="fas fa-link"></i></a>
-                        </h4>
-                        <aside class="phpdocumentor-element-found-in">
-                            <abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-                                href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-                            :
-                            <span class="phpdocumentor-element-found-in__line">84</span>
-                        </aside>
-
-                        <p class="phpdocumentor-summary">Sets the rendering mode. Can be set on a per-object basis, or
-                            globally with`Setting::setRenderMode()` unless
-                            overridden.</p>
-
-                        <code class="phpdocumentor-code phpdocumentor-signature ">
-                            <span class="phpdocumentor-signature__visibility">public</span>
-                            <span class="phpdocumentor-signature__final">final</span> <span
-                            class="phpdocumentor-signature__name">setRenderMode</span><span>(</span><span
-                            class="phpdocumentor-signature__argument"><span
-                            class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-                            class="phpdocumentor-signature__argument__name">$renderMode</span></span><span>)</span><span>
-                            : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-                        <section class="phpdocumentor-description"></section>
-
-                        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-                        <dl class="phpdocumentor-argument-list">
-                            <dt class="phpdocumentor-argument-list__entry">
-                                <span class="phpdocumentor-signature__argument__name">$renderMode</span>
-                                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                        <h5 class="phpdocumentor-tag-list__heading" id="tags">
+                            Tags
+                            <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+                        </h5>
+                        <dl class="phpdocumentor-tag-list">
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
                             </dt>
-                            <dd class="phpdocumentor-argument-list__definition">
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\getRenderer()">getRenderer()</abbr></span>
+
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
+                            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><abbr
+                                    title="\Theorem\Renderer\Setting::getRenderer()">Setting::getRenderer()</abbr></span>
+
+                                <section class="phpdocumentor-description"></section>
+
+                            </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                                <span class="phpdocumentor-tag__name">see</span>
+                            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                <span class="phpdocumentor-tag-link"><abbr
+                                    title="\Theorem\Renderer\Setting::setRenderer()">Setting::setRenderer()</abbr></span>
+
                                 <section class="phpdocumentor-description"></section>
 
                             </dd>
                         </dl>
 
-
                         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-                        <span class="phpdocumentor-signature__response_type">void</span>
+                        <span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+                            title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></span>
                         &mdash;
                         <section class="phpdocumentor-description"></section>
 
@@ -1172,61 +1398,36 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">89</span>
+                            <span class="phpdocumentor-element-found-in__line">136</span>
                         </aside>
 
 
                         <code class="phpdocumentor-code phpdocumentor-signature ">
                             <span class="phpdocumentor-signature__visibility">public</span>
                             <span class="phpdocumentor-signature__name">toString</span><span>(</span><span
-                            class="phpdocumentor-signature__argument"><span>[</span><span
-                            class="phpdocumentor-signature__argument__return-type">null&nbsp;</span><span
-                            class="phpdocumentor-signature__argument__name">$outputMode</span><span> = </span><span
-                            class="phpdocumentor-signature__argument__default-value">NULL</span><span>
-                            ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span
-                            class="phpdocumentor-signature__argument__return-type">null&nbsp;</span><span
-                            class="phpdocumentor-signature__argument__name">$renderMode</span><span> = </span><span
-                            class="phpdocumentor-signature__argument__default-value">NULL</span><span>
-                            ]</span></span><span>)</span><span> : </span><span
-                            class="phpdocumentor-signature__response_type">string</span></code>
+                            class="phpdocumentor-signature__argument"><span
+                            class="phpdocumentor-signature__argument__return-type"><a
+                            href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+                            title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a>&nbsp;</span><span
+                            class="phpdocumentor-signature__argument__name">$renderer</span></span><span>)</span><span>
+                            : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
                         <section class="phpdocumentor-description"></section>
 
                         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
                         <dl class="phpdocumentor-argument-list">
                             <dt class="phpdocumentor-argument-list__entry">
-                                <span class="phpdocumentor-signature__argument__name">$outputMode</span>
-                                : <span class="phpdocumentor-signature__argument__return-type">null</span>
-                                = <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
-                            <dd class="phpdocumentor-argument-list__definition">
-                                <section class="phpdocumentor-description"></section>
-
-                            </dd>
-                            <dt class="phpdocumentor-argument-list__entry">
-                                <span class="phpdocumentor-signature__argument__name">$renderMode</span>
-                                : <span class="phpdocumentor-signature__argument__return-type">null</span>
-                                = <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
-                            <dd class="phpdocumentor-argument-list__definition">
-                                <section class="phpdocumentor-description"></section>
-
-                            </dd>
-                        </dl>
-
-
-                        <h5 class="phpdocumentor-tag-list__heading" id="tags">
-                            Tags
-                            <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-                        </h5>
-                        <dl class="phpdocumentor-tag-list">
-                            <dt class="phpdocumentor-tag-list__entry">
-                                <span class="phpdocumentor-tag__name">TODO</span>
+                                <span class="phpdocumentor-signature__argument__name">$renderer</span>
+                                : <span class="phpdocumentor-signature__argument__return-type"><a
+                                href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+                                title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
                             </dt>
-                            <dd class="phpdocumentor-tag-list__definition">
-
+                            <dd class="phpdocumentor-argument-list__definition">
                                 <section class="phpdocumentor-description"></section>
 
                             </dd>
                         </dl>
+
 
                         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
                         <span class="phpdocumentor-signature__response_type">string</span>
@@ -1252,7 +1453,7 @@
                                 href="files/src-accidental-abstractaccidental.html"><abbr
                                 title="src/Accidental/AbstractAccidental.php">AbstractAccidental.php</abbr></a></abbr>
                             :
-                            <span class="phpdocumentor-element-found-in__line">78</span>
+                            <span class="phpdocumentor-element-found-in__line">102</span>
                         </aside>
 
                         <p class="phpdocumentor-summary">Sets the accidental&#039;s offset.</p>
@@ -1263,7 +1464,9 @@
                             class="phpdocumentor-signature__argument"><span
                             class="phpdocumentor-signature__argument__return-type">float&nbsp;</span><span
                             class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span>
-                            : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                            : </span><span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+                            title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span></code>
 
                         <section class="phpdocumentor-description"></section>
 
@@ -1281,7 +1484,9 @@
 
 
                         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-                        <span class="phpdocumentor-signature__response_type">void</span>
+                        <span class="phpdocumentor-signature__response_type"><a
+                            href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+                            title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span>
                         &mdash;
                         <section class="phpdocumentor-description"></section>
 

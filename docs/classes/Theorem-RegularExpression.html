@@ -61,6 +61,8 @@
 				<ul class="phpdocumentor-list">
 					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
 					</li>
+					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+					</li>
 					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
 						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
 				</ul>
@@ -96,7 +98,7 @@
 					<abbr class="phpdocumentor-element-found-in__file" title="src/RegularExpression.php"><a
 						href="files/src-regularexpression.html"><abbr title="src/RegularExpression.php">RegularExpression.php</abbr></a></abbr>
 					:
-					<span class="phpdocumentor-element-found-in__line">5</span>
+					<span class="phpdocumentor-element-found-in__line">8</span>
 				</aside>
 
 
@@ -106,18 +108,186 @@
 				</h3>
 
 				<dl class="phpdocumentor-table-of-contents">
+					<dt class="phpdocumentor-table-of-contents__entry -property -private">
+						<a href="classes/Theorem-RegularExpression.html#property_accidentalPattern">$accidentalPattern</a>
+						<span>
+							&nbsp;: string </span>
+					</dt>
+					<dd>Regular expression subpattern for matching accidentals. Also matches the accidental&#039;s
+						quarter tone part, if
+						applicable.
+					</dd>
+
+					<dt class="phpdocumentor-table-of-contents__entry -property -private">
+						<a href="classes/Theorem-RegularExpression.html#property_letterPattern">$letterPattern</a>
+						<span>
+							&nbsp;: string </span>
+					</dt>
+					<dd>Regular expression subpattern for matching note letter names.</dd>
+
+					<dt class="phpdocumentor-table-of-contents__entry -property -private">
+						<a href="classes/Theorem-RegularExpression.html#property_octavePattern">$octavePattern</a>
+						<span>
+							&nbsp;: string </span>
+					</dt>
+					<dd>Regular expression subpattern for matching note octave numbers. More specifically, this matches
+						any negative or
+						non-negative number, including zero (which cannot be negative). Only zero can start with zero.
+					</dd>
+
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RegularExpression.html#method_ParseScientificNoteNotation">ParseScientificNoteNotation()</a>
+						<a href="classes/Theorem-RegularExpression.html#method_parseQuarterTonePart">parseQuarterTonePart()</a>
+						<span>
+							&nbsp;: bool|null|string </span>
+					</dt>
+					<dd>Parses the string representation of an accidental and returns the quarter tone part, if
+						applicable. For example,
+						`db` would return `d`, but `#` would return `NULL`.
+					</dd>
+
+					<dt class="phpdocumentor-table-of-contents__entry -method -public">
+						<a href="classes/Theorem-RegularExpression.html#method_parseScientificPitchNotation">parseScientificPitchNotation()</a>
 						<span>
 							&nbsp;: bool|array&lt;string|int, mixed&gt; </span>
 					</dt>
-					<dd>Parses the string representation of a note (in scientific pitch notation) into an array
-						consisting of a letter,
-						an accidental, and an octave.
+					<dd>Parses the string representation of a note (i.e. scientific pitch notation) into an array
+						consisting of a letter
+						(`string`), an accidental (`AbstractAccidental`), and an octave (`int`).
 					</dd>
 
 				</dl>
 
+
+				<section class="phpdocumentor-properties">
+					<h3 class="phpdocumentor-elements__header" id="properties">
+						Properties
+						<a href="classes/Theorem-RegularExpression.html#properties" class="headerlink"><i
+							class="fas fa-link"></i></a>
+					</h3>
+					<article
+						class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+					>
+						<h4 class="phpdocumentor-element__name" id="property_accidentalPattern">
+							$accidentalPattern
+							<a href="classes/Theorem-RegularExpression.html#property_accidentalPattern"
+							   class="headerlink"><i class="fas fa-link"></i></a>
+							<span class="phpdocumentor-element__modifiers">
+							</span>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RegularExpression.php"><a
+								href="files/src-regularexpression.html"><abbr title="src/RegularExpression.php">RegularExpression.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">23</span>
+						</aside>
+
+						<p class="phpdocumentor-summary">Regular expression subpattern for matching accidentals. Also
+							matches the accidental&#039;s quarter tone part, if
+							applicable.</p>
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__static">static</span> <span
+							class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$accidentalPattern</span>
+							= <span class="phpdocumentor-signature__default-value">&#039;
+							(?&lt;accidental&gt;
+							(?&lt;quarterTone&gt;[d+]{0,1})
+							(?:
+							(?:
+							(?:
+							b*
+							)
+							)|
+							(?:
+							\#{0,1}
+							x*
+							)
+							)
+							)
+							&#039;</span></code>
+
+						<section class="phpdocumentor-description"></section>
+
+
+					</article>
+					<article
+						class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+					>
+						<h4 class="phpdocumentor-element__name" id="property_letterPattern">
+							$letterPattern
+							<a href="classes/Theorem-RegularExpression.html#property_letterPattern"
+							   class="headerlink"><i class="fas fa-link"></i></a>
+							<span class="phpdocumentor-element__modifiers">
+							</span>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RegularExpression.php"><a
+								href="files/src-regularexpression.html"><abbr title="src/RegularExpression.php">RegularExpression.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">15</span>
+						</aside>
+
+						<p class="phpdocumentor-summary">Regular expression subpattern for matching note letter
+							names.</p>
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__static">static</span> <span
+							class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$letterPattern</span>
+							= <span class="phpdocumentor-signature__default-value">&#039;(?&lt;letter&gt;[ABCDEFG]){1}&#039;</span></code>
+
+						<section class="phpdocumentor-description"></section>
+
+
+					</article>
+					<article
+						class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+					>
+						<h4 class="phpdocumentor-element__name" id="property_octavePattern">
+							$octavePattern
+							<a href="classes/Theorem-RegularExpression.html#property_octavePattern"
+							   class="headerlink"><i class="fas fa-link"></i></a>
+							<span class="phpdocumentor-element__modifiers">
+							</span>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RegularExpression.php"><a
+								href="files/src-regularexpression.html"><abbr title="src/RegularExpression.php">RegularExpression.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">46</span>
+						</aside>
+
+						<p class="phpdocumentor-summary">Regular expression subpattern for matching note octave numbers.
+							More specifically, this matches any negative or
+							non-negative number, including zero (which cannot be negative). Only zero can start with
+							zero.</p>
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__static">static</span> <span
+							class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$octavePattern</span>
+							= <span class="phpdocumentor-signature__default-value">&#039;(?&lt;octave&gt;-*[1-9]+[0-9]*|0)&#039;</span></code>
+
+						<section class="phpdocumentor-description"></section>
+
+
+					</article>
+				</section>
 
 				<section class="phpdocumentor-methods">
 					<h3 class="phpdocumentor-elements__header" id="methods">
@@ -131,26 +301,82 @@
             -public
                                     -static                    "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_ParseScientificNoteNotation">
-							ParseScientificNoteNotation()
-							<a href="classes/Theorem-RegularExpression.html#method_ParseScientificNoteNotation"
+						<h4 class="phpdocumentor-element__name" id="method_parseQuarterTonePart">
+							parseQuarterTonePart()
+							<a href="classes/Theorem-RegularExpression.html#method_parseQuarterTonePart"
 							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
 							<abbr class="phpdocumentor-element-found-in__file" title="src/RegularExpression.php"><a
 								href="files/src-regularexpression.html"><abbr title="src/RegularExpression.php">RegularExpression.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">16</span>
+							<span class="phpdocumentor-element-found-in__line">96</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Parses the string representation of a note (in scientific pitch
-							notation) into an array consisting of a letter,
-							an accidental, and an octave.</p>
+						<p class="phpdocumentor-summary">Parses the string representation of an accidental and returns
+							the quarter tone part, if applicable. For example,
+							`db` would return `d`, but `#` would return `NULL`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">ParseScientificNoteNotation</span><span>(</span><span
+							class="phpdocumentor-signature__name">parseQuarterTonePart</span><span>(</span><span
+							class="phpdocumentor-signature__argument"><span
+							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
+							class="phpdocumentor-signature__argument__name">$input</span></span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type">bool|null|string</span></code>
+
+						<section class="phpdocumentor-description"></section>
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$input</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"><p>An accidental, as a string.</p>
+								</section>
+
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">bool|null|string</span>
+						&mdash;
+						<section class="phpdocumentor-description"><p>Returns the quarter tone part of the accidental if
+							it exists, otherwise <code class="prettyprint">NULL</code>.</p>
+						</section>
+
+
+					</article>
+					<article
+						class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+					>
+						<h4 class="phpdocumentor-element__name" id="method_parseScientificPitchNotation">
+							parseScientificPitchNotation()
+							<a href="classes/Theorem-RegularExpression.html#method_parseScientificPitchNotation"
+							   class="headerlink"><i class="fas fa-link"></i></a>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/RegularExpression.php"><a
+								href="files/src-regularexpression.html"><abbr title="src/RegularExpression.php">RegularExpression.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">58</span>
+						</aside>
+
+						<p class="phpdocumentor-summary">Parses the string representation of a note (i.e. scientific
+							pitch notation) into an array consisting of a letter
+							(`string`), an accidental (`AbstractAccidental`), and an octave (`int`).</p>
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__static">static</span> <span
+							class="phpdocumentor-signature__name">parseScientificPitchNotation</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
 							class="phpdocumentor-signature__argument__name">$input</span></span><span
@@ -187,13 +413,30 @@
 						</dl>
 
 
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+									title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
+
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">bool|array&lt;string|int, mixed&gt;</span>
 						&mdash;
 						<section class="phpdocumentor-description"><p>Returns an associative array containing a letter
 							(string), an accidental
-							(<abbr title="\Theorem\AbstractAccidental">AbstractAccidental</abbr> sub-type), and an
-							octave (int).</p>
+							(AbstractAccidental), and an octave (int).</p>
 						</section>
 
 

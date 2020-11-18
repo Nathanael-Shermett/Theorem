@@ -3,7 +3,7 @@ Search.appendIndex(
 		{
 			"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental",
 			"name" : "AbstractAccidental",
-			"summary" : "Static\u0020class.\u0020Serves\u0020primarily\u0020as\u0020an\u0020enumerator\u0020for\u0020accidentals.\u0020Contains\u0020various\u0020public\u0020constants\u0020with\u0020values\nrepresenting\u0020the\u0020effect\u0020the\u0020accidental\u0020has\u0020on\u0020a\u0020letter\u0020note.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
+			"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
 			"url" : "classes/Theorem-Accidental-AbstractAccidental.html",
 		}, {
 		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003AgetOffset\u0028\u0029",
@@ -15,6 +15,16 @@ Search.appendIndex(
 		"name" : "setOffset",
 		"summary" : "Sets\u0020the\u0020accidental\u0027s\u0020offset.",
 		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#method_setOffset",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003AgetQuarterToneDirection\u0028\u0029",
+		"name" : "getQuarterToneDirection",
+		"summary" : "",
+		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#method_getQuarterToneDirection",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003AsetQuarterToneDirection\u0028\u0029",
+		"name" : "setQuarterToneDirection",
+		"summary" : "Sets\u0020the\u0020accidental\u0027s\u0020quarter\u0020tone\u0020direction.",
+		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#method_setQuarterToneDirection",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003AtoString\u0028\u0029",
 		"name" : "toString",
@@ -86,75 +96,220 @@ Search.appendIndex(
 		"summary" : "Triple\u002Dsharp\u0020accidental.\u0020Raises\u0020a\u0020letter\u0020note\u0020by\u0020three\u0020semitones.",
 		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#constant_TRIPLE_SHARP",
 	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003AQUARTER_TONE_DIRECTION_DOWN",
+		"name" : "QUARTER_TONE_DIRECTION_DOWN",
+		"summary" : "Constant\u0020representing\u0020\u0022downward\u0022\u0020quarter\u0020tone\u0020accidentals.\u0020Useful\u0020for\u0020nuanced\u0020renderers\u0020\u0028e.g.\u0020Gould\u002Dstyle\u0029.",
+		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_DOWN",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003AQUARTER_TONE_DIRECTION_NEUTRAL",
+		"name" : "QUARTER_TONE_DIRECTION_NEUTRAL",
+		"summary" : "Constant\u0020representing\u0020\u0022neutral\u0022\u0020quarter\u0020tone\u0020accidentals.\u0020Accidentals\u0020that\u0020have\u0020not\u0020been\u0020directionally\ntransposed\u0020are\u0020neutral.",
+		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_NEUTRAL",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003AQUARTER_TONE_DIRECTION_UP",
+		"name" : "QUARTER_TONE_DIRECTION_UP",
+		"summary" : "Constant\u0020representing\u0020\u0022upward\u0022\u0020quarter\u0020tone\u0020accidentals.\u0020Useful\u0020for\u0020nuanced\u0020renderers\u0020\u0028e.g.\u0020Gould\u002Dstyle\u0029.",
+		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#constant_QUARTER_TONE_DIRECTION_UP",
+	}, {
 		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003A\u0024offset",
 		"name" : "offset",
 		"summary" : "The\u0020accidental\u0027s\u0020offset\u0020value.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
 		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#property_offset",
 	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AbstractAccidental\u003A\u003A\u0024quarterToneDirection",
+		"name" : "quarterToneDirection",
+		"summary" : "Indicates\u0020whether\u0020the\u0020accidentals\u0020should\u0020favor\u0020\u0022up\u0022\u0020or\u0020\u0022down\u0022.\u0020Mostly\u0020useful\u0020for\u0020rendering\u0020Gould\u0020quarter\u0020tone\nsub\u002Daccidentals\u0020\u0028e.g.\u0020for\u0020cases\u0020where\u0020we\u0020should\u0020favor\u0020vx\u0020instead\u0020of\u0020\u005E\u0023\u0029,\u0020though\u0020there\u0020may\u0020be\u0020other\u0020uses.",
+		"url" : "classes/Theorem-Accidental-AbstractAccidental.html#property_quarterToneDirection",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory",
+		"name" : "AccidentalFactory",
+		"summary" : "Factory\u0020class\u0020to\u0020generate\u0020accidentals.\u0020Mostly\u0020just\u0020useful\u0020to\u0020keep\u0020accidental\u0020objects\u0020tidy\u0020after\u0020transpositions\u0020and\u0020to\nprevent\u0020all\u0020accidentals\u0020from\u0020being\u0020Special\u0020types.\u0020Also\u0020useful\u0020for\u0020setting\u0020quarter\u0020tone\u0020directionality.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "AccidentalFactory\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003Abuild\u0028\u0029",
+		"name" : "build",
+		"summary" : "Builds\u0020and\u0020returns\u0020a\u0020specific\u0020accidental\u0020object\u0020based\u0020on\u0020the\u0020specified\u0020offset.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#method_build",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003AcreateFromString\u0028\u0029",
+		"name" : "createFromString",
+		"summary" : "Calculates\u0020and\u0020sets\u0020the\u0020accidental\u0027s\u0020offset\u0020and\u0020quarter\u0020tone\u0020directionality\u0020from\u0020its\u0020ASCII\u0020string\u0020representation.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#method_createFromString",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003AgetOffset\u0028\u0029",
+		"name" : "getOffset",
+		"summary" : "Returns\u0020the\u0020accidental\u0027s\u0020offset.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#method_getOffset",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003AsetOffset\u0028\u0029",
+		"name" : "setOffset",
+		"summary" : "Sets\u0020the\u0020accidental\u0027s\u0020offset.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#method_setOffset",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003AgetQuarterToneDirection\u0028\u0029",
+		"name" : "getQuarterToneDirection",
+		"summary" : "Returns\u0020the\u0020accidental\u0027s\u0020quarter\u0020tone\u0020part\u0027s\u0020directionality,\u0020if\u0020any.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#method_getQuarterToneDirection",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003AsetQuarterToneDirection\u0028\u0029",
+		"name" : "setQuarterToneDirection",
+		"summary" : "Sets\u0020the\u0020accidental\u0027s\u0020quarter\u0020tone\u0020part\u0027s\u0020directionality.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#method_setQuarterToneDirection",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003A\u0024offset",
+		"name" : "offset",
+		"summary" : "The\u0020offset\u0020of\u0020the\u0020accidental\u0020that\u0020is\u0020being\u0020built.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#property_offset",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\AccidentalFactory\u003A\u003A\u0024quarterToneDirection",
+		"name" : "quarterToneDirection",
+		"summary" : "Whether\u0020or\u0020not\u0020the\u0020accidental\u0027s\u0020quarter\u0020tone\u0020part,\u0020if\u0020applicable,\u0020is\u0020moving\u0020moving\u0020\u0022upwards\u0022\u0020or\u0020\u0022downwards\u0022.",
+		"url" : "classes/Theorem-Accidental-AccidentalFactory.html#property_quarterToneDirection",
+	}, {
 		"fqsen" : "\\Theorem\\Accidental\\DoubleFlat",
 		"name" : "DoubleFlat",
-		"summary" : "Static\u0020class.\u0020Serves\u0020primarily\u0020as\u0020an\u0020enumerator\u0020for\u0020accidentals.\u0020Contains\u0020various\u0020public\u0020constants\u0020with\u0020values\nrepresenting\u0020the\u0020effect\u0020the\u0020accidental\u0020has\u0020on\u0020a\u0020letter\u0020note.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
 		"url" : "classes/Theorem-Accidental-DoubleFlat.html",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\DoubleFlat\u003A\u003A__construct\u0028\u0029",
 		"name" : "__construct",
-		"summary" : "",
+		"summary" : "DoubleFlat\u0020constructor.",
 		"url" : "classes/Theorem-Accidental-DoubleFlat.html#method___construct",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\DoubleSharp",
 		"name" : "DoubleSharp",
-		"summary" : "Static\u0020class.\u0020Serves\u0020primarily\u0020as\u0020an\u0020enumerator\u0020for\u0020accidentals.\u0020Contains\u0020various\u0020public\u0020constants\u0020with\u0020values\nrepresenting\u0020the\u0020effect\u0020the\u0020accidental\u0020has\u0020on\u0020a\u0020letter\u0020note.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
 		"url" : "classes/Theorem-Accidental-DoubleSharp.html",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\DoubleSharp\u003A\u003A__construct\u0028\u0029",
 		"name" : "__construct",
-		"summary" : "",
+		"summary" : "DoubleSharp\u0020constructor.",
 		"url" : "classes/Theorem-Accidental-DoubleSharp.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\FiveQuarterFlat",
+		"name" : "FiveQuarterFlat",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-FiveQuarterFlat.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\FiveQuarterFlat\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "FiveQuarterFlat\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-FiveQuarterFlat.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\FiveQuarterSharp",
+		"name" : "FiveQuarterSharp",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-FiveQuarterSharp.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\FiveQuarterSharp\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "FiveQuarterSharp\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-FiveQuarterSharp.html#method___construct",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Flat",
 		"name" : "Flat",
-		"summary" : "Static\u0020class.\u0020Serves\u0020primarily\u0020as\u0020an\u0020enumerator\u0020for\u0020accidentals.\u0020Contains\u0020various\u0020public\u0020constants\u0020with\u0020values\nrepresenting\u0020the\u0020effect\u0020the\u0020accidental\u0020has\u0020on\u0020a\u0020letter\u0020note.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
 		"url" : "classes/Theorem-Accidental-Flat.html",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Flat\u003A\u003A__construct\u0028\u0029",
 		"name" : "__construct",
-		"summary" : "",
+		"summary" : "Flat\u0020constructor.",
 		"url" : "classes/Theorem-Accidental-Flat.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\HalfFlat",
+		"name" : "HalfFlat",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-HalfFlat.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\HalfFlat\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "HalfFlat\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-HalfFlat.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\HalfSharp",
+		"name" : "HalfSharp",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-HalfSharp.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\HalfSharp\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "HalfSharp\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-HalfSharp.html#method___construct",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Natural",
 		"name" : "Natural",
-		"summary" : "Static\u0020class.\u0020Serves\u0020primarily\u0020as\u0020an\u0020enumerator\u0020for\u0020accidentals.\u0020Contains\u0020various\u0020public\u0020constants\u0020with\u0020values\nrepresenting\u0020the\u0020effect\u0020the\u0020accidental\u0020has\u0020on\u0020a\u0020letter\u0020note.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
 		"url" : "classes/Theorem-Accidental-Natural.html",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Natural\u003A\u003A__construct\u0028\u0029",
 		"name" : "__construct",
-		"summary" : "",
+		"summary" : "Natural\u0020constructor.",
 		"url" : "classes/Theorem-Accidental-Natural.html#method___construct",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Sharp",
 		"name" : "Sharp",
-		"summary" : "Static\u0020class.\u0020Serves\u0020primarily\u0020as\u0020an\u0020enumerator\u0020for\u0020accidentals.\u0020Contains\u0020various\u0020public\u0020constants\u0020with\u0020values\nrepresenting\u0020the\u0020effect\u0020the\u0020accidental\u0020has\u0020on\u0020a\u0020letter\u0020note.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
 		"url" : "classes/Theorem-Accidental-Sharp.html",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Sharp\u003A\u003A__construct\u0028\u0029",
 		"name" : "__construct",
-		"summary" : "",
+		"summary" : "Sharp\u0020constructor.",
 		"url" : "classes/Theorem-Accidental-Sharp.html#method___construct",
-	}, {
-		"fqsen" : "\\Theorem\\Accidental\\Sharp\u003A\u003AtoString\u0028\u0029",
-		"name" : "toString",
-		"summary" : "",
-		"url" : "classes/Theorem-Accidental-Sharp.html#method_toString",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Special",
 		"name" : "Special",
-		"summary" : "Static\u0020class.\u0020Serves\u0020primarily\u0020as\u0020an\u0020enumerator\u0020for\u0020accidentals.\u0020Contains\u0020various\u0020public\u0020constants\u0020with\u0020values\nrepresenting\u0020the\u0020effect\u0020the\u0020accidental\u0020has\u0020on\u0020a\u0020letter\u0020note.\u0020Values\u0020are\u0020signed,\u0020relative,\u0020and\u0020scaled\u0020to\u0020whole\u0020tones.",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
 		"url" : "classes/Theorem-Accidental-Special.html",
 	}, {
 		"fqsen" : "\\Theorem\\Accidental\\Special\u003A\u003A__construct\u0028\u0029",
 		"name" : "__construct",
-		"summary" : "",
+		"summary" : "Special\u0020constructor.",
 		"url" : "classes/Theorem-Accidental-Special.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\ThreeQuarterFlat",
+		"name" : "ThreeQuarterFlat",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-ThreeQuarterFlat.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\ThreeQuarterFlat\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "ThreeQuarterFlat\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-ThreeQuarterFlat.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\ThreeQuarterSharp",
+		"name" : "ThreeQuarterSharp",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-ThreeQuarterSharp.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\ThreeQuarterSharp\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "ThreeQuarterSharp\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-ThreeQuarterSharp.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\TripleFlat",
+		"name" : "TripleFlat",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-TripleFlat.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\TripleFlat\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "TripleFlat\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-TripleFlat.html#method___construct",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\TripleSharp",
+		"name" : "TripleSharp",
+		"summary" : "Abstract\u0020class\u0020inherited\u0020by\u0020all\u0020accidentals.\u0020Contains\u0020constants\u0020representing\u0020each\u0020accidental\u0027s\u0020relative\u0020pitch\u0020offset\n\u0028minimum\u0020unit\u003A\u0020quarter\u0020tones\u0029.\u0020Also\u0020includes\u0020a\u0020few\u0020universal\u0020methods,\u0020including\u0020\u007B\u0040see\u0020toString\u0028\u0029\u007D.",
+		"url" : "classes/Theorem-Accidental-TripleSharp.html",
+	}, {
+		"fqsen" : "\\Theorem\\Accidental\\TripleSharp\u003A\u003A__construct\u0028\u0029",
+		"name" : "__construct",
+		"summary" : "TripleSharp\u0020constructor.",
+		"url" : "classes/Theorem-Accidental-TripleSharp.html#method___construct",
 	}, {
 		"fqsen" : "\\Theorem\\Note",
 		"name" : "Note",
@@ -168,13 +323,18 @@ Search.appendIndex(
 	}, {
 		"fqsen" : "\\Theorem\\Note\u003A\u003AdistanceTo\u0028\u0029",
 		"name" : "distanceTo",
-		"summary" : "Returns\u0020the\u0020relative\u0020distance,\u0020in\u0020steps\u0020\u0028\u007B\u0040see\u0020Theorem\\Setting\u003A\u003AgetStep\u0028\u0029\u007D\u0029,\u0020from\u0020the\u0020current\u0020note\u0020to\u0020the\nspecified\u0020note.\u0020If\u0020the\u0020specified\u0020note\u0020is\u0020lower,\u0020then\u0020the\u0020result\u0020will\u0020be\u0020negative.",
+		"summary" : "Returns\u0020the\u0020relative\u0020distance,\u0020in\u0020steps\u0020from\u0020the\u0020current\u0020note\u0020to\u0020the\u0020specified\u0020note.\u0020If\u0020the\u0020specified\u0020note\u0020is\nlower,\u0020then\u0020the\u0020result\u0020will\u0020be\u0020negative.",
 		"url" : "classes/Theorem-Note.html#method_distanceTo",
 	}, {
 		"fqsen" : "\\Theorem\\Note\u003A\u003AgetAccidental\u0028\u0029",
 		"name" : "getAccidental",
-		"summary" : "Gets\u0020the\u0020\u007B\u0040see\u0020AbstractAccidental\u007D\u0020object\u0020corresponding\u0020with\u0020the\u0020note\u0027s\u0020accidental.",
+		"summary" : "Gets\u0020the\u0020\u0060AbstractAccidental\u0060\u0020object\u0020corresponding\u0020with\u0020the\u0020note\u0027s\u0020accidental.",
 		"url" : "classes/Theorem-Note.html#method_getAccidental",
+	}, {
+		"fqsen" : "\\Theorem\\Note\u003A\u003AsetAccidental\u0028\u0029",
+		"name" : "setAccidental",
+		"summary" : "Sets\u0020the\u0020note\u0027s\u0020accidental\u0020to\u0020a\u0020different\u0020accidental\u0020object.",
+		"url" : "classes/Theorem-Note.html#method_setAccidental",
 	}, {
 		"fqsen" : "\\Theorem\\Note\u003A\u003AgetFrequency\u0028\u0029",
 		"name" : "getFrequency",
@@ -185,11 +345,6 @@ Search.appendIndex(
 		"name" : "getSpn",
 		"summary" : "Returns\u0020the\u0020note\u0027s\u0020value\u0020in\u0020scientific\u0020pitch\u0020notation\u0020\u0028SPN\u0029.",
 		"url" : "classes/Theorem-Note.html#method_getSpn",
-	}, {
-		"fqsen" : "\\Theorem\\Note\u003A\u003AsetAccidental\u0028\u0029",
-		"name" : "setAccidental",
-		"summary" : "Sets\u0020the\u0020note\u0027s\u0020accidental\u0020to\u0020a\u0020different\u0020accidental\u0020object.",
-		"url" : "classes/Theorem-Note.html#method_setAccidental",
 	}, {
 		"fqsen" : "\\Theorem\\Note\u003A\u003AgetLetter\u0028\u0029",
 		"name" : "getLetter",
@@ -223,7 +378,7 @@ Search.appendIndex(
 	}, {
 		"fqsen" : "\\Theorem\\Note\u003A\u003A\u0024letter",
 		"name" : "letter",
-		"summary" : "The\u0020note\u0027s\u0020letter\u0020name\u0020\u0028A\u002DG\u0029.",
+		"summary" : "The\u0020note\u0027s\u0020letter\u0020name\u0020\u0028\u0060A\u0060\u002D\u0060G\u0060\u0029.",
 		"url" : "classes/Theorem-Note.html#property_letter",
 	}, {
 		"fqsen" : "\\Theorem\\Note\u003A\u003A\u0024octave",
@@ -231,74 +386,114 @@ Search.appendIndex(
 		"summary" : "The\u0020octave\u0020the\u0020note\u0020belongs\u0020to\u0020\u0028based\u0020on\u0020scientific\u0020pitch\u0020notation\u0029.",
 		"url" : "classes/Theorem-Note.html#property_octave",
 	}, {
-		"fqsen" : "\\Theorem\\NoteCollection",
-		"name" : "NoteCollection",
-		"summary" : "A\u0020simple\u0020abstract\u0020class\u0020for\u0020collections\u0020of\u0020\u007B\u0040see\u0020Note\u007D\u0020objects.",
-		"url" : "classes/Theorem-NoteCollection.html",
-	}, {
-		"fqsen" : "\\Theorem\\NoteCollection\u003A\u003A\u0024notes",
-		"name" : "notes",
-		"summary" : "",
-		"url" : "classes/Theorem-NoteCollection.html#property_notes",
-	}, {
 		"fqsen" : "\\Theorem\\RegularExpression",
 		"name" : "RegularExpression",
 		"summary" : "",
 		"url" : "classes/Theorem-RegularExpression.html",
 	}, {
-		"fqsen" : "\\Theorem\\RegularExpression\u003A\u003AParseScientificNoteNotation\u0028\u0029",
-		"name" : "ParseScientificNoteNotation",
-		"summary" : "Parses\u0020the\u0020string\u0020representation\u0020of\u0020a\u0020note\u0020\u0028in\u0020scientific\u0020pitch\u0020notation\u0029\u0020into\u0020an\u0020array\u0020consisting\u0020of\u0020a\u0020letter,\nan\u0020accidental,\u0020and\u0020an\u0020octave.",
-		"url" : "classes/Theorem-RegularExpression.html#method_ParseScientificNoteNotation",
+		"fqsen" : "\\Theorem\\RegularExpression\u003A\u003AparseScientificPitchNotation\u0028\u0029",
+		"name" : "parseScientificPitchNotation",
+		"summary" : "Parses\u0020the\u0020string\u0020representation\u0020of\u0020a\u0020note\u0020\u0028i.e.\u0020scientific\u0020pitch\u0020notation\u0029\u0020into\u0020an\u0020array\u0020consisting\u0020of\u0020a\u0020letter\n\u0028\u0060string\u0060\u0029,\u0020an\u0020accidental\u0020\u0028\u0060AbstractAccidental\u0060\u0029,\u0020and\u0020an\u0020octave\u0020\u0028\u0060int\u0060\u0029.",
+		"url" : "classes/Theorem-RegularExpression.html#method_parseScientificPitchNotation",
 	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait",
+		"fqsen" : "\\Theorem\\RegularExpression\u003A\u003AparseQuarterTonePart\u0028\u0029",
+		"name" : "parseQuarterTonePart",
+		"summary" : "Parses\u0020the\u0020string\u0020representation\u0020of\u0020an\u0020accidental\u0020and\u0020returns\u0020the\u0020quarter\u0020tone\u0020part,\u0020if\u0020applicable.\u0020For\u0020example,\n\u0060db\u0060\u0020would\u0020return\u0020\u0060d\u0060,\u0020but\u0020\u0060\u0023\u0060\u0020would\u0020return\u0020\u0060NULL\u0060.",
+		"url" : "classes/Theorem-RegularExpression.html#method_parseQuarterTonePart",
+	}, {
+		"fqsen" : "\\Theorem\\RegularExpression\u003A\u003A\u0024letterPattern",
+		"name" : "letterPattern",
+		"summary" : "Regular\u0020expression\u0020subpattern\u0020for\u0020matching\u0020note\u0020letter\u0020names.",
+		"url" : "classes/Theorem-RegularExpression.html#property_letterPattern",
+	}, {
+		"fqsen" : "\\Theorem\\RegularExpression\u003A\u003A\u0024accidentalPattern",
+		"name" : "accidentalPattern",
+		"summary" : "Regular\u0020expression\u0020subpattern\u0020for\u0020matching\u0020accidentals.\u0020Also\u0020matches\u0020the\u0020accidental\u0027s\u0020quarter\u0020tone\u0020part,\u0020if\napplicable.",
+		"url" : "classes/Theorem-RegularExpression.html#property_accidentalPattern",
+	}, {
+		"fqsen" : "\\Theorem\\RegularExpression\u003A\u003A\u0024octavePattern",
+		"name" : "octavePattern",
+		"summary" : "Regular\u0020expression\u0020subpattern\u0020for\u0020matching\u0020note\u0020octave\u0020numbers.\u0020More\u0020specifically,\u0020this\u0020matches\u0020any\u0020negative\u0020or\nnon\u002Dnegative\u0020number,\u0020including\u0020zero\u0020\u0028which\u0020cannot\u0020be\u0020negative\u0029.\u0020Only\u0020zero\u0020can\u0020start\u0020with\u0020zero.",
+		"url" : "classes/Theorem-RegularExpression.html#property_octavePattern",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\Ascii",
+		"name" : "Ascii",
+		"summary" : "",
+		"url" : "classes/Theorem-Renderer-Ascii.html",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\Ascii\u003A\u003ArenderAccidental\u0028\u0029",
+		"name" : "renderAccidental",
+		"summary" : "Returns\u0020the\u0020rendered\u0020accidental.",
+		"url" : "classes/Theorem-Renderer-Ascii.html#method_renderAccidental",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\Ascii\u003A\u003ArenderNote\u0028\u0029",
+		"name" : "renderNote",
+		"summary" : "Returns\u0020the\u0020rendered\u0020note\u002Baccidental.",
+		"url" : "classes/Theorem-Renderer-Ascii.html#method_renderNote",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\Ascii\u003A\u003ArenderSpn\u0028\u0029",
+		"name" : "renderSpn",
+		"summary" : "Returns\u0020the\u0020rendered\u0020note\u002Baccidental\u002Boctave.",
+		"url" : "classes/Theorem-Renderer-Ascii.html#method_renderSpn",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\Ascii\u003A\u003A\u0024accidentals",
+		"name" : "accidentals",
+		"summary" : "",
+		"url" : "classes/Theorem-Renderer-Ascii.html#property_accidentals",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait",
 		"name" : "RenderableTrait",
 		"summary" : "Provides\u0020functionality\u0020for\u0020allowing\u0020entities\u0020\u0028such\u0020as\u0020\u007B\u0040see\u0020Note\u007D\u0020and\u0020\u007B\u0040see\u0020Chord\u007D\u0029\u0020to\u0020be\u0020rendered\u0020\u0028i.e.\u0020printed\u0020to\na\u0020string\u0029.",
-		"url" : "classes/Theorem-RenderableTrait.html",
+		"url" : "classes/Theorem-Renderer-RenderableTrait.html",
 	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003A__toString\u0028\u0029",
+		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait\u003A\u003A__toString\u0028\u0029",
 		"name" : "__toString",
 		"summary" : "Calls\u0020\u0060toString\u0028\u0029\u0060\u0020using\u0020its\u0020default\u0020parameters.",
-		"url" : "classes/Theorem-RenderableTrait.html#method___toString",
+		"url" : "classes/Theorem-Renderer-RenderableTrait.html#method___toString",
 	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003AgetOutputMode\u0028\u0029",
-		"name" : "getOutputMode",
-		"summary" : "Gets\u0020the\u0020output\u0020mode.\u0020If\u0020it\u0020has\u0020not\u0020been\u0020set,\u0020it\u0020defaults\u0020to\u0020the\u0020global\u0020output\u0020mode\u0020setting.",
-		"url" : "classes/Theorem-RenderableTrait.html#method_getOutputMode",
+		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait\u003A\u003AgetRenderer\u0028\u0029",
+		"name" : "getRenderer",
+		"summary" : "Gets\u0020the\u0020renderer.\u0020If\u0020it\u0020has\u0020not\u0020been\u0020set,\u0020it\u0020defaults\u0020to\u0020the\u0020global\u0020renderer\u0020setting.",
+		"url" : "classes/Theorem-Renderer-RenderableTrait.html#method_getRenderer",
 	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003AsetOutputMode\u0028\u0029",
-		"name" : "setOutputMode",
-		"summary" : "Sets\u0020the\u0020output\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\u0020\u0060Setting\u003A\u003AsetOutputMode\u0028\u0029\u0060\u0020unless\noverridden.",
-		"url" : "classes/Theorem-RenderableTrait.html#method_setOutputMode",
+		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait\u003A\u003AsetRenderer\u0028\u0029",
+		"name" : "setRenderer",
+		"summary" : "Sets\u0020the\u0020renderer.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\u0060Setting\u003A\u003AsetRenderer\u0028\u0029\u0060\u0020unless\noverridden.",
+		"url" : "classes/Theorem-Renderer-RenderableTrait.html#method_setRenderer",
 	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003AgetRenderMode\u0028\u0029",
-		"name" : "getRenderMode",
-		"summary" : "Gets\u0020the\u0020rendering\u0020mode.\u0020If\u0020it\u0020has\u0020not\u0020been\u0020set,\u0020it\u0020defaults\u0020to\u0020the\u0020global\u0020rendering\u0020mode\u0020setting.",
-		"url" : "classes/Theorem-RenderableTrait.html#method_getRenderMode",
-	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003AsetRenderMode\u0028\u0029",
-		"name" : "setRenderMode",
-		"summary" : "Sets\u0020the\u0020rendering\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\u0060Setting\u003A\u003AsetRenderMode\u0028\u0029\u0060\u0020unless\noverridden.",
-		"url" : "classes/Theorem-RenderableTrait.html#method_setRenderMode",
-	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003AtoString\u0028\u0029",
+		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait\u003A\u003AtoString\u0028\u0029",
 		"name" : "toString",
 		"summary" : "Converts\u0020the\u0020entity\u0020to\u0020a\u0020string.",
-		"url" : "classes/Theorem-RenderableTrait.html#method_toString",
+		"url" : "classes/Theorem-Renderer-RenderableTrait.html#method_toString",
 	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003A\u0024OUTPUT_MODE",
-		"name" : "OUTPUT_MODE",
-		"summary" : "Setting\u0020representing\u0020the\u0020output\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\n\u0060Setting\u003A\u003AsetOutputMode\u0028\u0029\u0060.",
-		"url" : "classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE",
+		"fqsen" : "\\Theorem\\Renderer\\RenderableTrait\u003A\u003A\u0024RENDERER",
+		"name" : "RENDERER",
+		"summary" : "Setting\u0020representing\u0020the\u0020renderer.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\n\u0060Setting\u003A\u003AsetRenderer\u0028\u0029\u0060.",
+		"url" : "classes/Theorem-Renderer-RenderableTrait.html#property_RENDERER",
 	}, {
-		"fqsen" : "\\Theorem\\RenderableTrait\u003A\u003A\u0024RENDER_MODE",
-		"name" : "RENDER_MODE",
-		"summary" : "Setting\u0020representing\u0020the\u0020rendering\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\n\u0060Setting\u003A\u003AsetRenderMode\u0028\u0029\u0060.",
-		"url" : "classes/Theorem-RenderableTrait.html#property_RENDER_MODE",
+		"fqsen" : "\\Theorem\\Renderer\\RendererInterface",
+		"name" : "RendererInterface",
+		"summary" : "Renderer\u0020interface.\u0020Declares\u0020methods\u0020that\u0020all\u0020renderers\u0020must\u0020implement.",
+		"url" : "classes/Theorem-Renderer-RendererInterface.html",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\RendererInterface\u003A\u003ArenderAccidental\u0028\u0029",
+		"name" : "renderAccidental",
+		"summary" : "Returns\u0020the\u0020rendered\u0020accidental.",
+		"url" : "classes/Theorem-Renderer-RendererInterface.html#method_renderAccidental",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\RendererInterface\u003A\u003ArenderNote\u0028\u0029",
+		"name" : "renderNote",
+		"summary" : "Returns\u0020the\u0020rendered\u0020note\u002Baccidental.",
+		"url" : "classes/Theorem-Renderer-RendererInterface.html#method_renderNote",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer\\RendererInterface\u003A\u003ArenderSpn\u0028\u0029",
+		"name" : "renderSpn",
+		"summary" : "Returns\u0020the\u0020rendered\u0020note\u002Baccidental\u002Boctave.",
+		"url" : "classes/Theorem-Renderer-RendererInterface.html#method_renderSpn",
 	}, {
 		"fqsen" : "\\Theorem\\Setting",
 		"name" : "Setting",
-		"summary" : "Static\u0020class.\u0020Contains\u0020various\u0020global\u0020configuration\u0020options\u0020\u0028static\u0029.\u0020Also\u0020contains\u0020a\u0020few\u0020inheritable\u0020configuration\noptions\u0020\u0028\u007B\u0040see\u0020setOutputMode\u0028\u0029\u007D\u0020and\u0020\u007B\u0040see\u0020setRenderMode\u0028\u0029\u007D\u0029.",
+		"summary" : "Static\u0020class.\u0020Contains\u0020various\u0020global\u0020configuration\u0020options\u0020\u0028static\u0029.\u0020Also\u0020contains\u0020a\u0020few\u0020inheritable\u0020configuration\noptions\u0020\u0028\u007B\u0040see\u0020setOutputMode\u0028\u0029\u007D\u0020and\u0020\u007B\u0040see\u0020setRenderer\u0028\u0029\u007D\u0029.",
 		"url" : "classes/Theorem-Setting.html",
 	}, {
 		"fqsen" : "\\Theorem\\Setting\u003A\u003AgetFrequencyPrecision\u0028\u0029",
@@ -321,25 +516,15 @@ Search.appendIndex(
 		"summary" : "",
 		"url" : "classes/Theorem-Setting.html#method_setKey",
 	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003AgetOutputMode\u0028\u0029",
-		"name" : "getOutputMode",
-		"summary" : "Gets\u0020the\u0020output\u0020mode.",
-		"url" : "classes/Theorem-Setting.html#method_getOutputMode",
+		"fqsen" : "\\Theorem\\Setting\u003A\u003AgetRenderer\u0028\u0029",
+		"name" : "getRenderer",
+		"summary" : "Gets\u0020the\u0020renderer.",
+		"url" : "classes/Theorem-Setting.html#method_getRenderer",
 	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003AsetOutputMode\u0028\u0029",
-		"name" : "setOutputMode",
-		"summary" : "Sets\u0020the\u0020output\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\u0020\u0060Setting\u003A\u003AsetOutputMode\u0028\u0029\u0060\u0020unless\noverridden.",
-		"url" : "classes/Theorem-Setting.html#method_setOutputMode",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003AgetRenderMode\u0028\u0029",
-		"name" : "getRenderMode",
-		"summary" : "Gets\u0020the\u0020rendering\u0020mode.",
-		"url" : "classes/Theorem-Setting.html#method_getRenderMode",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003AsetRenderMode\u0028\u0029",
-		"name" : "setRenderMode",
-		"summary" : "Sets\u0020the\u0020rendering\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\u0060Setting\u003A\u003AsetRenderMode\u0028\u0029\u0060\u0020unless\noverridden.",
-		"url" : "classes/Theorem-Setting.html#method_setRenderMode",
+		"fqsen" : "\\Theorem\\Setting\u003A\u003AsetRenderer\u0028\u0029",
+		"name" : "setRenderer",
+		"summary" : "Sets\u0020the\u0020rendering\u0020ssytem.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\u0060Setting\u003A\u003AsetRenderer\u0028\u0029\u0060\nunless\u0020overridden.",
+		"url" : "classes/Theorem-Setting.html#method_setRenderer",
 	}, {
 		"fqsen" : "\\Theorem\\Setting\u003A\u003AgetStep\u0028\u0029",
 		"name" : "getStep",
@@ -396,36 +581,6 @@ Search.appendIndex(
 		"summary" : "Constant\u0020representing\u0020the\u0020number\u0020of\u0020quarter\u0020steps\u0020in\u0020an\u0020octave.\u0020Useful\u0020for\u0020calculating\u0020note\u0020frequencies\u0020within\u0020a\ngiven\u0020tuning\u0020system.",
 		"url" : "classes/Theorem-Setting.html#constant_QUARTER_TONE",
 	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003AOUTPUT_FULLTEXT",
-		"name" : "OUTPUT_FULLTEXT",
-		"summary" : "Constant\u0020representing\u0020full\u002Dtext\u0020output\u0020of\u0020a\u0020note,\u0020chord,\u0020interval,\u0020et\u0020cetera.\u0020Output\u0020is\u0020fully\u0020expanded.",
-		"url" : "classes/Theorem-Setting.html#constant_OUTPUT_FULLTEXT",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003AOUTPUT_STANDARD",
-		"name" : "OUTPUT_STANDARD",
-		"summary" : "Constant\u0020representing\u0020standard\u0020output\u0020of\u0020a\u0020note,\u0020chord,\u0020interval,\u0020et\u0020cetera.\u0020Output\u0020is\u0020compressed,\u0020but\u0020varies\nbased\u0020on\u0020the\u0020render\u0020mode.",
-		"url" : "classes/Theorem-Setting.html#constant_OUTPUT_STANDARD",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003ARENDER_HTML",
-		"name" : "RENDER_HTML",
-		"summary" : "Constant\u0020representing\u0020the\u0020HTML\u0020rendering\u0020mode.\u0020Uses\u0020HTML\u0020to\u0020nicely\u0020format\u0020output.",
-		"url" : "classes/Theorem-Setting.html#constant_RENDER_HTML",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003ARENDER_NOSYMBOL",
-		"name" : "RENDER_NOSYMBOL",
-		"summary" : "Constant\u0020representing\u0020the\u0020plaintext\u0020rendering\u0020mode.\u0020Output\u0020will\u0020consist\u0020of\u0020only\u0020numbers,\u0020letters,\u0020and\u0020spaces.",
-		"url" : "classes/Theorem-Setting.html#constant_RENDER_NOSYMBOL",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003ARENDER_SMUFL",
-		"name" : "RENDER_SMUFL",
-		"summary" : "Constant\u0020representing\u0020the\u0020SMuFL\u0020\u0028Standard\u0020Music\u0020Font\u0020Layout\u0029\u0020rendering\u0020mode.\u0020Symbols\u0020will\u0020be\u0020encoded\u0020according\nto\u0020the\u0020SMuFL\u0020font\u0020specification.\u0020Uses\u0020HTML\u0020to\u0020nicely\u0020format\u0020output.",
-		"url" : "classes/Theorem-Setting.html#constant_RENDER_SMUFL",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003ARENDER_UNICODE",
-		"name" : "RENDER_UNICODE",
-		"summary" : "Constant\u0020representing\u0020the\u0020Unicode\u0020rendering\u0020mode.\u0020Output\u0020will\u0020consist\u0020of\u0020plaintext\u0020characters,\u0020but\u0020will\u0020use\nUnicode\u0020symbols\u0020wherever\u0020possible.",
-		"url" : "classes/Theorem-Setting.html#constant_RENDER_UNICODE",
-	}, {
 		"fqsen" : "\\Theorem\\Setting\u003A\u003A\u0024FREQUENCY_PRECISION",
 		"name" : "FREQUENCY_PRECISION",
 		"summary" : "Setting\u0020representing\u0020the\u0020number\u0020of\u0020decimal\u0020places\u0020that\u0020frequencies\u0020should\u0020be\u0020rounded\u0020to.",
@@ -436,15 +591,10 @@ Search.appendIndex(
 		"summary" : "Global\u0020setting\u0020property\u0020representing\u0020the\u0020key.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\n\u0060Theorem\\Setting\u003A\u003AsetKey\u0028\u0029\u0060.",
 		"url" : "classes/Theorem-Setting.html#property_KEY",
 	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003A\u0024OUTPUT_MODE",
-		"name" : "OUTPUT_MODE",
-		"summary" : "Setting\u0020representing\u0020the\u0020output\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\n\u0060Setting\u003A\u003AsetOutputMode\u0028\u0029\u0060.",
-		"url" : "classes/Theorem-Setting.html#property_OUTPUT_MODE",
-	}, {
-		"fqsen" : "\\Theorem\\Setting\u003A\u003A\u0024RENDER_MODE",
-		"name" : "RENDER_MODE",
-		"summary" : "Setting\u0020representing\u0020the\u0020rendering\u0020mode.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\n\u0060Setting\u003A\u003AsetRenderMode\u0028\u0029\u0060.",
-		"url" : "classes/Theorem-Setting.html#property_RENDER_MODE",
+		"fqsen" : "\\Theorem\\Setting\u003A\u003A\u0024RENDERER",
+		"name" : "RENDERER",
+		"summary" : "Setting\u0020representing\u0020the\u0020renderer.\u0020Can\u0020be\u0020set\u0020on\u0020a\u0020per\u002Dobject\u0020basis,\u0020or\u0020globally\u0020with\n\u0060Setting\u003A\u003AsetRenderer\u0028\u0029\u0060.",
+		"url" : "classes/Theorem-Setting.html#property_RENDERER",
 	}, {
 		"fqsen" : "\\Theorem\\Setting\u003A\u003A\u0024STEP",
 		"name" : "STEP",
@@ -468,32 +618,32 @@ Search.appendIndex(
 	}, {
 		"fqsen" : "\\Theorem\\TransposableTrait",
 		"name" : "TransposableTrait",
-		"summary" : "Provides\u0020functionality\u0020for\u0020allowing\u0020\u007B\u0040see\u0020Note\u007D\u0020entities\u0020to\u0020be\u0020transposed.",
+		"summary" : "Provides\u0020functionality\u0020for\u0020allowing\u0020entities\u0020to\u0020be\u0020transposed.",
 		"url" : "classes/Theorem-TransposableTrait.html",
 	}, {
 		"fqsen" : "\\Theorem\\TransposableTrait\u003A\u003AstepDown\u0028\u0029",
 		"name" : "stepDown",
-		"summary" : "Transposes\u0020the\u0020note\u0020one\u0020step\u0020down,\u0020given\u0020\u007B\u0040see\u0020Setting\u003A\u003ASTEP\u007D.",
+		"summary" : "Transposes\u0020the\u0020note\u0020one\u0020step\u0020down,\u0020given\u0020\u0060Setting\u003A\u003A\u0024STEP\u0060.",
 		"url" : "classes/Theorem-TransposableTrait.html#method_stepDown",
 	}, {
 		"fqsen" : "\\Theorem\\TransposableTrait\u003A\u003AstepUp\u0028\u0029",
 		"name" : "stepUp",
-		"summary" : "Transposes\u0020the\u0020note\u0020one\u0020step\u0020up,\u0020given\u0020\u007B\u0040see\u0020Setting\u003A\u003ASTEP\u007D.",
+		"summary" : "Transposes\u0020the\u0020note\u0020one\u0020step\u0020up,\u0020given\u0020\u0060Setting\u003A\u003A\u0024STEP\u0060.",
 		"url" : "classes/Theorem-TransposableTrait.html#method_stepUp",
 	}, {
 		"fqsen" : "\\Theorem\\TransposableTrait\u003A\u003Atranspose\u0028\u0029",
 		"name" : "transpose",
-		"summary" : "Transposes\u0020the\u0020note\u0020\u0060\u0024amount\u0060\u0020steps\u0020in\u0020the\u0020specified\u0020direction,\u0020given\u0020\u007B\u0040see\u0020Setting\u003A\u003ASTEP\u007D.",
+		"summary" : "Transposes\u0020the\u0020note\u0020\u0060\u0024amount\u0060\u0020steps\u0020in\u0020the\u0020specified\u0020direction,\u0020given\u0020\u0060Setting\u003A\u003A\u0024STEP\u0060.",
 		"url" : "classes/Theorem-TransposableTrait.html#method_transpose",
 	}, {
 		"fqsen" : "\\Theorem\\TransposableTrait\u003A\u003AtransposeDown\u0028\u0029",
 		"name" : "transposeDown",
-		"summary" : "Transposes\u0020the\u0020note\u0020\u0060\u0024amount\u0060\u0020steps\u0020down,\u0020given\u0020\u007B\u0040see\u0020Setting\u003A\u003ASTEP\u007D.",
+		"summary" : "Transposes\u0020the\u0020note\u0020\u0060\u0024amount\u0060\u0020steps\u0020down,\u0020given\u0020\u0060Setting\u003A\u003A\u0024STEP\u0060.",
 		"url" : "classes/Theorem-TransposableTrait.html#method_transposeDown",
 	}, {
 		"fqsen" : "\\Theorem\\TransposableTrait\u003A\u003AtransposeUp\u0028\u0029",
 		"name" : "transposeUp",
-		"summary" : "Transposes\u0020the\u0020note\u0020\u0060\u0024amount\u0060\u0020steps\u0020up,\u0020given\u0020\u007B\u0040see\u0020Setting\u003A\u003ASTEP\u007D.",
+		"summary" : "Transposes\u0020the\u0020note\u0020\u0060\u0024amount\u0060\u0020steps\u0020up,\u0020given\u0020\u0060Setting\u003A\u003A\u0024STEP\u0060.",
 		"url" : "classes/Theorem-TransposableTrait.html#method_transposeUp",
 	}, {
 		"fqsen" : "\\Theorem\\TuningSystem\\EqualTemperament",
@@ -503,13 +653,18 @@ Search.appendIndex(
 	}, {
 		"fqsen" : "\\Theorem\\TuningSystem\\EqualTemperament\u003A\u003AcalcFrequency\u0028\u0029",
 		"name" : "calcFrequency",
-		"summary" : "Calculates\u0020the\u0020frequency\u0020of\u0020the\u0020specified\u0020note.",
+		"summary" : "Calculates\u0020and\u0020returns\u0020the\u0020frequency\u0020of\u0020the\u0020specified\u0020note.",
 		"url" : "classes/Theorem-TuningSystem-EqualTemperament.html#method_calcFrequency",
 	}, {
 		"fqsen" : "\\Theorem\\TuningSystem\\TuningSystemInterface",
 		"name" : "TuningSystemInterface",
 		"summary" : "Tuning\u0020system\u0020interface.\u0020Declares\u0020methods\u0020that\u0020all\u0020tuning\u0020systems\u0020must\u0020implement.",
 		"url" : "classes/Theorem-TuningSystem-TuningSystemInterface.html",
+	}, {
+		"fqsen" : "\\Theorem\\TuningSystem\\TuningSystemInterface\u003A\u003AcalcFrequency\u0028\u0029",
+		"name" : "calcFrequency",
+		"summary" : "Calculates\u0020the\u0020frequency\u0020of\u0020the\u0020specified\u0020note.",
+		"url" : "classes/Theorem-TuningSystem-TuningSystemInterface.html#method_calcFrequency",
 	}, {
 		"fqsen" : "\\",
 		"name" : "\\",
@@ -525,6 +680,11 @@ Search.appendIndex(
 		"name" : "Theorem",
 		"summary" : "",
 		"url" : "namespaces/theorem.html",
+	}, {
+		"fqsen" : "\\Theorem\\Renderer",
+		"name" : "Renderer",
+		"summary" : "",
+		"url" : "namespaces/theorem-renderer.html",
 	}, {
 		"fqsen" : "\\Theorem\\TuningSystem",
 		"name" : "TuningSystem",

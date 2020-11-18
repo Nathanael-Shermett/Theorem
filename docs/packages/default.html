@@ -61,6 +61,8 @@
 				<ul class="phpdocumentor-list">
 					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
 					</li>
+					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+					</li>
 					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
 						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
 				</ul>
@@ -95,6 +97,10 @@
 
 				<dl class="phpdocumentor-table-of-contents">
 					<dt class="phpdocumentor-table-of-contents__entry -interface"><a
+						href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+						title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></dt>
+					<dd>Renderer interface. Declares methods that all renderers must implement.</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -interface"><a
 						href="classes/Theorem-TuningSystem-TuningSystemInterface.html"><abbr
 						title="\Theorem\TuningSystem\TuningSystemInterface">TuningSystemInterface</abbr></a></dt>
 					<dd>Tuning system interface. Declares methods that all tuning systems must implement.</dd>
@@ -102,75 +108,147 @@
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
 						title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-AccidentalFactory.html"><abbr
+						title="\Theorem\Accidental\AccidentalFactory">AccidentalFactory</abbr></a></dt>
+					<dd>Factory class to generate accidentals. Mostly just useful to keep accidental objects tidy after
+						transpositions and to
+						prevent all accidentals from being Special types. Also useful for setting quarter tone
+						directionality.
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-DoubleFlat.html"><abbr title="\Theorem\Accidental\DoubleFlat">DoubleFlat</abbr></a>
 					</dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-DoubleSharp.html"><abbr
 						title="\Theorem\Accidental\DoubleSharp">DoubleSharp</abbr></a></dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-FiveQuarterFlat.html"><abbr
+						title="\Theorem\Accidental\FiveQuarterFlat">FiveQuarterFlat</abbr></a></dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-FiveQuarterSharp.html"><abbr
+						title="\Theorem\Accidental\FiveQuarterSharp">FiveQuarterSharp</abbr></a></dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-Flat.html"><abbr
 						title="\Theorem\Accidental\Flat">Flat</abbr></a></dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-HalfFlat.html"><abbr title="\Theorem\Accidental\HalfFlat">HalfFlat</abbr></a>
+					</dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-HalfSharp.html"><abbr title="\Theorem\Accidental\HalfSharp">HalfSharp</abbr></a>
+					</dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-Natural.html"><abbr
 						title="\Theorem\Accidental\Natural">Natural</abbr></a></dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-Sharp.html"><abbr
 						title="\Theorem\Accidental\Sharp">Sharp</abbr></a></dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Accidental-Special.html"><abbr
 						title="\Theorem\Accidental\Special">Special</abbr></a></dt>
-					<dd>Static class. Serves primarily as an enumerator for accidentals. Contains various public
-						constants with values
-						representing the effect the accidental has on a letter note. Values are signed, relative, and
-						scaled to whole tones.
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-ThreeQuarterFlat.html"><abbr
+						title="\Theorem\Accidental\ThreeQuarterFlat">ThreeQuarterFlat</abbr></a></dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-ThreeQuarterSharp.html"><abbr
+						title="\Theorem\Accidental\ThreeQuarterSharp">ThreeQuarterSharp</abbr></a></dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-TripleFlat.html"><abbr title="\Theorem\Accidental\TripleFlat">TripleFlat</abbr></a>
+					</dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
+					</dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Accidental-TripleSharp.html"><abbr
+						title="\Theorem\Accidental\TripleSharp">TripleSharp</abbr></a></dt>
+					<dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s
+						relative pitch offset
+						(minimum unit: quarter tones). Also includes a few universal methods, including {@see
+						toString()}.
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Note.html"><abbr
 						title="\Theorem\Note">Note</abbr></a></dt>
 					<dd>Class containing properties and methods pertaining to musical notes.</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
-						href="classes/Theorem-NoteCollection.html"><abbr
-						title="\Theorem\NoteCollection">NoteCollection</abbr></a></dt>
-					<dd>A simple abstract class for collections of {@see Note} objects.</dd>
-					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-RegularExpression.html"><abbr title="\Theorem\RegularExpression">RegularExpression</abbr></a>
 					</dt>
+					<dd></dd>
+					<dt class="phpdocumentor-table-of-contents__entry -class"><a
+						href="classes/Theorem-Renderer-Ascii.html"><abbr
+						title="\Theorem\Renderer\Ascii">Ascii</abbr></a></dt>
 					<dd></dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-Setting.html"><abbr title="\Theorem\Setting">Setting</abbr></a></dt>
 					<dd>Static class. Contains various global configuration options (static). Also contains a few
 						inheritable configuration
-						options ({@see setOutputMode()} and {@see setRenderMode()}).
+						options ({@see setOutputMode()} and {@see setRenderer()}).
 					</dd>
 					<dt class="phpdocumentor-table-of-contents__entry -class"><a
 						href="classes/Theorem-TuningSystem-EqualTemperament.html"><abbr
@@ -182,8 +260,8 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -trait"><a
-						href="classes/Theorem-RenderableTrait.html"><abbr title="\Theorem\RenderableTrait">RenderableTrait</abbr></a>
-					</dt>
+						href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+						title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></dt>
 					<dd>Provides functionality for allowing entities (such as {@see Note} and {@see Chord}) to be
 						rendered (i.e. printed to
 						a string).
@@ -191,7 +269,7 @@
 					<dt class="phpdocumentor-table-of-contents__entry -trait"><a
 						href="classes/Theorem-TransposableTrait.html"><abbr title="\Theorem\TransposableTrait">TransposableTrait</abbr></a>
 					</dt>
-					<dd>Provides functionality for allowing {@see Note} entities to be transposed.</dd>
+					<dd>Provides functionality for allowing entities to be transposed.</dd>
 				</dl>
 
 

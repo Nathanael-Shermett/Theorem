@@ -61,6 +61,8 @@
 				<ul class="phpdocumentor-list">
 					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
 					</li>
+					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+					</li>
 					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
 						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
 				</ul>
@@ -92,8 +94,9 @@
 
 					<span class="phpdocumentor-element__extends">
 						Uses
-						<a href="classes/Theorem-RenderableTrait.html"><abbr title="\Theorem\RenderableTrait">RenderableTrait</abbr></a>,
-						<a href="classes/Theorem-TransposableTrait.html"><abbr title="\Theorem\TransposableTrait">TransposableTrait</abbr></a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+							title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a>, <a
+						href="classes/Theorem-TransposableTrait.html"><abbr title="\Theorem\TransposableTrait">TransposableTrait</abbr></a>
 					</span>
 				</h2>
 
@@ -101,7 +104,7 @@
 					<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 						href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 					:
-					<span class="phpdocumentor-element-found-in__line">10</span>
+					<span class="phpdocumentor-element-found-in__line">12</span>
 				</aside>
 
 				<p class="phpdocumentor-summary">Class containing properties and methods pertaining to musical
@@ -129,7 +132,7 @@
 						<span>
 							&nbsp;: string </span>
 					</dt>
-					<dd>The note&#039;s letter name (A-G).</dd>
+					<dd>The note&#039;s letter name (`A`-`G`).</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
 						<a href="classes/Theorem-Note.html#property_octave">$octave</a>
@@ -139,21 +142,12 @@
 					<dd>The octave the note belongs to (based on scientific pitch notation).</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE">$OUTPUT_MODE</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#property_RENDERER">$RENDERER</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
-					<dd>Setting representing the output mode. Can be set on a per-object basis, or globally with
-						`Setting::setOutputMode()`.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-RenderableTrait.html#property_RENDER_MODE">$RENDER_MODE</a>
-						<span>
-							&nbsp;: string </span>
-					</dt>
-					<dd>Setting representing the rendering mode. Can be set on a per-object basis, or globally with
-						`Setting::setRenderMode()`.
+					<dd>Setting representing the renderer. Can be set on a per-object basis, or globally with
+						`Setting::setRenderer()`.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
@@ -164,7 +158,7 @@
 					<dd>Creates a new note.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method___toString">__toString()</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#method___toString">__toString()</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
@@ -175,9 +169,9 @@
 						<span>
 							&nbsp;: float </span>
 					</dt>
-					<dd>Returns the relative distance, in steps ({@see Theorem\Setting::getStep()}), from the current
-						note to the
-						specified note. If the specified note is lower, then the result will be negative.
+					<dd>Returns the relative distance, in steps from the current note to the specified note. If the
+						specified note is
+						lower, then the result will be negative.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
@@ -186,7 +180,7 @@
 							&nbsp;: <a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
 							title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a> </span>
 					</dt>
-					<dd>Gets the {@see AbstractAccidental} object corresponding with the note&#039;s accidental.</dd>
+					<dd>Gets the `AbstractAccidental` object corresponding with the note&#039;s accidental.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-Note.html#method_getFrequency">getFrequency()</a>
@@ -212,21 +206,12 @@
 					<dd>Gets the octave the note belongs to (based on scientific pitch notation).</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_getOutputMode">getOutputMode()</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#method_getRenderer">getRenderer()</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;: <a href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+							title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a> </span>
 					</dt>
-					<dd>Gets the output mode. If it has not been set, it defaults to the global output mode setting.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_getRenderMode">getRenderMode()</a>
-						<span>
-							&nbsp;: string </span>
-					</dt>
-					<dd>Gets the rendering mode. If it has not been set, it defaults to the global rendering mode
-						setting.
-					</dd>
+					<dd>Gets the renderer. If it has not been set, it defaults to the global renderer setting.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-Note.html#method_getSpn">getSpn()</a>
@@ -238,41 +223,35 @@
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-Note.html#method_setAccidental">setAccidental()</a>
 						<span>
-							&nbsp;: void </span>
+							&nbsp;: <a href="classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a>
+						</span>
 					</dt>
 					<dd>Sets the note&#039;s accidental to a different accidental object.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-Note.html#method_setLetter">setLetter()</a>
 						<span>
-							&nbsp;: void </span>
+							&nbsp;: <a href="classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a>
+						</span>
 					</dt>
 					<dd>Sets the note&#039;s letter name (A-G).</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-Note.html#method_setOctave">setOctave()</a>
 						<span>
-							&nbsp;: void </span>
+							&nbsp;: <a href="classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a>
+						</span>
 					</dt>
 					<dd>Sets the octave the note belongs to (based on scientific pitch notation).</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_setOutputMode">setOutputMode()</a>
+						<a href="classes/Theorem-Renderer-RenderableTrait.html#method_setRenderer">setRenderer()</a>
 						<span>
-							&nbsp;: void </span>
+							&nbsp;: <a href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+							title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a> </span>
 					</dt>
-					<dd>Sets the output mode. Can be set on a per-object basis, or globally with
-						`Setting::setOutputMode()` unless
-						overridden.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-RenderableTrait.html#method_setRenderMode">setRenderMode()</a>
-						<span>
-							&nbsp;: void </span>
-					</dt>
-					<dd>Sets the rendering mode. Can be set on a per-object basis, or globally
-						with`Setting::setRenderMode()` unless
+					<dd>Sets the renderer. Can be set on a per-object basis, or globally with`Setting::setRenderer()`
+						unless
 						overridden.
 					</dd>
 
@@ -281,14 +260,14 @@
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note one step down, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note one step down, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-TransposableTrait.html#method_stepUp">stepUp()</a>
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note one step up, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note one step up, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-Note.html#method_toString">toString()</a>
@@ -302,21 +281,21 @@
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note `$amount` steps in the specified direction, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note `$amount` steps in the specified direction, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-TransposableTrait.html#method_transposeDown">transposeDown()</a>
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note `$amount` steps down, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note `$amount` steps down, given `Setting::$STEP`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-TransposableTrait.html#method_transposeUp">transposeUp()</a>
 						<span>
 							&nbsp;: $this </span>
 					</dt>
-					<dd>Transposes the note `$amount` steps up, given {@see Setting::STEP}.</dd>
+					<dd>Transposes the note `$amount` steps up, given `Setting::$STEP`.</dd>
 
 				</dl>
 
@@ -345,7 +324,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">19</span>
+							<span class="phpdocumentor-element-found-in__line">21</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">The note&#039;s accidental.</p>
@@ -380,10 +359,10 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">26</span>
+							<span class="phpdocumentor-element-found-in__line">28</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">The note&#039;s letter name (A-G).</p>
+						<p class="phpdocumentor-summary">The note&#039;s letter name (`A`-`G`).</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
@@ -413,7 +392,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">33</span>
+							<span class="phpdocumentor-element-found-in__line">35</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">The octave the note belongs to (based on scientific pitch
@@ -436,29 +415,30 @@
             -private
             -static                                            "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_OUTPUT_MODE">
-							$OUTPUT_MODE
-							<a href="classes/Theorem-RenderableTrait.html#property_OUTPUT_MODE" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_RENDERER">
+							$RENDERER
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#property_RENDERER"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
 							<span class="phpdocumentor-element-found-in__line">22</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Setting representing the output mode. Can be set on a
-							per-object basis, or globally with
-							`Setting::setOutputMode()`.</p>
+						<p class="phpdocumentor-summary">Setting representing the renderer. Can be set on a per-object
+							basis, or globally with
+							`Setting::setRenderer()`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
 							<span class="phpdocumentor-signature__static">static</span> <span
 							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$OUTPUT_MODE</span>
+							<span class="phpdocumentor-signature__name">$RENDERER</span>
 						</code>
 
 						<section class="phpdocumentor-description"></section>
@@ -473,7 +453,7 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getOutputMode()">getOutputMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\getRenderer()">getRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -482,68 +462,7 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setOutputMode()">setOutputMode()</abbr></span>
-
-								<section class="phpdocumentor-description"></section>
-
-							</dd>
-						</dl>
-
-					</article>
-					<article
-						class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
-					>
-						<h4 class="phpdocumentor-element__name" id="property_RENDER_MODE">
-							$RENDER_MODE
-							<a href="classes/Theorem-RenderableTrait.html#property_RENDER_MODE" class="headerlink"><i
-								class="fas fa-link"></i></a>
-							<span class="phpdocumentor-element__modifiers">
-							</span>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">32</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Setting representing the rendering mode. Can be set on a
-							per-object basis, or globally with
-							`Setting::setRenderMode()`.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$RENDER_MODE</span>
-						</code>
-
-						<section class="phpdocumentor-description"></section>
-
-
-						<h5 class="phpdocumentor-tag-list__heading" id="tags">
-							Tags
-							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-						</h5>
-						<dl class="phpdocumentor-tag-list">
-							<dt class="phpdocumentor-tag-list__entry">
-								<span class="phpdocumentor-tag__name">see</span>
-							</dt>
-							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getRenderMode()">getRenderMode()</abbr></span>
-
-								<section class="phpdocumentor-description"></section>
-
-							</dd>
-							<dt class="phpdocumentor-tag-list__entry">
-								<span class="phpdocumentor-tag__name">see</span>
-							</dt>
-							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setRenderMode()">setRenderMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\setRenderer()">setRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -573,7 +492,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">42</span>
+							<span class="phpdocumentor-element-found-in__line">43</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Creates a new note.</p>
@@ -582,7 +501,7 @@
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__name">__construct</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">float|string&nbsp;</span><span
+							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
 							class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
@@ -592,18 +511,12 @@
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
 								<span class="phpdocumentor-signature__argument__name">$value</span>
-								: <span class="phpdocumentor-signature__argument__return-type">float|string</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"><p>Accepts any of the following:</p>
-									<ul>
-										<li>A note written in scientific pitch notation (SPN). Examples include <code
-											class="prettyprint">A4</code> and <code class="prettyprint">C#4</code>.
-										</li>
-										<li>A frequency. Examples include <code class="prettyprint">440 Hz</code>, <code
-											class="prettyprint">440</code>, and <code class="prettyprint">415.305</code>.
-										</li>
-									</ul>
+								<section class="phpdocumentor-description"><p>Accepts a note written in scientific pitch
+									notation (SPN). Examples include <code class="prettyprint">A4</code> and
+									<code class="prettyprint">C#4</code>.</p>
 								</section>
 
 							</dd>
@@ -625,14 +538,15 @@
 					>
 						<h4 class="phpdocumentor-element__name" id="method___toString">
 							__toString()
-							<a href="classes/Theorem-RenderableTrait.html#method___toString" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#method___toString"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">40</span>
+							<span class="phpdocumentor-element-found-in__line">30</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Calls `toString()` using its default parameters.</p>
@@ -655,7 +569,7 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\toString()">toString()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\toString()">toString()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -684,12 +598,12 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">59</span>
+							<span class="phpdocumentor-element-found-in__line">62</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Returns the relative distance, in steps ({@see
-							Theorem\Setting::getStep()}), from the current note to the
-							specified note. If the specified note is lower, then the result will be negative.</p>
+						<p class="phpdocumentor-summary">Returns the relative distance, in steps from the current note
+							to the specified note. If the specified note is
+							lower, then the result will be negative.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -717,6 +631,31 @@
 						</dl>
 
 
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+
+								<section class="phpdocumentor-description"><p>Setting::getStep();</p>
+								</section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+
+								<section class="phpdocumentor-description"><p>Setting::setStep();</p>
+								</section>
+
+							</dd>
+						</dl>
+
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">float</span>
 						&mdash;
@@ -739,11 +678,11 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">177</span>
+							<span class="phpdocumentor-element-found-in__line">181</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Gets the {@see AbstractAccidental} object corresponding with
-							the note&#039;s accidental.</p>
+						<p class="phpdocumentor-summary">Gets the `AbstractAccidental` object corresponding with the
+							note&#039;s accidental.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -754,6 +693,24 @@
 
 						<section class="phpdocumentor-description"></section>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
+									title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type"><a
@@ -779,7 +736,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">189</span>
+							<span class="phpdocumentor-element-found-in__line">206</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the note&#039;s frequency using the specified tuning
@@ -791,12 +748,37 @@
 								class="phpdocumentor-signature__name">getFrequency</span><span>(</span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">float</span></code>
 
-						<section class="phpdocumentor-description"><p><strong>NOTE:</strong> This number is rounded
-							based on <a href="classes/Theorem-Setting.html#method_getFrequencyPrecision"><abbr
-								title="\Theorem\Setting::getFrequencyPrecision()">Setting::getFrequencyPrecision()</abbr></a>.
-						</p>
-						</section>
+						<section class="phpdocumentor-description"></section>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getFrequencyPrecision"><abbr
+									title="\Theorem\Setting::getFrequencyPrecision()">Setting::getFrequencyPrecision()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setFrequencyPrecision"><abbr
+									title="\Theorem\Setting::setFrequencyPrecision()">Setting::setFrequencyPrecision()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">float</span>
@@ -820,7 +802,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">229</span>
+							<span class="phpdocumentor-element-found-in__line">239</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the note&#039;s letter name (A-G).</p>
@@ -856,7 +838,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">249</span>
+							<span class="phpdocumentor-element-found-in__line">262</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the octave the note belongs to (based on scientific pitch
@@ -884,69 +866,73 @@
             -public
                                                 -final        "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_getOutputMode">
-							getOutputMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_getOutputMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="method_getRenderer">
+							getRenderer()
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#method_getRenderer"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">50</span>
+							<span class="phpdocumentor-element-found-in__line">43</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Gets the output mode. If it has not been set, it defaults to
-							the global output mode setting.</p>
+						<p class="phpdocumentor-summary">Gets the renderer. If it has not been set, it defaults to the
+							global renderer setting.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">getOutputMode</span><span>(</span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
+							class="phpdocumentor-signature__name">getRenderer</span><span>(</span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+							title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span></code>
 
 						<section class="phpdocumentor-description"></section>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\setRenderer()">setRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::getRenderer()">Setting::getRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::setRenderer()">Setting::setRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
-						&mdash;
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article
-						class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
-					>
-						<h4 class="phpdocumentor-element__name" id="method_getRenderMode">
-							getRenderMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_getRenderMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">72</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Gets the rendering mode. If it has not been set, it defaults to
-							the global rendering mode setting.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">getRenderMode</span><span>(</span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-						<section class="phpdocumentor-description"></section>
-
-
-						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
+						<span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+							title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
 						&mdash;
 						<section class="phpdocumentor-description"></section>
 
@@ -967,7 +953,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">207</span>
+							<span class="phpdocumentor-element-found-in__line">225</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Returns the note&#039;s value in scientific pitch notation
@@ -1009,7 +995,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">219</span>
+							<span class="phpdocumentor-element-found-in__line">192</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the note&#039;s accidental to a different accidental
@@ -1023,7 +1009,8 @@
 							href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr
 							title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a>&nbsp;</span><span
 							class="phpdocumentor-signature__argument__name">$accidental</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
+							: </span><span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a></span></code>
 
 						<section class="phpdocumentor-description"></section>
 
@@ -1043,7 +1030,8 @@
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Note.html"><abbr
+							title="\Theorem\Note">Note</abbr></a></span>
 						&mdash;
 						<section class="phpdocumentor-description"></section>
 
@@ -1064,7 +1052,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">239</span>
+							<span class="phpdocumentor-element-found-in__line">250</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the note&#039;s letter name (A-G).</p>
@@ -1075,7 +1063,8 @@
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
 							class="phpdocumentor-signature__argument__name">$letter</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
+							: </span><span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a></span></code>
 
 						<section class="phpdocumentor-description"></section>
 
@@ -1093,7 +1082,8 @@
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Note.html"><abbr
+							title="\Theorem\Note">Note</abbr></a></span>
 						&mdash;
 						<section class="phpdocumentor-description"></section>
 
@@ -1114,7 +1104,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">259</span>
+							<span class="phpdocumentor-element-found-in__line">273</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the octave the note belongs to (based on scientific pitch
@@ -1126,7 +1116,8 @@
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
 							class="phpdocumentor-signature__argument__name">$octave</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
+							: </span><span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Note.html"><abbr title="\Theorem\Note">Note</abbr></a></span></code>
 
 						<section class="phpdocumentor-description"></section>
 
@@ -1144,7 +1135,8 @@
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Note.html"><abbr
+							title="\Theorem\Note">Note</abbr></a></span>
 						&mdash;
 						<section class="phpdocumentor-description"></section>
 
@@ -1156,37 +1148,40 @@
             -public
                                                 -final        "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_setOutputMode">
-							setOutputMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_setOutputMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="method_setRenderer">
+							setRenderer()
+							<a href="classes/Theorem-Renderer-RenderableTrait.html#method_setRenderer"
+							   class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RenderableTrait.php"><a
+								href="files/src-renderer-renderabletrait.html"><abbr
+								title="src/Renderer/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">62</span>
+							<span class="phpdocumentor-element-found-in__line">61</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Sets the output mode. Can be set on a per-object basis, or
-							globally with `Setting::setOutputMode()` unless
+						<p class="phpdocumentor-summary">Sets the renderer. Can be set on a per-object basis, or
+							globally with`Setting::setRenderer()` unless
 							overridden.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">setOutputMode</span><span>(</span><span
+							class="phpdocumentor-signature__name">setRenderer</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$outputMode</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
+							class="phpdocumentor-signature__argument__name">$renderer</span></span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+							title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></span></code>
 
 						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
+								<span class="phpdocumentor-signature__argument__name">$renderer</span>
 								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
@@ -1196,61 +1191,46 @@
 						</dl>
 
 
-						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
-						&mdash;
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article
-						class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
-					>
-						<h4 class="phpdocumentor-element__name" id="method_setRenderMode">
-							setRenderMode()
-							<a href="classes/Theorem-RenderableTrait.html#method_setRenderMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/RenderableTrait.php"><a
-								href="files/src-renderabletrait.html"><abbr title="src/RenderableTrait.php">RenderableTrait.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">84</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Sets the rendering mode. Can be set on a per-object basis, or
-							globally with`Setting::setRenderMode()` unless
-							overridden.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">setRenderMode</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$renderMode</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-						<section class="phpdocumentor-description"></section>
-
-						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-						<dl class="phpdocumentor-argument-list">
-							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
-								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
-							<dd class="phpdocumentor-argument-list__definition">
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\getRenderer()">getRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::getRenderer()">Setting::getRenderer()</abbr></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\Renderer\Setting::setRenderer()">Setting::setRenderer()</abbr></span>
+
 								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
 
-
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
+						<span class="phpdocumentor-signature__response_type"><a
+							href="classes/Theorem-Renderer-RenderableTrait.html"><abbr
+							title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></span>
 						&mdash;
 						<section class="phpdocumentor-description"></section>
 
@@ -1271,11 +1251,10 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">18</span>
+							<span class="phpdocumentor-element-found-in__line">19</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note one step down, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note one step down, given `Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -1285,6 +1264,35 @@
 
 						<section class="phpdocumentor-description"></section>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
@@ -1308,11 +1316,10 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">28</span>
+							<span class="phpdocumentor-element-found-in__line">31</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note one step up, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note one step up, given `Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -1322,6 +1329,35 @@
 
 						<section class="phpdocumentor-description"></section>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
@@ -1345,7 +1381,7 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/Note.php"><a
 								href="files/src-note.html"><abbr title="src/Note.php">Note.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">264</span>
+							<span class="phpdocumentor-element-found-in__line">280</span>
 						</aside>
 
 
@@ -1353,12 +1389,10 @@
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__name">toString</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span>[</span><span
-							class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$outputMode</span><span> = </span><span
-							class="phpdocumentor-signature__argument__default-value">NULL</span><span>
-							]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span
-							class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$renderMode</span><span> = </span><span
+							class="phpdocumentor-signature__argument__return-type"><a
+							href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+							title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a>&nbsp;</span><span
+							class="phpdocumentor-signature__argument__name">$renderer</span><span> = </span><span
 							class="phpdocumentor-signature__argument__default-value">NULL</span><span>
 							]</span></span><span>)</span><span> : </span><span
 							class="phpdocumentor-signature__response_type">string</span></code>
@@ -1367,15 +1401,10 @@
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
-								: <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
-							<dd class="phpdocumentor-argument-list__definition">
-
-							</dd>
-							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
-								: <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+								<span class="phpdocumentor-signature__argument__name">$renderer</span>
+								: <span class="phpdocumentor-signature__argument__return-type"><a
+								href="classes/Theorem-Renderer-RendererInterface.html"><abbr
+								title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
 								= <span class="phpdocumentor-signature__argument__default-value">NULL</span></dt>
 							<dd class="phpdocumentor-argument-list__definition">
 
@@ -1394,7 +1423,7 @@
 						class="phpdocumentor-element
             -method
             -public
-                                                -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_transpose">
 							transpose()
@@ -1405,16 +1434,15 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">40</span>
+							<span class="phpdocumentor-element-found-in__line">45</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Transposes the note `$amount` steps in the specified direction,
-							given {@see Setting::STEP}.</p>
+							given `Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__name">transpose</span><span>(</span><span
+							<span class="phpdocumentor-signature__name">transpose</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
 							class="phpdocumentor-signature__argument__name">$amount</span></span><span
@@ -1451,6 +1479,35 @@
 						</dl>
 
 
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
+
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
 						&mdash;
@@ -1473,11 +1530,11 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">51</span>
+							<span class="phpdocumentor-element-found-in__line">58</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note `$amount` steps down, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note `$amount` steps down, given
+							`Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -1505,6 +1562,35 @@
 						</dl>
 
 
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
+
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>
 						&mdash;
@@ -1527,11 +1613,11 @@
 							<abbr class="phpdocumentor-element-found-in__file" title="src/TransposableTrait.php"><a
 								href="files/src-transposabletrait.html"><abbr title="src/TransposableTrait.php">TransposableTrait.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">62</span>
+							<span class="phpdocumentor-element-found-in__line">71</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Transposes the note `$amount` steps up, given {@see
-							Setting::STEP}.</p>
+						<p class="phpdocumentor-summary">Transposes the note `$amount` steps up, given
+							`Setting::$STEP`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
@@ -1558,6 +1644,35 @@
 							</dd>
 						</dl>
 
+
+						<h5 class="phpdocumentor-tag-list__heading" id="tags">
+							Tags
+							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+						</h5>
+						<dl class="phpdocumentor-tag-list">
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_getStep"><abbr
+									title="\Theorem\Setting::getStep()">Setting::getStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+							<dt class="phpdocumentor-tag-list__entry">
+								<span class="phpdocumentor-tag__name">see</span>
+							</dt>
+							<dd class="phpdocumentor-tag-list__definition">
+								<span class="phpdocumentor-tag-link"><a
+									href="classes/Theorem-Setting.html#method_setStep"><abbr
+									title="\Theorem\Setting::setStep()">Setting::setStep()</abbr></a></span>
+
+								<section class="phpdocumentor-description"></section>
+
+							</dd>
+						</dl>
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">$this</span>

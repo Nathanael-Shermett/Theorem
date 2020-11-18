@@ -61,6 +61,8 @@
 				<ul class="phpdocumentor-list">
 					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
 					</li>
+					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
+					</li>
 					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
 						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
 				</ul>
@@ -96,12 +98,12 @@
 					<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
 						href="files/src-setting.html"><abbr title="src/Setting.php">Setting.php</abbr></a></abbr>
 					:
-					<span class="phpdocumentor-element-found-in__line">9</span>
+					<span class="phpdocumentor-element-found-in__line">12</span>
 				</aside>
 
 				<p class="phpdocumentor-summary">Static class. Contains various global configuration options (static).
 					Also contains a few inheritable configuration
-					options ({@see setOutputMode()} and {@see setRenderMode()}).</p>
+					options ({@see setOutputMode()} and {@see setRenderer()}).</p>
 
 				<section class="phpdocumentor-description"></section>
 
@@ -113,25 +115,6 @@
 
 				<dl class="phpdocumentor-table-of-contents">
 					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_OUTPUT_FULLTEXT">OUTPUT_FULLTEXT</a>
-						<span>
-							&nbsp;= &#039;OUTPUT_FULLTEXT&#039; </span>
-					</dt>
-					<dd>Constant representing full-text output of a note, chord, interval, et cetera. Output is fully
-						expanded.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_OUTPUT_STANDARD">OUTPUT_STANDARD</a>
-						<span>
-							&nbsp;= &#039;OUTPUT_STANDARD&#039; </span>
-					</dt>
-					<dd>Constant representing standard output of a note, chord, interval, et cetera. Output is
-						compressed, but varies
-						based on the render mode.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
 						<a href="classes/Theorem-Setting.html#constant_QUARTER_TONE">QUARTER_TONE</a>
 						<span>
 							&nbsp;= 24 </span>
@@ -139,42 +122,6 @@
 					<dd>Constant representing the number of quarter steps in an octave. Useful for calculating note
 						frequencies within a
 						given tuning system.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_RENDER_HTML">RENDER_HTML</a>
-						<span>
-							&nbsp;= &#039;RENDER_HTML&#039; </span>
-					</dt>
-					<dd>Constant representing the HTML rendering mode. Uses HTML to nicely format output.</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_RENDER_NOSYMBOL">RENDER_NOSYMBOL</a>
-						<span>
-							&nbsp;= &#039;RENDER_NOSYMBOL&#039; </span>
-					</dt>
-					<dd>Constant representing the plaintext rendering mode. Output will consist of only numbers,
-						letters, and spaces.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_RENDER_SMUFL">RENDER_SMUFL</a>
-						<span>
-							&nbsp;= &#039;RENDER_SMUFL&#039; </span>
-					</dt>
-					<dd>Constant representing the SMuFL (Standard Music Font Layout) rendering mode. Symbols will be
-						encoded according
-						to the SMuFL font specification. Uses HTML to nicely format output.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_RENDER_UNICODE">RENDER_UNICODE</a>
-						<span>
-							&nbsp;= &#039;RENDER_UNICODE&#039; </span>
-					</dt>
-					<dd>Constant representing the Unicode rendering mode. Output will consist of plaintext characters,
-						but will use
-						Unicode symbols wherever possible.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -214,21 +161,12 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_OUTPUT_MODE">$OUTPUT_MODE</a>
+						<a href="classes/Theorem-Setting.html#property_RENDERER">$RENDERER</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
-					<dd>Setting representing the output mode. Can be set on a per-object basis, or globally with
-						`Setting::setOutputMode()`.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_RENDER_MODE">$RENDER_MODE</a>
-						<span>
-							&nbsp;: string </span>
-					</dt>
-					<dd>Setting representing the rendering mode. Can be set on a per-object basis, or globally with
-						`Setting::setRenderMode()`.
+					<dd>Setting representing the renderer. Can be set on a per-object basis, or globally with
+						`Setting::setRenderer()`.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
@@ -283,18 +221,11 @@
 					<dd></dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getOutputMode">getOutputMode()</a>
+						<a href="classes/Theorem-Setting.html#method_getRenderer">getRenderer()</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
-					<dd>Gets the output mode.</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getRenderMode">getRenderMode()</a>
-						<span>
-							&nbsp;: string </span>
-					</dt>
-					<dd>Gets the rendering mode.</dd>
+					<dd>Gets the renderer.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
 						<a href="classes/Theorem-Setting.html#method_getStep">getStep()</a>
@@ -348,23 +279,13 @@
 					<dd></dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setOutputMode">setOutputMode()</a>
+						<a href="classes/Theorem-Setting.html#method_setRenderer">setRenderer()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
-					<dd>Sets the output mode. Can be set on a per-object basis, or globally with
-						`Setting::setOutputMode()` unless
-						overridden.
-					</dd>
-
-					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setRenderMode">setRenderMode()</a>
-						<span>
-							&nbsp;: void </span>
-					</dt>
-					<dd>Sets the rendering mode. Can be set on a per-object basis, or globally
-						with`Setting::setRenderMode()` unless
-						overridden.
+					<dd>Sets the rendering ssytem. Can be set on a per-object basis, or globally
+						with`Setting::setRenderer()`
+						unless overridden.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
@@ -412,81 +333,6 @@
 						<a href="classes/Theorem-Setting.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 					</h3>
 					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_OUTPUT_FULLTEXT">
-							OUTPUT_FULLTEXT
-							<a href="classes/Theorem-Setting.html#constant_OUTPUT_FULLTEXT" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">38</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Constant representing full-text output of a note, chord,
-							interval, et cetera. Output is fully expanded.</p>
-
-						<code class="phpdocumentor-signature phpdocumentor-code ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">OUTPUT_FULLTEXT</span>
-							= <span class="phpdocumentor-signature__default-value">&#039;OUTPUT_FULLTEXT&#039;</span>
-						</code>
-
-
-						<section class="phpdocumentor-description"><p><strong>Examples:</strong></p>
-							<ul>
-								<li>A-flat major</li>
-								<li>C half-diminished seventh with an added ninth</li>
-								<li>E-flat diminished fifth</li>
-								<li>G half-sharp minor</li>
-							</ul>
-						</section>
-
-
-					</article>
-					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_OUTPUT_STANDARD">
-							OUTPUT_STANDARD
-							<a href="classes/Theorem-Setting.html#constant_OUTPUT_STANDARD" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">50</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Constant representing standard output of a note, chord,
-							interval, et cetera. Output is compressed, but varies
-							based on the render mode.</p>
-
-						<code class="phpdocumentor-signature phpdocumentor-code ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">OUTPUT_STANDARD</span>
-							= <span class="phpdocumentor-signature__default-value">&#039;OUTPUT_STANDARD&#039;</span>
-						</code>
-
-
-						<section class="phpdocumentor-description"><p><strong>Examples:</strong></p>
-							<ul>
-								<li>Ab</li>
-								<li>Cø7add9</li>
-								<li>Eb d5</li>
-								<li>Gv#m</li>
-							</ul>
-						</section>
-
-
-					</article>
-					<article class="phpdocumentor-element -constant -public ">
 						<h4 class="phpdocumentor-element__name" id="constant_QUARTER_TONE">
 							QUARTER_TONE
 							<a href="classes/Theorem-Setting.html#constant_QUARTER_TONE" class="headerlink"><i
@@ -498,7 +344,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">27</span>
+							<span class="phpdocumentor-element-found-in__line">30</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Constant representing the number of quarter steps in an octave.
@@ -518,134 +364,6 @@
 
 					</article>
 					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_RENDER_HTML">
-							RENDER_HTML
-							<a href="classes/Theorem-Setting.html#constant_RENDER_HTML" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">53</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Constant representing the HTML rendering mode. Uses HTML to
-							nicely format output.</p>
-
-						<code class="phpdocumentor-signature phpdocumentor-code ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">RENDER_HTML</span>
-							= <span class="phpdocumentor-signature__default-value">&#039;RENDER_HTML&#039;</span>
-						</code>
-
-
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_RENDER_NOSYMBOL">
-							RENDER_NOSYMBOL
-							<a href="classes/Theorem-Setting.html#constant_RENDER_NOSYMBOL" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">56</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Constant representing the plaintext rendering mode. Output will
-							consist of only numbers, letters, and spaces.</p>
-
-						<code class="phpdocumentor-signature phpdocumentor-code ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">RENDER_NOSYMBOL</span>
-							= <span class="phpdocumentor-signature__default-value">&#039;RENDER_NOSYMBOL&#039;</span>
-						</code>
-
-
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_RENDER_SMUFL">
-							RENDER_SMUFL
-							<a href="classes/Theorem-Setting.html#constant_RENDER_SMUFL" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">67</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Constant representing the SMuFL (Standard Music Font Layout)
-							rendering mode. Symbols will be encoded according
-							to the SMuFL font specification. Uses HTML to nicely format output.</p>
-
-						<code class="phpdocumentor-signature phpdocumentor-code ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">RENDER_SMUFL</span>
-							= <span class="phpdocumentor-signature__default-value">&#039;RENDER_SMUFL&#039;</span>
-						</code>
-
-
-						<section class="phpdocumentor-description"><p><strong>NOTE #1:</strong> You must use a <a
-							href="https://github.com/steinbergmedia/bravura" target="SMuFL">SMuFL-compliant
-							font</a> to render symbols correctly.</p>
-							<p><strong>NOTE #2:</strong> For easy CSS styling, output is wrapped in <code
-								class="prettyprint">&amp;lt;span
-								class=&quot;SMuFL&quot;&amp;gt;&amp;lt;/span&amp;gt;</code> tags.</p>
-						</section>
-
-
-					</article>
-					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_RENDER_UNICODE">
-							RENDER_UNICODE
-							<a href="classes/Theorem-Setting.html#constant_RENDER_UNICODE" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">73</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Constant representing the Unicode rendering mode. Output will
-							consist of plaintext characters, but will use
-							Unicode symbols wherever possible.</p>
-
-						<code class="phpdocumentor-signature phpdocumentor-code ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">RENDER_UNICODE</span>
-							= <span class="phpdocumentor-signature__default-value">&#039;RENDER_UNICODE&#039;</span>
-						</code>
-
-
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article class="phpdocumentor-element -constant -public ">
 						<h4 class="phpdocumentor-element__name" id="constant_SEMITONE">
 							SEMITONE
 							<a href="classes/Theorem-Setting.html#constant_SEMITONE" class="headerlink"><i
@@ -657,7 +375,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">21</span>
+							<span class="phpdocumentor-element-found-in__line">24</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Constant representing the number of half steps in an octave.
@@ -688,7 +406,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">15</span>
+							<span class="phpdocumentor-element-found-in__line">18</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Constant representing the number of whole steps in an octave.
@@ -734,7 +452,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">85</span>
+							<span class="phpdocumentor-element-found-in__line">42</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Setting representing the number of decimal places that
@@ -799,7 +517,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">95</span>
+							<span class="phpdocumentor-element-found-in__line">52</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the key. Can be set on a
@@ -851,9 +569,9 @@
             -private
             -static                                            "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_OUTPUT_MODE">
-							$OUTPUT_MODE
-							<a href="classes/Theorem-Setting.html#property_OUTPUT_MODE" class="headerlink"><i
+						<h4 class="phpdocumentor-element__name" id="property_RENDERER">
+							$RENDERER
+							<a href="classes/Theorem-Setting.html#property_RENDERER" class="headerlink"><i
 								class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
@@ -863,19 +581,20 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">105</span>
+							<span class="phpdocumentor-element-found-in__line">62</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Setting representing the output mode. Can be set on a
-							per-object basis, or globally with
-							`Setting::setOutputMode()`.</p>
+						<p class="phpdocumentor-summary">Setting representing the renderer. Can be set on a per-object
+							basis, or globally with
+							`Setting::setRenderer()`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
 							<span class="phpdocumentor-signature__static">static</span> <span
 							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$OUTPUT_MODE</span>
-							= <span class="phpdocumentor-signature__default-value">self::OUTPUT_STANDARD</span></code>
+							<span class="phpdocumentor-signature__name">$RENDERER</span>
+							= <span
+							class="phpdocumentor-signature__default-value">TheoremRendererAscii::class</span></code>
 
 						<section class="phpdocumentor-description"></section>
 
@@ -889,7 +608,8 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getOutputMode()">getOutputMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\getRenderer()">getRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -898,69 +618,8 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setOutputMode()">setOutputMode()</abbr></span>
-
-								<section class="phpdocumentor-description"></section>
-
-							</dd>
-						</dl>
-
-					</article>
-					<article
-						class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
-					>
-						<h4 class="phpdocumentor-element__name" id="property_RENDER_MODE">
-							$RENDER_MODE
-							<a href="classes/Theorem-Setting.html#property_RENDER_MODE" class="headerlink"><i
-								class="fas fa-link"></i></a>
-							<span class="phpdocumentor-element__modifiers">
-							</span>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">115</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Setting representing the rendering mode. Can be set on a
-							per-object basis, or globally with
-							`Setting::setRenderMode()`.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$RENDER_MODE</span>
-							= <span class="phpdocumentor-signature__default-value">self::RENDER_UNICODE</span></code>
-
-						<section class="phpdocumentor-description"></section>
-
-
-						<h5 class="phpdocumentor-tag-list__heading" id="tags">
-							Tags
-							<a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-						</h5>
-						<dl class="phpdocumentor-tag-list">
-							<dt class="phpdocumentor-tag-list__entry">
-								<span class="phpdocumentor-tag__name">see</span>
-							</dt>
-							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getRenderMode()">getRenderMode()</abbr></span>
-
-								<section class="phpdocumentor-description"></section>
-
-							</dd>
-							<dt class="phpdocumentor-tag-list__entry">
-								<span class="phpdocumentor-tag__name">see</span>
-							</dt>
-							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setRenderMode()">setRenderMode()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr
+									title="\Theorem\setRenderer()">setRenderer()</abbr></span>
 
 								<section class="phpdocumentor-description"></section>
 
@@ -987,7 +646,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">128</span>
+							<span class="phpdocumentor-element-found-in__line">75</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the number of steps in an
@@ -1080,7 +739,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">149</span>
+							<span class="phpdocumentor-element-found-in__line">96</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the reference note. Used
@@ -1144,7 +803,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">137</span>
+							<span class="phpdocumentor-element-found-in__line">84</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the reference pitch. Used
@@ -1205,7 +864,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">158</span>
+							<span class="phpdocumentor-element-found-in__line">105</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the tuning system used to
@@ -1216,8 +875,7 @@
 							<span class="phpdocumentor-signature__static">static</span> <span
 							class="phpdocumentor-signature__type">string</span>
 							<span class="phpdocumentor-signature__name">$TUNING_SYSTEM</span>
-							= <span
-							class="phpdocumentor-signature__default-value">&#039;EqualTemperament&#039;</span></code>
+							= <span class="phpdocumentor-signature__default-value">TheoremTuningSystemEqualTemperament::class</span></code>
 
 						<section class="phpdocumentor-description"></section>
 
@@ -1272,7 +930,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">165</span>
+							<span class="phpdocumentor-element-found-in__line">112</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the number of decimal places frequencies should be rounded
@@ -1311,7 +969,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">184</span>
+							<span class="phpdocumentor-element-found-in__line">131</span>
 						</aside>
 
 
@@ -1338,9 +996,9 @@
             -public
                                     -static            -final        "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_getOutputMode">
-							getOutputMode()
-							<a href="classes/Theorem-Setting.html#method_getOutputMode" class="headerlink"><i
+						<h4 class="phpdocumentor-element__name" id="method_getRenderer">
+							getRenderer()
+							<a href="classes/Theorem-Setting.html#method_getRenderer" class="headerlink"><i
 								class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
@@ -1348,54 +1006,16 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">202</span>
+							<span class="phpdocumentor-element-found-in__line">149</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Gets the output mode.</p>
+						<p class="phpdocumentor-summary">Gets the renderer.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__final">final</span> <span
 							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getOutputMode</span><span>(</span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-						<section class="phpdocumentor-description"></section>
-
-
-						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
-						&mdash;
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article
-						class="phpdocumentor-element
-            -method
-            -public
-                                    -static            -final        "
-					>
-						<h4 class="phpdocumentor-element__name" id="method_getRenderMode">
-							getRenderMode()
-							<a href="classes/Theorem-Setting.html#method_getRenderMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">224</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Gets the rendering mode.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getRenderMode</span><span>(</span><span>)</span><span>
+							class="phpdocumentor-signature__name">getRenderer</span><span>(</span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
 						<section class="phpdocumentor-description"></section>
@@ -1424,7 +1044,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">250</span>
+							<span class="phpdocumentor-element-found-in__line">175</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the current setting&#039;s value for the number of steps
@@ -1504,7 +1124,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">298</span>
+							<span class="phpdocumentor-element-found-in__line">223</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Returns the note, as a string, that the reference pitch is
@@ -1544,7 +1164,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">275</span>
+							<span class="phpdocumentor-element-found-in__line">200</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the reference pitch setting (usually 440 Hz). This is used
@@ -1584,7 +1204,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">318</span>
+							<span class="phpdocumentor-element-found-in__line">243</span>
 						</aside>
 
 
@@ -1621,7 +1241,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">176</span>
+							<span class="phpdocumentor-element-found-in__line">123</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the number of decimal places frequencies should be rounded
@@ -1675,7 +1295,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">192</span>
+							<span class="phpdocumentor-element-found-in__line">139</span>
 						</aside>
 
 
@@ -1717,9 +1337,9 @@
             -public
                                     -static            -final        "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_setOutputMode">
-							setOutputMode()
-							<a href="classes/Theorem-Setting.html#method_setOutputMode" class="headerlink"><i
+						<h4 class="phpdocumentor-element__name" id="method_setRenderer">
+							setRenderer()
+							<a href="classes/Theorem-Setting.html#method_setRenderer" class="headerlink"><i
 								class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
@@ -1727,21 +1347,21 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">214</span>
+							<span class="phpdocumentor-element-found-in__line">161</span>
 						</aside>
 
-						<p class="phpdocumentor-summary">Sets the output mode. Can be set on a per-object basis, or
-							globally with `Setting::setOutputMode()` unless
-							overridden.</p>
+						<p class="phpdocumentor-summary">Sets the rendering ssytem. Can be set on a per-object basis, or
+							globally with`Setting::setRenderer()`
+							unless overridden.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__final">final</span> <span
 							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setOutputMode</span><span>(</span><span
+							class="phpdocumentor-signature__name">setRenderer</span><span>(</span><span
 							class="phpdocumentor-signature__argument"><span
 							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$outputMode</span></span><span>)</span><span>
+							class="phpdocumentor-signature__argument__name">$renderer</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
 						<section class="phpdocumentor-description"></section>
@@ -1749,62 +1369,7 @@
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$outputMode</span>
-								: <span class="phpdocumentor-signature__argument__return-type">string</span>
-							</dt>
-							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
-
-							</dd>
-						</dl>
-
-
-						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">void</span>
-						&mdash;
-						<section class="phpdocumentor-description"></section>
-
-
-					</article>
-					<article
-						class="phpdocumentor-element
-            -method
-            -public
-                                    -static            -final        "
-					>
-						<h4 class="phpdocumentor-element__name" id="method_setRenderMode">
-							setRenderMode()
-							<a href="classes/Theorem-Setting.html#method_setRenderMode" class="headerlink"><i
-								class="fas fa-link"></i></a>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">236</span>
-						</aside>
-
-						<p class="phpdocumentor-summary">Sets the rendering mode. Can be set on a per-object basis, or
-							globally with`Setting::setRenderMode()` unless
-							overridden.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setRenderMode</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$renderMode</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-						<section class="phpdocumentor-description"></section>
-
-						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-						<dl class="phpdocumentor-argument-list">
-							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$renderMode</span>
+								<span class="phpdocumentor-signature__argument__name">$renderer</span>
 								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
@@ -1837,7 +1402,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">264</span>
+							<span class="phpdocumentor-element-found-in__line">189</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the number of steps in an octave. In most western music
@@ -1931,7 +1496,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">310</span>
+							<span class="phpdocumentor-element-found-in__line">235</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the note that the reference pitch is calibrated to
@@ -1986,7 +1551,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">287</span>
+							<span class="phpdocumentor-element-found-in__line">212</span>
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the reference pitch (usually 440 Hz). This is used by
@@ -2041,7 +1606,7 @@
 								href="files/src-setting.html"><abbr
 								title="src/Setting.php">Setting.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">327</span>
+							<span class="phpdocumentor-element-found-in__line">252</span>
 						</aside>
 
 
