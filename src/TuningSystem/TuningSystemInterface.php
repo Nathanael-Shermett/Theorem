@@ -7,7 +7,7 @@ use Theorem\Note;
 /**
  * Tuning system interface. Declares methods that all tuning systems must implement.
  *
- * @see Theorem::Note
+ * @see Note
  */
 interface TuningSystemInterface
 {

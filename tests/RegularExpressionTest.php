@@ -10,95 +10,95 @@ class RegularExpressionTest extends TestCase
 	public function testParseScientificNoteNotation()
 	{
 		// Ascending letters, ascending octaves, mixed accidentals.
-		$regex = RegularExpression::parseScientificNoteNotation('A-1', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A-1', $output);
 		$this->assertTrue($regex);
 		$this->assertEquals('A', $output['letter']);
 		$this->assertInstanceOf(Accidental\Natural::class, $output['accidental']);
 		$this->assertEquals(-1, $output['octave']);
 
-		$regex = RegularExpression::parseScientificNoteNotation('Bd0', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('Bd0', $output);
 		$this->assertTrue($regex);
 		$this->assertEquals('B', $output['letter']);
 		$this->assertInstanceOf(Accidental\HalfFlat::class, $output['accidental']);
 		$this->assertEquals(0, $output['octave']);
 
-		$regex = RegularExpression::parseScientificNoteNotation('C+b1', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('C+b1', $output);
 		$this->assertTrue($regex);
 		$this->assertEquals('C', $output['letter']);
 		$this->assertInstanceOf(Accidental\HalfFlat::class, $output['accidental']);
 		$this->assertEquals(1, $output['octave']);
 
-		$regex = RegularExpression::parseScientificNoteNotation('Dbb2', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('Dbb2', $output);
 		$this->assertTrue($regex);
 		$this->assertEquals('D', $output['letter']);
 		$this->assertInstanceOf(Accidental\DoubleFlat::class, $output['accidental']);
 		$this->assertEquals(2, $output['octave']);
 
-		$regex = RegularExpression::parseScientificNoteNotation('Edbb3', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('Edbb3', $output);
 		$this->assertTrue($regex);
 		$this->assertEquals('E', $output['letter']);
 		$this->assertInstanceOf(Accidental\FiveQuarterFlat::class, $output['accidental']);
 		$this->assertEquals(3, $output['octave']);
 
-		RegularExpression::parseScientificNoteNotation('F#4', $output);
+		RegularExpression::parseScientificPitchNotation('F#4', $output);
 		$this->assertTrue($regex);
 		$this->assertEquals('F', $output['letter']);
 		$this->assertInstanceOf(Accidental\Sharp::class, $output['accidental']);
 		$this->assertEquals(4, $output['octave']);
 
-		$regex = RegularExpression::parseScientificNoteNotation('G+#x5', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('G+#x5', $output);
 		$this->assertTrue($regex);
 		$this->assertEquals('G', $output['letter']);
 		$this->assertInstanceOf(Accidental\Special::class, $output['accidental']);
 		$this->assertEquals(5, $output['octave']);
 
 		// Invalid expressions.
-		$regex = RegularExpression::parseScientificNoteNotation('A', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('b', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('b', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('Ab', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('Ab', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('b4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('b4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('Add4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('Add4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A##4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A##4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A++4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A++4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('Ax#4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('Ax#4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A#+4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A#+4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A+x#4', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A+x#4', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A-0', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A-0', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A-', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A-', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A4-', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A4-', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation('A4 ', $output);
+		$regex = RegularExpression::parseScientificPitchNotation('A4 ', $output);
 		$this->assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificNoteNotation(4, $output);
+		$regex = RegularExpression::parseScientificPitchNotation(4, $output);
 		$this->assertFalse($regex);
 	}
 

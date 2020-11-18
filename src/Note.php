@@ -3,6 +3,7 @@
 namespace Theorem;
 
 use Theorem\Accidental\AbstractAccidental;
+use Theorem\Renderer\RenderableTrait;
 use Theorem\Renderer\RendererInterface;
 
 /**
@@ -20,7 +21,7 @@ class Note
 	private AbstractAccidental $accidental;
 
 	/**
-	 * The note's letter name (A-G).
+	 * The note's letter name (`A`-`G`).
 	 *
 	 * @var string $letter
 	 */
@@ -36,13 +37,12 @@ class Note
 	/**
 	 * Creates a new note.
 	 *
-	 * @param float|string $value Accepts any of the following:
-	 *                            * A note written in scientific pitch notation (SPN). Examples include `A4` and `C#4`.
-	 *                            * A frequency. Examples include `440 Hz`, `440`, and `415.305`.
+	 * @param string $value       Accepts a note written in scientific pitch notation (SPN). Examples include `A4` and
+	 *                            `C#4`.
 	 */
 	public function __construct($value)
 	{
-		if (RegularExpression::parseScientificNoteNotation($value, $output))
+		if (RegularExpression::parseScientificPitchNotation($value, $output))
 		{
 			$this->setLetter($output['letter']);
 			$this->setAccidental($output['accidental']);
@@ -51,11 +51,13 @@ class Note
 	}
 
 	/**
-	 * Returns the relative distance, in steps ({@see Theorem\Setting::getStep()}), from the current note to the
-	 * specified note. If the specified note is lower, then the result will be negative.
+	 * Returns the relative distance, in steps from the current note to the specified note. If the specified note is
+	 * lower, then the result will be negative.
 	 *
 	 * @param Note $note
 	 * @return float
+	 * @see Setting::getStep();
+	 * @see Setting::setStep();
 	 */
 	public function distanceTo(Note $note): float
 	{
@@ -171,9 +173,10 @@ class Note
 	}
 
 	/**
-	 * Gets the {@see AbstractAccidental} object corresponding with the note's accidental.
+	 * Gets the `AbstractAccidental` object corresponding with the note's accidental.
 	 *
 	 * @return AbstractAccidental
+	 * @see AbstractAccidental
 	 */
 	public function getAccidental(): AbstractAccidental
 	{
@@ -181,11 +184,24 @@ class Note
 	}
 
 	/**
+	 * Sets the note's accidental to a different accidental object.
+	 *
+	 * @param AbstractAccidental $accidental
+	 * @return Note
+	 */
+	public function setAccidental(AbstractAccidental $accidental): Note
+	{
+		$this->accidental = $accidental;
+
+		return $this;
+	}
+
+	/**
 	 * Gets the note's frequency using the specified tuning system {@see Setting::getTuningSystem()}.
 	 *
-	 * **NOTE:** This number is rounded based on {@see Setting::getFrequencyPrecision()}.
-	 *
 	 * @return float
+	 * @see Setting::getFrequencyPrecision()
+	 * @see Setting::setFrequencyPrecision()
 	 */
 	public function getFrequency(): float
 	{
@@ -209,20 +225,10 @@ class Note
 	public function getSpn(): string
 	{
 		// The renderer class.
-		$renderer = Setting::getRenderer();
+		$renderer = self::$RENDERER ?? Setting::getRenderer();
 		$renderer = new $renderer();
 
 		return $renderer->renderSpn($this);
-	}
-
-	/**
-	 * Sets the note's accidental to a different accidental object.
-	 *
-	 * @param AbstractAccidental $accidental
-	 */
-	public function setAccidental(AbstractAccidental $accidental): void
-	{
-		$this->accidental = $accidental;
 	}
 
 	/**
@@ -239,10 +245,13 @@ class Note
 	 * Sets the note's letter name (A-G).
 	 *
 	 * @param string $letter
+	 * @return Note
 	 */
-	public function setLetter(string $letter): void
+	public function setLetter(string $letter): Note
 	{
 		$this->letter = $letter;
+
+		return $this;
 	}
 
 	/**
@@ -259,14 +268,19 @@ class Note
 	 * Sets the octave the note belongs to (based on scientific pitch notation).
 	 *
 	 * @param int $octave
+	 * @return Note
 	 */
-	public function setOctave(int $octave): void
+	public function setOctave(int $octave): Note
 	{
 		$this->octave = $octave;
+
+		return $this;
 	}
 
 	public function toString(RendererInterface $renderer = NULL): string
 	{
+		$renderer = $renderer ?? $this->getRenderer();
+
 		return $renderer->renderNote($this);
 	}
 }

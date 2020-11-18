@@ -5,14 +5,29 @@ namespace Theorem\Accidental;
 use Theorem\RegularExpression;
 
 /**
- * Factory class to generate accidentals. Really just used to keep accidental objects tidy after transpositions and to
+ * Factory class to generate accidentals. Mostly just useful to keep accidental objects tidy after transpositions and to
  * prevent all accidentals from being Special types. Also useful for setting quarter tone directionality.
  *
  * @see Special
  */
 class AccidentalFactory
 {
-	private float $offset               = 0;
+	/**
+	 * The offset of the accidental that is being built.
+	 *
+	 * @var float
+	 * @see AccidentalFactory::getOffset()
+	 * @see AccidentalFactory::setOffset()
+	 */
+	private float $offset = 0;
+
+	/**
+	 * Whether or not the accidental's quarter tone part, if applicable, is moving moving "upwards" or "downwards".
+	 *
+	 * @var int
+	 * @see AccidentalFactory::getQuarterToneDirection()
+	 * @see AccidentalFactory::setQuarterToneDirection()
+	 */
 	private int   $quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_NEUTRAL;
 
 	/**
@@ -28,7 +43,7 @@ class AccidentalFactory
 	}
 
 	/**
-	 * Builds and returns an accidental based on the specified offset.
+	 * Builds and returns a specific accidental object based on the specified offset.
 	 *
 	 * @return AbstractAccidental
 	 */
@@ -86,27 +101,7 @@ class AccidentalFactory
 	}
 
 	/**
-	 * @return float
-	 */
-	public function getOffset(): float
-	{
-		return $this->offset;
-	}
-
-	/**
-	 * @param float $offset
-	 * @return AccidentalFactory
-	 */
-	public function setOffset($offset): AccidentalFactory
-	{
-		$this->offset = $offset;
-
-		return $this;
-	}
-
-	/**
-	 * Calculates and sets the accidental's offset and quarter tone directionality from its ASCII string
-	 * representation..
+	 * Calculates and sets the accidental's offset and quarter tone directionality from its ASCII string representation.
 	 *
 	 * @param string $string
 	 * @return AccidentalFactory
@@ -146,6 +141,32 @@ class AccidentalFactory
 	}
 
 	/**
+	 * Returns the accidental's offset.
+	 *
+	 * @return float
+	 * @see AccidentalFactory::setOffset()
+	 */
+	public function getOffset(): float
+	{
+		return $this->offset;
+	}
+
+	/**
+	 * Sets the accidental's offset.
+	 *
+	 * @param float $offset
+	 * @return AccidentalFactory
+	 */
+	public function setOffset($offset): AccidentalFactory
+	{
+		$this->offset = $offset;
+
+		return $this;
+	}
+
+	/**
+	 * Returns the accidental's quarter tone part's directionality, if any.
+	 *
 	 * @return int
 	 */
 	public function getQuarterToneDirection(): int
@@ -154,6 +175,8 @@ class AccidentalFactory
 	}
 
 	/**
+	 * Sets the accidental's quarter tone part's directionality.
+	 *
 	 * @param int $quarterToneDirection
 	 * @return AccidentalFactory
 	 */

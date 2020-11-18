@@ -1,8 +1,6 @@
 <?php
 
-namespace Theorem;
-
-use Theorem\Renderer\RendererInterface;
+namespace Theorem\Renderer;
 
 /**
  * Provides functionality for allowing entities (such as {@see Note} and {@see Chord}) to be rendered (i.e. printed to
@@ -17,9 +15,9 @@ trait RenderableTrait
 	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
 	 * `Setting::setRenderer()`.
 	 *
+	 * @var string $RENDERER
 	 * @see getRenderer()
 	 * @see setRenderer()
-	 * @var string
 	 */
 	private static string $RENDERER;
 
@@ -37,7 +35,10 @@ trait RenderableTrait
 	/**
 	 * Gets the renderer. If it has not been set, it defaults to the global renderer setting.
 	 *
-	 * @return string
+	 * @return RendererInterface
+	 * @see setRenderer()
+	 * @see Setting::getRenderer()
+	 * @see Setting::setRenderer()
 	 */
 	final public function getRenderer(): RendererInterface
 	{
@@ -52,11 +53,16 @@ trait RenderableTrait
 	 * overridden.
 	 *
 	 * @param string $renderer
-	 * @return void
+	 * @return RenderableTrait
+	 * @see getRenderer()
+	 * @see Setting::getRenderer()
+	 * @see Setting::setRenderer()
 	 */
-	final public function setRenderer(string $renderer): void
+	final public function setRenderer(string $renderer): self
 	{
 		self::$RENDERER = $renderer;
+
+		return $this;
 	}
 
 	/**
@@ -68,7 +74,9 @@ trait RenderableTrait
 	 * @param string|null $renderer The render mode used by the implementing entity.
 	 * @return string
 	 * @see getRenderer()
-	 * @see getOutputMode()
+	 * @see setRenderer()
+	 * @see Setting::getRenderer()
+	 * @see Setting::setRenderer()
 	 */
 	abstract public function toString($renderer = NULL): string;
 }

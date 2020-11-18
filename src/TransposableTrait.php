@@ -3,50 +3,57 @@
 namespace Theorem;
 
 /**
- * Provides functionality for allowing {@see Note} entities to be transposed.
+ * Provides functionality for allowing entities to be transposed.
  *
- * **NOTE:** `TransposableTrait` only provides functionality for transposing individual notes. If you need to transpose
- * *collections* of notes (such as {@see Chord} and {@see Sequence}), use {@see TransposableColletionTrait}.
+ * @see Note
  */
 trait TransposableTrait
 {
 	/**
-	 * Transposes the note one step down, given {@see Setting::STEP}.
+	 * Transposes the note one step down, given `Setting::$STEP`.
 	 *
 	 * @return $this
+	 * @see Setting::getStep()
+	 * @see Setting::setStep()
 	 */
 	final public function stepDown(): self
 	{
-		return $this;
+		return $this->transpose(1, 'down');
 	}
 
 	/**
-	 * Transposes the note one step up, given {@see Setting::STEP}.
+	 * Transposes the note one step up, given `Setting::$STEP`.
 	 *
 	 * @return $this
+	 * @see Setting::getStep()
+	 * @see Setting::setStep()
 	 */
 	final public function stepUp(): self
 	{
-		return $this;
+		return $this->transpose(1, 'up');
 	}
 
 	/**
-	 * Transposes the note `$amount` steps in the specified direction, given {@see Setting::STEP}.
+	 * Transposes the note `$amount` steps in the specified direction, given `Setting::$STEP`.
 	 *
 	 * @param int    $amount    The number of steps to transpose the note.
 	 * @param string $direction The transposition direction. Accepts either `down` or `up`.
 	 * @return $this
+	 * @see Setting::getStep()
+	 * @see Setting::setStep()
 	 */
-	final public function transpose($amount, $direction): self
+	public function transpose($amount, $direction): self
 	{
 		return $this;
 	}
 
 	/**
-	 * Transposes the note `$amount` steps down, given {@see Setting::STEP}.
+	 * Transposes the note `$amount` steps down, given `Setting::$STEP`.
 	 *
 	 * @param int $amount The number of steps to transpose the note.
 	 * @return $this
+	 * @see Setting::getStep()
+	 * @see Setting::setStep()
 	 */
 	final public function transposeDown($amount): self
 	{
@@ -54,10 +61,12 @@ trait TransposableTrait
 	}
 
 	/**
-	 * Transposes the note `$amount` steps up, given {@see Setting::STEP}.
+	 * Transposes the note `$amount` steps up, given `Setting::$STEP`.
 	 *
 	 * @param int $amount The number of steps to transpose the note.
 	 * @return $this
+	 * @see Setting::getStep()
+	 * @see Setting::setStep()
 	 */
 	final public function transposeUp($amount): self
 	{

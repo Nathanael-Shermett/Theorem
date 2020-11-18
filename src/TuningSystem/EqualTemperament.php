@@ -10,17 +10,23 @@ use Theorem\Setting;
  * Equal temperament tuning system. Equal temperament is the most commonly used tuning system today and works by
  * splitting an octave into `n` equal steps, with pitch doubling upwards (or halving downwards) between octaves.
  *
+ * @see Setting::getTuningReferenceNote()
+ * @see Setting::setTuningReferenceNote()
+ * @see Setting::getTuningReferencePitch()
+ * @see Setting::getTuningReferencePitch()
  * @see Setting::getStep()
  * @see Setting::setStep()
  */
 class EqualTemperament implements TuningSystemInterface
 {
 	/**
-	 * Calculates the frequency of the specified note.
+	 * Calculates and returns the frequency of the specified note.
 	 *
 	 * @param Note $note
 	 * @return float
 	 * @see Setting::getTuningReferenceNote()
+	 * @see Setting::setTuningReferenceNote()
+	 * @see Setting::getTuningReferencePitch()
 	 * @see Setting::getTuningReferencePitch()
 	 */
 	public function calcFrequency(Note $note): float
@@ -28,11 +34,11 @@ class EqualTemperament implements TuningSystemInterface
 		// If this note is the reference note, return the reference frequency.
 		if ($note->getSpn() == Setting::getTuningReferenceNote())
 		{
-			return Theorem\Setting::getTuningReferencePitch();
+			return Setting::getTuningReferencePitch();
 		}
 
 		// Reference note (probably A4).
-		$referenceNote = new Theorem\Note(Setting::getTuningReferenceNote());
+		$referenceNote = new Note(Setting::getTuningReferenceNote());
 
 		// To calculate a note frequency using equal temperament:
 		//   [this frequency] =

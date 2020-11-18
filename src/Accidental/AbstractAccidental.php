@@ -2,7 +2,7 @@
 
 namespace Theorem\Accidental;
 
-use Theorem\RenderableTrait;
+use Theorem\Renderer\RenderableTrait;
 use Theorem\Renderer\RendererInterface;
 
 /**
@@ -94,27 +94,21 @@ abstract class AbstractAccidental
 	}
 
 	/**
-	 * @param RendererInterface $renderer
-	 * @return string
-	 * @TODO
-	 */
-	public function toString(RendererInterface $renderer): string
-	{
-		return $renderer->renderAccidental($this);
-	}
-
-	/**
 	 * Sets the accidental's offset.
 	 *
 	 * @param float $offset
+	 * @return AbstractAccidental
 	 */
-	protected function setOffset(float $offset): void
+	protected function setOffset(float $offset): AbstractAccidental
 	{
 		$this->offset = $offset;
+
+		return $this;
 	}
 
 	/**
 	 * @return int
+	 * @see AbstractAccidental::setQuarterToneDirection()
 	 */
 	public function getQuarterToneDirection(): int
 	{
@@ -125,10 +119,24 @@ abstract class AbstractAccidental
 	 * Sets the accidental's quarter tone direction.
 	 *
 	 * @param int $quarterToneDirection
-	 * @see
+	 * @return AbstractAccidental
+	 * @see AbstractAccidental::getQuarterToneDirection()
 	 */
-	public function setQuarterToneDirection(int $quarterToneDirection): void
+	public function setQuarterToneDirection(int $quarterToneDirection): AbstractAccidental
 	{
 		$this->quarterToneDirection = $quarterToneDirection;
+
+		return $this;
+	}
+
+	/**
+	 * @param RendererInterface $renderer
+	 * @return string
+	 */
+	public function toString(RendererInterface $renderer): string
+	{
+		$renderer = $renderer ?? $this->getRenderer();
+
+		return $renderer->renderAccidental($this);
 	}
 }
