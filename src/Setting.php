@@ -6,8 +6,7 @@ use Theorem\Renderer\Ascii;
 use Theorem\TuningSystem\EqualTemperament;
 
 /**
- * Static class. Contains various global configuration options (static). Also contains a few inheritable configuration
- * options ({@see setOutputMode()} and {@see setRenderer()}).
+ * Static class. Contains various global configuration options (static) and their corresponding getters and setters.
  */
 final class Setting
 {
@@ -35,9 +34,9 @@ final class Setting
 	 * NOTE: Internal frequency calculations are not changed by this setting. Only public frequency results (e.g.
 	 * {@see Note::getFrequency()}) are affected.
 	 *
-	 * @see getFrequencyPrecision()
-	 * @see setFrequencyPrecision()
 	 * @var int
+	 * @see setFrequencyPrecision()
+	 * @see getFrequencyPrecision()
 	 */
 	private static int $FREQUENCY_PRECISION = 0;
 
@@ -45,9 +44,9 @@ final class Setting
 	 * Global setting property representing the key. Can be set on a per-object basis, or globally with
 	 * `Theorem\Setting::setKey()`.
 	 *
-	 * @see getKey()
-	 * @see setKey()
 	 * @var string
+	 * @see setKey()
+	 * @see getKey()
 	 */
 	private static string $KEY = 'C major';
 
@@ -55,9 +54,9 @@ final class Setting
 	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
 	 * `Setting::setRenderer()`.
 	 *
-	 * @see getRenderer()
-	 * @see setRenderer()
 	 * @var string
+	 * @see setRenderer()
+	 * @see getRenderer()
 	 */
 	private static string $RENDERER = Ascii::class;
 
@@ -65,21 +64,21 @@ final class Setting
 	 * Global setting property representing the number of steps in an octave. Useful when working in microtonal
 	 * systems. Used by tuning systems that implement `ITuningSystem`.
 	 *
-	 * @see WHOLE_TONE
+	 * @var int
 	 * @see SEMITONE
 	 * @see QUARTER_TONE
 	 * @see getStep()
 	 * @see setStep()
-	 * @var int
+	 * @see WHOLE_TONE
 	 */
 	private static int $STEP = self::SEMITONE;
 
 	/**
 	 * Global setting property representing the reference pitch. Used by tuning systems that implement `ITuningSystem`.
 	 *
-	 * @see getTuningReferencePitch()
-	 * @see setTuningReferencePitch()
 	 * @var float
+	 * @see setTuningReferencePitch()
+	 * @see getTuningReferencePitch()
 	 */
 	private static float $TUNING_REFERENCE_PITCH = 440;
 
@@ -89,18 +88,18 @@ final class Setting
 	 * **NOTE:** Very few tuning systems use reference notes other than A4. Only change this if you know exactly what
 	 * you are doing.
 	 *
-	 * @see getTuningReferenceNote()
-	 * @see setTuningReferenceNote()
 	 * @var string
+	 * @see setTuningReferenceNote()
+	 * @see getTuningReferenceNote()
 	 */
 	private static string $TUNING_REFERENCE_NOTE = 'A4';
 
 	/**
 	 * Global setting property representing the tuning system used to calculate notes and their relative frequencies.
 	 *
-	 * @see getTuningSystem()
-	 * @see setTuningSystem()
 	 * @var string
+	 * @see setTuningSystem()
+	 * @see getTuningSystem()
 	 */
 	private static string $TUNING_SYSTEM = EqualTemperament::class;
 

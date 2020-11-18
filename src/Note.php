@@ -56,8 +56,8 @@ class Note
 	 *
 	 * @param Note $note
 	 * @return float
-	 * @see Setting::getStep();
-	 * @see Setting::setStep();
+	 * @see Setting::getStep()
+	 * @see Setting::setStep()
 	 */
 	public function distanceTo(Note $note): float
 	{
