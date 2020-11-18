@@ -3,11 +3,13 @@
 namespace Theorem\Renderer;
 
 /**
- * Provides functionality for allowing entities (such as {@see Note} and {@see Chord}) to be rendered (i.e. printed to
- * a string).
+ * Provides functionality for allowing various entities to be rendered (i.e. printed to a string).
  *
  * **NOTE:** `RenderableTrait` does not provide a default implementation of {@see toString()}. Any classes using
  * `RenderableTrait` *must* write their own implementation.
+ *
+ * @see Accidental
+ * @see Note
  */
 trait RenderableTrait
 {
