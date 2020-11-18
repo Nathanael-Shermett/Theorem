@@ -3,6 +3,7 @@
 namespace Theorem\TuningSystem;
 
 use Theorem;
+use Theorem\Note;
 use Theorem\Setting;
 
 /**
@@ -17,12 +18,12 @@ class EqualTemperament implements TuningSystemInterface
 	/**
 	 * Calculates the frequency of the specified note.
 	 *
-	 * @param Theorem\Note $note
+	 * @param Note $note
 	 * @return float
 	 * @see Setting::getTuningReferenceNote()
 	 * @see Setting::getTuningReferencePitch()
 	 */
-	public static function calcFrequency(Theorem\Note $note): float
+	public function calcFrequency(Note $note): float
 	{
 		// If this note is the reference note, return the reference frequency.
 		if ($note->getSpn() == Setting::getTuningReferenceNote())

@@ -191,8 +191,9 @@ class Note
 	{
 		// The tuning system class.
 		$tuningSystem = Setting::getTuningSystem();
+		$tuningSystem = new $tuningSystem();
 
-		return round($tuningSystem::calcFrequency($this), Setting::getFrequencyPrecision());
+		return round($tuningSystem->calcFrequency($this), Setting::getFrequencyPrecision());
 	}
 
 	/**
