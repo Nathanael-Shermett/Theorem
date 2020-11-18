@@ -113,16 +113,15 @@ class AccidentalFactory
 	 */
 	public function createFromString($string): AccidentalFactory
 	{
-		// Parse the accidental into an associative array, like so:
-		// ['accidental' => 'db', 'quarterTone' => 'd']
-		RegularExpression::parseAccidental($string, $accidental);
+		// Get the quarter tone part of the accidental, if any.
+		$quarterTone = RegularExpression::parseQuarterTonePart($string);
 
 		// Set the quarter tone directionality, if applicable.
-		if ($accidental['quarterTone'] == 'd')
+		if ($quarterTone == 'd')
 		{
 			$this->setQuarterToneDirection(AbstractAccidental::QUARTER_TONE_DIRECTION_DOWN);
 		}
-		elseif ($accidental['quarterTone'] == '+')
+		elseif ($quarterTone == '+')
 		{
 			$this->setQuarterToneDirection(AbstractAccidental::QUARTER_TONE_DIRECTION_UP);
 		}
