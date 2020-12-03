@@ -19,7 +19,7 @@ class AccidentalFactory
 	 * @see AccidentalFactory::getOffset()
 	 * @see AccidentalFactory::setOffset()
 	 */
-	private float $offset = 0;
+	private float $offset;
 
 	/**
 	 * Whether or not the accidental's quarter tone part, if applicable, is moving moving "upwards" or "downwards".
@@ -28,7 +28,7 @@ class AccidentalFactory
 	 * @see AccidentalFactory::getQuarterToneDirection()
 	 * @see AccidentalFactory::setQuarterToneDirection()
 	 */
-	private int   $quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_NEUTRAL;
+	private int $quarterToneDirection;
 
 	/**
 	 * AccidentalFactory constructor.
@@ -106,17 +106,17 @@ class AccidentalFactory
 	 * @param string $string
 	 * @return AccidentalFactory
 	 */
-	public function createFromString($string): AccidentalFactory
+	public function createFromString(string $string): AccidentalFactory
 	{
 		// Get the quarter tone part of the accidental, if any.
 		$quarterTone = RegularExpression::parseQuarterTonePart($string);
 
 		// Set the quarter tone directionality, if applicable.
-		if ($quarterTone == 'd')
+		if ($quarterTone === 'd')
 		{
 			$this->setQuarterToneDirection(AbstractAccidental::QUARTER_TONE_DIRECTION_DOWN);
 		}
-		elseif ($quarterTone == '+')
+		elseif ($quarterTone === '+')
 		{
 			$this->setQuarterToneDirection(AbstractAccidental::QUARTER_TONE_DIRECTION_UP);
 		}
@@ -157,7 +157,7 @@ class AccidentalFactory
 	 * @param float $offset
 	 * @return AccidentalFactory
 	 */
-	public function setOffset($offset): AccidentalFactory
+	public function setOffset(float $offset): AccidentalFactory
 	{
 		$this->offset = $offset;
 

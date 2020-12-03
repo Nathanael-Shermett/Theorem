@@ -76,12 +76,12 @@ trait RenderableTrait
 	 * **NOTE**: `RenderableTrait` does not provide a default implementation of this method. Any classes using
 	 * `RenderableTrait` *must* write their own implementation.
 	 *
-	 * @param string|null $renderer The render mode used by the implementing entity.
+	 * @param RendererInterface|null $renderer The render mode used by the implementing entity.
 	 * @return string
 	 * @see getRenderer()
 	 * @see setRenderer()
 	 * @see Setting::getRenderer()
 	 * @see Setting::setRenderer()
 	 */
-	abstract public function toString($renderer = NULL): string;
+	abstract public function toString(RendererInterface $renderer = NULL): string;
 }

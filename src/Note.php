@@ -37,10 +37,9 @@ class Note
 	/**
 	 * Creates a new note.
 	 *
-	 * @param string $value       Accepts a note written in scientific pitch notation (SPN). Examples include `A4` and
-	 *                            `C#4`.
+	 * @param string $value Accepts a note written in scientific pitch notation (SPN). Examples include `A4` and `C#4`.
 	 */
-	public function __construct($value)
+	public function __construct(string $value)
 	{
 		if (RegularExpression::parseScientificPitchNotation($value, $output))
 		{
@@ -126,7 +125,7 @@ class Note
 
 		// Rotate $letterSteps until the first letter corresponds with $thisLetter. This allows us to avoid walking off
 		// the end of the array while looking for $thatLetter.
-		while (array_keys($letterSteps)[0] != $thisLetter)
+		while (array_keys($letterSteps)[0] !== $thisLetter)
 		{
 			// Shift off the first element of the array, then re-add it (with the same key).
 			$letterSteps[array_key_first($letterSteps)] = array_shift($letterSteps);
@@ -135,7 +134,7 @@ class Note
 		// Walk over $letterSteps until we reach $thatLetter, increasing the difference sum with every step.
 		foreach ($letterSteps as $letter => $distance)
 		{
-			if ($letter == $thatLetter)
+			if ($letter === $thatLetter)
 			{
 				break;
 			}

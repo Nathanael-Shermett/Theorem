@@ -130,10 +130,10 @@ abstract class AbstractAccidental
 	}
 
 	/**
-	 * @param RendererInterface $renderer
+	 * @param RendererInterface|null $renderer
 	 * @return string
 	 */
-	public function toString(RendererInterface $renderer): string
+	public function toString(RendererInterface $renderer = NULL): string
 	{
 		$renderer = $renderer ?? $this->getRenderer();
 
