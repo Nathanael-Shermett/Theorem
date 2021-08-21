@@ -1,143 +1,158 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Theorem\Accidental;
-use Theorem\Accidental\AccidentalFactory;
+
+use Theorem\Theorem;
 use Theorem\RegularExpression;
+
+use Theorem\Accidental\FiveQuarterFlat;
+use Theorem\Accidental\DoubleFlat;
+use Theorem\Accidental\HalfFlat;
+use Theorem\Accidental\Natural;
+use Theorem\Accidental\Sharp;
+use Theorem\Accidental\Special;
 
 class RegularExpressionTest extends TestCase
 {
-	public function testParseScientificNoteNotation()
+	public function testParseScientificNoteNotation(): void
 	{
+		$theorem = new Theorem();
+		$regularExpression = new RegularExpression($theorem);
+
+		$output = [];
+
 		// Ascending letters, ascending octaves, mixed accidentals.
-		$regex = RegularExpression::parseScientificPitchNotation('A-1', $output);
-		$this->assertTrue($regex);
-		$this->assertEquals('A', $output['letter']);
-		$this->assertInstanceOf(Accidental\Natural::class, $output['accidental']);
-		$this->assertEquals(-1, $output['octave']);
+		$regex = $regularExpression->parseScientificPitchNotation('A-1', $output);
+		self::assertTrue($regex);
+		self::assertEquals('A', $output['letter']);
+		self::assertInstanceOf(Natural::class, $output['accidental']);
+		self::assertEquals(-1, $output['octave']);
 
-		$regex = RegularExpression::parseScientificPitchNotation('Bd0', $output);
-		$this->assertTrue($regex);
-		$this->assertEquals('B', $output['letter']);
-		$this->assertInstanceOf(Accidental\HalfFlat::class, $output['accidental']);
-		$this->assertEquals(0, $output['octave']);
+		$regex = $regularExpression->parseScientificPitchNotation('Bd0', $output);
+		self::assertTrue($regex);
+		self::assertEquals('B', $output['letter']);
+		self::assertInstanceOf(HalfFlat::class, $output['accidental']);
+		self::assertEquals(0, $output['octave']);
 
-		$regex = RegularExpression::parseScientificPitchNotation('C+b1', $output);
-		$this->assertTrue($regex);
-		$this->assertEquals('C', $output['letter']);
-		$this->assertInstanceOf(Accidental\HalfFlat::class, $output['accidental']);
-		$this->assertEquals(1, $output['octave']);
+		$regex = $regularExpression->parseScientificPitchNotation('C+b1', $output);
+		self::assertTrue($regex);
+		self::assertEquals('C', $output['letter']);
+		self::assertInstanceOf(HalfFlat::class, $output['accidental']);
+		self::assertEquals(1, $output['octave']);
 
-		$regex = RegularExpression::parseScientificPitchNotation('Dbb2', $output);
-		$this->assertTrue($regex);
-		$this->assertEquals('D', $output['letter']);
-		$this->assertInstanceOf(Accidental\DoubleFlat::class, $output['accidental']);
-		$this->assertEquals(2, $output['octave']);
+		$regex = $regularExpression->parseScientificPitchNotation('Dbb2', $output);
+		self::assertTrue($regex);
+		self::assertEquals('D', $output['letter']);
+		self::assertInstanceOf(DoubleFlat::class, $output['accidental']);
+		self::assertEquals(2, $output['octave']);
 
-		$regex = RegularExpression::parseScientificPitchNotation('Edbb3', $output);
-		$this->assertTrue($regex);
-		$this->assertEquals('E', $output['letter']);
-		$this->assertInstanceOf(Accidental\FiveQuarterFlat::class, $output['accidental']);
-		$this->assertEquals(3, $output['octave']);
+		$regex = $regularExpression->parseScientificPitchNotation('Edbb3', $output);
+		self::assertTrue($regex);
+		self::assertEquals('E', $output['letter']);
+		self::assertInstanceOf(FiveQuarterFlat::class, $output['accidental']);
+		self::assertEquals(3, $output['octave']);
 
-		RegularExpression::parseScientificPitchNotation('F#4', $output);
-		$this->assertTrue($regex);
-		$this->assertEquals('F', $output['letter']);
-		$this->assertInstanceOf(Accidental\Sharp::class, $output['accidental']);
-		$this->assertEquals(4, $output['octave']);
+		$regularExpression->parseScientificPitchNotation('F#4', $output);
+		self::assertTrue($regex);
+		self::assertEquals('F', $output['letter']);
+		self::assertInstanceOf(Sharp::class, $output['accidental']);
+		self::assertEquals(4, $output['octave']);
 
-		$regex = RegularExpression::parseScientificPitchNotation('G+#x5', $output);
-		$this->assertTrue($regex);
-		$this->assertEquals('G', $output['letter']);
-		$this->assertInstanceOf(Accidental\Special::class, $output['accidental']);
-		$this->assertEquals(5, $output['octave']);
+		$regex = $regularExpression->parseScientificPitchNotation('G+#x5', $output);
+		self::assertTrue($regex);
+		self::assertEquals('G', $output['letter']);
+		self::assertInstanceOf(Special::class, $output['accidental']);
+		self::assertEquals(5, $output['octave']);
 
 		// Invalid expressions.
-		$regex = RegularExpression::parseScientificPitchNotation('A', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('b', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('b', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('Ab', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('Ab', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('b4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('b4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('Add4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('Add4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A##4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A##4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A++4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A++4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('Ax#4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('Ax#4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A#+4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A#+4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A+x#4', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A+x#4', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A-0', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A-0', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A-', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A-', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A4-', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A4-', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation('A4 ', $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation('A4 ', $output);
+		self::assertFalse($regex);
 
-		$regex = RegularExpression::parseScientificPitchNotation(4, $output);
-		$this->assertFalse($regex);
+		$regex = $regularExpression->parseScientificPitchNotation(4, $output);
+		self::assertFalse($regex);
 	}
 
-	public function testParseAccidental()
+	public function testParseAccidental(): void
 	{
+		$theorem = new Theorem();
+		$regularExpression = new RegularExpression($theorem);
+
 		// Matching quarter tone part.
-		$quarterTone = RegularExpression::parseQuarterTonePart('+');
-		$this->assertEquals('+', $quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('+');
+		self::assertEquals('+', $quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('+bb');
-		$this->assertEquals('+', $quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('+bb');
+		self::assertEquals('+', $quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('d');
-		$this->assertEquals('d', $quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('d');
+		self::assertEquals('d', $quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('d#xxxx');
-		$this->assertEquals('d', $quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('d#xxxx');
+		self::assertEquals('d', $quarterTone);
 
 		// No quarter tone part.
-		$quarterTone = RegularExpression::parseQuarterTonePart('bb');
-		$this->assertNull($quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('bb');
+		self::assertNull($quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('#');
-		$this->assertNull($quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('#');
+		self::assertNull($quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('x');
-		$this->assertNull($quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('x');
+		self::assertNull($quarterTone);
 
 		// Invalid expressions.
-		$quarterTone = RegularExpression::parseQuarterTonePart('d+');
-		$this->assertFalse($quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('d+');
+		self::assertFalse($quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('++b');
-		$this->assertFalse($quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('++b');
+		self::assertFalse($quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('dbd');
-		$this->assertFalse($quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('dbd');
+		self::assertFalse($quarterTone);
 
-		$quarterTone = RegularExpression::parseQuarterTonePart('x#');
-		$this->assertFalse($quarterTone);
+		$quarterTone = $regularExpression->parseQuarterTonePart('x#');
+		self::assertFalse($quarterTone);
 	}
 }
