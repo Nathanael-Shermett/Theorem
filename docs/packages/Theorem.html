@@ -100,11 +100,10 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/theorem.html">Theorem</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -namespace">
-        <h2 class="phpdocumentor-content__title">Accidental</h2>
+    <article class="phpdocumentor-element -package">
+        <h2 class="phpdocumentor-content__title">Theorem</h2>
 
         
 
@@ -114,6 +113,10 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></dt>
+        <dd>Renderer interface. Declares methods that all renderers must implement.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/Theorem-TuningSystem-TuningSystemInterface.html"><abbr title="\Theorem\TuningSystem\TuningSystemInterface">TuningSystemInterface</abbr></a></dt>
+        <dd>Tuning system interface. Declares methods that all tuning systems must implement.</dd>
     
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></dt>
         <dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s relative pitch offset
@@ -160,7 +163,28 @@
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Accidental-TripleSharp.html"><abbr title="\Theorem\Accidental\TripleSharp">TripleSharp</abbr></a></dt>
         <dd>Abstract class inherited by all accidentals. Contains constants representing each accidental&#039;s relative pitch offset
 (minimum unit: quarter tones). Also includes a few universal methods, including {@see toString()}.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Factory-AccidentalFactory.html"><abbr title="\Theorem\Factory\AccidentalFactory">AccidentalFactory</abbr></a></dt>
+        <dd>Factory class to generate accidentals. Mostly just useful to keep accidental objects tidy after transpositions and to
+prevent all accidentals from being Special types. Also useful for setting quarter tone directionality.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Factory-NoteFactory.html"><abbr title="\Theorem\Factory\NoteFactory">NoteFactory</abbr></a></dt>
+        <dd>Factory class to generate accidentals. Mostly just useful to keep accidental objects tidy after transpositions and to
+prevent all accidentals from being Special types. Also useful for setting quarter tone directionality.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a></dt>
+        <dd>Class containing properties and methods pertaining to musical notes.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-RegularExpression.html"><abbr title="\Theorem\RegularExpression">RegularExpression</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Renderer-Ascii.html"><abbr title="\Theorem\Renderer\Ascii">Ascii</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-Theorem.html"><abbr title="\Theorem\Theorem">Theorem</abbr></a></dt>
+        <dd>Base class. Contains various configuration properties (and corresponding getters and setters).</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Theorem-TuningSystem-EqualTemperament.html"><abbr title="\Theorem\TuningSystem\EqualTemperament">EqualTemperament</abbr></a></dt>
+        <dd>Equal temperament tuning system. Equal temperament is the most commonly used tuning system today and works by
+splitting an octave into `n` equal steps, with pitch doubling upwards (or halving downwards) between octaves.</dd>
     
+            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/Theorem-Renderer-RenderableTrait.html"><abbr title="\Theorem\Renderer\RenderableTrait">RenderableTrait</abbr></a></dt>
+        <dd>Provides functionality for allowing entities to be rendered (i.e. printed to a string).</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/Theorem-TransposableTrait.html"><abbr title="\Theorem\TransposableTrait">TransposableTrait</abbr></a></dt>
+        <dd>Provides functionality for allowing entities to be transposed.</dd>
     </dl>
 
 
@@ -182,7 +206,7 @@
 </section>
             </div>
         </div>
-        <a href="namespaces/theorem-accidental.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="packages/Theorem.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
