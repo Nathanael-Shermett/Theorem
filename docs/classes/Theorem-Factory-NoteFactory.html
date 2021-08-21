@@ -102,29 +102,36 @@
 		<div class="phpdocumentor-column -eight phpdocumentor-content">
 			<ul class="phpdocumentor-breadcrumbs">
 				<li class="phpdocumentor-breadcrumb"><a href="namespaces/theorem.html">Theorem</a></li>
-				<li class="phpdocumentor-breadcrumb"><a href="namespaces/theorem-renderer.html">Renderer</a></li>
+				<li class="phpdocumentor-breadcrumb"><a href="namespaces/theorem-factory.html">Factory</a></li>
 			</ul>
 
-			<article class="phpdocumentor-element -interface">
+			<article class="phpdocumentor-element -class">
 				<h2 class="phpdocumentor-content__title">
-					RendererInterface
+					NoteFactory
+
+
 					<div class="phpdocumentor-element__package">
-						in
+						in package
 						<ul class="phpdocumentor-breadcrumbs">
-							<li><a href="packages/Application.html">Application</a></li>
+							<li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a>
+							</li>
 						</ul>
 					</div>
+
+
 				</h2>
 
 				<aside class="phpdocumentor-element-found-in">
-					<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RendererInterface.php"><a href="files/src-renderer-rendererinterface.html"><abbr title="src/Renderer/RendererInterface.php">RendererInterface.php</abbr></a></abbr>
+					<abbr class="phpdocumentor-element-found-in__file" title="src/Factory/NoteFactory.php"><a href="files/src-factory-notefactory.html"><abbr title="src/Factory/NoteFactory.php">NoteFactory.php</abbr></a></abbr>
 					:
-					<span class="phpdocumentor-element-found-in__line">13</span>
+					<span class="phpdocumentor-element-found-in__line">15</span>
 
 				</aside>
 
-				<p class="phpdocumentor-summary">Renderer interface. Declares methods that all renderers must
-					implement.</p>
+				<p class="phpdocumentor-summary">Factory class to generate accidentals. Mostly just useful to keep
+					accidental objects tidy after transpositions and to
+					prevent all accidentals from being Special types. Also useful for setting quarter tone
+					directionality.</p>
 
 
 				<h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -136,7 +143,7 @@
 						<span class="phpdocumentor-tag__name">see</span>
 					</dt>
 					<dd class="phpdocumentor-tag-list__definition">
-						<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Renderer\Theorem::Note">Theorem::Note</abbr></span>
+						<span class="phpdocumentor-tag-link"><abbr title="\Theorem\Factory\Special">Special</abbr></span>
 
 
 					</dd>
@@ -149,34 +156,115 @@
 				</h3>
 
 				<dl class="phpdocumentor-table-of-contents">
-					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Renderer-RendererInterface.html#method_renderAccidental">renderAccidental()</a>
+					<dt class="phpdocumentor-table-of-contents__entry -property -private">
+						<a href="classes/Theorem-Factory-NoteFactory.html#property_regularExpression">$regularExpression</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;:
+							<a href="classes/Theorem-RegularExpression.html"><abbr title="\Theorem\RegularExpression">RegularExpression</abbr></a>
+						</span>
 					</dt>
-					<dd>Returns the rendered accidental.</dd>
+					<dd></dd>
+
+					<dt class="phpdocumentor-table-of-contents__entry -property -private">
+						<a href="classes/Theorem-Factory-NoteFactory.html#property_theorem">$theorem</a>
+						<span>
+							&nbsp;: <a href="classes/Theorem-Theorem.html"><abbr title="\Theorem\Theorem">Theorem</abbr></a>
+						</span>
+					</dt>
+					<dd></dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Renderer-RendererInterface.html#method_renderNote">renderNote()</a>
+						<a href="classes/Theorem-Factory-NoteFactory.html#method___construct">__construct()</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;: mixed </span>
 					</dt>
-					<dd>Returns the rendered note+accidental.</dd>
+					<dd>NoteFactory constructor.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Renderer-RendererInterface.html#method_renderSpn">renderSpn()</a>
+						<a href="classes/Theorem-Factory-NoteFactory.html#method_create">create()</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;:
+							<a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a>
+						</span>
 					</dt>
-					<dd>Returns the rendered note+accidental+octave.</dd>
+					<dd>Builds and returns a specific accidental object based on the specified offset.</dd>
 
 				</dl>
 
 
+				<section class="phpdocumentor-properties">
+					<h3 class="phpdocumentor-elements__header" id="properties">
+						Properties
+						<a href="classes/Theorem-Factory-NoteFactory.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+					</h3>
+					<article
+						class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+					>
+						<h4 class="phpdocumentor-element__name" id="property_regularExpression">
+							$regularExpression
+							<a href="classes/Theorem-Factory-NoteFactory.html#property_regularExpression" class="headerlink"><i class="fas fa-link"></i></a>
+							<span class="phpdocumentor-element__modifiers">
+							</span>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Factory/NoteFactory.php"><a href="files/src-factory-notefactory.html"><abbr title="src/Factory/NoteFactory.php">NoteFactory.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">20</span>
+
+						</aside>
+
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__type"><a href="classes/Theorem-RegularExpression.html"><abbr title="\Theorem\RegularExpression">RegularExpression</abbr></a></span>
+							<span class="phpdocumentor-signature__name">$regularExpression</span>
+						</code>
+
+
+					</article>
+					<article
+						class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+					>
+						<h4 class="phpdocumentor-element__name" id="property_theorem">
+							$theorem
+							<a href="classes/Theorem-Factory-NoteFactory.html#property_theorem" class="headerlink"><i class="fas fa-link"></i></a>
+							<span class="phpdocumentor-element__modifiers">
+							</span>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Factory/NoteFactory.php"><a href="files/src-factory-notefactory.html"><abbr title="src/Factory/NoteFactory.php">NoteFactory.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">25</span>
+
+						</aside>
+
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">private</span>
+							<span class="phpdocumentor-signature__type"><a href="classes/Theorem-Theorem.html"><abbr title="\Theorem\Theorem">Theorem</abbr></a></span>
+							<span class="phpdocumentor-signature__name">$theorem</span>
+						</code>
+
+						<section class="phpdocumentor-description"></section>
+
+						<section class="phpdocumentor-description"></section>
+
+
+					</article>
+				</section>
+
 				<section class="phpdocumentor-methods">
 					<h3 class="phpdocumentor-elements__header" id="methods">
 						Methods
-						<a href="classes/Theorem-Renderer-RendererInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+						<a href="classes/Theorem-Factory-NoteFactory.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 					</h3>
 					<article
 						class="phpdocumentor-element
@@ -184,40 +272,41 @@
             -public
                                                         "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_renderAccidental">
-							renderAccidental()
-							<a href="classes/Theorem-Renderer-RendererInterface.html#method_renderAccidental" class="headerlink"><i class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="method___construct">
+							__construct()
+							<a href="classes/Theorem-Factory-NoteFactory.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RendererInterface.php"><a href="files/src-renderer-rendererinterface.html"><abbr title="src/Renderer/RendererInterface.php">RendererInterface.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Factory/NoteFactory.php"><a href="files/src-factory-notefactory.html"><abbr title="src/Factory/NoteFactory.php">NoteFactory.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">21</span>
+							<span class="phpdocumentor-element-found-in__line">25</span>
 
 						</aside>
 
-						<p class="phpdocumentor-summary">Returns the rendered accidental.</p>
+						<p class="phpdocumentor-summary">NoteFactory constructor.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__name">renderAccidental</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$accidental</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
+							<span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Theorem.html"><abbr title="\Theorem\Theorem">Theorem</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$theorem</span></span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$accidental</span>
+								<span class="phpdocumentor-signature__argument__name">$theorem</span>
 								:
-								<span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span>
+								<span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Theorem.html"><abbr title="\Theorem\Theorem">Theorem</abbr></a></span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
+								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
+						<span class="phpdocumentor-signature__response_type">mixed</span>
 						&mdash;
 
 
@@ -228,31 +317,31 @@
             -public
                                                         "
 					>
-						<h4 class="phpdocumentor-element__name" id="method_renderNote">
-							renderNote()
-							<a href="classes/Theorem-Renderer-RendererInterface.html#method_renderNote" class="headerlink"><i class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="method_create">
+							create()
+							<a href="classes/Theorem-Factory-NoteFactory.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RendererInterface.php"><a href="files/src-renderer-rendererinterface.html"><abbr title="src/Renderer/RendererInterface.php">RendererInterface.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Factory/NoteFactory.php"><a href="files/src-factory-notefactory.html"><abbr title="src/Factory/NoteFactory.php">NoteFactory.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">29</span>
+							<span class="phpdocumentor-element-found-in__line">36</span>
 
 						</aside>
 
-						<p class="phpdocumentor-summary">Returns the rendered note+accidental.</p>
+						<p class="phpdocumentor-summary">Builds and returns a specific accidental object based on the
+							specified offset.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__name">renderNote</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$note</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
+							<span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$spn</span></span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a></span></code>
 
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$note</span>
-								:
-								<span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a></span>
+								<span class="phpdocumentor-signature__argument__name">$spn</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
 
@@ -261,51 +350,7 @@
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
-						&mdash;
-
-
-					</article>
-					<article
-						class="phpdocumentor-element
-            -method
-            -public
-                                                        "
-					>
-						<h4 class="phpdocumentor-element__name" id="method_renderSpn">
-							renderSpn()
-							<a href="classes/Theorem-Renderer-RendererInterface.html#method_renderSpn" class="headerlink"><i class="fas fa-link"></i></a>
-						</h4>
-						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Renderer/RendererInterface.php"><a href="files/src-renderer-rendererinterface.html"><abbr title="src/Renderer/RendererInterface.php">RendererInterface.php</abbr></a></abbr>
-							:
-							<span class="phpdocumentor-element-found-in__line">37</span>
-
-						</aside>
-
-						<p class="phpdocumentor-summary">Returns the rendered note+accidental+octave.</p>
-
-						<code class="phpdocumentor-code phpdocumentor-signature ">
-							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__name">renderSpn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$note</span></span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-
-						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-						<dl class="phpdocumentor-argument-list">
-							<dt class="phpdocumentor-argument-list__entry">
-								<span class="phpdocumentor-signature__argument__name">$note</span>
-								:
-								<span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a></span>
-							</dt>
-							<dd class="phpdocumentor-argument-list__definition">
-
-							</dd>
-						</dl>
-
-
-						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a></span>
 						&mdash;
 
 
@@ -399,7 +444,7 @@
 			</section>
 		</div>
 	</div>
-	<a href="classes/Theorem-Renderer-RendererInterface.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+	<a href="classes/Theorem-Factory-NoteFactory.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
 </main>
 

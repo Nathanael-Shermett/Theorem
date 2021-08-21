@@ -5,38 +5,37 @@
 	<title>Documentation</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="../">
-	<link rel="icon" href="images/favicon.ico"/>
+	<link rel="icon" href="images/favicon.ico" />
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/base.css">
-	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
-		  rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/template.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"
-		  integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
 	<script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
 	<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js"
-			integrity="sha256-0vuk8LXoyrmCjp1f0O300qo1M75ZQyhH9X3J6d+scmk=" crossorigin="anonymous"></script>
 	<script src="js/search.js"></script>
 	<script defer src="js/searchIndex.js"></script>
 </head>
 <body id="top">
 <header class="phpdocumentor-header phpdocumentor-section">
 	<h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
-	<input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button"/>
+	<input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
 	<label class="phpdocumentor-header__menu-icon" for="menu-button">
 		<i class="fas fa-bars"></i>
 	</label>
 	<section data-search-form class="phpdocumentor-search">
 		<label>
 			<span class="visually-hidden">Search for</span>
-			<svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none"
-				 xmlns="http://www.w3.org/2000/svg">
-				<circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
-				<line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+			<svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2" />
+				<line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3" />
 			</svg>
-			<input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .."
-				   disabled/>
+			<input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
 		</label>
 	</section>
 
@@ -48,26 +47,44 @@
 
 <main class="phpdocumentor">
 	<div class="phpdocumentor-section">
-		<input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button"/>
+		<input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
 		<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
 			Menu
 		</label>
 		<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-
 			<section class="phpdocumentor-sidebar__category">
 				<h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-				<h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/theorem.html"><abbr
-					title="\Theorem">Theorem</abbr></a></h4>
+				<h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/theorem.html">Theorem</a></h4>
 				<ul class="phpdocumentor-list">
-					<li><a href="namespaces/theorem-accidental.html"><abbr title="\Theorem\Accidental">Accidental</abbr></a>
-					</li>
-					<li><a href="namespaces/theorem-renderer.html"><abbr title="\Theorem\Renderer">Renderer</abbr></a>
-					</li>
-					<li><a href="namespaces/theorem-tuningsystem.html"><abbr
-						title="\Theorem\TuningSystem">TuningSystem</abbr></a></li>
-				</ul>
-			</section>
+					<li>
+						<a href="namespaces/theorem-accidental.html">Accidental</a>
 
+					</li>
+					<li>
+						<a href="namespaces/theorem-factory.html">Factory</a>
+
+					</li>
+					<li>
+						<a href="namespaces/theorem-note.html">Note</a>
+
+					</li>
+					<li>
+						<a href="namespaces/theorem-renderer.html">Renderer</a>
+
+					</li>
+					<li>
+						<a href="namespaces/theorem-tuningsystem.html">TuningSystem</a>
+
+					</li>
+				</ul>
+
+			</section>
+			<section class="phpdocumentor-sidebar__category">
+				<h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+				<h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a>
+				</h4>
+
+			</section>
 
 			<section class="phpdocumentor-sidebar__category">
 				<h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
@@ -89,22 +106,29 @@
 
 			<article class="phpdocumentor-element -class">
 				<h2 class="phpdocumentor-content__title">
-					Setting
+					Theorem
+
+
+					<div class="phpdocumentor-element__package">
+						in package
+						<ul class="phpdocumentor-breadcrumbs">
+							<li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a>
+							</li>
+						</ul>
+					</div>
 
 
 				</h2>
 
 				<aside class="phpdocumentor-element-found-in">
-					<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-						href="files/src-setting.html"><abbr title="src/Setting.php">Setting.php</abbr></a></abbr>
+					<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 					:
-					<span class="phpdocumentor-element-found-in__line">11</span>
+					<span class="phpdocumentor-element-found-in__line">17</span>
+
 				</aside>
 
-				<p class="phpdocumentor-summary">Static class. Contains various global configuration options (static)
-					and their corresponding getters and setters.</p>
-
-				<section class="phpdocumentor-description"></section>
+				<p class="phpdocumentor-summary">Base class. Contains various configuration properties (and
+					corresponding getters and setters).</p>
 
 
 				<h3 id="toc">
@@ -114,7 +138,7 @@
 
 				<dl class="phpdocumentor-table-of-contents">
 					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_QUARTER_TONE">QUARTER_TONE</a>
+						<a href="classes/Theorem-Theorem.html#constant_QUARTER_TONE_STEPS">QUARTER_TONE_STEPS</a>
 						<span>
 							&nbsp;= 24 </span>
 					</dt>
@@ -124,7 +148,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_SEMITONE">SEMITONE</a>
+						<a href="classes/Theorem-Theorem.html#constant_SEMITONE_STEPS">SEMITONE_STEPS</a>
 						<span>
 							&nbsp;= 12 </span>
 					</dt>
@@ -134,7 +158,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -constant -public">
-						<a href="classes/Theorem-Setting.html#constant_WHOLE_TONE">WHOLE_TONE</a>
+						<a href="classes/Theorem-Theorem.html#constant_WHOLE_TONE_STEPS">WHOLE_TONE_STEPS</a>
 						<span>
 							&nbsp;= 6 </span>
 					</dt>
@@ -144,14 +168,14 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_FREQUENCY_PRECISION">$FREQUENCY_PRECISION</a>
+						<a href="classes/Theorem-Theorem.html#property_frequencyPrecision">$frequencyPrecision</a>
 						<span>
 							&nbsp;: int </span>
 					</dt>
 					<dd>Setting representing the number of decimal places that frequencies should be rounded to.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_KEY">$KEY</a>
+						<a href="classes/Theorem-Theorem.html#property_key">$key</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
@@ -160,16 +184,18 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_RENDERER">$RENDERER</a>
+						<a href="classes/Theorem-Theorem.html#property_renderer">$renderer</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;:
+							<a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a>
+						</span>
 					</dt>
 					<dd>Setting representing the renderer. Can be set on a per-object basis, or globally with
 						`Setting::setRenderer()`.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_STEP">$STEP</a>
+						<a href="classes/Theorem-Theorem.html#property_step">$step</a>
 						<span>
 							&nbsp;: int </span>
 					</dt>
@@ -179,7 +205,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_TUNING_REFERENCE_NOTE">$TUNING_REFERENCE_NOTE</a>
+						<a href="classes/Theorem-Theorem.html#property_tuningReferenceNote">$tuningReferenceNote</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
@@ -188,7 +214,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_TUNING_REFERENCE_PITCH">$TUNING_REFERENCE_PITCH</a>
+						<a href="classes/Theorem-Theorem.html#property_tuningReferencePitch">$tuningReferencePitch</a>
 						<span>
 							&nbsp;: float </span>
 					</dt>
@@ -197,37 +223,57 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -property -private">
-						<a href="classes/Theorem-Setting.html#property_TUNING_SYSTEM">$TUNING_SYSTEM</a>
+						<a href="classes/Theorem-Theorem.html#property_tuningSystem">$tuningSystem</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;:
+							<a href="classes/Theorem-TuningSystem-TuningSystemInterface.html"><abbr title="\Theorem\TuningSystem\TuningSystemInterface">TuningSystemInterface</abbr></a>
+						</span>
 					</dt>
 					<dd>Global setting property representing the tuning system used to calculate notes and their
 						relative frequencies.
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getFrequencyPrecision">getFrequencyPrecision()</a>
+						<a href="classes/Theorem-Theorem.html#method___construct">__construct()</a>
+						<span>
+							&nbsp;: mixed </span>
+					</dt>
+					<dd></dd>
+
+					<dt class="phpdocumentor-table-of-contents__entry -method -public">
+						<a href="classes/Theorem-Theorem.html#method_accidental">accidental()</a>
+						<span>
+							&nbsp;:
+							<a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a>
+						</span>
+					</dt>
+					<dd>Creates an accidental object from either a specified offset or a string.</dd>
+
+					<dt class="phpdocumentor-table-of-contents__entry -method -public">
+						<a href="classes/Theorem-Theorem.html#method_getFrequencyPrecision">getFrequencyPrecision()</a>
 						<span>
 							&nbsp;: int </span>
 					</dt>
 					<dd>Gets the number of decimal places frequencies should be rounded to.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getKey">getKey()</a>
+						<a href="classes/Theorem-Theorem.html#method_getKey">getKey()</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
 					<dd></dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getRenderer">getRenderer()</a>
+						<a href="classes/Theorem-Theorem.html#method_getRenderer">getRenderer()</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;:
+							<a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a>
+						</span>
 					</dt>
 					<dd>Gets the renderer.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getStep">getStep()</a>
+						<a href="classes/Theorem-Theorem.html#method_getStep">getStep()</a>
 						<span>
 							&nbsp;: int </span>
 					</dt>
@@ -237,7 +283,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getTuningReferenceNote">getTuningReferenceNote()</a>
+						<a href="classes/Theorem-Theorem.html#method_getTuningReferenceNote">getTuningReferenceNote()</a>
 						<span>
 							&nbsp;: string </span>
 					</dt>
@@ -247,7 +293,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getTuningReferencePitch">getTuningReferencePitch()</a>
+						<a href="classes/Theorem-Theorem.html#method_getTuningReferencePitch">getTuningReferencePitch()</a>
 						<span>
 							&nbsp;: float </span>
 					</dt>
@@ -257,28 +303,39 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_getTuningSystem">getTuningSystem()</a>
+						<a href="classes/Theorem-Theorem.html#method_getTuningSystem">getTuningSystem()</a>
 						<span>
-							&nbsp;: string </span>
+							&nbsp;:
+							<a href="classes/Theorem-TuningSystem-TuningSystemInterface.html"><abbr title="\Theorem\TuningSystem\TuningSystemInterface">TuningSystemInterface</abbr></a>
+						</span>
 					</dt>
-					<dd></dd>
+					<dd>Returns an object that implements `TuningSystemInterface`.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setFrequencyPrecision">setFrequencyPrecision()</a>
+						<a href="classes/Theorem-Theorem.html#method_note">note()</a>
+						<span>
+							&nbsp;:
+							<a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a>
+						</span>
+					</dt>
+					<dd>Creates a Note object from the specified SPN (e.g. A4, B#7).</dd>
+
+					<dt class="phpdocumentor-table-of-contents__entry -method -public">
+						<a href="classes/Theorem-Theorem.html#method_setFrequencyPrecision">setFrequencyPrecision()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
 					<dd>Sets the number of decimal places frequencies should be rounded to.</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setKey">setKey()</a>
+						<a href="classes/Theorem-Theorem.html#method_setKey">setKey()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
 					<dd></dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setRenderer">setRenderer()</a>
+						<a href="classes/Theorem-Theorem.html#method_setRenderer">setRenderer()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
@@ -288,7 +345,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setStep">setStep()</a>
+						<a href="classes/Theorem-Theorem.html#method_setStep">setStep()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
@@ -297,7 +354,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setTuningReferenceNote">setTuningReferenceNote()</a>
+						<a href="classes/Theorem-Theorem.html#method_setTuningReferenceNote">setTuningReferenceNote()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
@@ -307,7 +364,7 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setTuningReferencePitch">setTuningReferencePitch()</a>
+						<a href="classes/Theorem-Theorem.html#method_setTuningReferencePitch">setTuningReferencePitch()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
@@ -317,11 +374,11 @@
 					</dd>
 
 					<dt class="phpdocumentor-table-of-contents__entry -method -public">
-						<a href="classes/Theorem-Setting.html#method_setTuningSystem">setTuningSystem()</a>
+						<a href="classes/Theorem-Theorem.html#method_setTuningSystem">setTuningSystem()</a>
 						<span>
 							&nbsp;: void </span>
 					</dt>
-					<dd></dd>
+					<dd>Expects a fully-qualified class name representing a tuning system.</dd>
 
 				</dl>
 
@@ -329,21 +386,19 @@
 				<section class="phpdocumentor-constants">
 					<h3 class="phpdocumentor-elements__header" id="constants">
 						Constants
-						<a href="classes/Theorem-Setting.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+						<a href="classes/Theorem-Theorem.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 					</h3>
 					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_QUARTER_TONE">
-							QUARTER_TONE
-							<a href="classes/Theorem-Setting.html#constant_QUARTER_TONE" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="constant_QUARTER_TONE_STEPS">
+							QUARTER_TONE_STEPS
+							<a href="classes/Theorem-Theorem.html#constant_QUARTER_TONE_STEPS" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">29</span>
+							<span class="phpdocumentor-element-found-in__line">35</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Constant representing the number of quarter steps in an octave.
@@ -353,7 +408,7 @@
 						<code class="phpdocumentor-signature phpdocumentor-code ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">QUARTER_TONE</span>
+							<span class="phpdocumentor-signature__name">QUARTER_TONE_STEPS</span>
 							= <span class="phpdocumentor-signature__default-value">24</span>
 						</code>
 
@@ -363,18 +418,16 @@
 
 					</article>
 					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_SEMITONE">
-							SEMITONE
-							<a href="classes/Theorem-Setting.html#constant_SEMITONE" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="constant_SEMITONE_STEPS">
+							SEMITONE_STEPS
+							<a href="classes/Theorem-Theorem.html#constant_SEMITONE_STEPS" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">23</span>
+							<span class="phpdocumentor-element-found-in__line">29</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Constant representing the number of half steps in an octave.
@@ -384,7 +437,7 @@
 						<code class="phpdocumentor-signature phpdocumentor-code ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">SEMITONE</span>
+							<span class="phpdocumentor-signature__name">SEMITONE_STEPS</span>
 							= <span class="phpdocumentor-signature__default-value">12</span>
 						</code>
 
@@ -394,18 +447,16 @@
 
 					</article>
 					<article class="phpdocumentor-element -constant -public ">
-						<h4 class="phpdocumentor-element__name" id="constant_WHOLE_TONE">
-							WHOLE_TONE
-							<a href="classes/Theorem-Setting.html#constant_WHOLE_TONE" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="constant_WHOLE_TONE_STEPS">
+							WHOLE_TONE_STEPS
+							<a href="classes/Theorem-Theorem.html#constant_WHOLE_TONE_STEPS" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">17</span>
+							<span class="phpdocumentor-element-found-in__line">23</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Constant representing the number of whole steps in an octave.
@@ -415,7 +466,7 @@
 						<code class="phpdocumentor-signature phpdocumentor-code ">
 							<span class="phpdocumentor-signature__visibility">public</span>
 							<span class="phpdocumentor-signature__type">mixed</span>
-							<span class="phpdocumentor-signature__name">WHOLE_TONE</span>
+							<span class="phpdocumentor-signature__name">WHOLE_TONE_STEPS</span>
 							= <span class="phpdocumentor-signature__default-value">6</span>
 						</code>
 
@@ -430,28 +481,26 @@
 				<section class="phpdocumentor-properties">
 					<h3 class="phpdocumentor-elements__header" id="properties">
 						Properties
-						<a href="classes/Theorem-Setting.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+						<a href="classes/Theorem-Theorem.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 					</h3>
 					<article
 						class="
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_FREQUENCY_PRECISION">
-							$FREQUENCY_PRECISION
-							<a href="classes/Theorem-Setting.html#property_FREQUENCY_PRECISION" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_frequencyPrecision">
+							$frequencyPrecision
+							<a href="classes/Theorem-Theorem.html#property_frequencyPrecision" class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">41</span>
+							<span class="phpdocumentor-element-found-in__line">47</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Setting representing the number of decimal places that
@@ -459,15 +508,14 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">int</span>
-							<span class="phpdocumentor-signature__name">$FREQUENCY_PRECISION</span>
+							<span class="phpdocumentor-signature__type">int</span>
+							<span class="phpdocumentor-signature__name">$frequencyPrecision</span>
 							= <span class="phpdocumentor-signature__default-value">0</span></code>
 
 						<section class="phpdocumentor-description"><p>NOTE: Internal frequency calculations are not
 							changed by this setting. Only public frequency results (e.g.
-							<a href="classes/Theorem-Note.html#method_getFrequency"><abbr
-								title="\Theorem\Note::getFrequency()">Note::getFrequency()</abbr></a>) are affected.</p>
+							<a href="classes/Theorem-Note-Note.html#method_getFrequency"><abbr title="\Theorem\Note\Note::getFrequency()">Note::getFrequency()</abbr></a>)
+							are affected.</p>
 						</section>
 
 
@@ -482,7 +530,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setFrequencyPrecision()">setFrequencyPrecision()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
@@ -491,7 +538,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getFrequencyPrecision()">getFrequencyPrecision()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -502,21 +548,19 @@
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_KEY">
-							$KEY
-							<a href="classes/Theorem-Setting.html#property_KEY" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_key">
+							$key
+							<a href="classes/Theorem-Theorem.html#property_key" class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">51</span>
+							<span class="phpdocumentor-element-found-in__line">57</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the key. Can be set on a
@@ -525,12 +569,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$KEY</span>
+							<span class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$key</span>
 							= <span class="phpdocumentor-signature__default-value">&#039;C major&#039;</span></code>
-
-						<section class="phpdocumentor-description"></section>
 
 
 						<h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -542,20 +583,16 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\setKey()">setKey()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setKey()">setKey()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\getKey()">getKey()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getKey()">getKey()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -566,21 +603,19 @@
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_RENDERER">
-							$RENDERER
-							<a href="classes/Theorem-Setting.html#property_RENDERER" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_renderer">
+							$renderer
+							<a href="classes/Theorem-Theorem.html#property_renderer" class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">61</span>
+							<span class="phpdocumentor-element-found-in__line">67</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Setting representing the renderer. Can be set on a per-object
@@ -589,13 +624,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$RENDERER</span>
-							= <span
-							class="phpdocumentor-signature__default-value">TheoremRendererAscii::class</span></code>
-
-						<section class="phpdocumentor-description"></section>
+							<span class="phpdocumentor-signature__type"><a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
+							<span class="phpdocumentor-signature__name">$renderer</span>
+						</code>
 
 
 						<h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -607,20 +638,16 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\setRenderer()">setRenderer()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setRenderer()">setRenderer()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\getRenderer()">getRenderer()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getRenderer()">getRenderer()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -631,21 +658,19 @@
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_STEP">
-							$STEP
-							<a href="classes/Theorem-Setting.html#property_STEP" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_step">
+							$step
+							<a href="classes/Theorem-Theorem.html#property_step" class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">74</span>
+							<span class="phpdocumentor-element-found-in__line">80</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the number of steps in an
@@ -654,12 +679,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">int</span>
-							<span class="phpdocumentor-signature__name">$STEP</span>
-							= <span class="phpdocumentor-signature__default-value">self::SEMITONE</span></code>
-
-						<section class="phpdocumentor-description"></section>
+							<span class="phpdocumentor-signature__type">int</span>
+							<span class="phpdocumentor-signature__name">$step</span>
+							= <span class="phpdocumentor-signature__default-value">self::SEMITONE_STEPS</span></code>
 
 
 						<h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -671,49 +693,40 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\SEMITONE">SEMITONE</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\SEMITONE_STEPS">SEMITONE_STEPS</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\QUARTER_TONE">QUARTER_TONE</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\QUARTER_TONE_STEPS">QUARTER_TONE_STEPS</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\getStep()">getStep()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getStep()">getStep()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr
-									title="\Theorem\setStep()">setStep()</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setStep()">setStep()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\WHOLE_TONE">WHOLE_TONE</abbr></span>
+								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\WHOLE_TONE_STEPS">WHOLE_TONE_STEPS</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -724,21 +737,19 @@
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_TUNING_REFERENCE_NOTE">
-							$TUNING_REFERENCE_NOTE
-							<a href="classes/Theorem-Setting.html#property_TUNING_REFERENCE_NOTE" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_tuningReferenceNote">
+							$tuningReferenceNote
+							<a href="classes/Theorem-Theorem.html#property_tuningReferenceNote" class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">95</span>
+							<span class="phpdocumentor-element-found-in__line">101</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the reference note. Used
@@ -746,9 +757,8 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$TUNING_REFERENCE_NOTE</span>
+							<span class="phpdocumentor-signature__type">string</span>
+							<span class="phpdocumentor-signature__name">$tuningReferenceNote</span>
 							= <span class="phpdocumentor-signature__default-value">&#039;A4&#039;</span></code>
 
 						<section class="phpdocumentor-description"><p><strong>NOTE:</strong> Very few tuning systems use
@@ -768,7 +778,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setTuningReferenceNote()">setTuningReferenceNote()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
@@ -777,7 +786,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getTuningReferenceNote()">getTuningReferenceNote()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -788,21 +796,19 @@
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_TUNING_REFERENCE_PITCH">
-							$TUNING_REFERENCE_PITCH
-							<a href="classes/Theorem-Setting.html#property_TUNING_REFERENCE_PITCH" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_tuningReferencePitch">
+							$tuningReferencePitch
+							<a href="classes/Theorem-Theorem.html#property_tuningReferencePitch" class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">83</span>
+							<span class="phpdocumentor-element-found-in__line">89</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the reference pitch. Used
@@ -810,12 +816,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">float</span>
-							<span class="phpdocumentor-signature__name">$TUNING_REFERENCE_PITCH</span>
+							<span class="phpdocumentor-signature__type">float</span>
+							<span class="phpdocumentor-signature__name">$tuningReferencePitch</span>
 							= <span class="phpdocumentor-signature__default-value">440</span></code>
-
-						<section class="phpdocumentor-description"></section>
 
 
 						<h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -829,7 +832,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setTuningReferencePitch()">setTuningReferencePitch()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
@@ -838,7 +840,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getTuningReferencePitch()">getTuningReferencePitch()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -849,21 +850,19 @@
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 					>
-						<h4 class="phpdocumentor-element__name" id="property_TUNING_SYSTEM">
-							$TUNING_SYSTEM
-							<a href="classes/Theorem-Setting.html#property_TUNING_SYSTEM" class="headerlink"><i
-								class="fas fa-link"></i></a>
+						<h4 class="phpdocumentor-element__name" id="property_tuningSystem">
+							$tuningSystem
+							<a href="classes/Theorem-Theorem.html#property_tuningSystem" class="headerlink"><i class="fas fa-link"></i></a>
 							<span class="phpdocumentor-element__modifiers">
 							</span>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">104</span>
+							<span class="phpdocumentor-element-found-in__line">110</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Global setting property representing the tuning system used to
@@ -871,12 +870,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">private</span>
-							<span class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__type">string</span>
-							<span class="phpdocumentor-signature__name">$TUNING_SYSTEM</span>
-							= <span class="phpdocumentor-signature__default-value">TheoremTuningSystemEqualTemperament::class</span></code>
-
-						<section class="phpdocumentor-description"></section>
+							<span class="phpdocumentor-signature__type"><a href="classes/Theorem-TuningSystem-TuningSystemInterface.html"><abbr title="\Theorem\TuningSystem\TuningSystemInterface">TuningSystemInterface</abbr></a></span>
+							<span class="phpdocumentor-signature__name">$tuningSystem</span>
+						</code>
 
 
 						<h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -890,7 +886,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\setTuningSystem()">setTuningSystem()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
@@ -899,7 +894,6 @@
 							<dd class="phpdocumentor-tag-list__definition">
 								<span class="phpdocumentor-tag-link"><abbr title="\Theorem\getTuningSystem()">getTuningSystem()</abbr></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -910,26 +904,99 @@
 				<section class="phpdocumentor-methods">
 					<h3 class="phpdocumentor-elements__header" id="methods">
 						Methods
-						<a href="classes/Theorem-Setting.html#methods" class="headerlink"><i
-							class="fas fa-link"></i></a>
+						<a href="classes/Theorem-Theorem.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 					</h3>
 					<article
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
+					>
+						<h4 class="phpdocumentor-element__name" id="method___construct">
+							__construct()
+							<a href="classes/Theorem-Theorem.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">112</span>
+
+						</aside>
+
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+						<section class="phpdocumentor-description"></section>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type">mixed</span>
+						&mdash;
+
+
+					</article>
+					<article
+						class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+					>
+						<h4 class="phpdocumentor-element__name" id="method_accidental">
+							accidental()
+							<a href="classes/Theorem-Theorem.html#method_accidental" class="headerlink"><i class="fas fa-link"></i></a>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">124</span>
+
+						</aside>
+
+						<p class="phpdocumentor-summary">Creates an accidental object from either a specified offset or
+							a string.</p>
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">accidental</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">float|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offsetOrString</span></span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span></code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$offsetOrString</span>
+								: <span class="phpdocumentor-signature__argument__return-type">float|string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Accidental-AbstractAccidental.html"><abbr title="\Theorem\Accidental\AbstractAccidental">AbstractAccidental</abbr></a></span>
+						&mdash;
+
+
+					</article>
+					<article
+						class="phpdocumentor-element
+            -method
+            -public
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_getFrequencyPrecision">
 							getFrequencyPrecision()
-							<a href="classes/Theorem-Setting.html#method_getFrequencyPrecision" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_getFrequencyPrecision" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">111</span>
+							<span class="phpdocumentor-element-found-in__line">149</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the number of decimal places frequencies should be rounded
@@ -937,18 +1004,13 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getFrequencyPrecision</span><span>(</span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">getFrequencyPrecision</span><span>(</span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">int</span></code>
-
-						<section class="phpdocumentor-description"></section>
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">int</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -956,36 +1018,29 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_getKey">
 							getKey()
-							<a href="classes/Theorem-Setting.html#method_getKey" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_getKey" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">130</span>
+							<span class="phpdocumentor-element-found-in__line">168</span>
+
 						</aside>
 
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getKey</span><span>(</span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">getKey</span><span>(</span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-						<section class="phpdocumentor-description"></section>
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">string</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -993,37 +1048,30 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_getRenderer">
 							getRenderer()
-							<a href="classes/Theorem-Setting.html#method_getRenderer" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_getRenderer" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">148</span>
+							<span class="phpdocumentor-element-found-in__line">186</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the renderer.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getRenderer</span><span>(</span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-						<section class="phpdocumentor-description"></section>
+							<span class="phpdocumentor-signature__name">getRenderer</span><span>(</span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span></code>
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1031,19 +1079,17 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_getStep">
 							getStep()
-							<a href="classes/Theorem-Setting.html#method_getStep" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_getStep" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">174</span>
+							<span class="phpdocumentor-element-found-in__line">212</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the current setting&#039;s value for the number of steps
@@ -1052,12 +1098,8 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getStep</span><span>(</span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">getStep</span><span>(</span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">int</span></code>
-
-						<section class="phpdocumentor-description"></section>
 
 
 						<h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -1069,33 +1111,24 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><a
-									href="classes/Theorem-Setting.html#constant_SEMITONE"><abbr
-									title="\Theorem\Setting::SEMITONE">Setting::SEMITONE</abbr></a></span>
+								<span class="phpdocumentor-tag-link"><a href="classes/Theorem-Theorem.html#constant_SEMITONE_STEPS"><abbr title="\Theorem\Theorem::SEMITONE_STEPS">Theorem::SEMITONE_STEPS</abbr></a></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><a
-									href="classes/Theorem-Setting.html#constant_QUARTER_TONE"><abbr
-									title="\Theorem\Setting::QUARTER_TONE">Setting::QUARTER_TONE</abbr></a></span>
+								<span class="phpdocumentor-tag-link"><a href="classes/Theorem-Theorem.html#constant_QUARTER_TONE_STEPS"><abbr title="\Theorem\Theorem::QUARTER_TONE_STEPS">Theorem::QUARTER_TONE_STEPS</abbr></a></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><a
-									href="classes/Theorem-Setting.html#constant_WHOLE_TONE"><abbr
-									title="\Theorem\Setting::WHOLE_TONE">Setting::WHOLE_TONE</abbr></a></span>
+								<span class="phpdocumentor-tag-link"><a href="classes/Theorem-Theorem.html#constant_WHOLE_TONE_STEPS"><abbr title="\Theorem\Theorem::WHOLE_TONE_STEPS">Theorem::WHOLE_TONE_STEPS</abbr></a></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1103,7 +1136,6 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">int</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1111,19 +1143,17 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_getTuningReferenceNote">
 							getTuningReferenceNote()
-							<a href="classes/Theorem-Setting.html#method_getTuningReferenceNote" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_getTuningReferenceNote" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">222</span>
+							<span class="phpdocumentor-element-found-in__line">260</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Returns the note, as a string, that the reference pitch is
@@ -1132,18 +1162,13 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getTuningReferenceNote</span><span>(</span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">getTuningReferenceNote</span><span>(</span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-						<section class="phpdocumentor-description"></section>
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">string</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1151,19 +1176,17 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_getTuningReferencePitch">
 							getTuningReferencePitch()
-							<a href="classes/Theorem-Setting.html#method_getTuningReferencePitch" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_getTuningReferencePitch" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">199</span>
+							<span class="phpdocumentor-element-found-in__line">237</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Gets the reference pitch setting (usually 440 Hz). This is used
@@ -1172,18 +1195,13 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getTuningReferencePitch</span><span>(</span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">getTuningReferencePitch</span><span>(</span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">float</span></code>
-
-						<section class="phpdocumentor-description"></section>
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">float</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1191,36 +1209,30 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_getTuningSystem">
 							getTuningSystem()
-							<a href="classes/Theorem-Setting.html#method_getTuningSystem" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_getTuningSystem" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">242</span>
+							<span class="phpdocumentor-element-found-in__line">282</span>
+
 						</aside>
 
+						<p class="phpdocumentor-summary">Returns an object that implements `TuningSystemInterface`.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">getTuningSystem</span><span>(</span><span>)</span><span>
-							: </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-						<section class="phpdocumentor-description"></section>
+							<span class="phpdocumentor-signature__name">getTuningSystem</span><span>(</span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-TuningSystem-TuningSystemInterface.html"><abbr title="\Theorem\TuningSystem\TuningSystemInterface">TuningSystemInterface</abbr></a></span></code>
 
 
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
-						<span class="phpdocumentor-signature__response_type">string</span>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-TuningSystem-TuningSystemInterface.html"><abbr title="\Theorem\TuningSystem\TuningSystemInterface">TuningSystemInterface</abbr></a></span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1228,19 +1240,61 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
+					>
+						<h4 class="phpdocumentor-element__name" id="method_note">
+							note()
+							<a href="classes/Theorem-Theorem.html#method_note" class="headerlink"><i class="fas fa-link"></i></a>
+						</h4>
+						<aside class="phpdocumentor-element-found-in">
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
+							:
+							<span class="phpdocumentor-element-found-in__line">137</span>
+
+						</aside>
+
+						<p class="phpdocumentor-summary">Creates a Note object from the specified SPN (e.g. A4,
+							B#7).</p>
+
+						<code class="phpdocumentor-code phpdocumentor-signature ">
+							<span class="phpdocumentor-signature__visibility">public</span>
+							<span class="phpdocumentor-signature__name">note</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$spn</span></span><span>)</span><span>
+							: </span><span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a></span></code>
+
+
+						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+						<dl class="phpdocumentor-argument-list">
+							<dt class="phpdocumentor-argument-list__entry">
+								<span class="phpdocumentor-signature__argument__name">$spn</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+							</dt>
+							<dd class="phpdocumentor-argument-list__definition">
+
+							</dd>
+						</dl>
+
+
+						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
+						<span class="phpdocumentor-signature__response_type"><a href="classes/Theorem-Note-Note.html"><abbr title="\Theorem\Note\Note">Note</abbr></a></span>
+						&mdash;
+
+
+					</article>
+					<article
+						class="phpdocumentor-element
+            -method
+            -public
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_setFrequencyPrecision">
 							setFrequencyPrecision()
-							<a href="classes/Theorem-Setting.html#method_setFrequencyPrecision" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_setFrequencyPrecision" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">122</span>
+							<span class="phpdocumentor-element-found-in__line">160</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the number of decimal places frequencies should be rounded
@@ -1248,15 +1302,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setFrequencyPrecision</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$frequencyPrecision</span></span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">setFrequencyPrecision</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$frequencyPrecision</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
@@ -1265,7 +1313,6 @@
 								: <span class="phpdocumentor-signature__argument__return-type">int</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1274,7 +1321,6 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">void</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1282,33 +1328,25 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_setKey">
 							setKey()
-							<a href="classes/Theorem-Setting.html#method_setKey" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_setKey" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">138</span>
+							<span class="phpdocumentor-element-found-in__line">176</span>
+
 						</aside>
 
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setKey</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">setKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
@@ -1317,7 +1355,6 @@
 								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1326,7 +1363,6 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">void</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1334,19 +1370,17 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_setRenderer">
 							setRenderer()
-							<a href="classes/Theorem-Setting.html#method_setRenderer" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_setRenderer" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">160</span>
+							<span class="phpdocumentor-element-found-in__line">198</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the rendering ssytem. Can be set on a per-object basis, or
@@ -1355,24 +1389,18 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setRenderer</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$renderer</span></span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">setRenderer</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$renderer</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
 								<span class="phpdocumentor-signature__argument__name">$renderer</span>
-								: <span class="phpdocumentor-signature__argument__return-type">string</span>
+								:
+								<span class="phpdocumentor-signature__argument__return-type"><a href="classes/Theorem-Renderer-RendererInterface.html"><abbr title="\Theorem\Renderer\RendererInterface">RendererInterface</abbr></a></span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1381,7 +1409,6 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">void</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1389,19 +1416,17 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_setStep">
 							setStep()
-							<a href="classes/Theorem-Setting.html#method_setStep" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_setStep" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">188</span>
+							<span class="phpdocumentor-element-found-in__line">226</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the number of steps in an octave. In most western music
@@ -1409,15 +1434,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setStep</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$step</span></span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">setStep</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$step</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
@@ -1426,7 +1445,6 @@
 								: <span class="phpdocumentor-signature__argument__return-type">int</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1441,33 +1459,24 @@
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><a
-									href="classes/Theorem-Setting.html#constant_SEMITONE"><abbr
-									title="\Theorem\Setting::SEMITONE">Setting::SEMITONE</abbr></a></span>
+								<span class="phpdocumentor-tag-link"><a href="classes/Theorem-Theorem.html#constant_SEMITONE_STEPS"><abbr title="\Theorem\Theorem::SEMITONE_STEPS">Theorem::SEMITONE_STEPS</abbr></a></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><a
-									href="classes/Theorem-Setting.html#constant_QUARTER_TONE"><abbr
-									title="\Theorem\Setting::QUARTER_TONE">Setting::QUARTER_TONE</abbr></a></span>
+								<span class="phpdocumentor-tag-link"><a href="classes/Theorem-Theorem.html#constant_QUARTER_TONE_STEPS"><abbr title="\Theorem\Theorem::QUARTER_TONE_STEPS">Theorem::QUARTER_TONE_STEPS</abbr></a></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 							<dt class="phpdocumentor-tag-list__entry">
 								<span class="phpdocumentor-tag__name">see</span>
 							</dt>
 							<dd class="phpdocumentor-tag-list__definition">
-								<span class="phpdocumentor-tag-link"><a
-									href="classes/Theorem-Setting.html#constant_WHOLE_TONE"><abbr
-									title="\Theorem\Setting::WHOLE_TONE">Setting::WHOLE_TONE</abbr></a></span>
+								<span class="phpdocumentor-tag-link"><a href="classes/Theorem-Theorem.html#constant_WHOLE_TONE_STEPS"><abbr title="\Theorem\Theorem::WHOLE_TONE_STEPS">Theorem::WHOLE_TONE_STEPS</abbr></a></span>
 
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1475,7 +1484,6 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">void</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1483,19 +1491,17 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_setTuningReferenceNote">
 							setTuningReferenceNote()
-							<a href="classes/Theorem-Setting.html#method_setTuningReferenceNote" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_setTuningReferenceNote" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">234</span>
+							<span class="phpdocumentor-element-found-in__line">272</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the note that the reference pitch is calibrated to
@@ -1504,24 +1510,17 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setTuningReferenceNote</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$tuningReferenceNote</span></span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">setTuningReferenceNote</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tuningReferenceNote</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
 							<dt class="phpdocumentor-argument-list__entry">
 								<span class="phpdocumentor-signature__argument__name">$tuningReferenceNote</span>
-								: <span class="phpdocumentor-signature__argument__return-type">int</span>
+								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1530,7 +1529,6 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">void</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1538,19 +1536,17 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_setTuningReferencePitch">
 							setTuningReferencePitch()
-							<a href="classes/Theorem-Setting.html#method_setTuningReferencePitch" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_setTuningReferencePitch" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">211</span>
+							<span class="phpdocumentor-element-found-in__line">249</span>
+
 						</aside>
 
 						<p class="phpdocumentor-summary">Sets the reference pitch (usually 440 Hz). This is used by
@@ -1559,15 +1555,9 @@
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setTuningReferencePitch</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$tuningReferencePitch</span></span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">setTuningReferencePitch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tuningReferencePitch</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
@@ -1576,7 +1566,6 @@
 								: <span class="phpdocumentor-signature__argument__return-type">int</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1585,7 +1574,6 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">void</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
@@ -1593,33 +1581,27 @@
 						class="phpdocumentor-element
             -method
             -public
-                                    -static            -final        "
+                                                        "
 					>
 						<h4 class="phpdocumentor-element__name" id="method_setTuningSystem">
 							setTuningSystem()
-							<a href="classes/Theorem-Setting.html#method_setTuningSystem" class="headerlink"><i
-								class="fas fa-link"></i></a>
+							<a href="classes/Theorem-Theorem.html#method_setTuningSystem" class="headerlink"><i class="fas fa-link"></i></a>
 						</h4>
 						<aside class="phpdocumentor-element-found-in">
-							<abbr class="phpdocumentor-element-found-in__file" title="src/Setting.php"><a
-								href="files/src-setting.html"><abbr
-								title="src/Setting.php">Setting.php</abbr></a></abbr>
+							<abbr class="phpdocumentor-element-found-in__file" title="src/Theorem.php"><a href="files/src-theorem.html"><abbr title="src/Theorem.php">Theorem.php</abbr></a></abbr>
 							:
-							<span class="phpdocumentor-element-found-in__line">251</span>
+							<span class="phpdocumentor-element-found-in__line">293</span>
+
 						</aside>
 
+						<p class="phpdocumentor-summary">Expects a fully-qualified class name representing a tuning
+							system.</p>
 
 						<code class="phpdocumentor-code phpdocumentor-signature ">
 							<span class="phpdocumentor-signature__visibility">public</span>
-							<span class="phpdocumentor-signature__final">final</span> <span
-							class="phpdocumentor-signature__static">static</span> <span
-							class="phpdocumentor-signature__name">setTuningSystem</span><span>(</span><span
-							class="phpdocumentor-signature__argument"><span
-							class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span
-							class="phpdocumentor-signature__argument__name">$tuningSystem</span></span><span>)</span><span>
+							<span class="phpdocumentor-signature__name">setTuningSystem</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tuningSystem</span></span><span>)</span><span>
 							: </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-						<section class="phpdocumentor-description"></section>
 
 						<h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
 						<dl class="phpdocumentor-argument-list">
@@ -1628,7 +1610,6 @@
 								: <span class="phpdocumentor-signature__argument__return-type">string</span>
 							</dt>
 							<dd class="phpdocumentor-argument-list__definition">
-								<section class="phpdocumentor-description"></section>
 
 							</dd>
 						</dl>
@@ -1637,11 +1618,83 @@
 						<h5 class="phpdocumentor-return-value__heading">Return values</h5>
 						<span class="phpdocumentor-signature__response_type">void</span>
 						&mdash;
-						<section class="phpdocumentor-description"></section>
 
 
 					</article>
 				</section>
+
+
+				<script type="text/javascript">
+					function loadExternalCodeSnippets(line)
+					{
+						Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) =>
+						{
+							var src = pre.getAttribute('data-src').replace(/\\/g, '/');
+							var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+							var language = 'php';
+
+							var code = document.createElement('code');
+							code.className = 'language-' + language;
+
+							pre.textContent = '';
+
+							pre.setAttribute('data-line', line);
+							code.textContent = 'Loading…';
+
+							pre.appendChild(code);
+
+							var xhr = new XMLHttpRequest();
+
+							xhr.open('GET', src, true);
+
+							xhr.onreadystatechange = function()
+							{
+								if (xhr.readyState == 4)
+								{
+
+									if (xhr.status < 400 && xhr.responseText)
+									{
+										code.textContent = xhr.responseText;
+
+										Prism.highlightElement(code);
+									}
+									else if (xhr.status >= 400)
+									{
+										code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+									}
+									else
+									{
+										code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+									}
+								}
+							};
+
+							xhr.send(null);
+						});
+					}
+
+					var modals = document.querySelectorAll("[data-modal]");
+
+					modals.forEach(function(trigger)
+					{
+						trigger.addEventListener("click", function(event)
+						{
+							//event.preventDefault();
+							const modal = document.getElementById(trigger.dataset.modal);
+							modal.classList.add("phpdocumentor-modal__open");
+							loadExternalCodeSnippets(trigger.dataset.line);
+							const exits = modal.querySelectorAll("[data-exit-button]");
+							exits.forEach(function(exit)
+							{
+								exit.addEventListener("click", function(event)
+								{
+									event.preventDefault();
+									modal.classList.remove("phpdocumentor-modal__open");
+								});
+							});
+						});
+					});
+				</script>
 
 			</article>
 			<section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
@@ -1657,13 +1710,16 @@
 			</section>
 		</div>
 	</div>
-	<a href="classes/Theorem-Setting.html#top" class="phpdocumentor-back-to-top"><i
-		class="fas fa-chevron-circle-up"></i></a>
+	<a href="classes/Theorem-Theorem.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
 </main>
 
 <script>
 	cssVars({});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
 </body>
 </html>
