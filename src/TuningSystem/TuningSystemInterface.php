@@ -2,7 +2,8 @@
 
 namespace Theorem\TuningSystem;
 
-use Theorem\Note;
+use Theorem\Note\Note;
+use Theorem\Theorem;
 
 /**
  * Tuning system interface. Declares methods that all tuning systems must implement.
@@ -11,6 +12,13 @@ use Theorem\Note;
  */
 interface TuningSystemInterface
 {
+	/**
+	 * Tuning system constructor.
+	 *
+	 * @param Theorem $theroem
+	 */
+	public function __construct(Theorem $theroem);
+
 	/**
 	 * Calculates the frequency of the specified note.
 	 *

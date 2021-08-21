@@ -3,7 +3,6 @@
 namespace Theorem\Renderer;
 
 use Theorem\Accidental\AbstractAccidental;
-use Theorem\Note;
 
 /**
  * Provides functionality for allowing entities to be rendered (i.e. printed to a string).
@@ -18,13 +17,13 @@ trait RenderableTrait
 {
 	/**
 	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
-	 * `Setting::setRenderer()`.
+	 * `Theorem::setRenderer()`.
 	 *
-	 * @var string $RENDERER
+	 * @var string $renderer
 	 * @see getRenderer()
 	 * @see setRenderer()
 	 */
-	private static string $RENDERER;
+	private string $renderer;
 
 	/**
 	 * Calls `toString()` using its default parameters.
@@ -42,12 +41,12 @@ trait RenderableTrait
 	 *
 	 * @return RendererInterface
 	 * @see setRenderer()
-	 * @see Setting::getRenderer()
-	 * @see Setting::setRenderer()
+	 * @see Theorem::getRenderer()
+	 * @see Theorem::setRenderer()
 	 */
 	final public function getRenderer(): RendererInterface
 	{
-		$renderer = self::$RENDERER ?? Setting::getRenderer();
+		$renderer = $this->renderer ?? $this->theorem->getRenderer();
 		$renderer = new $renderer();
 
 		return $renderer;
@@ -58,14 +57,14 @@ trait RenderableTrait
 	 * overridden.
 	 *
 	 * @param string $renderer
-	 * @return RenderableTrait
+	 * @return $this
 	 * @see getRenderer()
-	 * @see Setting::getRenderer()
-	 * @see Setting::setRenderer()
+	 * @see Theorem::getRenderer()
+	 * @see Theorem::setRenderer()
 	 */
 	final public function setRenderer(string $renderer): self
 	{
-		self::$RENDERER = $renderer;
+		$this->renderer = $renderer;
 
 		return $this;
 	}
@@ -80,8 +79,8 @@ trait RenderableTrait
 	 * @return string
 	 * @see getRenderer()
 	 * @see setRenderer()
-	 * @see Setting::getRenderer()
-	 * @see Setting::setRenderer()
+	 * @see Theorem::getRenderer()
+	 * @see Theorem::setRenderer()
 	 */
 	abstract public function toString(RendererInterface $renderer = NULL): string;
 }

@@ -1,10 +1,13 @@
 <?php
 
-namespace Theorem;
+namespace Theorem\Note;
 
 use Theorem\Accidental\AbstractAccidental;
+use Theorem\RegularExpression;
 use Theorem\Renderer\RenderableTrait;
 use Theorem\Renderer\RendererInterface;
+use Theorem\Theorem;
+use Theorem\TransposableTrait;
 
 /**
  * Class containing properties and methods pertaining to musical notes.
@@ -35,18 +38,18 @@ class Note
 	private int $octave;
 
 	/**
-	 * Creates a new note.
-	 *
-	 * @param string $value Accepts a note written in scientific pitch notation (SPN). Examples include `A4` and `C#4`.
+	 * @var RegularExpression $regularExpression
 	 */
-	public function __construct(string $value)
+	private RegularExpression $regularExpression;
+
+	/**
+	 * Note constructor.
+	 *
+	 * @param Theorem $theorem
+	 */
+	public function __construct(private Theorem $theorem)
 	{
-		if (RegularExpression::parseScientificPitchNotation($value, $output))
-		{
-			$this->setLetter($output['letter']);
-			$this->setAccidental($output['accidental']);
-			$this->setOctave($output['octave']);
-		}
+		$this->regularExpression = new RegularExpression($theorem);
 	}
 
 	/**
@@ -55,8 +58,8 @@ class Note
 	 *
 	 * @param Note $note
 	 * @return float
-	 * @see Setting::getStep()
-	 * @see Setting::setStep()
+	 * @see Theorem::getStep()
+	 * @see Theorem::setStep()
 	 */
 	public function distanceTo(Note $note): float
 	{
@@ -166,7 +169,7 @@ class Note
 
 		// We now have the distance calculated, but in whole tones (i.e. 6). The result should be returned based on
 		// Setting::getStep().
-		$difference *= (Setting::getStep() / 6);
+		$difference *= ($this->theorem->getStep() / 6);
 
 		return $difference;
 	}
@@ -196,19 +199,17 @@ class Note
 	}
 
 	/**
-	 * Gets the note's frequency using the specified tuning system {@see Setting::getTuningSystem()}.
+	 * Gets the note's frequency using the specified tuning system {@see Theorem::getTuningSystem()}.
 	 *
 	 * @return float
-	 * @see Setting::getFrequencyPrecision()
-	 * @see Setting::setFrequencyPrecision()
+	 * @see Theorem::getFrequencyPrecision()
+	 * @see Theorem::setFrequencyPrecision()
 	 */
 	public function getFrequency(): float
 	{
-		// The tuning system class.
-		$tuningSystem = Setting::getTuningSystem();
-		$tuningSystem = new $tuningSystem();
+		$tuningSystem = $this->theorem->getTuningSystem();
 
-		return round($tuningSystem->calcFrequency($this), Setting::getFrequencyPrecision());
+		return round($tuningSystem->calcFrequency($this), $this->theorem->getFrequencyPrecision());
 	}
 
 	/**
@@ -224,7 +225,7 @@ class Note
 	public function getSpn(): string
 	{
 		// The renderer class.
-		$renderer = self::$RENDERER ?? Setting::getRenderer();
+		$renderer = $this->getRenderer() ?? $this->theorem->getRenderer();
 		$renderer = new $renderer();
 
 		return $renderer->renderSpn($this);

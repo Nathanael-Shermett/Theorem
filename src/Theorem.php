@@ -2,31 +2,37 @@
 
 namespace Theorem;
 
+use Theorem\Accidental\AbstractAccidental;
+use Theorem\Factory\AccidentalFactory;
+use Theorem\Factory\NoteFactory;
+use Theorem\Note\Note;
 use Theorem\Renderer\Ascii;
+use Theorem\Renderer\RendererInterface;
 use Theorem\TuningSystem\EqualTemperament;
+use Theorem\TuningSystem\TuningSystemInterface;
 
 /**
- * Static class. Contains various global configuration options (static) and their corresponding getters and setters.
+ *  Base class. Contains various configuration properties (and corresponding getters and setters).
  */
-final class Setting
+final class Theorem
 {
 	/**
 	 * Constant representing the number of whole steps in an octave. Useful for calculating note frequencies within a
 	 * given tuning system.
 	 */
-	public const WHOLE_TONE = 6;
+	public const WHOLE_TONE_STEPS = 6;
 
 	/**
 	 * Constant representing the number of half steps in an octave. Useful for calculating note frequencies within a
 	 * given tuning system.
 	 */
-	public const SEMITONE = 12;
+	public const SEMITONE_STEPS = 12;
 
 	/**
 	 * Constant representing the number of quarter steps in an octave. Useful for calculating note frequencies within a
 	 * given tuning system.
 	 */
-	public const QUARTER_TONE = 24;
+	public const QUARTER_TONE_STEPS = 24;
 
 	/**
 	 * Setting representing the number of decimal places that frequencies should be rounded to.
@@ -38,7 +44,7 @@ final class Setting
 	 * @see setFrequencyPrecision()
 	 * @see getFrequencyPrecision()
 	 */
-	private static int $FREQUENCY_PRECISION = 0;
+	private int $frequencyPrecision = 0;
 
 	/**
 	 * Global setting property representing the key. Can be set on a per-object basis, or globally with
@@ -48,30 +54,30 @@ final class Setting
 	 * @see setKey()
 	 * @see getKey()
 	 */
-	private static string $KEY = 'C major';
+	private string $key = 'C major';
 
 	/**
 	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
 	 * `Setting::setRenderer()`.
 	 *
-	 * @var string
+	 * @var RendererInterface
 	 * @see setRenderer()
 	 * @see getRenderer()
 	 */
-	private static string $RENDERER = Ascii::class;
+	private RendererInterface $renderer;
 
 	/**
 	 * Global setting property representing the number of steps in an octave. Useful when working in microtonal
 	 * systems. Used by tuning systems that implement `ITuningSystem`.
 	 *
 	 * @var int
-	 * @see SEMITONE
-	 * @see QUARTER_TONE
+	 * @see SEMITONE_STEPS
+	 * @see QUARTER_TONE_STEPS
 	 * @see getStep()
 	 * @see setStep()
-	 * @see WHOLE_TONE
+	 * @see WHOLE_TONE_STEPS
 	 */
-	private static int $STEP = self::SEMITONE;
+	private int $step = self::SEMITONE_STEPS;
 
 	/**
 	 * Global setting property representing the reference pitch. Used by tuning systems that implement `ITuningSystem`.
@@ -80,7 +86,7 @@ final class Setting
 	 * @see setTuningReferencePitch()
 	 * @see getTuningReferencePitch()
 	 */
-	private static float $TUNING_REFERENCE_PITCH = 440;
+	private float $tuningReferencePitch = 440;
 
 	/**
 	 * Global setting property representing the reference note. Used by tuning systems that implement `ITuningSystem`.
@@ -92,25 +98,57 @@ final class Setting
 	 * @see setTuningReferenceNote()
 	 * @see getTuningReferenceNote()
 	 */
-	private static string $TUNING_REFERENCE_NOTE = 'A4';
+	private string $tuningReferenceNote = 'A4';
 
 	/**
 	 * Global setting property representing the tuning system used to calculate notes and their relative frequencies.
 	 *
-	 * @var string
+	 * @var TuningSystemInterface
 	 * @see setTuningSystem()
 	 * @see getTuningSystem()
 	 */
-	private static string $TUNING_SYSTEM = EqualTemperament::class;
+	private TuningSystemInterface $tuningSystem;
+
+	public function __construct()
+	{
+		$this->tuningSystem = new EqualTemperament($this);
+		$this->renderer = new Ascii($this);
+	}
+
+	/**
+	 * Creates an accidental object from either a specified offset or a string.
+	 *
+	 * @param float|string $offsetOrString
+	 * @return AbstractAccidental
+	 */
+	public function accidental(float|string $offsetOrString): AbstractAccidental
+	{
+		$accidentalFactory = new AccidentalFactory($this);
+
+		return $accidentalFactory->create($offsetOrString);
+	}
+
+	/**
+	 * Creates a Note object from the specified SPN (e.g. A4, B#7).
+	 *
+	 * @param string $spn
+	 * @return Note
+	 */
+	public function note(string $spn): Note
+	{
+		$noteFactory = new NoteFactory($this);
+
+		return $noteFactory->create($spn);
+	}
 
 	/**
 	 * Gets the number of decimal places frequencies should be rounded to.
 	 *
 	 * @return int
 	 */
-	final public static function getFrequencyPrecision(): int
+	public function getFrequencyPrecision(): int
 	{
-		return self::$FREQUENCY_PRECISION;
+		return $this->frequencyPrecision;
 	}
 
 	/**
@@ -119,47 +157,47 @@ final class Setting
 	 * @param int $frequencyPrecision
 	 * @return void
 	 */
-	final public static function setFrequencyPrecision(int $frequencyPrecision): void
+	public function setFrequencyPrecision(int $frequencyPrecision): void
 	{
-		self::$FREQUENCY_PRECISION = $frequencyPrecision;
+		$this->frequencyPrecision = $frequencyPrecision;
 	}
 
 	/**
 	 * @return string
 	 */
-	final public static function getKey(): string
+	public function getKey(): string
 	{
-		return self::$KEY;
+		return $this->key;
 	}
 
 	/**
 	 * @param string $key
 	 */
-	final public static function setKey(string $key): void
+	public function setKey(string $key): void
 	{
-		self::$KEY = $key;
+		$this->key = $key;
 	}
 
 	/**
 	 * Gets the renderer.
 	 *
-	 * @return string
+	 * @return RendererInterface
 	 */
-	final public static function getRenderer(): string
+	public function getRenderer(): RendererInterface
 	{
-		return self::$RENDERER;
+		return $this->renderer;
 	}
 
 	/**
 	 * Sets the rendering ssytem. Can be set on a per-object basis, or globally with`Setting::setRenderer()`
 	 * unless overridden.
 	 *
-	 * @param string $renderer
+	 * @param RendererInterface $renderer
 	 * @return void
 	 */
-	final public static function setRenderer(string $renderer): void
+	public function setRenderer(RendererInterface $renderer): void
 	{
-		self::$RENDERER = $renderer;
+		$this->renderer = $renderer;
 	}
 
 	/**
@@ -167,13 +205,13 @@ final class Setting
 	 * semitones) this will be 12.
 	 *
 	 * @return int
-	 * @see Setting::SEMITONE
-	 * @see Setting::QUARTER_TONE
-	 * @see Setting::WHOLE_TONE
+	 * @see Theorem::SEMITONE_STEPS
+	 * @see Theorem::QUARTER_TONE_STEPS
+	 * @see Theorem::WHOLE_TONE_STEPS
 	 */
-	final public static function getStep(): int
+	public function getStep(): int
 	{
-		return self::$STEP;
+		return $this->step;
 	}
 
 	/**
@@ -181,13 +219,13 @@ final class Setting
 	 *
 	 * @param int $step
 	 * @return void
-	 * @see Setting::SEMITONE
-	 * @see Setting::QUARTER_TONE
-	 * @see Setting::WHOLE_TONE
+	 * @see Theorem::SEMITONE_STEPS
+	 * @see Theorem::QUARTER_TONE_STEPS
+	 * @see Theorem::WHOLE_TONE_STEPS
 	 */
-	final public static function setStep(int $step): void
+	public function setStep(int $step): void
 	{
-		self::$STEP = $step;
+		$this->step = $step;
 	}
 
 	/**
@@ -196,9 +234,9 @@ final class Setting
 	 *
 	 * @return float
 	 */
-	final public static function getTuningReferencePitch(): float
+	public function getTuningReferencePitch(): float
 	{
-		return self::$TUNING_REFERENCE_PITCH;
+		return $this->tuningReferencePitch;
 	}
 
 	/**
@@ -208,9 +246,9 @@ final class Setting
 	 * @param int $tuningReferencePitch
 	 * @return void
 	 */
-	final public static function setTuningReferencePitch(int $tuningReferencePitch): void
+	public function setTuningReferencePitch(int $tuningReferencePitch): void
 	{
-		self::$TUNING_REFERENCE_PITCH = $tuningReferencePitch;
+		$this->tuningReferencePitch = $tuningReferencePitch;
 	}
 
 	/**
@@ -219,37 +257,41 @@ final class Setting
 	 *
 	 * @return string
 	 */
-	final public static function getTuningReferenceNote(): string
+	public function getTuningReferenceNote(): string
 	{
-		return self::$TUNING_REFERENCE_NOTE;
+		return $this->tuningReferenceNote;
 	}
 
 	/**
 	 * Sets the note that the reference pitch is calibrated to (usually A4). This is used by tuning systems that
 	 * implement the `ITuningSystem` interface.
 	 *
-	 * @param int $tuningReferenceNote
+	 * @param string $tuningReferenceNote
 	 * @return void
 	 */
-	final public static function setTuningReferenceNote(string $tuningReferenceNote): void
+	public function setTuningReferenceNote(string $tuningReferenceNote): void
 	{
-		self::$TUNING_REFERENCE_NOTE = $tuningReferenceNote;
+		$this->tuningReferenceNote = $tuningReferenceNote;
 	}
 
 	/**
-	 * @return string
+	 * Returns an object that implements `TuningSystemInterface`.
+	 *
+	 * @return TuningSystemInterface
 	 */
-	final public static function getTuningSystem(): string
+	public function getTuningSystem(): TuningSystemInterface
 	{
-		return self::$TUNING_SYSTEM;
+		return $this->tuningSystem;
 	}
 
 	/**
+	 * Expects a fully-qualified class name representing a tuning system.
+	 *
 	 * @param string $tuningSystem
 	 * @return void
 	 */
-	final public static function setTuningSystem(string $tuningSystem): void
+	public function setTuningSystem(string $tuningSystem): void
 	{
-		self::$TUNING_SYSTEM = $tuningSystem;
+		$this->tuningSystem = new $tuningSystem($this);
 	}
 }
