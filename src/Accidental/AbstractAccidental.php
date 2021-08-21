@@ -20,7 +20,7 @@ abstract class AbstractAccidental
 	public const FIVE_QUARTER_FLAT = -1.25;
 
 	/** Double-flat accidental. Lowers a letter note by two semitones (i.e. one whole tone). */
-	public const DOUBLE_FLAT = -1;
+	public const DOUBLE_FLAT = -1.0;
 
 	/** Three-quarter-tones-flat accidental. Lowers a letter note by three quarter tones. */
 	public const THREE_QUARTER_FLAT = -.75;
@@ -32,7 +32,7 @@ abstract class AbstractAccidental
 	public const HALF_FLAT = -.25;
 
 	/** Natural accidental. */
-	public const NATURAL = 0;
+	public const NATURAL = 0.0;
 
 	/** Half-sharp accidental. Raises a letter note by a single quarter tone. */
 	public const HALF_SHARP = .25;
@@ -44,7 +44,7 @@ abstract class AbstractAccidental
 	public const THREE_QUARTER_SHARP = .75;
 
 	/** Double-sharp accidental. Raises a letter note by two semitones (i.e. one whole tone). */
-	public const DOUBLE_SHARP = 1;
+	public const DOUBLE_SHARP = 1.0;
 
 	/** Five-quarter-tones-sharp accidental. Raises a letter note by five quarter tones. */
 	public const FIVE_QUARTER_SHARP = 1.25;
@@ -76,8 +76,9 @@ abstract class AbstractAccidental
 	private float $offset;
 
 	/**
-	 * Indicates whether the accidentals should favor "up" or "down". Mostly useful for rendering Gould quarter tone
-	 * sub-accidentals (e.g. for cases where we should favor vx instead of ^#), though there may be other uses.
+	 * Indicates whether quarter tone accidentals  should favor "up" or "down". Mostly useful for rendering Gould
+	 * quarter tone sub-accidentals (e.g. for cases where we should favor vx instead of ^#), though there may be other
+	 * uses.
 	 *
 	 * @var int $quarterToneDirection
 	 */
