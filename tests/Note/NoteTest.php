@@ -8,6 +8,9 @@ use Theorem\Theorem;
 
 class NoteTest extends TestCase
 {
+	/**
+	 * @return array[]
+	 */
 	public function distanceToQuarterToneProvider(): array
 	{
 		$theorem = new Theorem();
@@ -44,6 +47,9 @@ class NoteTest extends TestCase
 		self::assertEquals($distance, $a->distanceTo($b));
 	}
 
+	/**
+	 * @return array[]
+	 */
 	public function distanceToSemitoneProvider(): array
 	{
 		$theorem = new Theorem();
@@ -80,6 +86,9 @@ class NoteTest extends TestCase
 		self::assertEquals($distance, $a->distanceTo($b));
 	}
 
+	/**
+	 * @return array[]
+	 */
 	public function distanceToWholeToneProvider(): array
 	{
 		$theorem = new Theorem();

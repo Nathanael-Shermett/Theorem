@@ -51,6 +51,7 @@ class EqualTemperamentTest extends TestCase
 
 	/**
 	 * @dataProvider calcFrequencyProvider
+	 *
 	 * @param float $frequency
 	 * @param Note  $note
 	 */
@@ -84,6 +85,7 @@ class EqualTemperamentTest extends TestCase
 
 	/**
 	 * @dataProvider calcFrequencyWithTuningProvider
+	 *
 	 * @param float $frequency
 	 * @param Note  $note
 	 */
