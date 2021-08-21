@@ -3,7 +3,7 @@
 namespace Theorem\Renderer;
 
 use Theorem\Accidental\AbstractAccidental;
-use Theorem\Note;
+use Theorem\Note\Note;
 
 class Ascii implements RendererInterface
 {
