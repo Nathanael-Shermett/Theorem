@@ -17,7 +17,6 @@ use Theorem\Accidental\DoubleSharp;
 use Theorem\Accidental\FiveQuarterSharp;
 use Theorem\Accidental\TripleSharp;
 use Theorem\Accidental\Special;
-
 use Theorem\RegularExpression;
 use Theorem\Theorem;
 
@@ -58,10 +57,9 @@ class AccidentalFactory
 	/**
 	 * @param float|string|null $offsetOrString
 	 */
-	public function create(float|string $offsetOrString = NULL, ?int $quarterToneDirection = NULL): AbstractAccidental
+	public function create(float|string $offsetOrString = null, ?int $quarterToneDirection = null): AbstractAccidental
 	{
-		if (is_string($offsetOrString))
-		{
+		if (is_string($offsetOrString)) {
 			return $this->createFromString($offsetOrString);
 		}
 
@@ -75,10 +73,9 @@ class AccidentalFactory
 	 * @param int|null   $quarterToneDirection If not specified, `AbstractAccidental::quarterToneDirection` is used
 	 *                                         instead.
 	 */
-	public function createFromOffset(?float $offset = NULL, ?int $quarterToneDirection = NULL): \Theorem\Accidental\DoubleFlat|\Theorem\Accidental\DoubleSharp|\Theorem\Accidental\FiveQuarterFlat|\Theorem\Accidental\FiveQuarterSharp|\Theorem\Accidental\Flat|\Theorem\Accidental\HalfFlat|\Theorem\Accidental\HalfSharp|\Theorem\Accidental\Natural|\Theorem\Accidental\Sharp|\Theorem\Accidental\Special|\Theorem\Accidental\ThreeQuarterFlat|\Theorem\Accidental\ThreeQuarterSharp|\Theorem\Accidental\TripleFlat|\Theorem\Accidental\TripleSharp
+	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): \Theorem\Accidental\DoubleFlat|\Theorem\Accidental\DoubleSharp|\Theorem\Accidental\FiveQuarterFlat|\Theorem\Accidental\FiveQuarterSharp|\Theorem\Accidental\Flat|\Theorem\Accidental\HalfFlat|\Theorem\Accidental\HalfSharp|\Theorem\Accidental\Natural|\Theorem\Accidental\Sharp|\Theorem\Accidental\Special|\Theorem\Accidental\ThreeQuarterFlat|\Theorem\Accidental\ThreeQuarterSharp|\Theorem\Accidental\TripleFlat|\Theorem\Accidental\TripleSharp
 	{
-		$created = match ($offset ?? $this->offset)
-		{
+		$created = match ($offset ?? $this->offset) {
 			AbstractAccidental::TRIPLE_FLAT => new TripleFlat(),
 			AbstractAccidental::FIVE_QUARTER_FLAT => new FiveQuarterFlat(),
 			AbstractAccidental::DOUBLE_FLAT => new DoubleFlat(),
@@ -109,17 +106,12 @@ class AccidentalFactory
 		$quarterTone = $this->regularExpression->parseQuarterTonePart($string);
 
 		// Set the quarter tone directionality, if applicable.
-		if ($quarterTone === 'd')
-		{
+		if ($quarterTone === 'd') {
 			$quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_DOWN;
-		}
-		elseif ($quarterTone === '+')
-		{
+		} elseif ($quarterTone === '+') {
 			$quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_UP;
-		}
-		else
-		{
-			$quarterToneDirection = NULL;
+		} else {
+			$quarterToneDirection = null;
 		}
 
 		// Map of the accidental characters and their corresponding offsets.
@@ -138,7 +130,7 @@ class AccidentalFactory
 		// Sum the result and set the offset accordingly.
 		$offset = array_sum($characters);
 
-		return $this->create($offset, $quarterToneDirection ?? NULL);
+		return $this->create($offset, $quarterToneDirection ?? null);
 	}
 
 	/**

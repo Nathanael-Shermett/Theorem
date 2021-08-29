@@ -77,5 +77,5 @@ trait RenderableTrait
 	 * @see Theorem::getRenderer()
 	 * @see Theorem::setRenderer()
 	 */
-	abstract public function toString(RendererInterface $renderer = NULL): string;
+	abstract public function toString(RendererInterface $renderer = null): string;
 }

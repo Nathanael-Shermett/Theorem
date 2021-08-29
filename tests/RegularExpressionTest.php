@@ -9,6 +9,7 @@ use Theorem\Accidental\HalfFlat;
 use Theorem\Accidental\Natural;
 use Theorem\Accidental\Sharp;
 use Theorem\Accidental\Special;
+
 class RegularExpressionTest extends TestCase
 {
 	/**
@@ -32,7 +33,7 @@ class RegularExpressionTest extends TestCase
 	 */
 	public function testParseScientificPitchNotation(string $spn, string $letter, string $accidental, int $octave): void
 	{
-		$theorem = new Theorem();
+		$theorem           = new Theorem();
 		$regularExpression = new RegularExpression($theorem);
 
 		$output = [];
@@ -75,7 +76,7 @@ class RegularExpressionTest extends TestCase
 	 */
 	public function testParseScientificPitchNotationInvalid(string $spn): void
 	{
-		$theorem = new Theorem();
+		$theorem           = new Theorem();
 		$regularExpression = new RegularExpression($theorem);
 
 		$output = [];
@@ -102,7 +103,7 @@ class RegularExpressionTest extends TestCase
 	 */
 	public function testParseAccidentalQuarterTonePart(string $accidentalWithQuarterTone, string $quarterTonePart): void
 	{
-		$theorem = new Theorem();
+		$theorem           = new Theorem();
 		$regularExpression = new RegularExpression($theorem);
 
 		$match = $regularExpression->parseQuarterTonePart($accidentalWithQuarterTone);
@@ -126,7 +127,7 @@ class RegularExpressionTest extends TestCase
 	 */
 	public function testParseAccidentalNoQuarterTonePartProvider(string $accidental): void
 	{
-		$theorem = new Theorem();
+		$theorem           = new Theorem();
 		$regularExpression = new RegularExpression($theorem);
 
 		$match = $regularExpression->parseQuarterTonePart($accidental);
@@ -151,7 +152,7 @@ class RegularExpressionTest extends TestCase
 	 */
 	public function testParseAccidentalsInvalid(string $quarterTone): void
 	{
-		$theorem = new Theorem();
+		$theorem           = new Theorem();
 		$regularExpression = new RegularExpression($theorem);
 
 		$match = $regularExpression->parseQuarterTonePart($quarterTone);

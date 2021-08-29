@@ -3,7 +3,6 @@
 namespace TuningSystem;
 
 use PHPUnit\Framework\TestCase;
-
 use Theorem\Note\Note;
 use Theorem\Theorem;
 use Theorem\TuningSystem\EqualTemperament;

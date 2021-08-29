@@ -63,8 +63,7 @@ class RegularExpression
 			$/x';
 
 		// If there was a match.
-		if (preg_match($regex, $input, $result) === 1)
-		{
+		if (preg_match($regex, $input, $result) === 1) {
 			// Convert the matched accidental to an accidental object.
 			$accidentalFactory = new AccidentalFactory($this->theorem);
 			$accidentalFactory->createFromString($result['accidental']);
@@ -73,12 +72,12 @@ class RegularExpression
 			$result['octave'] = (int)$result['octave'];
 
 			$result['accidental'] = $accidentalFactory->createFromString($result['accidental']);
-			$output = $result;
+			$output               = $result;
 
-			return TRUE;
+			return true;
 		}
 
-		return FALSE;
+		return false;
 	}
 
 	/**
@@ -94,12 +93,11 @@ class RegularExpression
 		$regex = '/^' . self::ACCIDENTAL_PATTERN . '$/x';
 
 		// If a valid accidental (as a string) was provided.
-		if (preg_match($regex, $input, $result) === 1)
-		{
+		if (preg_match($regex, $input, $result) === 1) {
 			// Return the quarter tone part of the accidental as a string, otherwise NULL.
-			return (string)$result['quarterTone'] ?: NULL;
+			return (string)$result['quarterTone'] ?: null;
 		}
 
-		return FALSE;
+		return false;
 	}
 }

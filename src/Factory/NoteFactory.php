@@ -32,8 +32,7 @@ class NoteFactory
 		$note = new Note($this->theorem);
 
 		$output = [];
-		if ($this->regularExpression->parseScientificPitchNotation($spn, $output))
-		{
+		if ($this->regularExpression->parseScientificPitchNotation($spn, $output)) {
 			$note->setLetter($output['letter']);
 			$note->setAccidental($output['accidental']);
 			$note->setOctave($output['octave']);

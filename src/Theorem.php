@@ -105,7 +105,7 @@ final class Theorem
 	public function __construct()
 	{
 		$this->tuningSystem = new EqualTemperament($this);
-		$this->renderer = new Ascii($this);
+		$this->renderer     = new Ascii($this);
 	}
 
 	/**

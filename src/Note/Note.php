@@ -16,6 +16,7 @@ class Note
 {
 	use RenderableTrait;
 	use TransposableTrait;
+
 	/**
 	 * The note's accidental.
 	 */
@@ -50,14 +51,14 @@ class Note
 		$that = $note;
 
 		// $this (current note)
-		$thisLetter = $this->getLetter();
+		$thisLetter     = $this->getLetter();
 		$thisAccidental = $this->getAccidental()->getOffset();
-		$thisOctave = $this->getOctave();
+		$thisOctave     = $this->getOctave();
 
 		// $that (note we're comparing $this to)
-		$thatLetter = $that->getLetter();
+		$thatLetter     = $that->getLetter();
 		$thatAccidental = $that->getAccidental()->getOffset();
-		$thatOctave = $that->getOctave();
+		$thatOctave     = $that->getOctave();
 
 		// The distance between the two notes (so far).
 		$difference = 0;
@@ -67,7 +68,7 @@ class Note
 		// Calculate the distance between the two notes' letters.
 		//
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+		//
 		// Scientific pitch notation (SPN) describes notes by their letter and octave number, but increments at C.
 		// Therefore, B4 > D4 > C4. This is rather silly, and since Note::getOctave() returns the octave the note
 		// belongs to based on SPN, we must normalize relative letter values based on SPN.
@@ -83,8 +84,7 @@ class Note
 
 		// First, determine if $thisLetter or $thatLetter is higher (based on normalized SPN letter values). This tells
 		// us which direction we need to walk.
-		if ($normalizedLetters[$thisLetter] < $normalizedLetters[$thatLetter])
-		{
+		if ($normalizedLetters[$thisLetter] < $normalizedLetters[$thatLetter]) {
 			// Each value represents the relative ascending distance from $key[i] to $key[i+1].
 			$letterSteps = [
 				'C' => 1,
@@ -95,9 +95,7 @@ class Note
 				'A' => 1,
 				'B' => .5,
 			];
-		}
-		else
-		{
+		} else {
 			// Each value represents the relative descending distance from $key[i] to $key[i+1]
 			$letterSteps = [
 				'C' => -.5,
@@ -112,17 +110,14 @@ class Note
 
 		// Rotate $letterSteps until the first letter corresponds with $thisLetter. This allows us to avoid walking off
 		// the end of the array while looking for $thatLetter.
-		while (array_keys($letterSteps)[0] !== $thisLetter)
-		{
+		while (array_keys($letterSteps)[0] !== $thisLetter) {
 			// Shift off the first element of the array, then re-add it (with the same key).
 			$letterSteps[array_key_first($letterSteps)] = array_shift($letterSteps);
 		}
 
 		// Walk over $letterSteps until we reach $thatLetter, increasing the difference sum with every step.
-		foreach ($letterSteps as $letter => $distance)
-		{
-			if ($letter === $thatLetter)
-			{
+		foreach ($letterSteps as $letter => $distance) {
+			if ($letter === $thatLetter) {
 				break;
 			}
 
@@ -134,7 +129,7 @@ class Note
 		// Factor in the distance between the two notes' accidentals.
 		//
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+		//
 		// Add the difference between the two accidentals to the result.
 		$difference += $thatAccidental - $thisAccidental;
 
@@ -143,7 +138,7 @@ class Note
 		// Factor in the distance between the two notes' octaves.
 		//
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+		//
 		// Add the difference between the two octaves to the result.
 		//
 		// NOTE: Since distances up to this point have been based on percentages (1 or .5) of whole tones, we must
@@ -244,7 +239,7 @@ class Note
 		return $this;
 	}
 
-	public function toString(RendererInterface $renderer = NULL): string
+	public function toString(RendererInterface $renderer = null): string
 	{
 		$renderer ??= $this->getRenderer();
 

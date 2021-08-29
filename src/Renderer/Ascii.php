@@ -29,18 +29,15 @@ class Ascii implements RendererInterface
 
 		// Are we using flats or sharps?
 		// If flats, get the absolute value of the offset so that we don't have to work with negative values.
-		$accidentals = ($accidental->getOffset() < 0) ? array_map('abs', $this->accidentals['flats'])
-			: $this->accidentals['sharps'];
+		$accidentals = ($accidental->getOffset() < 0) ? array_map('abs', $this->accidentals['flats']) : $this->accidentals['sharps'];
 
 		// Sort the accidentals by their relative offset in descending order (so that higher offsets receive precedence).
 		arsort($accidentals);
 
 		$runningOffset = abs($accidental->getOffset());
-		foreach ($accidentals as $glyph => $accidentalOffset)
-		{
-			while ($runningOffset >= $accidentalOffset)
-			{
-				$result = $glyph . $result;
+		foreach ($accidentals as $glyph => $accidentalOffset) {
+			while ($runningOffset >= $accidentalOffset) {
+				$result         = $glyph . $result;
 				$runningOffset -= $accidentalOffset;
 			}
 		}

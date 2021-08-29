@@ -34,21 +34,20 @@ class EqualTemperament implements TuningSystemInterface
 	public function calcFrequency(Note $note): float
 	{
 		// If this note is the reference note, return the reference frequency.
-		if ($note->getSpn() === $this->theorem->getTuningReferenceNote())
-		{
+		if ($note->getSpn() === $this->theorem->getTuningReferenceNote()) {
 			return $this->theorem->getTuningReferencePitch();
 		}
 
 		// Reference note (probably A4).
-		$noteFactory = new NoteFactory($this->theorem);
+		$noteFactory   = new NoteFactory($this->theorem);
 		$referenceNote = $noteFactory->create($this->theorem->getTuningReferenceNote());
 
 		// To calculate a note frequency using equal temperament:
-		//   [this frequency] =
-		//   [reference frequency] *
-		//   [2^(1/ [number of steps in an octave] )] ^ [number of steps from reference note to this note]
-		$referenceFrequency = $referenceNote->getFrequency();
-		$magicNumber = 2 ** (1 / $this->theorem->getStep());
+		// [this frequency] =
+		// [reference frequency] *
+		// [2^(1/ [number of steps in an octave] )] ^ [number of steps from reference note to this note]
+		$referenceFrequency        = $referenceNote->getFrequency();
+		$magicNumber               = 2 ** (1 / $this->theorem->getStep());
 		$distanceFromReferenceNote = $referenceNote->distanceTo($note);
 
 		return $referenceFrequency * ($magicNumber ** $distanceFromReferenceNote);
