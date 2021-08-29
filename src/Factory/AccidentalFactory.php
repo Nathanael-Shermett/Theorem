@@ -61,28 +61,30 @@ class AccidentalFactory
 	}
 
 	/**
-	 * @param float|string $offsetOrString
+	 * @param float|string|null $offsetOrString
 	 * @return AbstractAccidental
 	 */
-	public function create(float|string $offsetOrString): AbstractAccidental
+	public function create(float|string $offsetOrString = NULL, ?int $quarterToneDirection = NULL): AbstractAccidental
 	{
 		if (is_string($offsetOrString))
 		{
 			return $this->createFromString($offsetOrString);
 		}
 
-		return $this->createFromOffset($offsetOrString);
+		return $this->createFromOffset($offsetOrString, $quarterToneDirection);
 	}
 
 	/**
 	 * Builds and returns a specific accidental object based on the specified offset.
 	 *
-	 * @param float $offset
+	 * @param float|null $offset               If not specified, `AbstractAccidental::offset` is used instead.
+	 * @param int|null   $quarterToneDirection If not specified, `AbstractAccidental::quarterToneDirection` is used
+	 *                                         instead.
 	 * @return AbstractAccidental
 	 */
-	public function createFromOffset(float $offset): AbstractAccidental
+	public function createFromOffset(?float $offset = NULL, ?int $quarterToneDirection = NULL): AbstractAccidental
 	{
-		return match ($offset)
+		$created = match ($offset ?? $this->offset)
 		{
 			AbstractAccidental::TRIPLE_FLAT => new TripleFlat(),
 			AbstractAccidental::FIVE_QUARTER_FLAT => new FiveQuarterFlat(),
@@ -99,6 +101,10 @@ class AccidentalFactory
 			AbstractAccidental::TRIPLE_SHARP => new TripleSharp(),
 			default => new Special($offset),
 		};
+
+		$created->setQuarterToneDirection($quarterToneDirection ?? $this->quarterToneDirection);
+
+		return $created;
 	}
 
 	/**
@@ -115,11 +121,11 @@ class AccidentalFactory
 		// Set the quarter tone directionality, if applicable.
 		if ($quarterTone === 'd')
 		{
-			$this->setQuarterToneDirection(AbstractAccidental::QUARTER_TONE_DIRECTION_DOWN);
+			$quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_DOWN;
 		}
 		elseif ($quarterTone === '+')
 		{
-			$this->setQuarterToneDirection(AbstractAccidental::QUARTER_TONE_DIRECTION_UP);
+			$quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_UP;
 		}
 
 		// Map of the accidental characters and their corresponding offsets.
@@ -138,7 +144,30 @@ class AccidentalFactory
 		// Sum the result and set the offset accordingly.
 		$offset = array_sum($characters);
 
-		return $this->create($offset);
+		return $this->create($offset, $quarterToneDirection ?? NULL);
+	}
+
+	/**
+	 * Gets the accidental's offset.
+	 *
+	 * @return float
+	 */
+	public function getOffset(): float
+	{
+		return $this->offset;
+	}
+
+	/**
+	 * Sets the accidental's offset.
+	 *
+	 * @param float $offset
+	 * @return AbstractAccidental
+	 */
+	protected function setOffset(float $offset): AbstractAccidental
+	{
+		$this->offset = $offset;
+
+		return $this;
 	}
 
 	/**
