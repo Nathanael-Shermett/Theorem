@@ -14,50 +14,34 @@ use Theorem\TransposableTrait;
  */
 class Note
 {
-	use RenderableTrait, TransposableTrait;
-
+	use RenderableTrait;
+	use TransposableTrait;
 	/**
 	 * The note's accidental.
-	 *
-	 * @var AbstractAccidental $accidental
 	 */
 	private AbstractAccidental $accidental;
 
 	/**
 	 * The note's letter name (`A`-`G`).
-	 *
-	 * @var string $letter
 	 */
 	private string $letter;
 
 	/**
 	 * The octave the note belongs to (based on scientific pitch notation).
-	 *
-	 * @var int $octave
 	 */
 	private int $octave;
 
 	/**
-	 * @var RegularExpression $regularExpression
-	 */
-	private RegularExpression $regularExpression;
-
-	/**
 	 * Note constructor.
-	 *
-	 * @param Theorem $theorem
 	 */
 	public function __construct(private Theorem $theorem)
 	{
-		$this->regularExpression = new RegularExpression($theorem);
 	}
 
 	/**
 	 * Returns the relative distance, in steps from the current note to the specified note. If the specified note is
 	 * lower, then the result will be negative.
 	 *
-	 * @param Note $note
-	 * @return float
 	 * @see Theorem::getStep()
 	 * @see Theorem::setStep()
 	 */
@@ -177,7 +161,6 @@ class Note
 	/**
 	 * Gets the `AbstractAccidental` object corresponding with the note's accidental.
 	 *
-	 * @return AbstractAccidental
 	 * @see AbstractAccidental
 	 */
 	public function getAccidental(): AbstractAccidental
@@ -187,11 +170,8 @@ class Note
 
 	/**
 	 * Sets the note's accidental to a different accidental object.
-	 *
-	 * @param AbstractAccidental $accidental
-	 * @return Note
 	 */
-	public function setAccidental(AbstractAccidental $accidental): Note
+	public function setAccidental(AbstractAccidental $accidental): static
 	{
 		$this->accidental = $accidental;
 
@@ -201,7 +181,6 @@ class Note
 	/**
 	 * Gets the note's frequency using the specified tuning system {@see Theorem::getTuningSystem()}.
 	 *
-	 * @return float
 	 * @see Theorem::getFrequencyPrecision()
 	 * @see Theorem::setFrequencyPrecision()
 	 */
@@ -219,8 +198,6 @@ class Note
 	 *
 	 * **NOTE #2:** In SPN, accidental adjustments apply *after* determining the note's octave. Therefore, because
 	 * octave numbers increment at C and accidentals apply afterwards, B4 and Cb5 are exactly one octave apart.
-	 *
-	 * @return string
 	 */
 	public function getSpn(): string
 	{
@@ -233,8 +210,6 @@ class Note
 
 	/**
 	 * Gets the note's letter name (A-G).
-	 *
-	 * @return string
 	 */
 	public function getLetter(): string
 	{
@@ -243,11 +218,8 @@ class Note
 
 	/**
 	 * Sets the note's letter name (A-G).
-	 *
-	 * @param string $letter
-	 * @return Note
 	 */
-	public function setLetter(string $letter): Note
+	public function setLetter(string $letter): static
 	{
 		$this->letter = $letter;
 
@@ -256,8 +228,6 @@ class Note
 
 	/**
 	 * Gets the octave the note belongs to (based on scientific pitch notation).
-	 *
-	 * @return int
 	 */
 	public function getOctave(): int
 	{
@@ -266,11 +236,8 @@ class Note
 
 	/**
 	 * Sets the octave the note belongs to (based on scientific pitch notation).
-	 *
-	 * @param int $octave
-	 * @return Note
 	 */
-	public function setOctave(int $octave): Note
+	public function setOctave(int $octave): static
 	{
 		$this->octave = $octave;
 
@@ -279,7 +246,7 @@ class Note
 
 	public function toString(RendererInterface $renderer = NULL): string
 	{
-		$renderer = $renderer ?? $this->getRenderer();
+		$renderer ??= $this->getRenderer();
 
 		return $renderer->renderNote($this);
 	}

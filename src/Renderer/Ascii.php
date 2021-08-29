@@ -22,9 +22,6 @@ class Ascii implements RendererInterface
 
 	/**
 	 * Returns the rendered accidental.
-	 *
-	 * @param AbstractAccidental $accidental
-	 * @return string
 	 */
 	public function renderAccidental(AbstractAccidental $accidental): string
 	{
@@ -53,9 +50,6 @@ class Ascii implements RendererInterface
 
 	/**
 	 * Returns the rendered note+accidental.
-	 *
-	 * @param Note $note
-	 * @return string
 	 */
 	public function renderNote(Note $note): string
 	{
@@ -64,9 +58,6 @@ class Ascii implements RendererInterface
 
 	/**
 	 * Returns the rendered note+accidental+octave.
-	 *
-	 * @param Note $note
-	 * @return string
 	 */
 	public function renderSpn(Note $note): string
 	{

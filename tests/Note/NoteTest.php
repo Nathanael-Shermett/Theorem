@@ -37,10 +37,6 @@ class NoteTest extends TestCase
 
 	/**
 	 * @dataProvider distanceToQuarterToneProvider
-	 *
-	 * @param float $distance
-	 * @param Note  $a
-	 * @param Note  $b
 	 */
 	public function testDistanceToQuarterTone(float $distance, Note $a, Note $b): void
 	{
@@ -76,10 +72,6 @@ class NoteTest extends TestCase
 
 	/**
 	 * @dataProvider distanceToSemitoneProvider
-	 *
-	 * @param float $distance
-	 * @param Note  $a
-	 * @param Note  $b
 	 */
 	public function testDistanceToSemitone(float $distance, Note $a, Note $b): void
 	{
@@ -115,10 +107,6 @@ class NoteTest extends TestCase
 
 	/**
 	 * @dataProvider distanceToWholeToneProvider
-	 *
-	 * @param float $distance
-	 * @param Note  $a
-	 * @param Note  $b
 	 */
 	public function testDistanceToWholeTone(float $distance, Note $a, Note $b): void
 	{

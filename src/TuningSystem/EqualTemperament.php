@@ -26,8 +26,6 @@ class EqualTemperament implements TuningSystemInterface
 	/**
 	 * Calculates and returns the frequency of the specified note.
 	 *
-	 * @param $note
-	 * @return float
 	 * @see Theorem::getTuningReferenceNote()
 	 * @see Theorem::setTuningReferenceNote()
 	 * @see Theorem::getTuningReferencePitch()

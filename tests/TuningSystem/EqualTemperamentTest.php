@@ -13,7 +13,7 @@ class EqualTemperamentTest extends TestCase
 	/**
 	 * @return array[]
 	 */
-	public function calcFrequencyProvider()
+	public function calcFrequencyProvider(): array
 	{
 		$theorem = new Theorem();
 		$theorem->setTuningSystem(EqualTemperament::class);
@@ -51,9 +51,6 @@ class EqualTemperamentTest extends TestCase
 
 	/**
 	 * @dataProvider calcFrequencyProvider
-	 *
-	 * @param float $frequency
-	 * @param Note  $note
 	 */
 	public function testCalcFrequency(float $frequency, Note $note): void
 	{
@@ -85,9 +82,6 @@ class EqualTemperamentTest extends TestCase
 
 	/**
 	 * @dataProvider calcFrequencyWithTuningProvider
-	 *
-	 * @param float $frequency
-	 * @param Note  $note
 	 */
 	public function testCalcFrequencyWithTuning(float $frequency, Note $note): void
 	{

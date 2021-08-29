@@ -1,17 +1,14 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-
 use Theorem\Theorem;
 use Theorem\RegularExpression;
-
 use Theorem\Accidental\FiveQuarterFlat;
 use Theorem\Accidental\DoubleFlat;
 use Theorem\Accidental\HalfFlat;
 use Theorem\Accidental\Natural;
 use Theorem\Accidental\Sharp;
 use Theorem\Accidental\Special;
-
 class RegularExpressionTest extends TestCase
 {
 	/**
@@ -32,11 +29,6 @@ class RegularExpressionTest extends TestCase
 
 	/**
 	 * @dataProvider parseScientificPitchNotationProvider
-	 *
-	 * @param string $spn
-	 * @param string $letter
-	 * @param string $accidental
-	 * @param int    $octave
 	 */
 	public function testParseScientificPitchNotation(string $spn, string $letter, string $accidental, int $octave): void
 	{
@@ -54,7 +46,7 @@ class RegularExpressionTest extends TestCase
 	}
 
 	/**
-	 * @return string[]
+	 * @return array<int, array<string>>
 	 */
 	public function parseScientificPitchNotationInvalidProvider(): array
 	{
@@ -80,8 +72,6 @@ class RegularExpressionTest extends TestCase
 
 	/**
 	 * @dataProvider parseScientificPitchNotationInvalidProvider
-	 *
-	 * @param string $spn
 	 */
 	public function testParseScientificPitchNotationInvalid(string $spn): void
 	{
@@ -109,9 +99,6 @@ class RegularExpressionTest extends TestCase
 
 	/**
 	 * @dataProvider parseAccidentalQuarterTonePartProvider
-	 *
-	 * @param string $accidentalWithQuarterTone
-	 * @param string $quarterTonePart
 	 */
 	public function testParseAccidentalQuarterTonePart(string $accidentalWithQuarterTone, string $quarterTonePart): void
 	{
@@ -123,7 +110,7 @@ class RegularExpressionTest extends TestCase
 	}
 
 	/**
-	 * @return string[]
+	 * @return array<int, array<string>>
 	 */
 	public function parseAccidentalNoQuarterTonePartProvider(): array
 	{
@@ -136,8 +123,6 @@ class RegularExpressionTest extends TestCase
 
 	/**
 	 * @dataProvider parseAccidentalNoQuarterTonePartProvider
-	 *
-	 * @param string $accidental
 	 */
 	public function testParseAccidentalNoQuarterTonePartProvider(string $accidental): void
 	{
@@ -149,7 +134,7 @@ class RegularExpressionTest extends TestCase
 	}
 
 	/**
-	 * @return string[]
+	 * @return array<int, array<string>>
 	 */
 	public function parseAccidentalsInvalidProvider(): array
 	{
@@ -163,8 +148,6 @@ class RegularExpressionTest extends TestCase
 
 	/**
 	 * @dataProvider parseAccidentalsInvalidProvider
-	 *
-	 * @param string $quarterTone
 	 */
 	public function testParseAccidentalsInvalid(string $quarterTone): void
 	{

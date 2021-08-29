@@ -40,7 +40,6 @@ final class Theorem
 	 * NOTE: Internal frequency calculations are not changed by this setting. Only public frequency results (e.g.
 	 * {@see Note::getFrequency()}) are affected.
 	 *
-	 * @var int
 	 * @see setFrequencyPrecision()
 	 * @see getFrequencyPrecision()
 	 */
@@ -50,7 +49,6 @@ final class Theorem
 	 * Global setting property representing the key. Can be set on a per-object basis, or globally with
 	 * `Theorem\Setting::setKey()`.
 	 *
-	 * @var string
 	 * @see setKey()
 	 * @see getKey()
 	 */
@@ -60,7 +58,6 @@ final class Theorem
 	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
 	 * `Setting::setRenderer()`.
 	 *
-	 * @var RendererInterface
 	 * @see setRenderer()
 	 * @see getRenderer()
 	 */
@@ -70,7 +67,6 @@ final class Theorem
 	 * Global setting property representing the number of steps in an octave. Useful when working in microtonal
 	 * systems. Used by tuning systems that implement `ITuningSystem`.
 	 *
-	 * @var int
 	 * @see SEMITONE_STEPS
 	 * @see QUARTER_TONE_STEPS
 	 * @see getStep()
@@ -82,7 +78,6 @@ final class Theorem
 	/**
 	 * Global setting property representing the reference pitch. Used by tuning systems that implement `ITuningSystem`.
 	 *
-	 * @var float
 	 * @see setTuningReferencePitch()
 	 * @see getTuningReferencePitch()
 	 */
@@ -94,7 +89,6 @@ final class Theorem
 	 * **NOTE:** Very few tuning systems use reference notes other than A4. Only change this if you know exactly what
 	 * you are doing.
 	 *
-	 * @var string
 	 * @see setTuningReferenceNote()
 	 * @see getTuningReferenceNote()
 	 */
@@ -103,7 +97,6 @@ final class Theorem
 	/**
 	 * Global setting property representing the tuning system used to calculate notes and their relative frequencies.
 	 *
-	 * @var TuningSystemInterface
 	 * @see setTuningSystem()
 	 * @see getTuningSystem()
 	 */
@@ -117,9 +110,6 @@ final class Theorem
 
 	/**
 	 * Creates an accidental object from either a specified offset or a string.
-	 *
-	 * @param float|string $offsetOrString
-	 * @return AbstractAccidental
 	 */
 	public function accidental(float|string $offsetOrString): AbstractAccidental
 	{
@@ -130,9 +120,6 @@ final class Theorem
 
 	/**
 	 * Creates a Note object from the specified SPN (e.g. A4, B#7).
-	 *
-	 * @param string $spn
-	 * @return Note
 	 */
 	public function note(string $spn): Note
 	{
@@ -143,8 +130,6 @@ final class Theorem
 
 	/**
 	 * Gets the number of decimal places frequencies should be rounded to.
-	 *
-	 * @return int
 	 */
 	public function getFrequencyPrecision(): int
 	{
@@ -153,26 +138,17 @@ final class Theorem
 
 	/**
 	 * Sets the number of decimal places frequencies should be rounded to.
-	 *
-	 * @param int $frequencyPrecision
-	 * @return void
 	 */
 	public function setFrequencyPrecision(int $frequencyPrecision): void
 	{
 		$this->frequencyPrecision = $frequencyPrecision;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getKey(): string
 	{
 		return $this->key;
 	}
 
-	/**
-	 * @param string $key
-	 */
 	public function setKey(string $key): void
 	{
 		$this->key = $key;
@@ -180,8 +156,6 @@ final class Theorem
 
 	/**
 	 * Gets the renderer.
-	 *
-	 * @return RendererInterface
 	 */
 	public function getRenderer(): RendererInterface
 	{
@@ -191,9 +165,6 @@ final class Theorem
 	/**
 	 * Sets the rendering ssytem. Can be set on a per-object basis, or globally with`Setting::setRenderer()`
 	 * unless overridden.
-	 *
-	 * @param RendererInterface $renderer
-	 * @return void
 	 */
 	public function setRenderer(RendererInterface $renderer): void
 	{
@@ -204,7 +175,6 @@ final class Theorem
 	 * Gets the current setting's value for the number of steps in an octave. In most western music (which uses
 	 * semitones) this will be 12.
 	 *
-	 * @return int
 	 * @see Theorem::SEMITONE_STEPS
 	 * @see Theorem::QUARTER_TONE_STEPS
 	 * @see Theorem::WHOLE_TONE_STEPS
@@ -217,8 +187,6 @@ final class Theorem
 	/**
 	 * Sets the number of steps in an octave. In most western music (which uses semitones) this will be 12.
 	 *
-	 * @param int $step
-	 * @return void
 	 * @see Theorem::SEMITONE_STEPS
 	 * @see Theorem::QUARTER_TONE_STEPS
 	 * @see Theorem::WHOLE_TONE_STEPS
@@ -231,8 +199,6 @@ final class Theorem
 	/**
 	 * Gets the reference pitch setting (usually 440 Hz). This is used by tuning systems that implement the
 	 * `ITuningSystem` interface.
-	 *
-	 * @return float
 	 */
 	public function getTuningReferencePitch(): float
 	{
@@ -242,9 +208,6 @@ final class Theorem
 	/**
 	 * Sets the reference pitch (usually 440 Hz). This is used by tuning systems that implement the `ITuningSystem`
 	 * interface.
-	 *
-	 * @param int $tuningReferencePitch
-	 * @return void
 	 */
 	public function setTuningReferencePitch(int $tuningReferencePitch): void
 	{
@@ -254,8 +217,6 @@ final class Theorem
 	/**
 	 * Returns the note, as a string, that the reference pitch is calibrated to (usually A4). This is used by tuning
 	 * systems that implement the `ITuningSystem` interface.
-	 *
-	 * @return string
 	 */
 	public function getTuningReferenceNote(): string
 	{
@@ -265,9 +226,6 @@ final class Theorem
 	/**
 	 * Sets the note that the reference pitch is calibrated to (usually A4). This is used by tuning systems that
 	 * implement the `ITuningSystem` interface.
-	 *
-	 * @param string $tuningReferenceNote
-	 * @return void
 	 */
 	public function setTuningReferenceNote(string $tuningReferenceNote): void
 	{
@@ -276,8 +234,6 @@ final class Theorem
 
 	/**
 	 * Returns an object that implements `TuningSystemInterface`.
-	 *
-	 * @return TuningSystemInterface
 	 */
 	public function getTuningSystem(): TuningSystemInterface
 	{
@@ -286,9 +242,6 @@ final class Theorem
 
 	/**
 	 * Expects a fully-qualified class name representing a tuning system.
-	 *
-	 * @param string $tuningSystem
-	 * @return void
 	 */
 	public function setTuningSystem(string $tuningSystem): void
 	{

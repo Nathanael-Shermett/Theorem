@@ -48,12 +48,11 @@ class RegularExpression
 	 * (`string`), an accidental (`AbstractAccidental`), and an octave (`int`).
 	 *
 	 * @param string $input A note written in scientific pitch notation (e.g. A4, A#4, etc.)
-	 * @param array  $output
 	 * @return bool Returns an associative array containing a letter (string), an accidental
 	 *                      (AbstractAccidental), and an octave (int).
 	 * @see AbstractAccidental
 	 */
-	public function parseScientificPitchNotation(string $input, array &$output)
+	public function parseScientificPitchNotation(string $input, array &$output): bool
 	{
 		// Match a note expressed in scientific pitch notation.
 		$regex = '/
@@ -98,7 +97,7 @@ class RegularExpression
 		if (preg_match($regex, $input, $result) === 1)
 		{
 			// Return the quarter tone part of the accidental as a string, otherwise NULL.
-			return $result['quarterTone'] ?: NULL;
+			return (string)$result['quarterTone'] ?: NULL;
 		}
 
 		return FALSE;
