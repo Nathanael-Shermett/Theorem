@@ -51,17 +51,16 @@
 	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
 	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
 
-	<rule ref="Generic.Commenting.DocComment"/>
 	<rule ref="Generic.Commenting.Fixme"/>
 	<rule ref="Generic.Commenting.Todo"/>
 	<rule ref="Squiz.Commenting.BlockComment"/>
-	<rule ref="Squiz.Commenting.ClassComment"/>
 	<rule ref="Squiz.Commenting.DocCommentAlignment"/>
 	<rule ref="Squiz.Commenting.EmptyCatchComment"/>
-	<rule ref="Squiz.Commenting.FileComment"/>
-	<rule ref="Squiz.Commenting.FunctionComment"/>
 	<rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
-	<rule ref="Squiz.Commenting.InlineComment"/>
+	<rule ref="Squiz.Commenting.InlineComment">
+		<exclude name="Squiz.Commenting.InlineComment.NotCapital"/>
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+	</rule>
 
 	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
 	<rule ref="Squiz.ControlStructures.ControlSignature">
@@ -70,7 +69,9 @@
 		</properties>
 	</rule>
 	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
-	<rule ref="Squiz.ControlStructures.InlineIfDeclaration"/>
+	<rule ref="Squiz.ControlStructures.InlineIfDeclaration">
+		<exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/>
+	</rule>
 	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
 	<rule ref="Squiz.ControlStructures.SwitchDeclaration"/>
 
@@ -109,11 +110,12 @@
 	<rule ref="Generic.NamingConventions.TraitNameSuffix"/>
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
 	<rule ref="Squiz.NamingConventions.ValidFunctionName"/>
-	<rule ref="Squiz.NamingConventions.ValidVariableName"/>
+	<rule ref="Squiz.NamingConventions.ValidVariableName">
+		<exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+	</rule>
 
 	<rule ref="Squiz.Objects.ObjectInstantiation"/>
 
-	<rule ref="Squiz.Operators.ComparisonOperatorUsage"/>
 	<rule ref="Squiz.Operators.IncrementDecrementUsage"/>
 	<rule ref="Squiz.Operators.ValidLogicalOperators"/>
 
@@ -133,7 +135,6 @@
 	<rule ref="Generic.PHP.SAPIUsage"/>
 	<rule ref="Generic.PHP.Syntax"/>
 	<rule ref="Squiz.PHP.CommentedOutCode"/>
-	<rule ref="Squiz.PHP.DisallowInlineIf"/>
 	<rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
 	<rule ref="Squiz.PHP.DiscouragedFunctions"/>
 	<rule ref="Squiz.PHP.EmbeddedPhp"/>
@@ -169,7 +170,6 @@
 	<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/>
 	<rule ref="Squiz.WhiteSpace.CastSpacing"/>
 	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
-	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
 	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
 		<properties>
 			<property name="spacing" value="1"/>
@@ -179,7 +179,12 @@
 	</rule>
 	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
 	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
-	<rule ref="Squiz.WhiteSpace.MemberVarSpacing"/>
+	<rule ref="Squiz.WhiteSpace.MemberVarSpacing">
+		<properties>
+			<property name="spacing" value="1" />
+			<property name="spacingBeforeFirst" value="0" />
+		</properties>
+	</rule>
 	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
 		<properties>
 			<property name="ignoreNewlines" value="true"/>
