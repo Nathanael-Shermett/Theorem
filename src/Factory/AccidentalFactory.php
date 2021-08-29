@@ -32,7 +32,6 @@ class AccidentalFactory
 	/**
 	 * The offset of the accidental that is being built.
 	 *
-	 * @var float
 	 * @see AccidentalFactory::getOffset()
 	 * @see AccidentalFactory::setOffset()
 	 */
@@ -41,15 +40,11 @@ class AccidentalFactory
 	/**
 	 * Whether the accidental's quarter tone part, if applicable, is moving "upwards" or "downwards".
 	 *
-	 * @var int
 	 * @see AccidentalFactory::getQuarterToneDirection()
 	 * @see AccidentalFactory::setQuarterToneDirection()
 	 */
 	private int $quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_NEUTRAL;
 
-	/**
-	 * @var RegularExpression $regularExpression
-	 */
 	private RegularExpression $regularExpression;
 
 	/**
@@ -57,12 +52,11 @@ class AccidentalFactory
 	 */
 	public function __construct(private Theorem $theorem)
 	{
-		$this->regularExpression = new RegularExpression($theorem);
+		$this->regularExpression = new RegularExpression($this->theorem);
 	}
 
 	/**
 	 * @param float|string|null $offsetOrString
-	 * @return AbstractAccidental
 	 */
 	public function create(float|string $offsetOrString = NULL, ?int $quarterToneDirection = NULL): AbstractAccidental
 	{
@@ -80,9 +74,8 @@ class AccidentalFactory
 	 * @param float|null $offset               If not specified, `AbstractAccidental::offset` is used instead.
 	 * @param int|null   $quarterToneDirection If not specified, `AbstractAccidental::quarterToneDirection` is used
 	 *                                         instead.
-	 * @return AbstractAccidental
 	 */
-	public function createFromOffset(?float $offset = NULL, ?int $quarterToneDirection = NULL): AbstractAccidental
+	public function createFromOffset(?float $offset = NULL, ?int $quarterToneDirection = NULL): \Theorem\Accidental\DoubleFlat|\Theorem\Accidental\DoubleSharp|\Theorem\Accidental\FiveQuarterFlat|\Theorem\Accidental\FiveQuarterSharp|\Theorem\Accidental\Flat|\Theorem\Accidental\HalfFlat|\Theorem\Accidental\HalfSharp|\Theorem\Accidental\Natural|\Theorem\Accidental\Sharp|\Theorem\Accidental\Special|\Theorem\Accidental\ThreeQuarterFlat|\Theorem\Accidental\ThreeQuarterSharp|\Theorem\Accidental\TripleFlat|\Theorem\Accidental\TripleSharp
 	{
 		$created = match ($offset ?? $this->offset)
 		{
@@ -109,9 +102,6 @@ class AccidentalFactory
 
 	/**
 	 * Builds and returns a specific accidental object based on the specified string.
-	 *
-	 * @param string $string
-	 * @return AbstractAccidental
 	 */
 	public function createFromString(string $string): AbstractAccidental
 	{
@@ -126,6 +116,10 @@ class AccidentalFactory
 		elseif ($quarterTone === '+')
 		{
 			$quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_UP;
+		}
+		else
+		{
+			$quarterToneDirection = NULL;
 		}
 
 		// Map of the accidental characters and their corresponding offsets.
@@ -149,8 +143,6 @@ class AccidentalFactory
 
 	/**
 	 * Gets the accidental's offset.
-	 *
-	 * @return float
 	 */
 	public function getOffset(): float
 	{
@@ -159,11 +151,8 @@ class AccidentalFactory
 
 	/**
 	 * Sets the accidental's offset.
-	 *
-	 * @param float $offset
-	 * @return AbstractAccidental
 	 */
-	protected function setOffset(float $offset): AbstractAccidental
+	protected function setOffset(float $offset): static
 	{
 		$this->offset = $offset;
 
@@ -171,10 +160,9 @@ class AccidentalFactory
 	}
 
 	/**
-	 * @return int
 	 * @see AbstractAccidental::setQuarterToneDirection()
 	 */
-	private function getQuarterToneDirection(): int
+	public function getQuarterToneDirection(): int
 	{
 		return $this->quarterToneDirection;
 	}
@@ -182,11 +170,9 @@ class AccidentalFactory
 	/**
 	 * Sets the accidental's quarter tone direction.
 	 *
-	 * @param int $quarterToneDirection
-	 * @return AccidentalFactory
 	 * @see AbstractAccidental::getQuarterToneDirection()
 	 */
-	private function setQuarterToneDirection(int $quarterToneDirection): AccidentalFactory
+	public function setQuarterToneDirection(int $quarterToneDirection): static
 	{
 		$this->quarterToneDirection = $quarterToneDirection;
 

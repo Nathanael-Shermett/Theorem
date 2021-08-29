@@ -14,9 +14,6 @@ use Theorem\Theorem;
  */
 class NoteFactory
 {
-	/**
-	 * @var RegularExpression $regularExpression
-	 */
 	private RegularExpression $regularExpression;
 
 	/**
@@ -29,9 +26,6 @@ class NoteFactory
 
 	/**
 	 * Builds and returns a specific accidental object based on the specified offset.
-	 *
-	 * @param string $spn
-	 * @return Note
 	 */
 	public function create(string $spn): Note
 	{

@@ -70,8 +70,6 @@ abstract class AbstractAccidental
 
 	/**
 	 * The accidental's offset value. Values are signed, relative, and scaled to whole tones.
-	 *
-	 * @var float $offset
 	 */
 	private float $offset;
 
@@ -79,15 +77,11 @@ abstract class AbstractAccidental
 	 * Indicates whether quarter tone accidentals  should favor "up" or "down". Mostly useful for rendering Gould
 	 * quarter tone sub-accidentals (e.g. for cases where we should favor vx instead of ^#), though there may be other
 	 * uses.
-	 *
-	 * @var int $quarterToneDirection
 	 */
 	protected int $quarterToneDirection = self::QUARTER_TONE_DIRECTION_NEUTRAL;
 
 	/**
 	 * Gets the accidental's offset.
-	 *
-	 * @return float
 	 */
 	public function getOffset(): float
 	{
@@ -96,11 +90,8 @@ abstract class AbstractAccidental
 
 	/**
 	 * Sets the accidental's offset.
-	 *
-	 * @param float $offset
-	 * @return AbstractAccidental
 	 */
-	protected function setOffset(float $offset): AbstractAccidental
+	protected function setOffset(float $offset): static
 	{
 		$this->offset = $offset;
 
@@ -108,7 +99,6 @@ abstract class AbstractAccidental
 	}
 
 	/**
-	 * @return int
 	 * @see AbstractAccidental::setQuarterToneDirection()
 	 */
 	public function getQuarterToneDirection(): int
@@ -119,24 +109,18 @@ abstract class AbstractAccidental
 	/**
 	 * Sets the accidental's quarter tone direction.
 	 *
-	 * @param int $quarterToneDirection
-	 * @return AbstractAccidental
 	 * @see AbstractAccidental::getQuarterToneDirection()
 	 */
-	public function setQuarterToneDirection(int $quarterToneDirection): AbstractAccidental
+	public function setQuarterToneDirection(int $quarterToneDirection): static
 	{
 		$this->quarterToneDirection = $quarterToneDirection;
 
 		return $this;
 	}
 
-	/**
-	 * @param RendererInterface|null $renderer
-	 * @return string
-	 */
 	public function toString(?RendererInterface $renderer = NULL): string
 	{
-		$renderer = $renderer ?? $this->getRenderer();
+		$renderer ??= $this->getRenderer();
 
 		return $renderer->renderAccidental($this);
 	}

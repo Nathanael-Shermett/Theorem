@@ -19,7 +19,6 @@ trait RenderableTrait
 	 * Setting representing the renderer. Can be set on a per-object basis, or globally with
 	 * `Theorem::setRenderer()`.
 	 *
-	 * @var string $renderer
 	 * @see getRenderer()
 	 * @see setRenderer()
 	 */
@@ -28,7 +27,6 @@ trait RenderableTrait
 	/**
 	 * Calls `toString()` using its default parameters.
 	 *
-	 * @return string
 	 * @see toString()
 	 */
 	final public function __toString(): string
@@ -47,16 +45,14 @@ trait RenderableTrait
 	final public function getRenderer(): RendererInterface
 	{
 		$renderer = $this->renderer ?? $this->theorem->getRenderer();
-		$renderer = new $renderer();
 
-		return $renderer;
+		return new $renderer();
 	}
 
 	/**
 	 * Sets the renderer. Can be set on a per-object basis, or globally with`Setting::setRenderer()` unless
 	 * overridden.
 	 *
-	 * @param string $renderer
 	 * @return $this
 	 * @see getRenderer()
 	 * @see Theorem::getRenderer()
@@ -76,7 +72,6 @@ trait RenderableTrait
 	 * `RenderableTrait` *must* write their own implementation.
 	 *
 	 * @param RendererInterface|null $renderer The render mode used by the implementing entity.
-	 * @return string
 	 * @see getRenderer()
 	 * @see setRenderer()
 	 * @see Theorem::getRenderer()
