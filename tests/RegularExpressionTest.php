@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Theorem\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Theorem\Theorem;
 use Theorem\RegularExpression;

@@ -1,6 +1,8 @@
 <?php
 
-namespace Note;
+declare(strict_types=1);
+
+namespace Theorem\Tests\Note;
 
 use PHPUnit\Framework\TestCase;
 use Theorem\Note\Note;

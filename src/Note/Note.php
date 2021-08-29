@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Theorem\Note;
 
 use Theorem\Accidental\AbstractAccidental;

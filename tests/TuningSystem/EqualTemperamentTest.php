@@ -1,6 +1,8 @@
 <?php
 
-namespace TuningSystem;
+declare(strict_types=1);
+
+namespace Theorem\Tests\TuningSystem;
 
 use PHPUnit\Framework\TestCase;
 use Theorem\Note\Note;

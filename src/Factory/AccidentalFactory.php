@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Theorem\Factory;
 
+use PhpParser\Node\Expr\Cast\Double;
 use Theorem\Accidental\AbstractAccidental;
 use Theorem\Accidental\TripleFlat;
 use Theorem\Accidental\FiveQuarterFlat;
@@ -73,7 +76,7 @@ class AccidentalFactory
 	 * @param int|null   $quarterToneDirection If not specified, `AbstractAccidental::quarterToneDirection` is used
 	 *                                         instead.
 	 */
-	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): \Theorem\Accidental\DoubleFlat|\Theorem\Accidental\DoubleSharp|\Theorem\Accidental\FiveQuarterFlat|\Theorem\Accidental\FiveQuarterSharp|\Theorem\Accidental\Flat|\Theorem\Accidental\HalfFlat|\Theorem\Accidental\HalfSharp|\Theorem\Accidental\Natural|\Theorem\Accidental\Sharp|\Theorem\Accidental\Special|\Theorem\Accidental\ThreeQuarterFlat|\Theorem\Accidental\ThreeQuarterSharp|\Theorem\Accidental\TripleFlat|\Theorem\Accidental\TripleSharp
+	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): TripleFlat|FiveQuarterFlat|DoubleFlat|ThreeQuarterFlat|Flat|HalfFlat|Natural|HalfSharp|Sharp|ThreeQuarterSharp|DoubleSharp|FiveQuarterSharp|TripleSharp
 	{
 		$created = match ($offset ?? $this->offset) {
 			AbstractAccidental::TRIPLE_FLAT => new TripleFlat(),
