@@ -18,7 +18,7 @@ trait TransposableTrait
 	 * @see Theorem::getStep()
 	 * @see Theorem::setStep()
 	 */
-	final public function stepDown(): self
+	final public function stepDown(): static
 	{
 		return $this->transpose(1, 'down');
 	}
@@ -30,7 +30,7 @@ trait TransposableTrait
 	 * @see Theorem::getStep()
 	 * @see Theorem::setStep()
 	 */
-	final public function stepUp(): self
+	final public function stepUp(): static
 	{
 		return $this->transpose(1, 'up');
 	}
@@ -44,7 +44,7 @@ trait TransposableTrait
 	 * @see Theorem::getStep()
 	 * @see Theorem::setStep()
 	 */
-	public function transpose(int $amount, string $direction): self
+	public function transpose(int $amount, string $direction): static
 	{
 		return $this;
 	}
@@ -57,7 +57,7 @@ trait TransposableTrait
 	 * @see Theorem::getStep()
 	 * @see Theorem::setStep()
 	 */
-	final public function transposeDown(int $amount): self
+	final public function transposeDown(int $amount): static
 	{
 		return $this->transpose($amount, 'down');
 	}
@@ -70,7 +70,7 @@ trait TransposableTrait
 	 * @see Theorem::getStep()
 	 * @see Theorem::setStep()
 	 */
-	final public function transposeUp(int $amount): self
+	final public function transposeUp(int $amount): static
 	{
 		return $this->transpose($amount, 'up');
 	}
