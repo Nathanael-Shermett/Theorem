@@ -11,7 +11,7 @@ use Theorem\Renderer\RendererInterface;
  * Abstract class inherited by all accidentals. Contains constants representing each accidental's relative pitch offset
  * (minimum unit: quarter tones). Also includes a few universal methods, including {@see toString()}.
  */
-abstract class Accidental
+class Accidental
 {
 	use RenderableTrait;
 
@@ -85,7 +85,7 @@ abstract class Accidental
 	/**
 	 * Gets the accidental's offset.
 	 */
-	public function getOffset(): float
+	final public function getOffset(): float
 	{
 		return $this->offset;
 	}
@@ -93,7 +93,7 @@ abstract class Accidental
 	/**
 	 * Sets the accidental's offset.
 	 */
-	protected function setOffset(float $offset): static
+	final protected function setOffset(float $offset): static
 	{
 		$this->offset = $offset;
 
@@ -103,7 +103,7 @@ abstract class Accidental
 	/**
 	 * @see Accidental::setQuarterToneDirection()
 	 */
-	public function getQuarterToneDirection(): int
+	final public function getQuarterToneDirection(): int
 	{
 		return $this->quarterToneDirection;
 	}
@@ -113,7 +113,7 @@ abstract class Accidental
 	 *
 	 * @see Accidental::getQuarterToneDirection()
 	 */
-	public function setQuarterToneDirection(int $quarterToneDirection): static
+	final public function setQuarterToneDirection(int $quarterToneDirection): static
 	{
 		$this->quarterToneDirection = $quarterToneDirection;
 
