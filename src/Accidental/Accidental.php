@@ -86,7 +86,7 @@ class Accidental
 	/**
 	 * Accidental constructor.
 	 */
-	public function __construct(Theorem $theorem, float $offset = self::NATURAL)
+	public function __construct(float $offset = self::NATURAL)
 	{
 		$this->setOffset($offset);
 	}

@@ -63,7 +63,7 @@ class AccidentalFactory
 	 */
 	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): Accidental
 	{
-		$created = new Accidental($this->theorem, $offset ?? $this->offset);
+		$created = new Accidental($offset ?? $this->offset);
 		$created->setQuarterToneDirection($quarterToneDirection ?? $this->quarterToneDirection);
 
 		return $created;
