@@ -57,8 +57,8 @@ class AccidentalFactory
 	/**
 	 * Builds and returns a specific accidental object based on the specified offset.
 	 *
-	 * @param float|null $offset               If not specified, `AbstractAccidental::offset` is used instead.
-	 * @param int|null   $quarterToneDirection If not specified, `AbstractAccidental::quarterToneDirection` is used
+	 * @param float|null $offset               If not specified, `Accidental::offset` is used instead.
+	 * @param int|null   $quarterToneDirection If not specified, `Accidental::quarterToneDirection` is used
 	 *                                         instead.
 	 */
 	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): Accidental

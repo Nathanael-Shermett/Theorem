@@ -156,7 +156,7 @@ class Note
 	}
 
 	/**
-	 * Gets the `AbstractAccidental` object corresponding with the note's accidental.
+	 * Gets the `Accidental` object corresponding with the note's accidental.
 	 *
 	 * @see Accidental
 	 */

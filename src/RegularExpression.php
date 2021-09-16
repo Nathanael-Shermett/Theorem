@@ -47,11 +47,11 @@ class RegularExpression
 
 	/**
 	 * Parses the string representation of a note (i.e. scientific pitch notation) into an array consisting of a letter
-	 * (`string`), an accidental (`AbstractAccidental`), and an octave (`int`).
+	 * (`string`), an accidental (`Accidental`), and an octave (`int`).
 	 *
 	 * @param string $input A note written in scientific pitch notation (e.g. A4, A#4, etc.)
 	 * @return bool Returns an associative array containing a letter (string), an accidental
-	 *                      (AbstractAccidental), and an octave (int).
+	 *                      (Accidental), and an octave (int).
 	 * @see Accidental
 	 */
 	public function parseScientificPitchNotation(string $input, array &$output): bool
