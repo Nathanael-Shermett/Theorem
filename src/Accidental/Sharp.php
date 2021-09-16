@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Theorem\Accidental;
 
-class Sharp extends AbstractAccidental
+class Sharp extends Accidental
 {
 	/**
 	 * Sharp constructor.
 	 */
 	public function __construct()
 	{
-		$this->setOffset(AbstractAccidental::SHARP);
+		$this->setOffset(Accidental::SHARP);
 	}
 }

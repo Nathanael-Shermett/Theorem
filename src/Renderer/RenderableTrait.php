@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Theorem\Renderer;
 
-use Theorem\Accidental\AbstractAccidental;
+use Theorem\Accidental\Accidental;
 
 /**
  * Provides functionality for allowing entities to be rendered (i.e. printed to a string).
@@ -12,7 +12,7 @@ use Theorem\Accidental\AbstractAccidental;
  * **NOTE:** `RenderableTrait` does not provide a default implementation of `toString()`. Any classes using
  * `RenderableTrait` *must* write their own implementation.
  *
- * @see AbstractAccidental
+ * @see Accidental
  * @see Note
  */
 trait RenderableTrait

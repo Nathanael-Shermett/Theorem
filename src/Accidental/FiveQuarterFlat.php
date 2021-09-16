@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Theorem\Accidental;
 
-class FiveQuarterFlat extends AbstractAccidental
+class FiveQuarterFlat extends Accidental
 {
 	/**
 	 * FiveQuarterFlat constructor.
 	 */
 	public function __construct()
 	{
-		$this->setOffset(AbstractAccidental::FIVE_QUARTER_FLAT);
+		$this->setOffset(Accidental::FIVE_QUARTER_FLAT);
 	}
 }

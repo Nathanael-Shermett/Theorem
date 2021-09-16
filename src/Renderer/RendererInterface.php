@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Theorem\Renderer;
 
-use Theorem\Accidental\AbstractAccidental;
+use Theorem\Accidental\Accidental;
 use Theorem\Note\Note;
 
 /**
@@ -17,7 +17,7 @@ interface RendererInterface
 	/**
 	 * Returns the rendered accidental.
 	 */
-	public function renderAccidental(AbstractAccidental $accidental): string;
+	public function renderAccidental(Accidental $accidental): string;
 
 	/**
 	 * Returns the rendered note+accidental.

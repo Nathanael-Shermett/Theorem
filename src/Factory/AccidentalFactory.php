@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Theorem\Factory;
 
-use Theorem\Accidental\AbstractAccidental;
+use Theorem\Accidental\Accidental;
 use Theorem\Accidental\TripleFlat;
 use Theorem\Accidental\FiveQuarterFlat;
 use Theorem\Accidental\DoubleFlat;
@@ -44,7 +44,7 @@ class AccidentalFactory
 	 * @see AccidentalFactory::getQuarterToneDirection()
 	 * @see AccidentalFactory::setQuarterToneDirection()
 	 */
-	private int $quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_NEUTRAL;
+	private int $quarterToneDirection = Accidental::QUARTER_TONE_DIRECTION_NEUTRAL;
 
 	private RegularExpression $regularExpression;
 
@@ -59,7 +59,7 @@ class AccidentalFactory
 	/**
 	 * @param float|string|null $offsetOrString
 	 */
-	public function create(float|string $offsetOrString = null, ?int $quarterToneDirection = null): AbstractAccidental
+	public function create(float|string $offsetOrString = null, ?int $quarterToneDirection = null): Accidental
 	{
 		if (is_string($offsetOrString)) {
 			return $this->createFromString($offsetOrString);
@@ -78,19 +78,19 @@ class AccidentalFactory
 	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): TripleFlat|FiveQuarterFlat|DoubleFlat|ThreeQuarterFlat|Flat|HalfFlat|Natural|HalfSharp|Sharp|ThreeQuarterSharp|DoubleSharp|FiveQuarterSharp|TripleSharp|Special
 	{
 		$created = match ($offset ?? $this->offset) {
-			AbstractAccidental::TRIPLE_FLAT => new TripleFlat(),
-			AbstractAccidental::FIVE_QUARTER_FLAT => new FiveQuarterFlat(),
-			AbstractAccidental::DOUBLE_FLAT => new DoubleFlat(),
-			AbstractAccidental::THREE_QUARTER_FLAT => new ThreeQuarterFlat(),
-			AbstractAccidental::FLAT => new Flat(),
-			AbstractAccidental::HALF_FLAT => new HalfFlat(),
-			AbstractAccidental::NATURAL => new Natural(),
-			AbstractAccidental::HALF_SHARP => new HalfSharp(),
-			AbstractAccidental::SHARP => new Sharp(),
-			AbstractAccidental::THREE_QUARTER_SHARP => new ThreeQuarterSharp(),
-			AbstractAccidental::DOUBLE_SHARP => new DoubleSharp(),
-			AbstractAccidental::FIVE_QUARTER_SHARP => new FiveQuarterSharp(),
-			AbstractAccidental::TRIPLE_SHARP => new TripleSharp(),
+			Accidental::TRIPLE_FLAT => new TripleFlat(),
+			Accidental::FIVE_QUARTER_FLAT => new FiveQuarterFlat(),
+			Accidental::DOUBLE_FLAT => new DoubleFlat(),
+			Accidental::THREE_QUARTER_FLAT => new ThreeQuarterFlat(),
+			Accidental::FLAT => new Flat(),
+			Accidental::HALF_FLAT => new HalfFlat(),
+			Accidental::NATURAL => new Natural(),
+			Accidental::HALF_SHARP => new HalfSharp(),
+			Accidental::SHARP => new Sharp(),
+			Accidental::THREE_QUARTER_SHARP => new ThreeQuarterSharp(),
+			Accidental::DOUBLE_SHARP => new DoubleSharp(),
+			Accidental::FIVE_QUARTER_SHARP => new FiveQuarterSharp(),
+			Accidental::TRIPLE_SHARP => new TripleSharp(),
 			default => new Special($offset),
 		};
 
@@ -102,16 +102,16 @@ class AccidentalFactory
 	/**
 	 * Builds and returns a specific accidental object based on the specified string.
 	 */
-	public function createFromString(string $string): AbstractAccidental
+	public function createFromString(string $string): Accidental
 	{
 		// Get the quarter tone part of the accidental, if any.
 		$quarterTone = $this->regularExpression->parseQuarterTonePart($string);
 
 		// Set the quarter tone directionality, if applicable.
 		if ($quarterTone === 'd') {
-			$quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_DOWN;
+			$quarterToneDirection = Accidental::QUARTER_TONE_DIRECTION_DOWN;
 		} elseif ($quarterTone === '+') {
-			$quarterToneDirection = AbstractAccidental::QUARTER_TONE_DIRECTION_UP;
+			$quarterToneDirection = Accidental::QUARTER_TONE_DIRECTION_UP;
 		} else {
 			$quarterToneDirection = null;
 		}
@@ -154,7 +154,7 @@ class AccidentalFactory
 	}
 
 	/**
-	 * @see AbstractAccidental::setQuarterToneDirection()
+	 * @see Accidental::setQuarterToneDirection()
 	 */
 	public function getQuarterToneDirection(): int
 	{
@@ -164,7 +164,7 @@ class AccidentalFactory
 	/**
 	 * Sets the accidental's quarter tone direction.
 	 *
-	 * @see AbstractAccidental::getQuarterToneDirection()
+	 * @see Accidental::getQuarterToneDirection()
 	 */
 	public function setQuarterToneDirection(int $quarterToneDirection): static
 	{

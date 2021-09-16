@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Theorem;
 
-use Theorem\Accidental\AbstractAccidental;
+use Theorem\Accidental\Accidental;
 use Theorem\Factory\AccidentalFactory;
 
 class RegularExpression
@@ -52,7 +52,7 @@ class RegularExpression
 	 * @param string $input A note written in scientific pitch notation (e.g. A4, A#4, etc.)
 	 * @return bool Returns an associative array containing a letter (string), an accidental
 	 *                      (AbstractAccidental), and an octave (int).
-	 * @see AbstractAccidental
+	 * @see Accidental
 	 */
 	public function parseScientificPitchNotation(string $input, array &$output): bool
 	{

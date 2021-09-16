@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Theorem;
 
-use Theorem\Accidental\AbstractAccidental;
+use Theorem\Accidental\Accidental;
 use Theorem\Factory\AccidentalFactory;
 use Theorem\Factory\NoteFactory;
 use Theorem\Note\Note;
@@ -113,7 +113,7 @@ final class Theorem
 	/**
 	 * Creates an accidental object from either a specified offset or a string.
 	 */
-	public function accidental(float|string $offsetOrString): AbstractAccidental
+	public function accidental(float|string $offsetOrString): Accidental
 	{
 		$accidentalFactory = new AccidentalFactory($this);
 

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Theorem\Accidental;
 
-class TripleSharp extends AbstractAccidental
+class TripleSharp extends Accidental
 {
 	/**
 	 * TripleSharp constructor.
 	 */
 	public function __construct()
 	{
-		$this->setOffset(AbstractAccidental::TRIPLE_SHARP);
+		$this->setOffset(Accidental::TRIPLE_SHARP);
 	}
 }

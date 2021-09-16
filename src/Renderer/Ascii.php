@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Theorem\Renderer;
 
-use Theorem\Accidental\AbstractAccidental;
+use Theorem\Accidental\Accidental;
 use Theorem\Note\Note;
 
 class Ascii implements RendererInterface
@@ -12,20 +12,20 @@ class Ascii implements RendererInterface
 	// Accidentals glyphs and their corresponding offsets.
 	protected array $accidentals = [
 		'flats' => [
-			'b' => AbstractAccidental::FLAT,
-			'd' => AbstractAccidental::HALF_FLAT,
+			'b' => Accidental::FLAT,
+			'd' => Accidental::HALF_FLAT,
 		],
 		'sharps' => [
-			'x' => AbstractAccidental::DOUBLE_SHARP,
-			'#' => AbstractAccidental::SHARP,
-			'+' => AbstractAccidental::HALF_SHARP,
+			'x' => Accidental::DOUBLE_SHARP,
+			'#' => Accidental::SHARP,
+			'+' => Accidental::HALF_SHARP,
 		],
 	];
 
 	/**
 	 * Returns the rendered accidental.
 	 */
-	public function renderAccidental(AbstractAccidental $accidental): string
+	public function renderAccidental(Accidental $accidental): string
 	{
 		$result = '';
 

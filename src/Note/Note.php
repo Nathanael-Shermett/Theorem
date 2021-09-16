@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Theorem\Note;
 
-use Theorem\Accidental\AbstractAccidental;
+use Theorem\Accidental\Accidental;
 use Theorem\RegularExpression;
 use Theorem\Renderer\RenderableTrait;
 use Theorem\Renderer\RendererInterface;
@@ -22,7 +22,7 @@ class Note
 	/**
 	 * The note's accidental.
 	 */
-	private AbstractAccidental $accidental;
+	private Accidental $accidental;
 
 	/**
 	 * The note's letter name (`A`-`G`).
@@ -158,9 +158,9 @@ class Note
 	/**
 	 * Gets the `AbstractAccidental` object corresponding with the note's accidental.
 	 *
-	 * @see AbstractAccidental
+	 * @see Accidental
 	 */
-	public function getAccidental(): AbstractAccidental
+	public function getAccidental(): Accidental
 	{
 		return $this->accidental;
 	}
@@ -168,7 +168,7 @@ class Note
 	/**
 	 * Sets the note's accidental to a different accidental object.
 	 */
-	public function setAccidental(AbstractAccidental $accidental): static
+	public function setAccidental(Accidental $accidental): static
 	{
 		$this->accidental = $accidental;
 
