@@ -5,20 +5,6 @@ declare(strict_types=1);
 namespace Theorem\Factory;
 
 use Theorem\Accidental\Accidental;
-use Theorem\Accidental\TripleFlat;
-use Theorem\Accidental\FiveQuarterFlat;
-use Theorem\Accidental\DoubleFlat;
-use Theorem\Accidental\ThreeQuarterFlat;
-use Theorem\Accidental\Flat;
-use Theorem\Accidental\HalfFlat;
-use Theorem\Accidental\Natural;
-use Theorem\Accidental\HalfSharp;
-use Theorem\Accidental\Sharp;
-use Theorem\Accidental\ThreeQuarterSharp;
-use Theorem\Accidental\DoubleSharp;
-use Theorem\Accidental\FiveQuarterSharp;
-use Theorem\Accidental\TripleSharp;
-use Theorem\Accidental\Special;
 use Theorem\RegularExpression;
 use Theorem\Theorem;
 
@@ -75,25 +61,9 @@ class AccidentalFactory
 	 * @param int|null   $quarterToneDirection If not specified, `AbstractAccidental::quarterToneDirection` is used
 	 *                                         instead.
 	 */
-	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): TripleFlat|FiveQuarterFlat|DoubleFlat|ThreeQuarterFlat|Flat|HalfFlat|Natural|HalfSharp|Sharp|ThreeQuarterSharp|DoubleSharp|FiveQuarterSharp|TripleSharp|Special
+	public function createFromOffset(?float $offset = null, ?int $quarterToneDirection = null): Accidental
 	{
-		$created = match ($offset ?? $this->offset) {
-			Accidental::TRIPLE_FLAT => new TripleFlat(),
-			Accidental::FIVE_QUARTER_FLAT => new FiveQuarterFlat(),
-			Accidental::DOUBLE_FLAT => new DoubleFlat(),
-			Accidental::THREE_QUARTER_FLAT => new ThreeQuarterFlat(),
-			Accidental::FLAT => new Flat(),
-			Accidental::HALF_FLAT => new HalfFlat(),
-			Accidental::NATURAL => new Natural(),
-			Accidental::HALF_SHARP => new HalfSharp(),
-			Accidental::SHARP => new Sharp(),
-			Accidental::THREE_QUARTER_SHARP => new ThreeQuarterSharp(),
-			Accidental::DOUBLE_SHARP => new DoubleSharp(),
-			Accidental::FIVE_QUARTER_SHARP => new FiveQuarterSharp(),
-			Accidental::TRIPLE_SHARP => new TripleSharp(),
-			default => new Special($offset),
-		};
-
+		$created = new Accidental($this->theorem, $offset ?? $this->offset);
 		$created->setQuarterToneDirection($quarterToneDirection ?? $this->quarterToneDirection);
 
 		return $created;
@@ -122,10 +92,10 @@ class AccidentalFactory
 			'b' => -.5,
 			'+' => .25,
 			'#' => .5,
-			'x' => 1,
+			'x' => 1.0,
 		];
 
-		// Split the string into an array of single characters, and replace them with their corresponding offsets.
+		// Split the string into an array of single characters and replace them with their corresponding offsets.
 		$characters = str_split($string);
 		$characters = str_replace(array_keys($offsets), array_values($offsets), $characters);
 

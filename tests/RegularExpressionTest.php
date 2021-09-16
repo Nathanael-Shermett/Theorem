@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Theorem\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Theorem\Accidental\Accidental;
 use Theorem\Theorem;
 use Theorem\RegularExpression;
 use Theorem\Accidental\FiveQuarterFlat;
@@ -21,21 +22,23 @@ class RegularExpressionTest extends TestCase
 	 */
 	public function parseScientificPitchNotationProvider(): array
 	{
+		$theorem = new Theorem();
+
 		return [
-			['A-1', 'A', Natural::class, -1,],
-			['Bd0', 'B', HalfFlat::class, 0,],
-			['C+b1', 'C', HalfFlat::class, 1,],
-			['Dbb2', 'D', DoubleFlat::class, 2,],
-			['Edbb3', 'E', FiveQuarterFlat::class, 3,],
-			['F#4', 'F', Sharp::class, 4,],
-			['G+#x5', 'G', Special::class, 5,],
+			['A-1', 'A', $theorem->accidental(''), -1],
+			['Bd0', 'B', $theorem->accidental('d'), 0],
+			['C+b1', 'C', $theorem->accidental('+b'), 1],
+			['Dbb2', 'D', $theorem->accidental('bb'), 2],
+			['Edbb3', 'E', $theorem->accidental('dbb'), 3],
+			['F#4', 'F', $theorem->accidental('#'), 4],
+			['G+#x5', 'G', $theorem->accidental('+#x'), 5],
 		];
 	}
 
 	/**
 	 * @dataProvider parseScientificPitchNotationProvider
 	 */
-	public function testParseScientificPitchNotation(string $spn, string $letter, string $accidental, int $octave): void
+	public function testParseScientificPitchNotation(string $spn, string $letter, Accidental $accidental, int $octave): void
 	{
 		$theorem           = new Theorem();
 		$regularExpression = new RegularExpression($theorem);
@@ -46,7 +49,7 @@ class RegularExpressionTest extends TestCase
 		$match = $regularExpression->parseScientificPitchNotation($spn, $output);
 		self::assertTrue($match);
 		self::assertEquals($letter, $output['letter']);
-		self::assertInstanceOf($accidental, $output['accidental']);
+		self::assertEquals($accidental, $output['accidental']);
 		self::assertEquals($octave, $output['octave']);
 	}
 
