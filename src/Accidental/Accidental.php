@@ -6,6 +6,7 @@ namespace Theorem\Accidental;
 
 use Theorem\Renderer\RenderableTrait;
 use Theorem\Renderer\RendererInterface;
+use Theorem\Theorem;
 
 /**
  * Abstract class inherited by all accidentals. Contains constants representing each accidental's relative pitch offset
@@ -81,6 +82,14 @@ class Accidental
 	 * uses.
 	 */
 	protected int $quarterToneDirection = self::QUARTER_TONE_DIRECTION_NEUTRAL;
+
+	/**
+	 * Accidental constructor.
+	 */
+	public function __construct(Theorem $theorem, float $offset = self::NATURAL)
+	{
+		$this->setOffset($offset);
+	}
 
 	/**
 	 * Gets the accidental's offset.
